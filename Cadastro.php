@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styleCadastro.css">
-    
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
 </head>
@@ -57,7 +60,7 @@
                         $id = $identifica + 1; 
                     }
             
-                    $sql = "INSERT INTO cadastro_cliente (id,nome,cpf,email,senha,endereco,numero,complemento,bairro,estado,cidade,telefone) VALUES(
+                    $sql = "INSERT INTO cadastro_cliente (id,nome,CPF,email,senha,endereco,numero,complemento,bairro,estado,cidade,telefone) VALUES(
                         $id,
                         '$_POST[nome]',
                         '$_POST[cpf]',
@@ -155,7 +158,7 @@
                 <!-- <p class="form2">Telefone</p> -->
                 <input type="text" placeholder="Contato" name="telefone" id="telefone" class="form-campo" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);" >
 
-                <a href="http://localhost/TCC/Cadastrar.php"> <button class="button3"> Voltar</button> </a>
+                <a href="https://idpets.000webhostapp.com"> <button class="button3"> Voltar</button> </a>
 
                 <p class="resposta">
                     
