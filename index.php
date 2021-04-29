@@ -10,29 +10,55 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
     <link rel="manifest" href="favicon_io/site.webmanifest">
     <title>ID pets</title>
+    <!-- FAZER LOGIN, SALVAR SENHA HASH, FOOTER, RESIZING CSS, padding dos botoes
+    INPUT FOCUS, MUDAR O REDIRECT DO BOTAO QUANDO TIVER LOGADO E O CONTEUDO-->
 </head>
 <body>
     <nav class="menu-navegacao">
-        <div class="menu-nav-menu">
+    <div class="menu-nav-menu">
         <div class="menu-esquerda">
-            <a href="">Logo</a>
+            <a href="">ID pets</a>
         </div>
         <div class="menu-central">
             <ul class="componentes-central">
-                <li class="componentes-lista-central"><a href="#">Home</a></li>
-                <li class="componentes-lista-central"><a href="#">Produtos</a></li>
-                <li class="componentes-lista-central"><a href="#">A coleira</a></li>
+                <li class="componentes-lista-central"><a href="http://127.0.0.1:5500/index.html">Home</a></li>
+                <li class="componentes-lista-central"><a href="http://127.0.0.1:5500/cadastropets.html">Produtos</a></li>
+                <li class="componentes-lista-central"><a href="#">Sobre</a></li>
             </ul>
         </div>
         <div class="menu-direita">
             <ul class="componentes-direita">
-                <li class="componentes-lista-direita">Login</li>
+                <div class="wrap-botao-login">
+                <li class="componentes-lista-direita"><a id="botao-modal">Login</a></li>
+                </div>
+                <div class="wrap-botao-cadastrar">
                 <li class="componentes-lista-direita"><a href="https://idpets.000webhostapp.com/Cadastro.php">Cadastro</a></li>
+                </div>
             </ul>
         </div>
     </div>
     </nav>
-    
+    <!-- modal login -->
+    <div id="login" class="login-principal">
+        <div class ="login-form">
+        <div class="wrap-login">
+            <!--add logo-->
+            <span class="close" id="close">&times;</span>
+        <form action="">
+            
+            <h1 class="login-title">Login</h1>
+            <input type="text" placeholder="E-mail" id="inp-focus">
+            <input type="password" placeholder="Senha">
+            <button class="botao-logar">Entrar</button>
+            <h2>Esqueceu a senha ?</h2>
+            <div class="line"></div>
+            <button class="botao-cadastro">Criar conta</button>
+
+        </form>
+        </div>
+        
+        </div>
+    </div>
     <!-- inicio do menu -->
     <div class="slide-menu">
         <div class="slides">
@@ -44,6 +70,7 @@
             <!-- imagens slide começo -->
             <div class="slide um">
                 <img src="imagens/dog1.jpg" alt="">
+                <p>pera</p>
             </div>
             <div class="slide">
                 <img src="imagens/dog2.jpg" alt="">
@@ -70,11 +97,16 @@
     </div>
     <!-- final do menu -->
   
-    <script src="cript.js"></script>
+    <script src="script.js"></script>
 </body>
 <footer>
-    <div>
-      <p> Id pets 2021</p>
-    </div>
+    <nav class="footer-mestre">
+        <div class="footer">
+            <div class="">
+                <ul class="">
+                    <li class="list-footer">© ID Pets 2021</li>
+                </ul>
+            </div>
+        </div>
 </footer>
 </html>
