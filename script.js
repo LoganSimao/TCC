@@ -97,7 +97,7 @@ function validarSenha() {
   }
 }
 
-// Quando o formulario está preenchido o botão "cadastrar" se habilita.
+/* Quando o formulario está preenchido o botão "cadastrar" se habilita.
 function checkInputs(inputs) {
    var filled = true;
    
@@ -112,6 +112,8 @@ function checkInputs(inputs) {
    return filled;
    
  }
+ */
+
  var inputs = document.querySelectorAll("input");
  var button = document.querySelector("button");
  inputs.forEach(function(input) {
