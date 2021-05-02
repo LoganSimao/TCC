@@ -51,6 +51,10 @@
                 }
                 // Caso CPF e Email não constar ja cadastrado, segue com cadastro...
                 else{
+                    //captura a senha que foi colocada pelo usuario e encripita
+                    $pass = $_POST['senha'];
+                    $hash = password_hash($pass, PASSWORD_DEFAULT);
+
                     $sql = "SELECT ID FROM cadastro_cliente ORDER BY id DESC LIMIT 1";
                     $consulta = mysqli_query($conexao,$sql);
                     
@@ -65,7 +69,7 @@
                         '$_POST[nome]',
                         '$_POST[cpf]',
                         '$_POST[email]',
-                        '$_POST[senha]',
+                        $hash,
                         '$_POST[cep]',
                         '$_POST[endereco]',
                         '$_POST[bairro]',
