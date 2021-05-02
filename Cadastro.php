@@ -60,18 +60,19 @@
                         $id = $identifica + 1; 
                     }
             
-                    $sql = "INSERT INTO cadastro_cliente (id,nome,CPF,email,senha,endereco,numero,complemento,bairro,estado,cidade,telefone) VALUES(
+                    $sql = "INSERT INTO cadastro_cliente (id,nome,CPF,email,senha,cep,endereco,bairro,cidade,estado,complemento,numero,telefone) VALUES(
                         $id,
                         '$_POST[nome]',
                         '$_POST[cpf]',
                         '$_POST[email]',
                         '$_POST[senha]',
+                        '$_POST[cep]',
                         '$_POST[endereco]',
-                        '$_POST[numero]',
-                        '$_POST[complemento]',
                         '$_POST[bairro]',
-                        '$_POST[estado]',
                         '$_POST[cidade]',
+                        '$_POST[estado]',
+                        '$_POST[complemento]',
+                        '$_POST[numero]',
                         '$_POST[telefone]'
                         )";
 
@@ -112,19 +113,20 @@
 
                 <input type="password" placeholder="Confirmar senha" name="senha2" id="senha2" class="form-password">
 
-                <!-- <p class="form2">Endereço</p> -->
-                <input type="text" placeholder="Endereço" name="endereco"class="form-campo">
+                <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-                <!-- <p class="form2">Nº</p> -->
-                <input type="number" placeholder="Nº" name="numero" class="form-numero">
-                <input type="text" placeholder="Complemento" name="complemento" class="form-complemento">
+                <input id="cep" name="cep" type="text" placeholder="CEP" class="form-campo"required/>
 
-                <!-- <p class="form2">Bairro</p> -->
-                <input type="text" placeholder="Bairro" name="bairro" class="form-campo">
-                <p> </p>
-                <!-- <p  class="form2">Estado / Cidade</p> -->
-                <select id="estado" name="estado" class="form-estado">
-                    <option value="AC">AC</option>
+                <input id="endereco" name="endereco" type="text" placeholder="Endereço" class="form-campo" required/>
+
+                <input id="bairro" name="bairro" type="text" 
+                placeholder="Bairro" class="form-bairro" required/>
+
+                <input id="cidade" name="cidade" type="text" 
+                placeholder="Cidade" class="form-bairro" required/>
+                        
+                <select id="uf" name="estado" class="form-estado">
+                <option value="AC">AC</option>
                     <option value="AL">AL</option>
                     <option value="AP">AP</option>
                     <option value="AM">AM</option>
@@ -152,8 +154,11 @@
                     <option value="SE">SE</option>
                     <option value="TO">TO</option>
                 </select>
+                 
+                <input id="complemento" name="complemento" placeholder="Complemento" class="form-complemento" type="text"/>
 
-                <input type="text" placeholder="Cidade" name="cidade" class="form-cidade">
+                <input id="numero" name="numero" type="text" placeholder="Nº" class="form-numero" required/>
+
 
                 <!-- <p class="form2">Telefone</p> -->
                 <input type="text" placeholder="Contato" name="telefone" id="telefone" class="form-campo" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);" >

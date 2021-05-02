@@ -246,7 +246,11 @@ select{
     margin-left: 3px;
 }
 .form-estado{
-    width: 50px;
+    width: 70px;
+    box-align: center;
+}
+.form-bairro{
+    width: 270px;
 }
 .dropbtn {
     background-color: #286626;

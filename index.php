@@ -34,7 +34,7 @@
                 <li class="componentes-lista-direita"><a id="botao-modal">Login</a></li>
                 </div>
                 <div class="wrap-botao-cadastrar">
-                <li class="componentes-lista-direita"><a href="https://idpets.000webhostapp.com/Cadastro.php">Cadastro</a></li>
+                <li class="componentes-lista-direita"><a href="cadastro.php">Cadastro</a></li>
                 </div>
             </ul>
         </div>
