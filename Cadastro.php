@@ -54,6 +54,7 @@
                     //captura a senha que foi colocada pelo usuario e encripita
                     $pass = $_POST['senha'];
                     $hash = password_hash($pass, PASSWORD_DEFAULT);
+                    $hashFinal = "'".$hash."'";
 
                     $sql = "SELECT ID FROM cadastro_cliente ORDER BY id DESC LIMIT 1";
                     $consulta = mysqli_query($conexao,$sql);
@@ -69,7 +70,7 @@
                         '$_POST[nome]',
                         '$_POST[cpf]',
                         '$_POST[email]',
-                        $hash,
+                        $hashFinal,
                         '$_POST[cep]',
                         '$_POST[endereco]',
                         '$_POST[bairro]',
