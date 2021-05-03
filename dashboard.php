@@ -65,38 +65,65 @@
         <a href="http://idpets.000webhostapp.com/historico.php">Historico de compra</a>
     </div>
       <div class="form-background">
+        
         <div class="form-content-perfil">
-        <div class="">
             <?php 
+            include 'conexao.php';
+            session_start();
+
+            //capturar o id do link
+            if(!isset($_SESSION['logado'])){
+                header('Location: index.php');
+            }
+            if(isset($_GET['id'])){
+                $id = $_GET['id'];
+                $idsessao = $_SESSION['id'];
+                if($id != $idsessao){ 
+                    header('Location: lost.html');//forbiden later
+                }
+            }
+            // passar a logica no banco de dados
+            $sql1 = "SELECT * from cadastro_cliente where id = $id"; //usa o id do dono pra consultar qual é na tabela clientes     
+            $resultadoCliente = mysqli_query($conn, $sql1);
+            $armazenamento = mysqli_fetch_array($resultadoCliente);
+            mysqli_close($conn); // fechamento da conexao com o banco de dados para evitar problemas
+            //session_unset();
+            //session_destroy();
+            ?>  
             
-            $nome = "Logan";
-            $cpf = "435.546.765-54";
-            $email = "logan@logan.com";
-            $celular = "4002-8922";
-            $cep = "04428-010";
-            $endereco = "Yervant";
-            $numero = "006";
-            $complemento = "";
-            $bairro = "americanopolis";
-            $cidade = "são paulo";
-            $estado ="SP";
-            ?>
-            <div class="perfil">
-                <h1>Perfil</h1>
-                <h3>Nome: </h3><p><?php echo $nome?></p>
-                <h3>CPF: </h3><p><?php echo $cpf?></p>
-                <h3>E-Mail: </h3><p><?php echo $email?></p>
-                <h3>Celular: </h3><p><?php echo $celular?></p>
-                <h3>CEP: </h3><p><?php echo $cep?></p>
-                <h3>Endereço: </h3><p><?php echo $endereco?></p>
-                <h3>Numero: </h3><p><?php echo $numero?></p>
-                <h3>Complemento: </h3><p><?php echo $complemento?></p>
-                <h3>Bairro: </h3><p><?php echo $bairro?></p>
-                <h3>Cidade: </h3><p><?php echo $cidade?></p>
-                <h3>Estado: </h3><p><?php echo $estado?></p>
-            </div> 
+            <div class="content-cliente">
+            
+                 <div class="content-cliente-esquerda">   
+                    <h1>Perfil</h1>
+                    <h3>Nome </h3><p>
+                    <h3>CPF </h3><p>
+                    <h3>E-Mail </h3>
+                    <h3>Contato </h3>
+                    <h3>CEP </h3>
+                    <h3>Endereço </h3>
+                    <h3>Numero </h3>
+                    <h3>Complemento </h3>
+                    <h3>Bairro </h3>
+                    <h3>Cidade </h3>
+                    <h3>Estado </h3>
+                </div>
+                <div class="content-cliente-direita">
+                    <!---->
+                    <?php echo "<br><br><br><p>".$armazenamento['nome']."</p>";
+                    echo "<p>".$armazenamento['CPF']."</p>";
+                    echo "<p>".$armazenamento['email']."</p>";
+                    echo "<p>".$armazenamento['telefone']."</p>";
+                    echo "<p>".$armazenamento['cep']."</p>";
+                    echo "<p>".$armazenamento['endereco']."</p>";
+                    echo "<p>".$armazenamento['numero']."</p>";
+                    echo "<p>".$armazenamento['complemento']."</p>";
+                    echo "<p>".$armazenamento['bairro']."</p>";
+                    echo "<p>".$armazenamento['cidade']."</p>";
+                    echo "<p>".$armazenamento['estado']."</p>";?>
+                </div>
+            </div>
         </div>
-        </div>
+        
     </div>
       
     <script src="script.js"></script>

@@ -469,14 +469,12 @@ body{
 /* cadastro de pets fim */
 
 /* perfil do dashboard */
+
 .form-content-perfil{
-    display: flex;
-}
-.form-content-perfil{
-    padding: 12rem;
     width: 50%;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .form-content-perfil h1{
@@ -487,7 +485,7 @@ body{
     width: 100%;
 }
 
-.form-content-perfil h2{
+.form-content-perfil h3{
     text-transform: uppercase;
     font-size: 0.8rem;
     font-family: 'Open Sans bold', sans-serif;
@@ -495,21 +493,27 @@ body{
     width: 100%;
     
 }
-.form-content-perfil input{
-    width: 95%;
-    padding: 0.6rem;
+
+.content-cliente{
+    display: flex;
+    align-items: center;
+
+}
+.content-cliente-esquerda h3{
+    width: 11.5rem;
     margin-top: 1rem;
-    color: #413f3f;
+    margin-bottom: 1rem;
+    font-size: 16px;
     
 }
-.form-content-perfil input:focus{
-    outline-color: #468847;
+.content-cliente-direita p{
+    font-size: 15.1px;
+    font-family: 'Open Sans bold', sans-serif;
+    width: 11.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    
 }
-
-.perfil{
-    width: 50%;
-}
-
 /* perfil do dashboard fim */
 
 /* dashboard */

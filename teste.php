@@ -28,44 +28,35 @@ else{
     echo '<br> Password Invalido';
 }
 
-if(isset($_GET['login'])){
-    $erro = array();
+if(isset($_GET['logar'])){
 
     $login = mysqli_real_escape_string($_GET['login']);
     $senha = $_GET['senha'];
 
     if(empty($login) or empty($senha)){
-        $erro[] = "<p>- Campo de login e senha incompletos!</p>";
+        $erro = "<p>- Campo de login e senha incompletos!</p>";
     }
     else{
-        $sql = "SELECT loginFunc FROM db_funcionarios WHERE loginFunc = '$login'";
+        $s = "SELECT senha FROM cadastro_clientes WHERE email = '$login'";
+        $res = mysqli_query($conn,$s);
 
-        $resultado = mysqli_query($conn,$sql);
-        $rows = mysqli_num_rows($resultado);
+        if($senhaverificada = password_verify($senha, $res)){
+            $log = mysqli_fetch_array($res);
 
-        if($rows > 0){
-            $sql = "SELECT * FROM db_funcionarios WHERE loginFunc = '$login' AND senhaFunc = '$senha'";
-            $resultado = mysqli_query($conn,$sql);
-            $rows = mysqli_num_rows($resultado);
+            mysqli_close($conn);
+            $_SESSION['logado'] = true;
+            $_SESSION['id'] = $log['id'];
+            $_SESSION['nome'] = $log['nome'];
+            $id = $log['id'];
 
-            if($rows == 1){
-                $log = mysqli_fetch_array($resultado);
-
-                mysqli_close($conn);
-                $_SESSION['logado'] = true;
-                $_SESSION['codFunc'] = $log['codFunc'];
-
-                header('location: AT06_consulta.php');
-            }
-            else{
-                $erro[] = "<p>- Usuário e senha não conferem!</p>";
-            }
+            header('location: dashboard.php?id='$id'');
         }
         else{
-            $erro[] = "<p>- Usuário inexistente!</p>";
+            $erro = "<p>- Usuário e senha não conferem!</p>";
         }
     }
+    echo $erro;
 }
-}
-}
+
+
 ?>

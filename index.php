@@ -15,7 +15,9 @@
     <!-- FAZER LOGIN, SALVAR SENHA HASH, FOOTER, RESIZING CSS, padding dos botoes
     INPUT FOCUS, MUDAR O REDIRECT DO BOTAO QUANDO TIVER LOGADO E O CONTEUDO-->
 </head>
+
 <body>
+    <?php include 'log.php'; //pagina onde faz a verificação do login?>
     <nav class="menu-navegacao">
     <div class="menu-nav-menu">
         <div class="menu-esquerda">
@@ -46,15 +48,18 @@
         <div class="wrap-login">
             <!--add logo-->
             <span class="close" id="close">&times;</span>
-        <form action="">
+        
+            
+        <form action="<?php echo $_SERVER['PHP_SELF'];?>">
             
             <h1 class="login-title">Login</h1>
-            <input type="text" placeholder="E-mail" id="inp-focus">
-            <input type="password" placeholder="Senha">
-            <button class="botao-logar">Entrar</button>
+            <input type="text" placeholder="E-mail" id="inp-focus" name="login">
+            <input type="password" placeholder="Senha" name="senha">
+            <button class="botao-logar" name="logar" type="submit">Entrar</button>
+            <p></p>
             <h2>Esqueceu a senha ?</h2>
             <div class="line"></div>
-            <button class="botao-cadastro">Criar conta</button>
+            <button class="botao-cadastro" >Criar conta</button>
 
         </form>
         </div>

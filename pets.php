@@ -73,19 +73,18 @@
 
             //capturar o id do link
             if(isset($_GET['id'])){
-                $s = "SELECT * FROM pets WHERE id = $id";
                 $id = $_GET['id'];
-                $result = mysli_query($conn,$s);
+                $s = "SELECT id FROM pets WHERE id = $id";
+                $result = mysqli_query($conn,$s);
                 $resultfinal = mysqli_num_rows($result);
-                echo "ECHO".$resultfinal;
+                
                 if($resultfinal == null){
                     header('Location: index.php');
                 }
             }
-            else{
+            
                 // fazer redirecionamento aqui...
-                header('Location: index.php');
-            }
+            
 
             // passar a logica no banco de dados
 
