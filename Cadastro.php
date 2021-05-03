@@ -27,67 +27,97 @@
     //Cadastro Clientes
     else{
         if (isset($_POST['cadastro'])){
+            
+            $nome = $_POST['nome'];
+            $cpf = $_POST['cpf'];
+            $email = $_POST['email'];
+            $senhaCadastro = $_POST['senha'];
+            $cep = $_POST['cep'];
+            $endereco = $_POST['endereco'];
+            $bairro = $_POST['bairro'];
+            $cidade = $_POST['cidade'];
+            $estado = $_POST['estado'];
+            $numero = $_POST['numero'];
+            $telefone = $_POST['telefone'];
 
-        $cpf = $_POST['cpf']; // Antes de cadastrar o CPF é consultado no Banco de dados.
-
-        $sql = "SELECT CPF FROM cadastro_cliente WHERE CPF = '$cpf'";
-        $result = mysqli_query($conexao,$sql);
-        $row = mysqli_fetch_assoc($result);
-        
-            if($row > 0){ 
-                //Caso a pesquisa consta com verdadeiro o cadastro não seguira em frente.
-                $cadastro = $cpf." já possui cadastro!";
+            // Verificar se todos os campos foram preenchidos
+            if (empty($nome) or 
+                empty($cpf) or 
+                empty($email) or 
+                empty($senhaCadastro) or 
+                empty($cep) or 
+                empty($endereco) or 
+                empty($bairro) or 
+                empty($cidade) or 
+                empty($estado) or 
+                empty($numero) or 
+                empty($telefone)){
+                $cadastro = "Não preencheu todos os campos";
             }
-            
+
             else{
-                $email = $_POST['email'];// Depois de verificar o CPF, o email será verificado
-
-                $sql = "SELECT EMAIL FROM cadastro_cliente WHERE EMAIL = '$email'";
-                $result2 = mysqli_query($conexao,$sql);
-                $row2= mysqli_fetch_assoc($result2);
-
-                if($row2 > 0){
-                    $cadastro = $email." ja possui cadastro!";
-                }
-                // Caso CPF e Email não constar ja cadastrado, segue com cadastro...
-                else{
-                    //captura a senha que foi colocada pelo usuario e encripita
-                    $pass = $_POST['senha'];
-                    $hash = password_hash($pass, PASSWORD_DEFAULT);
-                    $hashFinal = "'".$hash."'";
-
-                    $sql = "SELECT ID FROM cadastro_cliente ORDER BY id DESC LIMIT 1";
-                    $consulta = mysqli_query($conexao,$sql);
-                    
-                    // Geração de ID a partir do ultimo ID registrado no Banco de Dados.
-                    while($clientes_array = mysqli_fetch_array($consulta)){
-                        $identifica = $clientes_array['ID'];
-                        $id = $identifica + 1; 
-                    }
             
-                    $sql = "INSERT INTO cadastro_cliente (id,nome,CPF,email,senha,cep,endereco,bairro,cidade,estado,complemento,numero,telefone) VALUES(
-                        $id,
-                        '$_POST[nome]',
-                        '$_POST[cpf]',
-                        '$_POST[email]',
-                        $hashFinal,
-                        '$_POST[cep]',
-                        '$_POST[endereco]',
-                        '$_POST[bairro]',
-                        '$_POST[cidade]',
-                        '$_POST[estado]',
-                        '$_POST[complemento]',
-                        '$_POST[numero]',
-                        '$_POST[telefone]'
-                        )";
+                $cpf = $_POST['cpf']; // Antes de cadastrar o CPF é consultado no Banco de dados.
 
-                    if(mysqli_query($conexao,$sql)){
-                        $cadastro = "Cadastrado concluido com sucesso";
+                $sql = "SELECT CPF FROM cadastro_cliente WHERE CPF = '$cpf'";
+                $result = mysqli_query($conexao,$sql);
+                $row = mysqli_fetch_assoc($result);
+            
+                if($row > 0){ 
+                    //Caso a pesquisa consta com verdadeiro o cadastro não seguira em frente.
+                    $cadastro = $cpf." já possui cadastro!";
+                }
+                
+                else{
+                    $email = $_POST['email'];// Depois de verificar o CPF, o email será verificado
+
+                    $sql = "SELECT EMAIL FROM cadastro_cliente WHERE EMAIL = '$email'";
+                    $result2 = mysqli_query($conexao,$sql);
+                    $row2= mysqli_fetch_assoc($result2);
+
+                    if($row2 > 0){
+                        $cadastro = $email." ja possui cadastro!";
                     }
+                    // Caso CPF e Email não constar ja cadastrado, segue com cadastro...
                     else{
-                        echo "Erro ao inserir cliente! Erro: ".mysqli_error($conexao);
-                        $cadastro = "Erro ao cadastrar";
-                    }    
+                        //captura a senha que foi colocada pelo usuario e encripita
+                        $pass = $_POST['senha'];
+                        $hash = password_hash($pass, PASSWORD_DEFAULT);
+                        $hashFinal = "'".$hash."'";
+
+                        $sql = "SELECT ID FROM cadastro_cliente ORDER BY id DESC LIMIT 1";
+                        $consulta = mysqli_query($conexao,$sql);
+                        
+                        // Geração de ID a partir do ultimo ID registrado no Banco de Dados.
+                        while($clientes_array = mysqli_fetch_array($consulta)){
+                            $identifica = $clientes_array['ID'];
+                            $id = $identifica + 1; 
+                        }
+                
+                        $sql = "INSERT INTO cadastro_cliente (id,nome,CPF,email,senha,cep,endereco,bairro,cidade,estado,complemento,numero,telefone) VALUES(
+                            $id,
+                            '$_POST[nome]',
+                            '$_POST[cpf]',
+                            '$_POST[email]',
+                            $hashFinal,
+                            '$_POST[cep]',
+                            '$_POST[endereco]',
+                            '$_POST[bairro]',
+                            '$_POST[cidade]',
+                            '$_POST[estado]',
+                            '$_POST[complemento]',
+                            '$_POST[numero]',
+                            '$_POST[telefone]'
+                            )";
+
+                        if(mysqli_query($conexao,$sql)){
+                            $cadastro = "Cadastrado concluido com sucesso";
+                        }
+                        else{
+                            echo "Erro ao inserir cliente! Erro: ".mysqli_error($conexao);
+                            $cadastro = "Erro ao cadastrar";
+                        }                    
+                    }
                 }
             }
         }
