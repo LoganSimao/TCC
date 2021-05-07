@@ -8,4 +8,4 @@ CREATE table cadastro_cliente (id INT NOT NULL AUTO_INCREMENT, nome VARCHAR(100)
 
 ## mudar o id do pet pra token
 
-CREATE table pets(id int NOT NULL AUTO_INCREMENT, id_cliente int, nome VARCHAR(20), raca VARCHAR(20), sexo VARCHAR(8), idade int, porte VARCHAR(10), cor VARCHAR(25),token VARCHAR(60), PRIMARY KEY(id), FOREIGN KEY(id_cliente) references cadastro_cliente(id);
+CREATE table pets(id int NOT NULL AUTO_INCREMENT, id_cliente int, nome VARCHAR(20), raca VARCHAR(20), sexo VARCHAR(8), idade int, porte VARCHAR(10), cor VARCHAR(25),token VARCHAR(60), PRIMARY KEY(id), FOREIGN KEY(id_cliente) references cadastro_cliente(id));
