@@ -121,3 +121,6 @@ function checkInputs(inputs) {
      modal.style.display = "none";
    }
  }
+
+
+  

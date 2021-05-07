@@ -21,15 +21,27 @@
         </div>
         <div class="menu-central">
             <ul class="componentes-central">
-                <li class="componentes-lista-central"><a href="http://127.0.0.1:5500/index.html">Home</a></li>
-                <li class="componentes-lista-central"><a href="http://127.0.0.1:5500/cadastropets.html">Produtos</a></li>
+                <li class="componentes-lista-central"><a href="/tcc/index.php">Home</a></li>
+                <li class="componentes-lista-central"><a href="/tcc/cadastropets.php">Produtos</a></li>
                 <li class="componentes-lista-central"><a href="#">Sobre</a></li>
             </ul>
         </div>
         <div class="menu-direita">
             <ul class="componentes-direita">
                 <div class="wrap-botao-login">
-                <li class="componentes-lista-direita"><a id="botao-modal">Login</a></li>
+                <?php
+                    session_start();
+                    if(!isset($_SESSION['logado'])){
+                        $nome = "Login";
+                    }
+                    else{
+                        $n = $_SESSION['nome'];
+                        $arr = explode(' ', trim($n));
+                        $nome = $arr[0];
+                    }
+                ?>
+
+                <li class="componentes-lista-direita"><a id="botao-modal"><?php echo $nome; ?></a></li>
                 </div>
                 <div class="wrap-botao-cadastrar">
                 <li class="componentes-lista-direita"><a href="https://idpets.000webhostapp.com/Cadastro.php">Cadastro</a></li>
@@ -60,21 +72,26 @@
         </div>
     </div>
     <div class="sidenav">
-        <a href="http://idpets.000webhostapp.com/dashboard.php">Cliente</a>
-        <a href="http://idpets.000webhostapp.com/seuspets.php">Pets</a>
-        <a href="http://idpets.000webhostapp.com/historico.php">Historico de compra</a>
+        <a href="/tcc/dashboard.php">Cliente</a>
+        <a href="/tcc/seuspets.php">Pets</a>
+        <a href="/tcc/historico.php">Historico de compra</a>
+        <form action="log.php">
+        <button name="sair">Sair</button>
+        </form>
+        
     </div>
       <div class="form-background">
         
         <div class="form-content-perfil">
             <?php 
             include 'conexao.php';
-            session_start();
+           
 
             //capturar o id do link
             if(!isset($_SESSION['logado'])){
                 header('Location: index.php');
             }
+
             if(isset($_GET['id'])){
                 $id = $_GET['id'];
                 $idsessao = $_SESSION['id'];
@@ -82,13 +99,15 @@
                     header('Location: lost.html');//forbiden later
                 }
             }
-            // passar a logica no banco de dados
+            
+                // passar a logica no banco de dados
+            $id = $_SESSION['id'];
             $sql1 = "SELECT * from cadastro_cliente where id = $id"; //usa o id do dono pra consultar qual é na tabela clientes     
             $resultadoCliente = mysqli_query($conn, $sql1);
             $armazenamento = mysqli_fetch_array($resultadoCliente);
             mysqli_close($conn); // fechamento da conexao com o banco de dados para evitar problemas
-            //session_unset();
-            //session_destroy();
+            
+            
             ?>  
             
             <div class="content-cliente">

@@ -14,6 +14,53 @@
     INPUT FOCUS, MUDAR O REDIRECT DO BOTAO QUANDO TIVER LOGADO E O CONTEUDO-->
 </head>
 <body>
+<?php
+
+include 'conexao.php';
+
+function gerarToken(){
+    //gerar token para link
+    $arr = str_split('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'); // get all the characters into an array
+    shuffle($arr); // randomizar o array
+    $arr = array_slice($arr, 0, 20); // pegar os caracteres do array de 0 a 20
+    $token = implode('', $arr); // transforma o array em string novamente
+
+    //verificar token no banco de dados
+    $query = "SELECT * from pets where token = $token";
+    $result = mysqli_query($conn,$query);
+    $rows = mysqli_num_rows($result);
+    if($rows > 0){
+        gerarToken();//+1
+    }
+    else{
+        return $token;
+    }
+}
+
+if(isset($_POST['botao-cadastro'])){
+    $nome = $_POST['nome'];
+    $idade = $_POST['idade'];
+    $raca = $_POST['raca'];
+    $porte = $_POST['porte'];
+    $cor = $_POST['cor'];
+    $sexo = $_POST['sexo'];
+
+
+    // Verificar se todos os campos foram preenchidos
+    if (empty($nome) or 
+        empty($idade) or 
+        empty($raca) or 
+        empty($porte) or 
+        empty($cor) or 
+        empty($sexo) or 
+        ){
+        $cadastro = "Não preencheu todos os campos";
+    }
+    else{
+        
+    }
+}
+?>
     <nav class="menu-navegacao">
     <div class="menu-nav-menu">
         <div class="menu-esquerda">
@@ -62,18 +109,20 @@
     <div class="form-background">
         <div class="form-content">
         <div class="">
-        <form action="">
+        <form action="cadastropets.php">
             <h1 class="login-title">Cadastre seu pet</h1>
-            <input type="text" placeholder="Nome" id="inp-name" autofocus>
-            <input type="text" placeholder="Raça">
-            <input type="text" placeholder="Sexo">
-            <input type="text" placeholder="Idade">
-            <input type="text" placeholder="Porte">
-            <input type="text" placeholder="Cor">
-            <input type="text" placeholder="Vacina contra raiva?">
+            <input type="text" name="nome"placeholder="Nome" id="inp-name" autofocus>
+            <input type="text" name="raca"placeholder="Raça">
+            <input type="text" name="idade"placeholder="Idade">
+            <input type="text" name="porte"placeholder="Porte">
+            <input type="text" name="cor"placeholder="Cor">
+                <h3>Sexo</h3>
+                Macho
+                <input type="radio" value="Macho" name="sexo" checked>
+                Fêmea
+                <input type="radio" value="Fêmea" name="sexo">
             <div class="line"></div>
-            <button class="botao-cadastro">Cadastrar</button>
-            
+            <button class="botao-cadastro" name="botao-cadastro">Cadastrar</button>
         </form>
         </div>
         </div>

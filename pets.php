@@ -12,62 +12,23 @@
     <title>ID pets</title>
 </head>
 <body>
-    <nav class="menu-navegacao">
-    <div class="menu-nav-menu">
-        <div class="menu-esquerda">
-            <a href="">ID pets</a>
-        </div>
-        <div class="menu-central">
-            <ul class="componentes-central">
-                <li class="componentes-lista-central"><a href="http://127.0.0.1:5500/index.html">Home</a></li>
-                <li class="componentes-lista-central"><a href="http://127.0.0.1:5500/cadastropets.html">Produtos</a></li>
-                <li class="componentes-lista-central"><a href="#">Sobre</a></li>
-            </ul>
-        </div>
-        <div class="menu-direita">
-            <ul class="componentes-direita">
-                <div class="wrap-botao-login">
-                <li class="componentes-lista-direita"><a id="botao-modal">Login</a></li>
-                </div>
-                <div class="wrap-botao-cadastrar">
-                <li class="componentes-lista-direita"><a href="https://idpets.000webhostapp.com/Cadastro.php">Cadastro</a></li>
-                </div>
-            </ul>
-        </div>
-    </div>
-    </nav>
-    <!-- modal login -->
-    <div id="login" class="login-principal">
-        <div class ="login-form">
-        <div class="wrap-login">
-            <!--add logo-->
-            <span class="close" id="close">&times;</span>
-        <form action="">
-            
-            <h1 class="login-title">Login</h1>
-            <input type="text" placeholder="E-mail" id="inp-focus">
-            <input type="password" placeholder="Senha">
-            <button class="botao-logar">Entrar</button>
-            <h2>Esqueceu a senha ?</h2>
-            <div class="line"></div>
-            <button class="botao-cadastro">Criar conta</button>
+<?php
+            session_start();
 
-        </form>
-        </div>
-        
-        </div>
-    </div>
-    <div class="form-background">
-        <div class="">
-        <div class="content-pets">
-            
-            <?php
-            
+            if(!isset($_SESSION['logado'])){
+                $nome = "Login";
+            }
+
+            else{
+                $n = $_SESSION['nome'];
+                $arr = explode(' ', trim($n));
+                $nome = $arr[0];
+            }
             //abrir conexao com banco
             $localhost = 'localhost';
             $usuario = 'root';
             $senha = '';
-            $nomebanco = 'idpets';
+            $nomebanco = 'pet';
            
             $conn = mysqli_connect($localhost,$usuario,$senha,$nomebanco);
 
@@ -94,7 +55,7 @@
             $armazenamento1 = mysqli_fetch_array($resultadoPets); //recupera em um array o resultado
 
             $idCliente = $armazenamento1['id_cliente']; //pegando o id do cliente dentro da tabela do pet para pesquisar pelos dados do cliente na sua tabela
-            $sql1 = "SELECT * from clientes where id = $idCliente"; //usa o id do dono pra consultar qual é na tabela clientes     
+            $sql1 = "SELECT * from cadastro_cliente where id = $idCliente"; //usa o id do dono pra consultar qual é na tabela clientes     
 
             $resultadoCliente = mysqli_query($conn, $sql1);
             $armazenamento = mysqli_fetch_array($resultadoCliente);
@@ -112,6 +73,54 @@
             }
 
             ?>
+    <nav class="menu-navegacao">
+    <div class="menu-nav-menu">
+        <div class="menu-esquerda">
+            <a href="">ID pets</a>
+        </div>
+        <div class="menu-central">
+            <ul class="componentes-central">
+                <li class="componentes-lista-central"><a href="/tcc/index.php">Home</a></li>
+                <li class="componentes-lista-central"><a href="/tcc/dashboard.php">Produtos</a></li>
+                <li class="componentes-lista-central"><a href="#">Sobre</a></li>
+            </ul>
+        </div>
+        <div class="menu-direita">
+            <ul class="componentes-direita">
+                <div class="wrap-botao-login">
+                <li class="componentes-lista-direita"><a id="botao-modal"><?php echo $nome; ?></a></li>
+                </div>
+                <div class="wrap-botao-cadastrar">
+                <li class="componentes-lista-direita"><a href="/tcc/Cadastro.php">Cadastro</a></li>
+                </div>
+            </ul>
+        </div>
+    </div>
+    </nav>
+    <!-- modal login -->
+    <div id="login" class="login-principal">
+        <div class ="login-form" id="login-ani">
+        <div class="wrap-login">
+            <!--add logo-->
+            <span class="close" id="close">&times;</span>
+        <form action="">
+            
+            <h1 class="login-title">Login</h1>
+            <input type="text" placeholder="E-mail" id="inp-focus">
+            <input type="password" placeholder="Senha">
+            <button class="botao-logar">Entrar</button>
+            <h2>Esqueceu a senha ?</h2>
+            <div class="line"></div>
+            <button class="botao-cadastro">Criar conta</button>
+
+        </form>
+        </div>
+        
+        </div>
+    </div>
+    <div class="form-background">
+        <div class="">
+        <div class="content-pets">
 
             <h1 class="titulo-pet">Você encontrou <?php echo $a."</h1><h1 class='nome-pet'> ".$armazenamento1['nome']?></h1>
             
@@ -123,7 +132,7 @@
             <h2 class="contato">Aqui estão os dados de contato<h2>
             
             <h3>Nome: </h3><p><?php echo $armazenamento['nome']?></p>
-            <h3>Celular: </h3><p><?php echo $armazenamento['celular']?></p>
+            <h3>Celular: </h3><p><?php echo $armazenamento['telefone']?></p>
             <h3>E-mail: </h3><p><?php echo $armazenamento['email']?></p>
             <div class="line"></div>
             <button class="botao-pet">Saber mais sobre o <?php echo $armazenamento1['nome']?></button>

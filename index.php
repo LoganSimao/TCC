@@ -17,7 +17,19 @@
 </head>
 
 <body>
-    <?php include 'log.php'; //pagina onde faz a verificação do login?>
+    <?php include 'log.php'; //pagina onde faz a verificação do login
+    session_start();
+
+    if(!isset($_SESSION['logado'])){
+        $nome = "Login";
+    }
+    else{
+        $n = $_SESSION['nome'];
+        $arr = explode(' ', trim($n));
+        $nome = $arr[0];
+    }
+
+    ?>
     <nav class="menu-navegacao">
     <div class="menu-nav-menu">
         <div class="menu-esquerda">
@@ -25,15 +37,15 @@
         </div>
         <div class="menu-central">
             <ul class="componentes-central">
-                <li class="componentes-lista-central"><a href="http://127.0.0.1:5500/index.html">Home</a></li>
-                <li class="componentes-lista-central"><a href="http://127.0.0.1:5500/cadastropets.html">Produtos</a></li>
+                <li class="componentes-lista-central"><a href="/tcc/index.php">Home</a></li>
+                <li class="componentes-lista-central"><a href="/tcc/dashboard.php">Produtos</a></li>
                 <li class="componentes-lista-central"><a href="#">Sobre</a></li>
             </ul>
         </div>
         <div class="menu-direita">
             <ul class="componentes-direita">
                 <div class="wrap-botao-login">
-                <li class="componentes-lista-direita"><a id="botao-modal">Login</a></li>
+                <li class="componentes-lista-direita"><a id="botao-modal"><?php echo $nome; ?></a></li>
                 </div>
                 <div class="wrap-botao-cadastrar">
                 <li class="componentes-lista-direita"><a href="cadastro.php">Cadastro</a></li>
@@ -44,7 +56,7 @@
     </nav>
     <!-- modal login -->
     <div id="login" class="login-principal">
-        <div class ="login-form">
+        <div class ="login-form" id="login-ani">
         <div class="wrap-login">
             <!--add logo-->
             <span class="close" id="close">&times;</span>
@@ -56,7 +68,7 @@
             <input type="text" placeholder="E-mail" id="inp-focus" name="login">
             <input type="password" placeholder="Senha" name="senha">
             <button class="botao-logar" name="logar" type="submit">Entrar</button>
-            <p></p>
+            <p id="msg"></p>
             <h2>Esqueceu a senha ?</h2>
             <div class="line"></div>
             <button class="botao-cadastro" >Criar conta</button>
