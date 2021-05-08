@@ -12,9 +12,11 @@
     <title>ID pets</title>
 </head>
 <body>
-<?php
+<?php       
+            include 'log.php';
             session_start();
-
+            //$_SESSION['idt'] = $_GET['id'];
+            //include 'conexao.php';
             if(!isset($_SESSION['logado'])){
                 $nome = "Login";
             }
@@ -24,15 +26,12 @@
                 $arr = explode(' ', trim($n));
                 $nome = $arr[0];
             }
-            //abrir conexao com banco
-            $localhost = 'localhost';
-            $usuario = 'root';
-            $senha = '';
-            $nomebanco = 'pet';
-           
-            $conn = mysqli_connect($localhost,$usuario,$senha,$nomebanco);
 
             //capturar o id do link
+            //if(isset($_GET['logar'])){
+                //n fazer nada
+            //}
+           
             if(isset($_GET['id'])){
                 $id = $_GET['id'];
                 $s = "SELECT id FROM pets WHERE id = $id";
@@ -43,12 +42,18 @@
                     header('Location: index.php');
                 }
             }
+            else{
+                header('Location: index.php');
+            }
+            
+            
             
                 // fazer redirecionamento aqui...
             
 
             // passar a logica no banco de dados
-
+            //$id = $_SESSION['idt'];
+            //echo "ID AQUI ".$id;
             $sql = "SELECT * FROM pets WHERE id = $id"; //passa toda a tabela pets com o id
 
             $resultadoPets = mysqli_query($conn, $sql); //passa o banco com o comando
@@ -103,12 +108,12 @@
         <div class="wrap-login">
             <!--add logo-->
             <span class="close" id="close">&times;</span>
-        <form action="">
+        <form action="<?php echo $_SERVER['PHP_SELF'];?>">
             
             <h1 class="login-title">Login</h1>
-            <input type="text" placeholder="E-mail" id="inp-focus">
-            <input type="password" placeholder="Senha">
-            <button class="botao-logar">Entrar</button>
+            <input type="text" placeholder="E-mail" id="inp-focus" name="login">
+            <input type="password" placeholder="Senha" name="senha">
+            <button class="botao-logar" name="logar">Entrar</button>
             <h2>Esqueceu a senha ?</h2>
             <div class="line"></div>
             <button class="botao-cadastro">Criar conta</button>
@@ -131,9 +136,9 @@
             <div class="line"></div>
             <h2 class="contato">Aqui estão os dados de contato<h2>
             
-            <h3>Nome: </h3><p><?php echo $armazenamento['nome']?></p>
-            <h3>Celular: </h3><p><?php echo $armazenamento['telefone']?></p>
-            <h3>E-mail: </h3><p><?php echo $armazenamento['email']?></p>
+            <h3>Nome </h3><p><?php echo $armazenamento['nome']?></p>
+            <h3>Número </h3><p><?php echo $armazenamento['telefone']?></p>
+            <h3>E-mail </h3><p><?php echo $armazenamento['email']?></p>
             <div class="line"></div>
             <button class="botao-pet">Saber mais sobre o <?php echo $armazenamento1['nome']?></button>
             <!--fazer formato carta // usar a variavel sexo para definir o vulgo do pet... adicionar tipo de pet em cascata -->
@@ -141,6 +146,7 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <?php echo $falha; ?>
 </body>
 <footer>
     <nav class="footer-mestre">
