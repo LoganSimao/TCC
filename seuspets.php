@@ -83,6 +83,7 @@
       <div class="form-background">
         
         <div class="form-content-perfil2">
+            
             <?php 
             include 'conexao.php';
            
@@ -111,15 +112,24 @@
            
             
             ?>  
-            <div>
+            <div class="form-content-perfil2">
                 <h1> <?php echo $armazenamentoNomeCliente['nome'] ?> </h1>
             </div>
                 <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome do Pet</th>
+                        </tr>				
+                    </thead>
+
                     <?php  while($dados = mysqli_fetch_array($resultado)){ ?>
+
                     <tr>
                         <td><?php echo $dados['id']; ?></td>
                         <td><?php echo $dados['nome']; ?></td>
                     </tr>
+
                     <?php } ?>
                 </table>
         </div>

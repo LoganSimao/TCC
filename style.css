@@ -371,10 +371,10 @@ body{
     background-color: #f1f1e6;
     display: flex;
     justify-content: space-around;
-    align-items: center;
     width: 36rem;
     height: 43.5rem;
     border-radius: 0.8rem;
+    margin-top: 1rem;
 }
 
 .form-content{
@@ -499,9 +499,22 @@ body{
     align-items: center;
 }
 .form-content-perfil2{
-    width: 50%;
     justify-content: center;
     align-items: center;
+    display: block;
+    font-family: 'Noto Sans','Open Sans bold', sans-serif;
+}
+
+td{
+    padding-top: 1.5rem;
+    padding-right: 2rem;
+    font-size: 0.8rem;
+    font-family: 'Noto Sans','Open Sans bold', sans-serif;
+}
+th{
+    font-size: 1rem;
+    font-family: 'Noto Sans','Open Sans bold', sans-serif;
+    padding-right: 2rem;
 }
 
 .form-content-perfil h1{
