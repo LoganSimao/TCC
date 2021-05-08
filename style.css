@@ -498,6 +498,11 @@ body{
     justify-content: center;
     align-items: center;
 }
+.form-content-perfil2{
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
 
 .form-content-perfil h1{
     text-transform: none;
@@ -505,6 +510,7 @@ body{
     color: #e75f17;
     /* border-bottom: 1px solid #e75f17; modificacao form */
     width: 100%;
+    font-size: x-large;
 }
 
 .form-content-perfil h3{
