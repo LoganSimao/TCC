@@ -20,7 +20,8 @@ include 'conexao.php';
 
 function gerarToken(){
     //gerar token para link
-    $arr = str_split('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'); // get all the characters into an array
+    $arr = str_split('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'); 
+    // get all the characters into an array
     shuffle($arr); // randomizar o array
     $arr = array_slice($arr, 0, 20); // pegar os caracteres do array de 0 a 20
     $token = implode('', $arr); // transforma o array em string novamente
@@ -52,8 +53,7 @@ if(isset($_POST['botao-cadastro'])){
         empty($raca) or 
         empty($porte) or 
         empty($cor) or 
-        empty($sexo) or 
-        ){
+        empty($sexo)){
         $cadastro = "Não preencheu todos os campos";
     }
     else{
