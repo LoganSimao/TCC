@@ -2,7 +2,7 @@
 
 include 'conexao.php';
 
-
+$falha = "";
 if(isset($_GET['sair'])){
     session_start();
     session_unset();
@@ -18,7 +18,50 @@ $senha = $_GET['senha'];
 //echo $senha;
 
 if(empty($login) or empty($senha)){
-    $erro = "<p>- Campo de login e senha incompletos!</p>";
+    $falha = "  <script type=\"text/javascript\">
+
+        function myFunction(){
+            var ani = document.getElementById('login-ani');
+            ani.style.animation = \"none\";
+            var modal = document.getElementById('login');
+            modal.style.display = \"block\";
+            var msg = document.getElementById('msg');
+            msg.innerHTML = \"- Campo de Login ou Senha vazio\";
+            msg.style.color = \"red\";
+            msg.style.fontFamily = 'Noto Sans';
+
+            document.getElementById(\"inp-focus\").focus();
+            var span = document.getElementById(\"close\");
+   var botao = document.getElementById(\"botao-modal\");
+  
+   botao.onclick = function(){
+     modal.style.display = \"block\";
+     document.getElementById(\"inp-focus\").focus();
+     modal.style.transition = \"2s\"; //transitioncheckout
+   }
+  
+   span.onclick = function(){
+    modal.style.display = \"none\";
+    
+  }
+  
+   window.onclick = function (event) {
+     if(event.target == modal){
+       modal.style.display = \"none\";
+     }
+   }
+   console.log('ue');
+  }
+  
+            
+
+        onload = function(){myFunction()};
+        console.log('2');
+
+    </script>";
+    // echo $falha;
+        //$erro = "- Usuário e senha não conferem!";
+        mysqli_close($conn);
 }
 else{
     $s = "SELECT * FROM cadastro_cliente WHERE email = '$login'";
@@ -39,21 +82,47 @@ else{
         header("Location: dashboard.php?id=$id");
     }
     else{
-        echo "  <script type=\"text/javascript\">
+        $falha = "  <script type=\"text/javascript\">
 
-                    function myFunction(){
-                        var modal = document.getElementById('login');
-                        modal.style.display = \"block\";
-                        var msg = document.getElementById('msg');
-                        msg.innerHTML = \"-Usuário ou senha invalidos\";
-                        msg.style.color = \"red\";
+        function myFunction(){
+            var modal = document.getElementById('login');
+            modal.style.display = \"block\";
+            var msg = document.getElementById('msg');
+            msg.innerHTML = \"- Usuário ou senha inválidos\";
+            msg.style.color = \"red\";
+            msg.style.fontFamily = 'Noto Sans';
+            var ani = document.getElementById('login-ani');
+            ani.style.animation = \"none\";
+            document.getElementById(\"inp-focus\").focus();
+            var span = document.getElementById(\"close\");
+   var botao = document.getElementById(\"botao-modal\");
+  
+   botao.onclick = function(){
+     modal.style.display = \"block\";
+     document.getElementById(\"inp-focus\").focus();
+     modal.style.transition = \"2s\"; //transitioncheckout
+   }
+  
+   span.onclick = function(){
+    modal.style.display = \"none\";
+    
+  }
+  
+   window.onclick = function (event) {
+     if(event.target == modal){
+       modal.style.display = \"none\";
+     }
+   }
+   console.log('ue');
+  }
+  
+            
 
-                        var ani = document.getElementById('login-ani');
-                        ani.style.animation = \"none\";
-                    }
-                    onload = function(){myFunction()};
+        onload = function(){myFunction()};
+        console.log('2');
 
-                </script>";
+    </script>";
+    // echo $falha;
         //$erro = "- Usuário e senha não conferem!";
         mysqli_close($conn);
     }

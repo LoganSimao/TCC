@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 *{
     list-style: none;
     text-decoration: none;
@@ -30,14 +32,14 @@ body{
     left: 0;
     position: fixed;
     text-align: center;
-    text-transform: uppercase;
+    text-transform: none;
     font-weight: bold;
     top: 0;
     width: 100%;
     height: 4.5rem;
     z-index: 400;
     font: 14px;
-    font-family: 'Open Sans bold', sans-serif;
+    font-family: 'Noto Sans','Open Sans bold', sans-serif;
 }
 
 .menu-navegacao a{
@@ -132,18 +134,14 @@ body{
     font-weight: bold;
   }
   
-  .close:hover,
-  .close:focus {
+  .close:hover {
     color: #e75f17;
     text-decoration: none;
     cursor: pointer;
   }
 
 .login{
-    display: flex;
-    
-    
-    
+    display: flex;   
 }
 
 .login-principal{
@@ -159,8 +157,7 @@ body{
     overflow: auto;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.7);
-    
-    
+
 }
   
 @keyframes animatezoom{
@@ -178,22 +175,24 @@ body{
     width: 10%;
     display: flex;
     justify-content: center;
+    border-radius: 0.8rem;
     animation: animatezoom 0.6s;
 
 }
 
 .login-form h1{
-    text-transform: uppercase;
-    font-family: 'Open Sans bold', sans-serif;
+    text-transform: none;
+    font-family: 'Noto Sans','Open Sans bold', sans-serif;
     color: #e75f17;
-    border-bottom: 1px solid #e75f17;
+    /* border-bottom: 1px solid #e75f17; */
     width: 100%;
+    font-size: 2.2rem;
 }
 
 .login-form h2{
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    font-family: 'Open Sans bold', sans-serif;
+    text-transform: none;
+    font-size: 1rem;
+    font-family: 'Noto Sans','Open Sans bold', sans-serif;
     color: #468847;
     width: 100%;
     
@@ -373,6 +372,7 @@ body{
     align-items: center;
     width: 36rem;
     height: 43.5rem;
+    border-radius: 0.8rem;
 }
 
 .form-content{
@@ -387,10 +387,10 @@ body{
 
 .form-content h1{
     
-    text-transform: uppercase;
-    font-family: 'Open Sans bold', sans-serif;
+    text-transform: none;
+    font-family: 'Noto Sans','Open Sans bold', sans-serif;
     color: #e75f17;
-    border-bottom: 1px solid #e75f17;
+    /* border-bottom: 1px solid #e75f17; modficação do form*/
     width: 100%;
 }
 
@@ -404,9 +404,9 @@ body{
 }
 
 .form-content h2{
-    text-transform: uppercase;
+    text-transform: none;
     font-size: 0.8rem;
-    font-family: 'Open Sans bold', sans-serif;
+    font-family: 'Noto Sans','Open Sans bold', sans-serif;
     color: #468847;
     width: 100%;
     
@@ -423,11 +423,12 @@ body{
 }
 
 .content-pets {
-    font-family: 'Open Sans bold', sans-serif;
+    font-family: 'Noto Sans','Open Sans bold', sans-serif;
 }
 .content-pets p{
     font-weight: bold;
     color: #413f3f;
+    margin-top: 0;
 }
 .nome-pet{
     color: #468847;
@@ -447,15 +448,16 @@ body{
     color: #e75f17;
 }
 .content-pets h3{
-    text-transform: uppercase;
+    text-transform: none;
     color: #468847;
+    margin-bottom: 0;
 }
 .botao-pet{
     color: #FFF;
     background-color: #468847;
     border: none;
     font-size: large;
-    text-transform: uppercase;
+    text-transform: none;
     width: 22rem;
     height: 3rem;
     margin-top: 1rem;
@@ -471,7 +473,7 @@ body{
     background-color: #e75f17;
     border: none;
     font-size: large;
-    text-transform: uppercase;
+    text-transform: none;
     width: 22rem;
     height: 3rem;
     margin-top: 1rem;
@@ -496,17 +498,17 @@ body{
 }
 
 .form-content-perfil h1{
-    text-transform: uppercase;
-    font-family: 'Open Sans bold', sans-serif;
+    text-transform: none;
+    font-family: 'Noto Sans','Open Sans bold', sans-serif;
     color: #e75f17;
-    border-bottom: 1px solid #e75f17;
+    /* border-bottom: 1px solid #e75f17; modificacao form */
     width: 100%;
 }
 
 .form-content-perfil h3{
-    text-transform: uppercase;
+    text-transform: none;
     font-size: 0.8rem;
-    font-family: 'Open Sans bold', sans-serif;
+    font-family: 'Noto Sans','Open Sans bold', sans-serif;
     color: #468847;
     width: 100%;
     
@@ -526,7 +528,7 @@ body{
 }
 .content-cliente-direita p{
     font-size: 15.1px;
-    font-family: 'Open Sans bold', sans-serif;
+    font-family: 'Noto Sans','Open Sans bold', sans-serif;
     width: 11.5rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -576,7 +578,7 @@ body{
     height: 4.5rem;
     z-index: 400;
     font: 14px;
-    font-family: 'Open Sans bold', sans-serif;
+    font-family: 'Noto Sans','Open Sans bold', sans-serif;
 }
 
 .list-footer{

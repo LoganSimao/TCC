@@ -19,9 +19,10 @@
 <body>
     <?php include 'log.php'; //pagina onde faz a verificação do login
     session_start();
-
+    
     if(!isset($_SESSION['logado'])){
         $nome = "Login";
+        
     }
     else{
         $n = $_SESSION['nome'];
@@ -55,6 +56,7 @@
     </div>
     </nav>
     <!-- modal login -->
+</span>
     <div id="login" class="login-principal">
         <div class ="login-form" id="login-ani">
         <div class="wrap-login">
@@ -117,6 +119,7 @@
     <!-- final do menu -->
   
     <script src="script.js"></script>
+    <?php echo $falha; ?>
 </body>
 <footer>
     <nav class="footer-mestre">

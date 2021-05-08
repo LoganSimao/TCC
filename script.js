@@ -101,26 +101,39 @@ function checkInputs(inputs) {
 
  // botao de login
 
- var modal = document.getElementById("login");
- var span = document.getElementById("close");
- var botao = document.getElementById("botao-modal");
-
- botao.onclick = function(){
-   modal.style.display = "block";
-   document.getElementById("inp-focus").focus();
-   modal.style.transition = "2s"; //transitioncheckout
- }
-
- span.onclick = function(){
-  modal.style.display = "none";
+ function login(){
+  var log = document.getElementById("botao-modal").innerHTML;
+  console.log(log);
+  if(log == "Login"){
+     
+   var modal = document.getElementById("login");
+   var span = document.getElementById("close");
+   var botao = document.getElementById("botao-modal");
   
-}
-
- window.onclick = function (event) {
-   if(event.target == modal){
-     modal.style.display = "none";
+   botao.onclick = function(){
+     modal.style.display = "block";
+     document.getElementById("inp-focus").focus();
+     modal.style.transition = "2s"; //transitioncheckout
    }
+  
+   span.onclick = function(){
+    modal.style.display = "none";
+    
+  }
+  
+   window.onclick = function (event) {
+     if(event.target == modal){
+       modal.style.display = "none";
+     }
+   }
+  }
+  else{
+    var botao = document.getElementById("botao-modal");
+    botao.href = "dashboard.php";
+  }
  }
+
+ onload = function(){login()};
 
 
   
