@@ -15,30 +15,15 @@
 </head>
 <body>
 <?php
-
 include 'conexao.php';
 include 'log.php';
 session_start();
 
-function gerarToken(){
-    //gerar token para link
-    $arr = str_split('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'); 
-    // get all the characters into an array
-    shuffle($arr); // randomizar o array
-    $arr = array_slice($arr, 0, 20); // pegar os caracteres do array de 0 a 20
-    $token = implode('', $arr); // transforma o array em string novamente
-
-    //verificar token no banco de dados
-    $query = "SELECT * from pets where token = $token";
-    $result = mysqli_query($conn,$query);
-    $rows = mysqli_num_rows($result);
-    if($rows > 0){
-        gerarToken();//+1
-    }
-    else{
-        return $token;
-    }
-}
+$localhost = "localhost";
+$user = "root";
+$senha = "";
+$db = "pet";
+$conexao = mysqli_connect($localhost,$user,$senha,$db);
 
 if(!isset($_SESSION['logado'])){
     $nome = "Login";
@@ -50,7 +35,8 @@ else{
 }
 
 if(isset($_POST['botao-cadastro'])){
-    $nome = $_POST['nome'];
+
+    $nomePet = $_POST['nome'];
     $idade = $_POST['idade'];
     $raca = $_POST['raca'];
     $porte = $_POST['porte'];
@@ -58,7 +44,7 @@ if(isset($_POST['botao-cadastro'])){
     $sexo = $_POST['sexo'];
 
     // Verificar se todos os campos foram preenchidos
-    if (empty($nome) or 
+    if (empty($nomePet) or 
         empty($idade) or 
         empty($raca) or 
         empty($porte) or 
@@ -67,7 +53,48 @@ if(isset($_POST['botao-cadastro'])){
         $cadastro = "Não preencheu todos os campos";
     }
     else{
+        $token = 1;
+        //function gerarToken(){
+            //gerar token para link
+            $arr = str_split('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'); 
+            // get all the characters into an array
+            shuffle($arr); // randomizar o array
+            $arr = array_slice($arr, 0, 20); // pegar os caracteres do array de 0 a 20
+            $token = implode('', $arr); // transforma o array em string novamente
         
+            /*verificar token no banco de dados
+            $query = "SELECT * from pets where token = '$token'";
+            $result = mysqli_query($conn,$query);
+            $rows = mysqli_num_rows($result);
+            if($rows > 0){
+                gerarToken();//+1
+            }
+            else{
+                return $token;
+            } */
+       // } 
+        echo $token.'<br><br>';
+        echo $_SESSION['id'];
+        $idCliente = $_SESSION['id'];
+
+        $sql = "INSERT INTO pets (id_cliente,nome,raca,sexo,idade,porte,cor,token) VALUES(
+            $idCliente,
+            '$nomePet',
+            '$raca',
+            '$sexo',
+            $idade,
+            '$porte',
+            '$cor',
+            '$token'
+            )";
+
+        if(mysqli_query($conexao,$sql)){
+            $cadastro = "Cadastrado concluido com sucesso";
+        }
+        else{
+            echo "Erro ao inserir o animal! Erro: ".mysqli_error($conexao);
+            $cadastro = "Erro ao cadastrar";
+        }
     }
 }
 ?>
@@ -120,7 +147,7 @@ if(isset($_POST['botao-cadastro'])){
     <div class="form-background">
         <div class="form-content">
         <div class="">
-        <form action="cadastropets.php">
+        <form method="POST" action="cadastropets.php">
             <h1 class="login-title">Cadastre seu pet</h1>
             <input type="text" name="nome"placeholder="Nome" id="inp-name" autofocus>
             <input type="text" name="raca"placeholder="Raça">
