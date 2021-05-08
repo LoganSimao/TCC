@@ -20,6 +20,10 @@ body{
     align-items: center;
     /* background-color: #14F86D; */
     background-color: #468847;
+    /* background-image: url('imagens/jason-dent-unsplash.jpg'); */
+    /* background-image: url('imagens/peter-de-lucia-eKZebEKI9mo-unsplash.jpg'); */
+    background-image: url('imagens/artur-luczka-loAfOVk1eNc-unsplash.jpg');
+    
     
     /* background-color: #fefefe; */
 
@@ -72,8 +76,6 @@ body{
     color: #e75f17;
     /* color: #ed145b; */
 }
-
-
 
 .menu-central{
     position: relative;
@@ -524,10 +526,14 @@ body{
     margin-top: 1rem;
     margin-bottom: 1rem;
     font-size: 16px;
+    font-weight: bold;
     
 }
+
 .content-cliente-direita p{
+    color: #413f3f;
     font-size: 15.1px;
+    font-weight: bold;
     font-family: 'Noto Sans','Open Sans bold', sans-serif;
     width: 11.5rem;
     margin-top: 1rem;
