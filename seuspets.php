@@ -152,17 +152,36 @@
 
                         <td><?php echo $dados['nome']; ?></td>
 
-                        <td><a href="">
+                        <td><a href="alterarpets.php?id=<?php $dados['id'];?>">
                         <img  style="background-color:grey;" src="imagens/edit.png"></a>
                         </td>
 
-                        <td><a id="modaldeletar">
+                        <td><a id="modaldeletar<?php echo $dados['id'];?>" href="#modal<?php echo $dados['id'];?>">
                         <img  style="background-color:#f44336;" src="imagens/delete.png"></a>
                         </td>
 
                         <td><a href="">
                         <img style="background-color:orange;" src="imagens/more.png"></a>
                         </td>
+                    <!-- Modal Structure in Materializecss -->
+							  <div id="modal<?php echo $dados['IdProd']; ?>" class="modal">
+							    <div class="modal-content">
+							      <h4>Aviso.</h4>
+							      <p>Deseja excluir o Produto?</p>
+							    </div>
+							    <div class="modal-footer">
+							      
+
+							      <form action="php_action/excluir_produto.php" method="POST">
+							      	<input type="hidden" name="IdProd" value="<?php echo $dados['IdProd']; ?>">
+
+							      	<button type="submit" name="btn-excluir" class="btn red">Excluir</button>
+
+							      	<a href="#!" class="modal-close waves-effect waves-green btn">Cancelar</a>
+
+							      </form>
+							    </div>
+							  </div>
                     </tr>
 
                     <?php } ?>
@@ -173,15 +192,7 @@
             </div>
     </div>
 
-    <div id="deletar" class="deletaranimal">
-        <div class ="login-form" id="login-ani">
-            <div class="wrap-login">
-                <!--add logo-->
-                <span class="close" id="close2">&times;</span>
-            
-                
-            <p>funciona</p>
-            </div>
+    
         
         </div>
     </div>

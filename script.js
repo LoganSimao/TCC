@@ -146,6 +146,7 @@ function checkInputs(inputs) {
     
     }
     //botaodeletar
+    /* DON'T YOU WANNA DANCE WITH ME? NO? I COULD DANCE LIKE MICHAEL JACKSON
     var deletar = document.getElementById("deletar");
     var span2 = document.getElementById("close2");
     var botaomod = document.getElementById("modaldeletar");
@@ -163,13 +164,16 @@ function checkInputs(inputs) {
     deletar.onclick = function(){
       deletar.style.display = "none";
     }
-    /* DON'T YOU WANNA DANCE WITH ME? NO? I COULD DANCE LIKE MICHAEL JACKSON
     window.onclick = function (ev) {
       if(ev.target == deletar){
         deletar.style.display = "none";
         console.log("fora-janela");
       }
     }*/
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.modal');
+      var instances = M.Modal.init(elems, options);
+    });
     }
     console.log("fora-botao");
   }
