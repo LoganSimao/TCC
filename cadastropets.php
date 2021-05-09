@@ -82,11 +82,11 @@ if(isset($_POST['botao-cadastro'])){
             '$token'
             )";
 
-        if(mysqli_query($conexao,$sql)){
+        if(mysqli_query($conn,$sql)){
             $cadastro = "Cadastrado concluido com sucesso";
         }
         else{
-            echo "Erro ao inserir o animal! Erro: ".mysqli_error($conexao);
+            echo "Erro ao inserir o animal! Erro: ".mysqli_error($conn);
             $cadastro = "Erro ao cadastrar";
         }
     }

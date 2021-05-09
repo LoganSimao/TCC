@@ -38,8 +38,8 @@
         </div>
         <div class="menu-central">
             <ul class="componentes-central">
-                <li class="componentes-lista-central"><a href="/tcc/index.php">Home</a></li>
-                <li class="componentes-lista-central"><a href="/tcc/dashboard.php">Produtos</a></li>
+                <li class="componentes-lista-central"><a href="index.php">Home</a></li>
+                <li class="componentes-lista-central"><a href="dashboard.php">Produtos</a></li>
                 <li class="componentes-lista-central"><a href="#">Sobre</a></li>
             </ul>
         </div>
@@ -48,15 +48,20 @@
                 <div class="wrap-botao-login">
                 <li class="componentes-lista-direita"><a id="botao-modal"><?php echo $nome; ?></a>
                 <!-- botao logout -->
-                <div class="logout" id="logout">
-                    <div class="">
-                        <h3>TUANY CRISTINE DE OLVEIRA BOLSONI SUZART RODRIGUES</h1>
-                    </div>
-                    <div class="ver-sair">
-                        <div>
-                        <a href="">Ver perfil</a>
-                        </div><div>
-                        <a href="">Sair</a>
+                <div class="clos-modal" id="clos-modal">
+                    <div class="logout" id="logout">
+                        <div class="alinhar-logout">
+                        <div class="">
+                            <h3><?php echo $n?></h1>
+                        </div>
+                        <div class="ver-sair">
+                            <div>
+                            <a href="dashboard.php"><p>Meu perfil</p></a>
+                            </div><div>
+                            <form action="<?php echo $_SERVER['PHP_SELF'];?>">
+                            <button class="botao-sair" name="sair"><p>Sair</p></button>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>

@@ -76,7 +76,7 @@
         <a href="seuspets.php">Pets</a>
         <a href="historico.php">Historico de compra</a>
         <form action="log.php">
-        <button name="sair">Sair</button>
+        <button class="botao-sair" name="sair">Sair</button>
         </form>
         
     </div>

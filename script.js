@@ -105,32 +105,49 @@ function checkInputs(inputs) {
   console.log(log);
   if(log == "Login"){
      
-   var modal = document.getElementById("login");
-   var span = document.getElementById("close");
-   var botao = document.getElementById("botao-modal");
-  
-   botao.onclick = function(){
-     modal.style.display = "block";
-     document.getElementById("inp-focus").focus();
-     modal.style.transition = "2s"; //transitioncheckout
-   }
-  
-   span.onclick = function(){
+    var modal = document.getElementById("login");
+    var span = document.getElementById("close");
+    var botao = document.getElementById("botao-modal");
+
+    botao.onclick = function(){
+      modal.style.display = "block";
+      document.getElementById("inp-focus").focus();
+      modal.style.transition = "2s"; //transitioncheckout
+    }
+
+    span.onclick = function(){
     modal.style.display = "none";
     
   }
-  
-   window.onclick = function (event) {
-     if(event.target == modal){
-       modal.style.display = "none";
-     }
-   }
+
+    window.onclick = function (event) {
+      if(event.target == modal){
+        modal.style.display = "none";
+      }
+    }
   }
   else{
     var botao = document.getElementById("botao-modal");
-    botao.href = "dashboard.php"; //modal do botao aqui
+    
+
+    botao.onclick = function(){
+      var logout = document.getElementById("clos-modal");
+        logout.style.display = "block";
+        console.log("dentro-botao");
+      }
+    window.onclick = function (event) {
+      var logout = document.getElementById("clos-modal");
+      if(event.target == logout){
+        var logout = document.getElementById("clos-modal");
+        logout.style.display = "none";
+        console.log("fora-janela");
+      }
+    }
+    }
+    console.log("fora-botao");
   }
- }
+ 
+
 
  onload = function(){login()};
 
