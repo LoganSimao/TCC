@@ -135,7 +135,8 @@
                         </td>
 
                         <td><a id="modaldeletar" href="">
-                        <img  style="background-color:#f44336;" src="imagens/delete.png"></a></td>
+                        <img  style="background-color:#f44336;" src="imagens/delete.png"></a>
+                        </td>
 
                         <td><a href="">
                         <img style="background-color:orange;" src="imagens/more.png"></a>
