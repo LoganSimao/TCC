@@ -88,8 +88,8 @@
             
             <h1 class="login-title">Login</h1>
             <input type="text" placeholder="E-mail" id="inp-focus" name="login">
-            <input type="password" placeholder="Senha" name="senha">
-            <button class="botao-logar" name="logar" type="submit">Entrar</button>
+            <input type="password" placeholder="Senha" name="senha" >
+            <button class="botao-logar" name="logar" type="submit" id="enter">Entrar</button>
             <p id="msg"></p>
             <h2>Esqueceu a senha ?</h2>
             <div class="line"></div>

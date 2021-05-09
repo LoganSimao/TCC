@@ -30,6 +30,7 @@
             <ul class="componentes-direita">
                 <div class="wrap-botao-login">
                 <?php
+                    include 'log.php';
                     session_start();
                     if(!isset($_SESSION['logado'])){
                         $nome = "Login";
@@ -44,7 +45,27 @@
                 <li class="componentes-lista-direita"><a id="botao-modal"><?php echo $nome; ?></a></li>
                 </div>
                 <div class="wrap-botao-cadastrar">
-                <li class="componentes-lista-direita"><a href="https://idpets.000webhostapp.com/Cadastro.php">Cadastro</a></li>
+                <li class="componentes-lista-direita"><a href="Cadastro.php">Cadastro</a>
+                <!-- botao logout -->
+                <div class="clos-modal" id="clos-modal">
+                    <div class="logout" id="logout">
+                        <div class="alinhar-logout">
+                        <div class="">
+                            <h3><?php echo $n?></h1>
+                        </div>
+                        <div class="ver-sair">
+                            <div>
+                            <a href="dashboard.php"><p>Meu perfil</p></a>
+                            </div><div>
+                            <form action="<?php echo $_SERVER['PHP_SELF'];?>">
+                            <button class="botao-sair" name="sair"><p>Sair</p></button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- botao logout fim-->
+                </li>
                 </div>
             </ul>
         </div>

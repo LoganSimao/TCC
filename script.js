@@ -108,7 +108,7 @@ function checkInputs(inputs) {
     var modal = document.getElementById("login");
     var span = document.getElementById("close");
     var botao = document.getElementById("botao-modal");
-
+    
     botao.onclick = function(){
       modal.style.display = "block";
       document.getElementById("inp-focus").focus();
@@ -126,7 +126,7 @@ function checkInputs(inputs) {
       }
     }
   }
-  else{
+  else{//botaologar
     var botao = document.getElementById("botao-modal");
     
 
@@ -140,33 +140,40 @@ function checkInputs(inputs) {
       if(event.target == logout){
         var logout = document.getElementById("clos-modal");
         logout.style.display = "none";
+ 
         console.log("fora-janela");
       }
+    
     }
+    //botaodeletar
+    var deletar = document.getElementById("deletar");
+    var span2 = document.getElementById("close2");
+    var botaomod = document.getElementById("modaldeletar");
+  
+    botaomod.onclick = function(){
+      deletar.style.display = "block";
+      //document.getElementById("inp-focus").focus();
+      deletar.style.transition = "2s"; //transitioncheckout
+    }
+  
+    span2.onclick = function(){
+      deletar.style.display = "none";
+      
+    }
+    deletar.onclick = function(){
+      deletar.style.display = "none";
+    }
+    /* DON'T YOU WANNA DANCE WITH ME? NO? I COULD DANCE LIKE MICHAEL JACKSON
+    window.onclick = function (ev) {
+      if(ev.target == deletar){
+        deletar.style.display = "none";
+        console.log("fora-janela");
+      }
+    }*/
     }
     console.log("fora-botao");
   }
-  }
+  
   
   onload = function(){login()};
 
-  var modal = document.getElementById("deletar");
-  var span = document.getElementById("close");
-  var botao = document.getElementById("modaldeletar");
-
-  botao.onclick = function(){
-    modal.style.display = "block";
-    document.getElementById("inp-focus").focus();
-    modal.style.transition = "2s"; //transitioncheckout
-  }
-
-  span.onclick = function(){
-    modal.style.display = "none";
-    
-  }
-
-  window.onclick = function (event) {
-    if(event.target == modal){
-      modal.style.display = "none";
-    }
-  }
