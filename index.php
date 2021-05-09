@@ -46,7 +46,22 @@
         <div class="menu-direita">
             <ul class="componentes-direita">
                 <div class="wrap-botao-login">
-                <li class="componentes-lista-direita"><a id="botao-modal"><?php echo $nome; ?></a></li>
+                <li class="componentes-lista-direita"><a id="botao-modal"><?php echo $nome; ?></a>
+                <!-- botao logout -->
+                <div class="logout" id="logout">
+                    <div class="">
+                        <h3>TUANY CRISTINE DE OLVEIRA BOLSONI SUZART RODRIGUES</h1>
+                    </div>
+                    <div class="ver-sair">
+                        <div>
+                        <a href="">Ver perfil</a>
+                        </div><div>
+                        <a href="">Sair</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- botao logout fim-->
+                </li>
                 </div>
                 <div class="wrap-botao-cadastrar">
                 <li class="componentes-lista-direita"><a href="cadastro.php">Cadastro</a></li>
@@ -81,6 +96,7 @@
         </div>
     </div>
     <!-- inicio do menu -->
+    
     <div class="slide-menu">
         <div class="slides">
             <!-- botoes radio inicio -->

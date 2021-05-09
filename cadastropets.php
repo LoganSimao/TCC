@@ -19,12 +19,6 @@ include 'conexao.php';
 include 'log.php';
 session_start();
 
-$localhost = "localhost";
-$user = "root";
-$senha = "";
-$db = "pet";
-$conexao = mysqli_connect($localhost,$user,$senha,$db);
-
 if(!isset($_SESSION['logado'])){
     $nome = "Login";
 }

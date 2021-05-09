@@ -79,7 +79,6 @@ function checkInputs(inputs) {
    });
    
    return filled;
-   
  }
  */
 
@@ -129,7 +128,7 @@ function checkInputs(inputs) {
   }
   else{
     var botao = document.getElementById("botao-modal");
-    botao.href = "dashboard.php";
+    botao.href = "dashboard.php"; //modal do botao aqui
   }
   }
   

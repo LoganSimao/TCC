@@ -50,13 +50,11 @@ if(empty($login) or empty($senha)){
        modal.style.display = \"none\";
      }
    }
-   console.log('ue');
   }
   
             
 
         onload = function(){myFunction()};
-        console.log('2');
 
     </script>";
     // echo $falha;

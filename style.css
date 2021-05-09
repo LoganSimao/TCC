@@ -44,6 +44,7 @@ body{
     z-index: 400;
     font: 14px;
     font-family: 'Noto Sans','Open Sans bold', sans-serif;
+
 }
 
 .menu-navegacao a{
@@ -56,7 +57,7 @@ body{
 .menu-navegacao a:hover{
     text-decoration: none;
     color: #468847;
-    border-bottom: 2px solid #468847;
+    /* border-bottom: 2px solid #468847; */
 
 }
 
@@ -116,6 +117,7 @@ body{
     padding: 0px 20px;
     position: relative;
     cursor: pointer;
+    
 }
 
 .componentes-lista-central{
@@ -286,6 +288,34 @@ body{
 }
 /* login btn fim */
 
+/* botao logout */
+.logout{
+    background-color: #f1f1e6;
+    display: block;
+    position: absolute;
+    padding: 0rem 1rem;
+    width: 250px;
+    height: 120px;
+    border-radius: 0.5rem;
+    right: 0;
+    top: 3.4rem;
+    
+}
+
+.logout h3{
+    font-size: 1rem;
+    color: #413f3f;
+    text-transform: lowercase;
+    
+}
+
+.ver-sair{
+    display: flex;
+    justify-content: space-around;
+ 
+}
+
+/* botao logout fim */
 .slide-menu{ /*slider */
     width: 1100px;
     height: 700px;
