@@ -109,6 +109,17 @@
             <?php 
             include 'conexao.php';
            
+            if(isset($_SESSION['mensagem'])){ ?>
+
+                <script>
+                    
+                    window.onload = function(){
+        
+                        M.toast({html: '<?php echo $_SESSION['mensagem']; ?>'});
+                    };
+        
+                </script>
+            <?php 	} ; 
 
             //capturar o id do link
             if(!isset($_SESSION['logado'])){
@@ -117,10 +128,11 @@
 
             if(isset($_GET['id'])){
                 $id = $_GET['id'];
-                $idsessao = $_SESSION['id'];
-                if($id != $idsessao){ 
-                    header('Location: lost.html');//forbiden later
+                $sql = "DELETE from pets where id = $id";
+                if(mysqli_query($conn, $sql)){
+                    $_SESSION['mensagem'] = "Pet excluido com sucesso!";
                 }
+
             }
             
                 // passar a logica no banco de dados
@@ -156,7 +168,7 @@
                         <img  style="background-color:grey;" src="imagens/edit.png"></a>
                         </td>
 
-                        <td><a id="modaldeletar<?php echo $dados['id'];?>" href="#modal<?php echo $dados['id'];?>">
+                        <td><a id="modaldeletar<?php echo $dados['id'];?>">
                         <img  style="background-color:#f44336;" src="imagens/delete.png"></a>
                         </td>
 
@@ -164,24 +176,40 @@
                         <img style="background-color:orange;" src="imagens/more.png"></a>
                         </td>
                     <!-- Modal Structure in Materializecss -->
-							  <div id="modal<?php echo $dados['IdProd']; ?>" class="modal">
+                            
+							  <div id="modal<?php echo $dados['id']; ?>" style="display:none;" class="modal-cl">
+                              <div class="god-modal">
 							    <div class="modal-content">
-							      <h4>Aviso.</h4>
-							      <p>Deseja excluir o Produto?</p>
-							    </div>
-							    <div class="modal-footer">
-							      
+                                <span class="close-sp" id="close-sp<?php echo $dados['id']; ?>">&times;</span>
+							      <h4>Voce esta prestes a excluir um cadastro!</h4>
+							      <p>Deseja excluir o cadastro de <?php echo$dados['nome']?>?</p>
+							    
+							    
+							      <form action="seuspets.php?id=<?php echo $dados['id'];?>" method="POST">
+							      	<input type="hidden" name="IdPet" value="<?php echo $dados['id']; ?>">
 
-							      <form action="php_action/excluir_produto.php" method="POST">
-							      	<input type="hidden" name="IdProd" value="<?php echo $dados['IdProd']; ?>">
+							      	<button type="submit" name="btn-excluir" class="btn-excluir">Excluir</button>
 
-							      	<button type="submit" name="btn-excluir" class="btn red">Excluir</button>
-
-							      	<a href="#!" class="modal-close waves-effect waves-green btn">Cancelar</a>
+							      	<a href="seuspets.php" class="btn-cancel">Cancelar</a>
 
 							      </form>
 							    </div>
 							  </div>
+                            </div>
+                              <script type="text/javascript">
+                                var del = document.getElementById("modaldeletar<?php echo $dados['id']; ?>");
+                                var clos = document.getElementById("close-sp<?php echo $dados['id']; ?>");
+                                del.onclick = function(){
+                                    var m = document.getElementById("modal<?php echo $dados['id']; ?>");
+                                    m.style.display = "block";
+                                }
+                                clos.onclick = function(){
+                                    var m = document.getElementById("modal<?php echo $dados['id']; ?>");
+                                    m.style.display = "none";
+                                }
+
+                                
+                              </script>
                     </tr>
 
                     <?php } ?>

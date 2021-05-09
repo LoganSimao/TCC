@@ -736,7 +736,94 @@ th{
 
 /* modal pets */
 
-.modal{
-    display: block;
+.modal-cl{
+    display: flex;
+    justify-content: center;
+    transition: 0s;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 1rem;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
 }
+.god-modal{
+    display: flex;
+    justify-content: center;
+    margin-top: 30vh;
+
+}
+
+.modal-content{
+    justify-content: center;
+    background-color: #f1f1e6;
+    width: 50%;
+    right: 2rem;
+    border-radius: 0.8rem;
+    text-align: center;
+}
+
+.btn-excluir{
+    color: #fff;
+    background-color: red;
+    border: none;
+    width: 14rem;
+    height: 3rem;
+    margin-bottom: 1.2rem;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    font-family: 'Noto Sans','Open Sans bold', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+.btn-excluir:hover{
+    color: #fff;
+    background-color: grey;
+    width: 14rem;
+    height: 3rem;
+    margin-bottom: 1.2rem;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    font-family: 'Noto Sans','Open Sans bold', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.btn-cancel{
+    background-color: #e75f17;
+    color: #fff;
+    font-family: 'Noto Sans', 'Open Sans bold', sans-serif;
+    font-size: 14px;
+    padding: 0.9rem 5rem;
+    border-radius: 0.2rem;
+}
+.btn-cancel:hover{
+    background-color: #468847;
+    color: #fff;
+    font-family: 'Noto Sans', 'Open Sans bold', sans-serif;
+    font-size: 14px;
+    padding: 0.9rem 5rem;
+    border-radius: 0.2rem;
+}
+
+.close-sp {
+    color: #aaaaaa;
+    float: right;
+    margin-right: 1.6rem;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close-sp:hover {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
 /* modal pets fim */

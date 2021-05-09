@@ -170,10 +170,8 @@ function checkInputs(inputs) {
         console.log("fora-janela");
       }
     }*/
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.modal');
-      var instances = M.Modal.init(elems, options);
-    });
+    var qnt = document.getElementsByClassName("modal-op");
+    console.log(qnt.length);
     }
     console.log("fora-botao");
   }
