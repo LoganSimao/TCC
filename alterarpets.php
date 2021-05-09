@@ -117,85 +117,78 @@
 
             if(isset($_GET['id'])){
                 $id = $_GET['id'];
-                $idsessao = $_SESSION['id'];
-                if($id != $idsessao){ 
-                    header('Location: lost.html');//forbiden later
-                }
+
             }
-            
-                // passar a logica no banco de dados
-            $id = $_SESSION['id'];
-            $sql1 = "SELECT * from cadastro_cliente where id = $id"; //usa o id do dono pra consultar qual é na tabela clientes     
+            // passar a logica no banco de dados
+            $id_cliente = $_SESSION['id'];
+
+            //usa o id do dono pra consultar qual é na tabela clientes
+            $sql1 = "SELECT * from cadastro_cliente where id = $id_cliente";      
             $resultadoCliente = mysqli_query($conn, $sql1);
             $armazenamentoNomeCliente = mysqli_fetch_array($resultadoCliente);
 
-            $sql2 = "SELECT * from pets where id_cliente = $id";
-            $resultado = mysqli_query($conn, $sql2);
-           
+            $sql2 = "SELECT * from pets where id = $id";
+            $resultadoPET = mysqli_query($conn, $sql2);
+            $resultado = mysqli_fetch_array($resultadoPET);
             
             ?>  
-            <div class="form-content-perfil2">
+            <div class="form-content-perfil3">
                 <h1> <?php echo $armazenamentoNomeCliente['nome'] ?> </h1>
             </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nome do Pet</th>
-                        </tr>				
-                    </thead>
-
-                    <?php  while($dados = mysqli_fetch_array($resultado)){ ?>
-
-                    <tr>
-                        <td><?php echo $dados['id']; ?></td>
-
-                        <td><?php echo $dados['nome']; ?></td>
-
-                        <td><a href="alterarpets.php?id=<?php echo $dados['id'];?>">
-                        <img  style="background-color:grey;" src="imagens/edit.png"></a>
-                        </td>
-
-                        <td><a id="modaldeletar<?php echo $dados['id'];?>" href="#modal<?php echo $dados['id'];?>">
-                        <img  style="background-color:#f44336;" src="imagens/delete.png"></a>
-                        </td>
-
-                        <td><a href="">
-                        <img style="background-color:orange;" src="imagens/more.png"></a>
-                        </td>
-                    <!-- Modal Structure in Materializecss -->
-							  <div id="modal<?php echo $dados['IdProd']; ?>" class="modal">
-							    <div class="modal-content">
-							      <h4>Aviso.</h4>
-							      <p>Deseja excluir o Produto?</p>
-							    </div>
-							    <div class="modal-footer">
-							      
-
-							      <form action="php_action/excluir_produto.php" method="POST">
-							      	<input type="hidden" name="IdProd" value="<?php echo $dados['IdProd']; ?>">
-
-							      	<button type="submit" name="btn-excluir" class="btn red">Excluir</button>
-
-							      	<a href="#!" class="modal-close waves-effect waves-green btn">Cancelar</a>
-
-							      </form>
-							    </div>
-							  </div>
-                    </tr>
-
-                    <?php } ?>
-                </table>
+            <div class="content-alterarpet">
+            
+            <div class="content-pet-esquerda">   
+               <h3>Nome </h3><p>
+               <h3>Raça </h3><p>
+               <h3>Sexo </h3>
+               <h3>Idade </h3>
+               <h3>Porte </h3>
+               <h3>Cor </h3>
+           </div>
+           <div class="content-pet-direita">
+               <form action="alterarpets.php?id=<?php echo $id; ?>" method="POST" class="input-altera">
+               <input type="text" name = "idproduto" value="<?php echo $resultado['nome']; ?>">
+               <input type="text" name = "idproduto" value="<?php echo $resultado['raca']; ?>">
+               <input type="text" name = "idproduto" value="<?php echo $resultado['sexo']; ?>">
+               <input type="text" name = "idproduto" value="<?php echo $resultado['idade']; ?>">
+               <input type="text" name = "idproduto" value="<?php echo $resultado['porte']; ?>">
+               <input type="text" name = "idproduto" value="<?php echo $resultado['cor']; ?>">
+               <br>
+               <button type="submit" name="btn-alterar" class="botao-alterar">Alterar</button>
+               </form>
+           </div>
+       </div>
                 <div class="consulta-pet">
-                    <a class="cadastrar-pet" href="cadastropets.php">Cadastrar PET</a>
+                    <a class="voltar-pet" href="seuspets.php">Voltar</a>
                 </div>
             </div>
+    </div>   
     </div>
-
-    
+</div>
+    <?php 
+    if (isset($_POST['btn-alterar'])) {
         
-        </div>
-    </div>
+        $nomePET = $_POST['nome'];
+        $raca = $_POST['raca'];
+        $sexo = $_POST['sexo'];
+        $idade = $_POST['idade'];
+        $porte = $_POST['porte'];
+        $cor = $_POST['cor'];
+
+        $sql3 = "UPDATE pets SET nome = '$nomePET', raca = '$raca', sexo = '$sexo', idade = $idade, porte = '$porte', cor = '$cor' WHERE id = $id";
+
+        if(mysqli_query($conn, $sql3)) {
+
+            header('Location: ../seuspets.php');
+        }
+        else{
+
+            $_SESSION['mensagem'] = "Erro ao alterar.";
+
+            //header('Location: ../index.php');	
+        }
+    }
+    ?>
 
     <script src="script.js"></script>
 </body>
