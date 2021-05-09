@@ -127,8 +127,11 @@ body{
 }
 /*barra de menu fim*/
 
-/* login btn */
+/* Modal deletar PET*/
 
+
+
+/* login btn */
 
 
 .close {
@@ -149,6 +152,21 @@ body{
 }
 
 .login-principal{
+    display: none;
+    transition: 0s;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 1rem;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.7);
+
+}
+.deletaranimal{
     display: none;
     transition: 0s;
     position: fixed;
@@ -446,7 +464,7 @@ body{
     width: 36rem;
     height: 43.5rem;
     border-radius: 0.8rem;
-    margin-top: 1rem;
+    position: relative;
 }
 
 .form-content{
@@ -538,9 +556,27 @@ body{
     margin-left: 3.5rem;
     cursor: pointer;
     border-radius: 5px;
+}
+.cadastrar-pet{
+    color: #FFF;
+    background-color: #468847;
+    border: none;
+    font-size: large;
+    text-transform: none;
+    width: 22rem;
+    height: 3rem;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 1rem 7rem;
+    margin-bottom: 2rem;
 
 }
-
+.consulta-pet{
+    position: absolute;
+    bottom: 4rem;
+    margin-left: 2rem;
+    align-items: center;
+}
 .botao-pet:hover{
     transition: 0.6s;
     color: #FFF;
@@ -571,12 +607,28 @@ body{
     align-items: center;
     display: block;
     font-family: 'Noto Sans','Open Sans bold', sans-serif;
+    margin-top: 2rem;
 }
+.form-content-perfil2 h1{
+    color:#e75f17;
+}
+.form-content-perfil2 img{
+    width: 30px;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    font-size: 1.6rem;
+    line-height: 40px;
 
+    border-radius: 100%;
+    padding: 0.3rem;
+    box-shadow: 2px 2px 2px 2px rgba(66, 78, 65, 0.2);
+    cursor: pointer;
+}
 td{
     padding-top: 1.5rem;
     padding-right: 2rem;
-    font-size: 0.8rem;
+    font-size: 1.1rem;
     font-family: 'Noto Sans','Open Sans bold', sans-serif;
 }
 th{
