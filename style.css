@@ -569,7 +569,7 @@ body{
     border-radius: 5px;
     padding: 1rem 7rem;
     margin-bottom: 2rem;
-
+    text-transform: uppercase;
 }
 .consulta-pet{
     position: absolute;
@@ -827,3 +827,129 @@ th{
   }
 
 /* modal pets fim */
+/* modal pets fim */
+
+/* Input Alterar PET*/
+.input-altera input{
+    width: 70%;
+    margin-left: 2rem;
+}
+.input-altera button{
+    width: 10rem;
+    margin-left: 2rem;
+    bottom: 3.1rem;
+    width: 14rem;
+}
+
+.input-altera form{
+    background-color: #f1f1e6;
+    padding: 12rem;
+    border: 1px solid #468847;
+    width: 10%;
+    border-radius: 0.8rem;
+}
+
+.input-altera h1{
+    text-transform: none;
+    font-family: 'Noto Sans','Open Sans bold', sans-serif;
+    color: #e75f17;
+    /* border-bottom: 1px solid #e75f17; */
+    width: 100%;
+    font-size: 2.2rem;
+}
+
+.input-altera h2{
+    text-transform: none;
+    font-size: 1rem;
+    font-family: 'Noto Sans','Open Sans bold', sans-serif;
+    color: #468847;
+    width: 100%;
+    
+}
+.input-altera input{
+    width: 60%;
+    padding: 0.6rem;
+    margin-top: 1rem;
+    
+}
+.input-altera input:focus{
+    outline-color: #468847;
+}
+.botao-alterar{
+    color: #FFF;
+    background-color: #e75f17;
+    border: none;
+    font-size: large;
+    text-transform: uppercase;
+    width: 8rem;
+    height: 3.5rem;
+    cursor: pointer;
+    position: absolute;
+    bottom: 4rem;
+    border-radius: 5px;
+}
+
+.botao-alterar:hover{
+    transition: 0.6s;
+    color: #FFF;
+    background-color: #468847;
+}
+.voltar-pet{
+    color: #FFF;
+    background-color: #468847;
+    border: none;
+    font-size: large;
+    text-transform: none;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 1rem 4rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    margin-left: 1.5rem;
+}
+.voltar-pet:hover{
+    transition: 0.6s;
+    color: #FFF;
+    background-color: #468847;
+    border: none;
+    font-size: large;
+    text-transform: uppercase;
+    width: 16rem;
+    height: 3rem;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+.form-content-perfil3{
+    display: block;
+    font-family: 'Noto Sans','Open Sans bold', sans-serif;
+    margin-top: 2rem;
+    margin-left: 4rem;
+}
+.form-content-perfil3 h1{
+    color:#e75f17;
+}
+.content-alterarpet{
+    display: flex;
+    margin-left: 4rem;
+}
+.content-pet-esquerda h3{
+    width: 11.5rem;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+
+}
+.content-pet-esquerda {
+    margin-top: 0.4rem;
+}
+.content-pet-direita p{
+    color: #413f3f;
+    font-size: 15.1px;
+    font-weight: bold;
+    font-family: 'Noto Sans','Open Sans bold', sans-serif;
+    width: 11.5rem;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    
+}
