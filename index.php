@@ -56,7 +56,7 @@
     </div>
     </nav>
     <!-- modal login -->
-</span>
+
     <div id="login" class="login-principal">
         <div class ="login-form" id="login-ani">
         <div class="wrap-login">

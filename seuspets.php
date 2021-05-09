@@ -127,14 +127,42 @@
 
                     <tr>
                         <td><?php echo $dados['id']; ?></td>
+
                         <td><?php echo $dados['nome']; ?></td>
+
+                        <td><a href="">
+                        <img  style="background-color:grey;" src="imagens/edit.png"></a>
+                        </td>
+
+                        <td><a id="modaldeletar" href="">
+                        <img  style="background-color:#f44336;" src="imagens/delete.png"></a></td>
+
+                        <td><a href="">
+                        <img style="background-color:orange;" src="imagens/more.png"></a>
+                        </td>
                     </tr>
 
                     <?php } ?>
                 </table>
+                <div class="consulta-pet">
+                    <a class="cadastrar-pet" href="cadastropets.php">Cadastrar PET</a>
+                </div>
+            </div>
+    </div>
+
+    <div id="deletar" class="deletaranimal">
+        <div class ="login-form" id="login-ani">
+            <div class="wrap-login">
+                <!--add logo-->
+                <span class="close" id="close">&times;</span>
+            
+                
+            <p>funciona</p>
+            </div>
+        
         </div>
     </div>
-      
+
     <script src="script.js"></script>
 </body>
 <footer>

@@ -131,9 +131,27 @@ function checkInputs(inputs) {
     var botao = document.getElementById("botao-modal");
     botao.href = "dashboard.php";
   }
- }
-
- onload = function(){login()};
-
-
+  }
   
+  onload = function(){login()};
+
+  var modal = document.getElementById("deletar");
+  var span = document.getElementById("close");
+  var botao = document.getElementById("modaldeletar");
+
+  botao.onclick = function(){
+    modal.style.display = "block";
+    document.getElementById("inp-focus").focus();
+    modal.style.transition = "2s"; //transitioncheckout
+  }
+
+  span.onclick = function(){
+    modal.style.display = "none";
+    
+  }
+
+  window.onclick = function (event) {
+    if(event.target == modal){
+      modal.style.display = "none";
+    }
+  }
