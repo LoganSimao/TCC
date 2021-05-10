@@ -41,6 +41,29 @@
                         $nome = $arr[0];
                     }
                 ?>
+                    <?php 
+    if (isset($_POST['btn-alterar'])) {
+        $id = $_GET['id'];
+        $nomePET = $_POST['nome'];
+        $raca = $_POST['raca'];
+        $sexo = $_POST['sexo'];
+        $idade = $_POST['idade'];
+        $porte = $_POST['porte'];
+        $cor = $_POST['cor'];
+
+        $sql3 = "UPDATE pets SET nome = '$nomePET', raca = '$raca', sexo = '$sexo', idade = $idade, porte = '$porte', cor = '$cor' WHERE id = $id";
+
+        if(mysqli_query($conn, $sql3)) {
+            $_SESSION['mensagem'] = "Alterado com sucesso!";
+            exit(header('Location: seuspets.php'));
+        }
+        else{
+            $_SESSION['mensagem'] = "Erro ao alterar.";
+
+            //header('Location: seuspets.php');	
+        }
+    }
+    ?>
 
                 <li class="componentes-lista-direita"><a id="botao-modal"><?php echo $nome; ?></a>
                 <!-- botao logout -->
@@ -109,7 +132,6 @@
             <?php 
             include 'conexao.php';
            
-
             //capturar o id do link
             if(!isset($_SESSION['logado'])){
                 header('Location: index.php');
@@ -133,7 +155,7 @@
             
             ?>  
             <div class="form-content-perfil3">
-                <h1> <?php echo $armazenamentoNomeCliente['nome'] ?> </h1>
+                <h1> <?php echo $n ?> </h1>
             </div>
             <div class="content-alterarpet">
             
@@ -147,12 +169,12 @@
            </div>
            <div class="content-pet-direita">
                <form action="alterarpets.php?id=<?php echo $id; ?>" method="POST" class="input-altera">
-               <input type="text" name = "idproduto" value="<?php echo $resultado['nome']; ?>">
-               <input type="text" name = "idproduto" value="<?php echo $resultado['raca']; ?>">
-               <input type="text" name = "idproduto" value="<?php echo $resultado['sexo']; ?>">
-               <input type="text" name = "idproduto" value="<?php echo $resultado['idade']; ?>">
-               <input type="text" name = "idproduto" value="<?php echo $resultado['porte']; ?>">
-               <input type="text" name = "idproduto" value="<?php echo $resultado['cor']; ?>">
+               <input type="text" name = "nome" value="<?php echo $resultado['nome']; ?>">
+               <input type="text" name = "raca" value="<?php echo $resultado['raca']; ?>">
+               <input type="text" name = "sexo" value="<?php echo $resultado['sexo']; ?>">
+               <input type="text" name = "idade" value="<?php echo $resultado['idade']; ?>">
+               <input type="text" name = "porte" value="<?php echo $resultado['porte']; ?>">
+               <input type="text" name = "cor" value="<?php echo $resultado['cor']; ?>">
                <br>
                <button type="submit" name="btn-alterar" class="botao-alterar">Alterar</button>
                </form>
@@ -165,30 +187,7 @@
     </div>   
     </div>
 </div>
-    <?php 
-    if (isset($_POST['btn-alterar'])) {
-        
-        $nomePET = $_POST['nome'];
-        $raca = $_POST['raca'];
-        $sexo = $_POST['sexo'];
-        $idade = $_POST['idade'];
-        $porte = $_POST['porte'];
-        $cor = $_POST['cor'];
 
-        $sql3 = "UPDATE pets SET nome = '$nomePET', raca = '$raca', sexo = '$sexo', idade = $idade, porte = '$porte', cor = '$cor' WHERE id = $id";
-
-        if(mysqli_query($conn, $sql3)) {
-
-            header('Location: ../seuspets.php');
-        }
-        else{
-
-            $_SESSION['mensagem'] = "Erro ao alterar.";
-
-            //header('Location: ../index.php');	
-        }
-    }
-    ?>
 
     <script src="script.js"></script>
 </body>

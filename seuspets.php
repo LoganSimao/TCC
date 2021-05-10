@@ -39,6 +39,7 @@
                         $n = $_SESSION['nome'];
                         $arr = explode(' ', trim($n));
                         $nome = $arr[0];
+
                     }
                 ?>
 
@@ -109,17 +110,6 @@
             <?php 
             include 'conexao.php';
            
-            if(isset($_SESSION['mensagem'])){ ?>
-
-                <script>
-                    
-                    window.onload = function(){
-        
-                        M.toast({html: '<?php echo $_SESSION['mensagem']; ?>'});
-                    };
-        
-                </script>
-            <?php 	} ; 
 
             //capturar o id do link
             if(!isset($_SESSION['logado'])){
@@ -137,17 +127,18 @@
             
                 // passar a logica no banco de dados
             $id = $_SESSION['id'];
-            $sql1 = "SELECT * from cadastro_cliente where id = $id"; //usa o id do dono pra consultar qual é na tabela clientes     
-            $resultadoCliente = mysqli_query($conn, $sql1);
-            $armazenamentoNomeCliente = mysqli_fetch_array($resultadoCliente);
 
             $sql2 = "SELECT * from pets where id_cliente = $id";
             $resultado = mysqli_query($conn, $sql2);
-           
+            $msg = "";
+            if(isset($_SESSION['mensagem'])){
+                $msg = $_SESSION['mensagem'];
+            }
             
             ?>  
             <div class="form-content-perfil2">
-                <h1> <?php echo $armazenamentoNomeCliente['nome'] ?> </h1>
+                <h1> <?php echo $n ?> </h1>
+                <p><?php echo $msg ?></p>
             </div>
                 <table>
                     <thead>
