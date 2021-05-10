@@ -187,6 +187,11 @@ body{
     to{transform:scale(1)}
 }
 
+@keyframes animatetop{
+    from{top:-300px;opacity:0}
+     to{top:0;opacity:1}
+}
+
 
 .login-form{
     background-color: #f1f1e6;
@@ -318,18 +323,21 @@ body{
     padding-top: 1rem;
     left: 0;
     right: 0;
+    top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
     cursor: context-menu;
 
 }
+
 .logout{
 
     position: absolute;
     padding: 0rem 1rem;
     border-radius: 0.5rem;
     right: 0;
+    
     
 }
 
@@ -349,6 +357,10 @@ body{
     height: 100%;
     border-radius: 0.5rem;
     right: 0;
+    top: 4rem;
+    /* animation: animatezoom 0.1s; */
+    border: 1px solid #468847;
+    box-shadow: 5px 5px 5px 5px rgba(66, 78, 65, 0.5);
 }
 
 .ver-sair{
@@ -755,7 +767,7 @@ th{
     display: flex;
     justify-content: center;
     margin-top: 30vh;
-
+    animation: animatezoom 0.6s;
 }
 
 .modal-content{
@@ -780,6 +792,7 @@ th{
     font-weight: bold;
     text-transform: uppercase;
     font-size: 14px;
+    
 }
 .btn-excluir:hover{
     color: #fff;
@@ -830,10 +843,7 @@ th{
 /* modal pets fim */
 
 /* Input Alterar PET*/
-.input-altera input{
-    width: 70%;
-    margin-left: 2rem;
-}
+
 .input-altera button{
     width: 10rem;
     margin-left: 2rem;
@@ -937,7 +947,8 @@ th{
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 2rem;
-    text-transform: uppercase;
+
+    color: #413f3f;
 
 }
 .content-pet-esquerda {

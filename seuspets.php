@@ -173,7 +173,7 @@
 							    <div class="modal-content">
                                 <span class="close-sp" id="close-sp<?php echo $dados['id']; ?>">&times;</span>
 							      <h4>Voce esta prestes a excluir um cadastro!</h4>
-							      <p>Deseja excluir o cadastro de <?php echo$dados['nome']?>?</p>
+							      <p>Deseja excluir o cadastro de <?php echo$dados['nome']; ?>?</p>
 							    
 							    
 							      <form action="seuspets.php?id=<?php echo $dados['id'];?>" method="POST">

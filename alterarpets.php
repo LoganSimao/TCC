@@ -160,8 +160,8 @@
             <div class="content-alterarpet">
             
             <div class="content-pet-esquerda">   
-               <h3>Nome </h3><p>
-               <h3>Raça </h3><p>
+               <h3>Nome </h3>
+               <h3>Raça </h3>
                <h3>Sexo </h3>
                <h3>Idade </h3>
                <h3>Porte </h3>
