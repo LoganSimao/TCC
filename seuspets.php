@@ -138,7 +138,7 @@
             ?>  
             <div class="form-content-perfil2">
                 <h1> <?php echo $n ?> </h1>
-                <p><?php echo $msg ?></p>
+                <!-- <p><?php //echo $msg ?></p> -->
             </div>
                 <table>
                     <thead>
@@ -155,7 +155,7 @@
 
                         <td><?php echo $dados['nome']; ?></td>
 
-                        <td><a href="alterarpets.php?id=<?php echo $dados['id'];?>">
+                        <td class="tabelapet"><a href="alterarpets.php?id=<?php echo $dados['id'];?>">
                         <img  style="background-color:grey;" src="imagens/edit.png"></a>
                         </td>
 
