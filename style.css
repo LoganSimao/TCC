@@ -676,22 +676,22 @@ th{
 
 }
 .content-cliente-esquerda h3{
-    width: 11.5rem;
+    width: 10.5rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
     font-size: 16px;
     font-weight: bold;
-    
+    font-size: 16.1px;
 }
 
 .content-cliente-direita p{
     color: #413f3f;
-    font-size: 15.1px;
+    font-size: 16.1px;
     font-weight: bold;
     font-family: 'Noto Sans','Open Sans bold', sans-serif;
-    width: 11.5rem;
+    width: 13.5rem;
     margin-top: 1rem;
-    margin-bottom: 1rem;
+
     
 }
 /* perfil do dashboard fim */
