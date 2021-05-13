@@ -41,30 +41,46 @@
                         $nome = $arr[0];
                     }
                 ?>
-                    <?php 
-    if (isset($_POST['btn-alterar'])) {
-        $id = $_GET['id'];
-        $nomePET = $_POST['nome'];
-        $raca = $_POST['raca'];
-        $sexo = $_POST['sexo'];
-        $idade = $_POST['idade'];
-        $porte = $_POST['porte'];
-        $cor = $_POST['cor'];
+    <?php 
+        if (isset($_POST['btn-alterar'])) {
 
-        $sql3 = "UPDATE pets SET nome = '$nomePET', raca = '$raca', sexo = '$sexo', idade = $idade, porte = '$porte', cor = '$cor' WHERE id = $id";
+            $id_cliente = $_SESSION['id'];
+            $nomeCliente = $_POST['nome'];
+            $email = $_POST['email'];
+            $cep = $_POST['cep'];
+            $endereco = $_POST['endereco'];
+            $bairro = $_POST['bairro'];
+            $cidade = $_POST['cidade'];
+            $estado = $_POST['estado'];
+            $complemento = $_POST['complemento'];
+            $numero = $_POST['numero'];
+            $telefone = $_POST['telefone'];
+            
 
-        if(mysqli_query($conn, $sql3)) {
-            $_SESSION['mensagem'] = "Alterado com sucesso!";
-            exit(header('Location: seuspets.php'));
+            $sql3 = "UPDATE cadastro_cliente SET 
+            nome = '$nomeCliente', 
+            email = '$email', 
+            cep = '$cep', 
+            endereco = '$endereco', 
+            bairro = '$bairro', 
+            cidade = '$cidade', 
+            estado = '$estado', 
+            complemento = '$complemento', 
+            numero = '$numero' , 
+            telefone = '$telefone' 
+            WHERE id = $id_cliente";
+
+            if(mysqli_query($conn, $sql3)) {
+                $_SESSION['mensagem'] = "Alterado com sucesso!";
+                exit(header('Location: dashboard.php'));
+            }
+            else{
+                $_SESSION['mensagem'] = "Erro ao alterar.";
+
+                //header('Location: seuspets.php');	
+            }
         }
-        else{
-            $_SESSION['mensagem'] = "Erro ao alterar.";
-
-            //header('Location: seuspets.php');	
-        }
-    }
     ?>
-
                 <li class="componentes-lista-direita"><a id="botao-modal"><?php echo $nome; ?></a>
                 <!-- botao logout -->
                 <div class="clos-modal" id="clos-modal">
@@ -101,17 +117,17 @@
         <div class="wrap-login">
             <!--add logo-->
             <span class="close" id="close">&times;</span>
-        <form action="">
-            
-            <h1 class="login-title">Login</h1>
-            <input type="text" placeholder="E-mail" id="inp-focus">
-            <input type="password" placeholder="Senha">
-            <button class="botao-logar">Entrar</button>
-            <h2>Esqueceu a senha ?</h2>
-            <div class="line"></div>
-            <button class="botao-cadastro">Criar conta</button>
+                <form action="">
+                    
+                    <h1 class="login-title">Login</h1>
+                    <input type="text" placeholder="E-mail" id="inp-focus">
+                    <input type="password" placeholder="Senha">
+                    <button class="botao-logar">Entrar</button>
+                    <h2>Esqueceu a senha ?</h2>
+                    <div class="line"></div>
+                    <button class="botao-cadastro">Criar conta</button>
 
-        </form>
+                </form>
         </div>
         
         </div>
@@ -156,29 +172,39 @@
             </div>
             <div class="content-alterarpet">
             
-            <div class="content-pet-esquerda">   
+            <div class="content-alterarcliente-esquerda">   
                <h3>Nome </h3>
-               <h3>Raça </h3>
-               <h3>Sexo </h3>
-               <h3>Idade </h3>
-               <h3>Porte </h3>
-               <h3>Cor </h3>
+               <h3>E-mail </h3>
+               <h3>CEP </h3>
+               <h3>Endereço </h3>
+               <h3>Bairro</h3>
+               <h3>Cidade</h3>
+               <h3>Estado</h3>
+               <h3>Cidade</h3>
+               <h3>Complemento</h3>
+               <h3>Número</h3>
+               <h3>Telefone</h3>
            </div>
            <div class="content-pet-direita">
-               <form action="alterarpets.php?id=<?php echo $id; ?>" method="POST" class="input-altera">
-               <input type="text" name = "nome" value="<?php echo $resultado['nome']; ?>">
-               <input type="text" name = "raca" value="<?php echo $resultado['raca']; ?>">
-               <input type="text" name = "sexo" value="<?php echo $resultado['sexo']; ?>">
-               <input type="text" name = "idade" value="<?php echo $resultado['idade']; ?>">
-               <input type="text" name = "porte" value="<?php echo $resultado['porte']; ?>">
-               <input type="text" name = "cor" value="<?php echo $resultado['cor']; ?>">
+               <form action="alterarclientes.php?id=<?php echo $id_cliente; ?>" method="POST" class="input-altera-cliente">
+
+               <input type="text" name = "nome" value="<?php echo $armazenamentoNomeCliente['nome']; ?>">
+               <input type="text" name = "email" value="<?php echo $armazenamentoNomeCliente['email']; ?>">
+               <input type="text" name = "cep" value="<?php echo $armazenamentoNomeCliente['cep']; ?>">
+               <input type="text" name = "endereco" value="<?php echo $armazenamentoNomeCliente['endereco']; ?>">
+               <input type="text" name = "bairro" value="<?php echo $armazenamentoNomeCliente['bairro']; ?>">
+               <input type="text" name = "cidade" value="<?php echo $armazenamentoNomeCliente['cidade']; ?>">
+               <input type="text" name = "estado" value="<?php echo $armazenamentoNomeCliente['estado']; ?>">
+               <input type="text" name = "complemento" value="<?php echo $armazenamentoNomeCliente['complemento']; ?>">
+               <input type="text" name = "numero" value="<?php echo $armazenamentoNomeCliente['numero']; ?>">
+               <input type="text" name = "telefone" value="<?php echo $armazenamentoNomeCliente['telefone']; ?>">
                <br>
                <button type="submit" name="btn-alterar" class="botao-alterar">Alterar</button>
                </form>
            </div>
        </div>
                 <div class="consulta-pet">
-                    <a class="voltar-pet" href="seuspets.php">Voltar</a>
+                    <a class="voltar-pet" href="dashboard.php">Voltar</a>
                 </div>
             </div>
     </div>   

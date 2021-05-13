@@ -970,3 +970,39 @@ th{
 /* FINAL Input Alterar PET */
 /* ------------------------ */
 
+.content-alterarcliente-esquerda {
+ 
+}
+.input-altera-cliente form{
+    background-color: #f1f1e6;
+    padding: 12rem;
+    border: 1px solid #468847;
+    width: 10%;
+    border-radius: 0.8rem;
+}
+.input-altera-cliente h1{
+    text-transform: none;
+    font-family: 'Noto Sans','Open Sans bold', sans-serif;
+    color: #e75f17;
+    /* border-bottom: 1px solid #e75f17; */
+    width: 100%;
+    font-size: 2.2rem;
+}
+
+.input-altera-cliente h2{
+    text-transform: none;
+    font-size: 1rem;
+    font-family: 'Noto Sans','Open Sans bold', sans-serif;
+    color: #468847;
+    width: 100%;
+    
+}
+.input-altera-cliente input{
+    width: 60%;
+    padding: 0.6rem;
+    margin-top: 1rem;
+    
+}
+.input-altera-cliente input:focus{
+    outline-color: #468847;
+}
