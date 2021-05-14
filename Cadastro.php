@@ -126,7 +126,7 @@
                             $mail->Port = 587;
                             $mail->isHTML();
                             $mail->Subject = 'Hello world';
-                            $mail->Body = 'A test email!';
+                            $mail->Body = 'http://localhost/New%20folder/TCC/TCC/confirmar_email.php?email='.$email;
                             $mail->AddAddress($email);
                         
                             $mail->Send(); 
