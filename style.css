@@ -774,12 +774,12 @@ th{
 
 }
 .content-cliente-esquerda h3{
-    width: 11.5rem;
+    width: 10.5rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
     font-size: 16px;
     font-weight: bold;
-    
+    font-size: 16.1px;
 }
 
 .content-cliente-direita p{
@@ -787,9 +787,9 @@ th{
     font-size: 15.1px;
     font-weight: bold;
     font-family: 'Noto Sans','Open Sans bold', sans-serif;
-    width: 11.5rem;
+    width: 13.5rem;
     margin-top: 1rem;
-    margin-bottom: 1rem;
+
     
 }
 /* perfil do dashboard fim */
@@ -1064,4 +1064,43 @@ th{
     margin-top: 1rem;
     margin-bottom: 3rem;
     
+}
+/* FINAL Input Alterar PET */
+/* ------------------------ */
+
+.content-alterarcliente-esquerda {
+ 
+}
+.input-altera-cliente form{
+    background-color: #f1f1e6;
+    padding: 12rem;
+    border: 1px solid #468847;
+    width: 10%;
+    border-radius: 0.8rem;
+}
+.input-altera-cliente h1{
+    text-transform: none;
+    font-family: 'Noto Sans','Open Sans bold', sans-serif;
+    color: #e75f17;
+    /* border-bottom: 1px solid #e75f17; */
+    width: 100%;
+    font-size: 2.2rem;
+}
+
+.input-altera-cliente h2{
+    text-transform: none;
+    font-size: 1rem;
+    font-family: 'Noto Sans','Open Sans bold', sans-serif;
+    color: #468847;
+    width: 100%;
+    
+}
+.input-altera-cliente input{
+    width: 60%;
+    padding: 0.6rem;
+    margin-top: 1rem;
+    
+}
+.input-altera-cliente input:focus{
+    outline-color: #468847;
 }

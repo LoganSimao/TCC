@@ -93,8 +93,9 @@
                             $identifica = $clientes_array['ID'];
                             $id = $identifica + 1; 
                         }
-                
-                        $sql = "INSERT INTO cadastro_cliente (id,nome,CPF,email,senha,cep,endereco,bairro,cidade,estado,complemento,numero,telefone) VALUES(
+                        $confirmar_email = 'Não';
+
+                        $sql = "INSERT INTO cadastro_cliente (id,nome,CPF,email,senha,cep,endereco,bairro,cidade,estado,complemento,numero,telefone,confirmar_email) VALUES(
                             $id,
                             '$_POST[nome]',
                             '$_POST[cpf]',
@@ -107,11 +108,28 @@
                             '$_POST[estado]',
                             '$_POST[complemento]',
                             '$_POST[numero]',
-                            '$_POST[telefone]'
-                            )";
+                            '$_POST[telefone]',
+                            '$confirmar_email')";
 
                         if(mysqli_query($conexao,$sql)){
                             $cadastro = "Cadastrado concluido com sucesso";
+                            
+                            require 'PHPMailer/PHPMailerAutoload.php';
+                        
+                            $mail = new PHPMailer();
+                            $mail->isSMTP();
+                            $mail->Host = 'smtp.gmail.com';
+                            $mail->SMTPAuth = true;
+                            $mail->SMTPSecure = 'tls';
+                            $mail->Username = 'no.replay.idpets@gmail.com';
+                            $mail->Password = 'otaku1234';
+                            $mail->Port = 587;
+                            $mail->isHTML();
+                            $mail->Subject = 'Hello world';
+                            $mail->Body = 'http://localhost/New%20folder/TCC/TCC/confirmar_email.php?email='.$email;
+                            $mail->AddAddress($email);
+                        
+                            $mail->Send(); 
                         }
                         else{
                             echo "Erro ao inserir cliente! Erro: ".mysqli_error($conexao);
