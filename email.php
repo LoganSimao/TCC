@@ -1,6 +1,8 @@
 <?php 
     require 'PHPMailer/PHPMailerAutoload.php';
 
+    $email = 'logan_js22@hotmail.com';
+
     $mail = new PHPMailer();
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
@@ -12,7 +14,7 @@
     $mail->isHTML();
     $mail->Subject = 'Hello world';
     $mail->Body = 'A test email!';
-    $mail->AddAddress('igoralmeida105@gmail.com');
+    $mail->AddAddress($email);
 
     $mail->Send(); 
 ?>
