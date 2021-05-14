@@ -33,8 +33,8 @@
     ?>
     <nav class="menu-navegacao">
     <div class="menu-nav-menu">
-        <div class="menu-esquerda"><img src="imagens/Vectorpaw.png" alt=" "></a>
-            <a href="index.php">ID Pets
+        <div class="menu-esquerda">
+            <a href="">ID pets</a>
         </div>
         <div class="menu-central">
             <ul class="componentes-central">
@@ -100,68 +100,9 @@
         
         </div>
     </div>
-    <!-- inicio do menu 
-    
-    <div class="slide-menu">
-        <div class="slides">
-            -- botoes radio inicio --
-            <input type="radio" name="botao-radio" id="radio1">
-            <input type="radio" name="botao-radio" id="radio2">
-            <input type="radio" name="botao-radio" id="radio3">
-            !-- botoes radio fim --
-            !-- imagens slide começo --
-            <div class="slide um">
-                <img src="imagens/dog1.jpg" alt="">
-                <p>pera</p>
-            </div>
-            <div class="slide">
-                <img src="imagens/dog2.jpg" alt="">
-            </div>
-            <div class="slide">
-                <img src="imagens/dog3.jpg" alt="">
-            </div>
-            !-- imagens slide fim --
-            !-- navegação automatica começo --
-            <div class="navegacao-auto"> 
-                <div class="nav-btn1"></div>
-                <div class="nav-btn2"></div>
-                <div class="nav-btn3"></div>
-            </div>           
-            !-- navegação automatica fim--
-        </div>
-        !-- navegação manual começo--
-        <div class="navegacao-manual">
-            <label for="radio1" class="manual-btn"></label>
-            <label for="radio2" class="manual-btn"></label>
-            <label for="radio3" class="manual-btn"></label>
-        </div>
-        !-- navegação manual fim--
-    </div>
-    !-- final do menu -->
-  <section id="s1" class="sessao-1">
-      <div class="main-alinhamento">
-        <div class="main-index">
-            <div class="wrap-logo">
-                <div class="main-logo">
-                    <img src="imagens/Vectorpaw.png">
-                </div>
-                <div>
-                    <h3 class="id-logo">ID Pets</h3>
-                </div> 
-            </div>
-            <div>
-                <h1>Identifique seus pets de um jeito fácil!</h1>
-                <a class="discover">Descubra</a>
-            </div>
-        </div>
-        <div class="main-index-2">
-            <img src="imagens/pts.png" alt="" class="img-pets">
-        </div>
-    </div>
-  </section>
+  
     <script src="script.js"></script>
     <?php echo $falha; ?>
-    
 </body>
 <footer>
     <nav class="footer-mestre">
