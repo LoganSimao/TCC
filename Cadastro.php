@@ -94,8 +94,9 @@
                             $id = $identifica + 1; 
                         }
                         $confirmar_email = 'Não';
+                        $token = 1;
 
-                        $sql = "INSERT INTO cadastro_cliente (id,nome,CPF,email,senha,cep,endereco,bairro,cidade,estado,complemento,numero,telefone,confirmar_email) VALUES(
+                        $sql = "INSERT INTO cadastro_cliente (id,nome,CPF,email,senha,cep,endereco,bairro,cidade,estado,complemento,numero,telefone,confirmar_email,token) VALUES(
                             $id,
                             '$_POST[nome]',
                             '$_POST[cpf]',
@@ -109,7 +110,8 @@
                             '$_POST[complemento]',
                             '$_POST[numero]',
                             '$_POST[telefone]',
-                            '$confirmar_email')";
+                            '$confirmar_email',
+                            $token)";
 
                         if(mysqli_query($conexao,$sql)){
                             $cadastro = "Cadastrado concluido com sucesso";
@@ -125,7 +127,7 @@
                             $mail->Password = 'otaku1234';
                             $mail->Port = 587;
                             $mail->isHTML();
-                            $mail->Subject = 'Hello world';
+                            $mail->Subject = 'Confirme seu e-mail';
                             $mail->Body = 'http://localhost/New%20folder/TCC/TCC/confirmar_email.php?email='.$email;
                             $mail->AddAddress($email);
                         
