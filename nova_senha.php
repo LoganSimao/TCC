@@ -17,41 +17,65 @@
 <?php
     include 'conexao.php';
     
+    $cadastro = "";
+
     $token = $_GET['token'];
     $email = $_GET['email'];
 
-    if(isset($_GET['botao-cadastro'])){
-        $token = $_GET['token'];
-        $email = $_GET['email'];
-        echo $token;
+    if(empty($token)){
+        header('Location: index.php');
+    }
+    else{
 
-        $senha = $_GET['senha'];
-        $confirmar_senha = $_GET['confirmar_senhar'];
-        
-        if($senha == $confirmar_senha){
+        $sql2 = "SELECT token FROM cadastro_cliente WHERE email = '$email'";
+        $verificarToken = mysqli_query($conn,$sql2);
+        $qualquer = mysqli_fetch_array($verificarToken);
+        $q = $qualquer['token'];
 
-            $sql2 = "SELECT token FROM cadastro_cliente WHERE email = '$email'";
-            $verificarToken = mysqli_query($conn,$sql2);
-            $qualquer = mysqli_fetch_array($verificarToken);
-            $q = $qualquer['token'];
-
-
-            echo $q."<br>".$token;
-
-            if(empty ($token)){
-                //header('Location: index.php');
-            
-                if($q == $token){
-                    
-                }
-                else{
-                // header('Location: index.php');
-
-                }
-            }
+        if($q == 1){
+            header('Location: index.php');
         }
         else{
-            echo "senhas diferentes";
+            if(isset($_GET['botao-cadastro'])){
+                
+                $token = $_GET['token'];
+                $email = $_GET['email'];
+                
+                $senha = $_GET['senha'];
+                $confirmar_senha = $_GET['confirmar_senha'];
+                
+                if(empty($senha)){
+                    $cadastro = "Campos não preenchidos!";
+                }
+                else{
+                
+                    if($senha == $confirmar_senha){
+
+                        if($q == $token){
+
+                        $hash = password_hash($senha, PASSWORD_DEFAULT);
+                        $hashFinal = "'".$hash."'";
+
+                        $sql3 = "UPDATE cadastro_cliente SET senha = $hashFinal WHERE email = '$email'";
+
+                            if(mysqli_query($conn, $sql3)) {
+                                $sql4 = "UPDATE cadastro_cliente SET token = 1 WHERE email = '$email'";
+                                
+                                if(mysqli_query($conn,$sql4)){
+                                    $cadastro = "Senha alterada com sucesso.";
+                                    header( "refresh:3;url=index.php" );
+                                }
+                            }
+                            else{
+                                $cadastro = "Erro ao alterar a senha";
+                            }
+                        }
+                    }
+                    else{
+                        $cadastro = "As senhas são diferentes";
+                    }
+                }
+            }
         }
     }
 ?>
@@ -82,11 +106,15 @@
     <div class="form-background">
         <div class="form-content">
             <div class="">
-                <form action="nova_senha.php?email=<?php echo $email."&token=".$token;?>">
+                <form method="GET" action="nova_senha.php">
                     <h1 class="login-title">Insira a nova senha</h1>
-                    <input type="text" name="senha"placeholder="Nova senha" autofocus>
-                    <input type="text" name="confirmar_senha"placeholder="Confirmar senha">
                     
+                    <input type="hidden" name="token" value="<?php echo $token; ?>">
+                    <input type="hidden" name="email" value="<?php echo $email; ?>">
+                    <input type="password" name="senha" placeholder="Nova senha" autofocus>
+                    <input type="password" name="confirmar_senha" placeholder="Confirmar senha">
+                    
+                    <h2><?php echo $cadastro; ?></h2>
                     <div class="line"></div>
                     <button class="botao-cadastro" name="botao-cadastro">Redefinir senha</button>
                 </form>
