@@ -19,6 +19,8 @@ include 'conexao.php';
 include 'log.php';
 session_start();
 
+$cadastro = "";
+
 if(!isset($_SESSION['logado'])){
     $nome = "Login";
 }
@@ -125,7 +127,7 @@ if(isset($_POST['botao-cadastro'])){
             <input type="password" placeholder="Senha" name="senha">
             <button class="botao-logar" name="logar" type="submit">Entrar</button>
             <p id="msg"></p>
-            <h2>Esqueceu a senha ?</h2>
+            <a href="recuperar_senha.php"><h2>Esqueceu a senha ?</h2></a>
             <div class="line"></div>
             <button class="botao-cadastro" >Criar conta</button>
 

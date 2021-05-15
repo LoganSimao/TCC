@@ -16,26 +16,44 @@
 <body>
 <?php
     include 'conexao.php';
-
+    
+    $token = $_GET['token'];
     $email = $_GET['email'];
 
-    $sql2 = "SELECT token FROM cadastro_cliente WHERE email = '$email'";
-    $verificarToken = mysqli_query($conn,$sql2);
-    $qualquer = mysqli_fetch_array($verificarToken);
-    $q = $qualquer['token'];
+    if(isset($_GET['botao-cadastro'])){
+        $token = $_GET['token'];
+        $email = $_GET['email'];
+        echo $token;
 
-    $token = $_GET['token'];
+        $senha = $_GET['senha'];
+        $confirmar_senha = $_GET['confirmar_senhar'];
+        
+        if($senha == $confirmar_senha){
 
-    echo $q."<br>".$token;
+            $sql2 = "SELECT token FROM cadastro_cliente WHERE email = '$email'";
+            $verificarToken = mysqli_query($conn,$sql2);
+            $qualquer = mysqli_fetch_array($verificarToken);
+            $q = $qualquer['token'];
 
-    if($q == $token){
-        echo "bom";
+
+            echo $q."<br>".$token;
+
+            if(empty ($token)){
+                //header('Location: index.php');
+            
+                if($q == $token){
+                    
+                }
+                else{
+                // header('Location: index.php');
+
+                }
+            }
+        }
+        else{
+            echo "senhas diferentes";
+        }
     }
-    else{
-        header('Location: index.php');
-
-    }
-
 ?>
     <nav class="menu-navegacao">
     <div class="menu-nav-menu">
@@ -64,7 +82,7 @@
     <div class="form-background">
         <div class="form-content">
             <div class="">
-                <form method="POST" action="cadastropets.php">
+                <form action="nova_senha.php?email=<?php echo $email."&token=".$token;?>">
                     <h1 class="login-title">Insira a nova senha</h1>
                     <input type="text" name="senha"placeholder="Nova senha" autofocus>
                     <input type="text" name="confirmar_senha"placeholder="Confirmar senha">
