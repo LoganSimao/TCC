@@ -12,6 +12,7 @@
     --verde: #468847;
     --cinza: #413f3f;
     --fonte: 'Noto Sans','Open Sans bold', sans-serif;
+    --bg-index: url('svg/5bg-green.svg');
 }
 
 /**/
@@ -26,34 +27,44 @@ body{
     justify-content: center;
     align-items: center;
     /* background-color: #14F86D; */
-    background-color: var(--verde);
+    
     /* background-image: url('imagens/jason-dent-unsplash.jpg'); */
     /* background-image: url('imagens/peter-de-lucia-eKZebEKI9mo-unsplash.jpg'); */
-    background-image: url('imagens/artur-luczka-loAfOVk1eNc-unsplash.jpg');
+    /* background-image: url('imagens/artur-luczka-loAfOVk1eNc-unsplash.jpg'); */
     
     
-    /* background-color: #fefefe; */
+    
+    /* background-color: #fefefe; <form action="<?php echo $_SERVER['PHP_SELF'];?>">*/
 
 }
 
 /****** sessao 1 *********/
 .sessao-1{
+    background-color: #dadde1;
+    background-image: var(--bg-index);
     height: 100vh;
     width: 100vw;
-    background-color: #dadde1;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+.caixote{
+
+
+}
+
 .main-alinhamento{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 80vw;
+    min-width: 290px;
+    margin-left: 2rem;
 }
+
 .main-index{
     display: block;
-
     align-items: center;
     width: 40vw;
  
@@ -63,26 +74,69 @@ body{
     font-family: var(--fonte);
     color: var(--verde);
     margin-bottom: 5rem;
+    margin-top: 0;
+    min-width: 146px;
+    font-size: clamp(18px, 3vw, 3vw);
+    
 }
+
 .wrap-logo{
     display: flex;
-    justify-content: space-around;
+    justify-content: none;
     align-items: center;
-    width: 7rem;
-    
+    width: clamp(7rem,20vw,20vw);
+    height: clamp(6rem, 12vw, 12vw);
+
+}
+
+.main-logo {
+    width: 5rem;
+    font-size: clamp(18px, 2.5vw, 2.5vw);
+}
+
+.main-logo img{
+    min-width: 34px;
+    min-height: 28px;
+    width: 3vw;
+    height: 3vw;
 }
 
 .wrap-logo h3{
     font-family: var(--fonte);
     color: var(--laranja);
-    /* font-size: clamp(18px,); */
+    width: clamp(5rem, 12vw, 12vw);
+    font-size: clamp(18px, 2.5vw, 2.5vw);
+    margin-left: 5px;
+    
 }
 
 .main-index-2 img{
-    width: 10rem; /* min - w 10rem h 16rem */
-    height: 16rem; 
+    min-width: 12rem; 
+    min-height: 18rem;
+    width: 20vw;
+    height: 30vw;
+    margin-left: 2px;
 }
 
+.discover{
+    background-color: var(--laranja);
+    padding: 1rem 2rem;
+    padding: 1.2rem 5.2rem;
+    border-radius: 3rem;
+    font-size: 19px;
+    font-family: var(--fonte);
+    font-weight: bold;
+    color: #fff;
+    
+}
+@media screen and (max-width: 400px){
+    #discover{
+        padding: 1.2rem 2rem;
+        font-size: 16px;
+    }
+}
+
+/************* 
 .discover{
     background-color: var(--laranja);
     padding: 1rem 2rem;
@@ -91,8 +145,7 @@ body{
     font-weight: bold;
     color: #fff;
 }
-
-/************* 1 **********/
+1 **********/
 
 /*Barra de menu inicio*/
 

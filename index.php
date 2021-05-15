@@ -139,6 +139,7 @@
     </div>
     !-- final do menu -->
   <section id="s1" class="sessao-1">
+      <div class="caixote">
       <div class="main-alinhamento">
         <div class="main-index">
             <div class="wrap-logo">
@@ -151,12 +152,13 @@
             </div>
             <div>
                 <h1>Identifique seus pets de um jeito fácil!</h1>
-                <a class="discover">Descubra</a>
+                <a class="discover" id="discover">Descubra</a>
             </div>
         </div>
         <div class="main-index-2">
-            <img src="imagens/pts.png" alt="" class="img-pets">
+            <img src="imagens/diamondshape.png" alt="" class="img-pets">
         </div>
+    </div>
     </div>
   </section>
     <script src="script.js"></script>
