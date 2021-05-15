@@ -22,6 +22,7 @@
     $token = $_GET['token'];
     $email = $_GET['email'];
 
+
     if(empty($token)){
         header('Location: index.php');
     }
