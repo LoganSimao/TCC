@@ -146,7 +146,7 @@ if(isset($_POST['botao-cadastro'])){
             
             <div class="line"></div>
             <h2><?php echo $cadastro; ?></h2>
-            <button class="botao-cadastro" name="botao-cadastro">Cadastrar</button>
+            <button class="botao-cadastro" name="botao-cadastro">Solicitar nova senha</button>
         </form>
             
 
