@@ -147,6 +147,7 @@
                     <h3>Cidade </h3>
                     <h3>Estado </h3>
                 </div>
+
                 <div class="content-cliente-direita">
                     <!---->
                     <?php echo "<br><br><br><p>".$armazenamento['nome']."</p>";
@@ -163,7 +164,9 @@
                 </div>
             </div>
         </div>
-        
+        <div class="ajustar-botão">
+            <a href="alterarclientes.php" class="">Alterar dados</a>
+        </div>        
     </div>
       
     <script src="script.js"></script>
