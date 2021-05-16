@@ -103,7 +103,7 @@
         </form>
         
     </div>
-      <div class="form-background">
+      <div class="form-background2">
         
         <div class="form-content-perfil2">
             

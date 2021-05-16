@@ -133,9 +133,9 @@
         </div>
     </div>
     <div class="sidenav">
-        <a href="/tcc/dashboard.php">Cliente</a>
-        <a href="/tcc/seuspets.php">Pets</a>
-        <a href="/tcc/historico.php">Historico de compra</a>
+        <a href="dashboard.php">Cliente</a>
+        <a href="seuspets.php">Pets</a>
+        <a href="historico.php">Historico de compra</a>
         <form action="log.php">
         <button name="sair">Sair</button>
         </form>

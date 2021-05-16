@@ -611,7 +611,16 @@ body{
     border-radius: 0.8rem;
     position: relative;
 }
-
+.form-background2{
+    box-shadow: 5px 10px 8px 10px rgba(66, 78, 65, 0.5);
+    background-color: #f1f1e6;
+    display: flex;
+    justify-content: space-around;
+    width: 36rem;
+    height: 43.5rem;
+    border-radius: 0.8rem;
+    position: relative;
+}
 .form-content{
     display: flex;
 }
