@@ -7,12 +7,18 @@
     text-decoration: none;
 
 }
+
+html{
+    scroll-behavior: smooth;
+}
 :root{
     --laranja: #e75f17;
     --verde: #468847;
     --cinza: #413f3f;
     --fonte: 'Noto Sans','Open Sans bold', sans-serif;
-    --bg-index: url('svg/5bg-green.svg');
+    --bg-index: url('svg/Frame 6backgreen.svg');
+    --bg-index-mb: url('svg/mobmob.svg');
+    --bg-desk-mb: url('svg/mobmini-desk-green.svg');
 }
 
 /**/
@@ -22,35 +28,113 @@
 body{
     margin: 0;
     padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
     /* background-color: #14F86D; */
     
     /* background-image: url('imagens/jason-dent-unsplash.jpg'); */
     /* background-image: url('imagens/peter-de-lucia-eKZebEKI9mo-unsplash.jpg'); */
     /* background-image: url('imagens/artur-luczka-loAfOVk1eNc-unsplash.jpg'); */
-    
-    
-    
+ 
     /* background-color: #fefefe; <form action="<?php echo $_SERVER['PHP_SELF'];?>">*/
 
 }
 
 /****** sessao 1 *********/
-.sessao-1{
+#s1{
+    display: flex;
     background-color: #dadde1;
-    background-image: var(--bg-index);
-    height: 100vh;
+    margin: 0;
+    padding: 0;
+    
+    
+}
+/* test */
+
+.custom-shape-divider-bottom-1621127856 {
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-bottom-1621127856 svg {
+    position: relative;
+    display: block;
+    width: calc(169% + 1.3px);
+    height: 292px;
+}
+
+.custom-shape-divider-bottom-1621127856 .shape-fill {
+    fill: #468847;
+}
+
+/** For tablet devices **/
+@media (min-width: 768px) and (max-width: 1023px) {
+    .custom-shape-divider-bottom-1621127856 svg {
+        width: calc(216% + 1.3px);
+        height: 427px;
+    }
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+    .custom-shape-divider-bottom-1621127856 svg {
+        width: calc(204% + 1.3px);
+        height: 312px;
+    }
+}
+/* test fim*/
+/* test2 */
+.custom-shape-divider-top-1621129009 {
+    position: absolute;
+    top: 90;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1621129009 svg {
+    position: relative;
+    display: block;
+    width: calc(169% + 1.3px);
+    height: 292px;
+}
+
+.custom-shape-divider-top-1621129009 .shape-fill {
+    fill: #468847;
+}
+
+/** For tablet devices **/
+@media (min-width: 768px) and (max-width: 1023px) {
+    .custom-shape-divider-top-1621129009 svg {
+        width: calc(216% + 1.3px);
+        height: 427px;
+    }
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+    .custom-shape-divider-top-1621129009 svg {
+        width: calc(204% + 1.3px);
+        height: 312px;
+    }
+}
+
+/* test2 fim */
+
+
+.caixote{
+    
+    height: 98vh;
     width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.caixote{
-
 
 }
 
@@ -61,6 +145,7 @@ body{
     width: 80vw;
     min-width: 290px;
     margin-left: 2rem;
+    z-index: 2;
 }
 
 .main-index{
@@ -111,7 +196,7 @@ body{
 }
 
 .main-index-2 img{
-    min-width: 12rem; 
+    min-width: 10rem; 
     min-height: 18rem;
     width: 20vw;
     height: 30vw;
@@ -120,6 +205,8 @@ body{
 
 .discover{
     background-color: var(--laranja);
+    background: rgb(231,95,23);
+    background: linear-gradient(129deg, rgba(231,95,23,1) 34%, rgba(213,180,162,1) 100%);
     padding: 1rem 2rem;
     padding: 1.2rem 5.2rem;
     border-radius: 3rem;
@@ -127,26 +214,29 @@ body{
     font-family: var(--fonte);
     font-weight: bold;
     color: #fff;
+    cursor: pointer;
     
 }
+@media screen and (max-width: 900px){
+    #discover{
+        padding: 1.2rem 3rem;
+        font-size: 17px;
+    }
+}
+
 @media screen and (max-width: 400px){
     #discover{
         padding: 1.2rem 2rem;
         font-size: 16px;
     }
 }
-
-/************* 
-.discover{
-    background-color: var(--laranja);
-    padding: 1rem 2rem;
-    border-radius: 3rem;
-    font-family: var(--fonte);
-    font-weight: bold;
-    color: #fff;
+.sessao-2{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
 }
-1 **********/
-
 /*Barra de menu inicio*/
 
 .menu-navegacao{
@@ -158,7 +248,7 @@ body{
     text-transform: none;
     font-weight: bold;
     top: 0;
-    width: clamp(100px,100%,150%);
+    width: clamp(100px,100vw,150%);
     height: 4.5rem;
     z-index: 400;
     font: 14px;
@@ -895,7 +985,7 @@ th{
     text-align: center;
     font-weight: bold;
     bottom: 0;
-    width: 100%;
+    width: 100vw;
     height: 4.5rem;
     z-index: 400;
     font: 14px;

@@ -199,17 +199,18 @@ if(count < 1){
   count ++
 
 }
+
+var tamanho = document.getElementsByTagName('img').length;
+count = 0
+if(count < 1){
+  tamanho -= 1;
+  var imgs = document.getElementsByTagName('img');
+  imgs[tamanho].remove();
+  count ++
+
+}
 */
 
-window.onclick = function(){
-  if(document.getElementsByTagName('img').length === 4){
-     var icon = document.getElementsByTagName('img');
-     icon[3].remove();
- }
-  if(document.getElementsByTagName('img').length === 1){
-     var icon2 = document.getElementsByTagName('img');
-     icon2[0].remove();
- }
- 
-}
+
+
 

@@ -139,27 +139,52 @@
     </div>
     !-- final do menu -->
   <section id="s1" class="sessao-1">
-      <div class="caixote">
-      <div class="main-alinhamento">
-        <div class="main-index">
-            <div class="wrap-logo">
-                <div class="main-logo">
-                    <img src="imagens/Vectorpaw.png">
+    <div class="caixote">
+        <div class="main-alinhamento">
+            <div class="main-index">
+                <div class="wrap-logo">
+                    <div class="main-logo">
+                        <img src="svg/Vectorpawsvg.svg">
+                    </div>
+                    <div>
+                        <h3 class="id-logo">ID Pets</h3>
+                    </div> 
                 </div>
                 <div>
-                    <h3 class="id-logo">ID Pets</h3>
-                </div> 
+                    <h1>Identifique seus pets de um jeito fácil!</h1>
+                    <a href="#s2"class="discover" id="discover">Descubra</a>
+                </div>
             </div>
-            <div>
-                <h1>Identifique seus pets de um jeito fácil!</h1>
-                <a class="discover" id="discover">Descubra</a>
+            <div class="main-index-2">
+                <img src="imagens/diamondshape.png" alt="" class="img-pets">
             </div>
         </div>
-        <div class="main-index-2">
-            <img src="imagens/diamondshape.png" alt="" class="img-pets">
+        
+        <div class="custom-shape-divider-bottom-1621127856">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+            </svg>
         </div>
     </div>
+    
+  </section>
+  <section id="s2" class="sessao-2">
+    <div>
+        <h1>Nosso site é feito para dar uma identificação para seu pet, onde ele pode usar com nossa coleira personalizada,
+            voce tambem pode achar uma maneira criativa de usar o nosso QR code que identifica o seu pet.
+        </h1>
+        <h2>O perfil do seu pet irá conter as informações do proprio junto com informações basicas de contato do seus dono</h2>
+        <h2>Um exemplo de como o perfil do seu pet vai ficar disponivel sempre que o codigo for lido</h2>
+        <img src="">
+        <h2>Como mencionamos acima temos uma coleira personalizada que ja vai com o QR code imbutido para voce usar no seu pet</h2>
     </div>
+    <div></div>
+    <div></div>
+    <div class="custom-shape-divider-top-1621129009">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+    </svg>
+</div>
   </section>
     <script src="script.js"></script>
     <?php echo $falha; ?>

@@ -155,7 +155,7 @@
 
                         <td><?php echo $dados['nome']; ?></td>
 
-                        <td class="tabelapet"><a href="alterarpets.php?id=<?php echo $dados;?>">
+                        <td class="tabelapet"><a href="alterarpets.php?id=<?php echo $dados['id'];?>">
                         <img  style="background-color:grey;" src="imagens/edit.png"></a>
                         </td>
 
