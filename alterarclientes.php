@@ -184,6 +184,10 @@
                <h3>Complemento</h3>
                <h3>Número</h3>
                <h3>Telefone</h3>
+               
+               <div class="consulta-pet">
+                    <a class="voltar-pet" href="dashboard.php">Voltar</a>
+                </div>
            </div>
            <div class="content-pet-direita">
                <form action="alterarclientes.php?id=<?php echo $id_cliente; ?>" method="POST" class="input-altera-cliente">
@@ -203,9 +207,7 @@
                </form>
            </div>
        </div>
-                <div class="consulta-pet">
-                    <a class="voltar-pet" href="dashboard.php">Voltar</a>
-                </div>
+
             </div>
     </div>   
     </div>
