@@ -22,17 +22,16 @@
     $token = $_GET['token'];
     $email = $_GET['email'];
 
-
     if(empty($token)){
         header('Location: index.php');
     }
-    else{
-
+    else{ // Verifica se o token de solicitação foi aberto.
         $sql2 = "SELECT token FROM cadastro_cliente WHERE email = '$email'";
         $verificarToken = mysqli_query($conn,$sql2);
         $qualquer = mysqli_fetch_array($verificarToken);
         $q = $qualquer['token'];
 
+        // Caso seja 01 significa que o usuário não solicitou redefinição de senha.
         if($q == 1){
             header('Location: index.php');
         }
@@ -45,23 +44,25 @@
                 $senha = $_GET['senha'];
                 $confirmar_senha = $_GET['confirmar_senha'];
                 
+                // Verifica se o campo senha não está vazio.
                 if(empty($senha)){
                     $cadastro = "Campos não preenchidos!";
                 }
                 else{
-                
-                    if($senha == $confirmar_senha){
 
-                        if($q == $token){
+                    // Verifica se as senhas conferem. 
+                    if($senha == $confirmar_senha){
 
                         $hash = password_hash($senha, PASSWORD_DEFAULT);
                         $hashFinal = "'".$hash."'";
 
                         $sql3 = "UPDATE cadastro_cliente SET senha = $hashFinal WHERE email = '$email'";
-
+                            
+                            // Quando alterar a senha o status do token retorna para 01.
                             if(mysqli_query($conn, $sql3)) {
                                 $sql4 = "UPDATE cadastro_cliente SET token = 1 WHERE email = '$email'";
                                 
+                                //Após a mudança de senha o usuario é redirecionado para a pagina inicial. 
                                 if(mysqli_query($conn,$sql4)){
                                     $cadastro = "Senha alterada com sucesso.";
                                     header( "refresh:3;url=index.php" );
@@ -70,7 +71,6 @@
                             else{
                                 $cadastro = "Erro ao alterar a senha";
                             }
-                        }
                     }
                     else{
                         $cadastro = "As senhas são diferentes";
