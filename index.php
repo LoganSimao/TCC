@@ -39,7 +39,7 @@
         <div class="menu-central">
             <ul class="componentes-central">
                 <li class="componentes-lista-central"><a href="index.php">Home</a></li>
-                <li class="componentes-lista-central"><a href="dashboard.php">Produtos</a></li>
+                <li class="componentes-lista-central"><a href="dashboard.php">Loja</a></li>
                 <li class="componentes-lista-central"><a href="#">Sobre</a></li>
             </ul>
         </div>
@@ -166,25 +166,48 @@
             </svg>
         </div>
     </div>
-    
+    <!--fim 2 -->
   </section>
   <section id="s2" class="sessao-2">
-    <div>
-        <h1>Nosso site é feito para dar uma identificação para seu pet, onde ele pode usar com nossa coleira personalizada,
-            voce tambem pode achar uma maneira criativa de usar o nosso QR code que identifica o seu pet.
-        </h1>
-        <h2>O perfil do seu pet irá conter as informações do proprio junto com informações basicas de contato do seus dono</h2>
-        <h2>Um exemplo de como o perfil do seu pet vai ficar disponivel sempre que o codigo for lido</h2>
-        <img src="">
-        <h2>Como mencionamos acima temos uma coleira personalizada que ja vai com o QR code imbutido para voce usar no seu pet</h2>
+  <div class="custom-shape-divider-top-1621129009">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+        </svg>
+        </div>
+    <div class="caixa2">
+        <div class="conteiner-s2">
+            
+            <div class="wrap-container-s2">
+                <div class="content-s2">
+                    <h3>Nosso site tem como objetivo ajudar a dar uma identificação para seu pet, onde ele pode usar com nossa coleira personalizada,
+                        voce tambem pode achar uma maneira criativa de usar o nosso QR code que identifica o seu pet.
+                    </h3>
+                    <h2>O perfil do seu pet irá conter as informações do proprio junto com informações basicas de contato do seu dono</h2>
+                    <h3>Um exemplo de como o perfil do seu pet vai ficar disponivel sempre que o codigo for lido</h3>
+                    <div class="btn-vermais-align">
+                        <a href="#s3" class="btn-vermais">Ver mais</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div></div>
-    <div></div>
-    <div class="custom-shape-divider-top-1621129009">
-    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
-    </svg>
-</div>
+    
+  </section>
+  <section id="s3" class="sessao-3">
+      <div class="caixa3">
+        <div class="wrap-caixa3">
+            <div class="container-3">
+                <!--<img src="imagens/petsperfil.png">-->
+                <h2>Em nossa loja temos uma coleira personalizada que ja vai com o QR code imbutido para voce usar no seu pet</h2>
+                
+            </div>
+        </div>
+        <div class="custom-shape-divider-bottom-1621222059">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </div>
   </section>
     <script src="script.js"></script>
     <?php echo $falha; ?>

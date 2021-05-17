@@ -9,16 +9,19 @@
 }
 
 html{
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
 }
+
 :root{
     --laranja: #e75f17;
     --verde: #468847;
     --cinza: #413f3f;
+    --dark-cinza:#292828;
     --fonte: 'Noto Sans','Open Sans bold', sans-serif;
     --bg-index: url('svg/Frame 6backgreen.svg');
     --bg-index-mb: url('svg/mobmob.svg');
     --bg-desk-mb: url('svg/mobmini-desk-green.svg');
+    --bg-color: #fdfdf2;
 }
 
 /**/
@@ -29,7 +32,7 @@ body{
     margin: 0;
     padding: 0;
 
-    /* background-color: #14F86D; */
+    background-color: var(--bg-color);
     
     /* background-image: url('imagens/jason-dent-unsplash.jpg'); */
     /* background-image: url('imagens/peter-de-lucia-eKZebEKI9mo-unsplash.jpg'); */
@@ -42,7 +45,8 @@ body{
 /****** sessao 1 *********/
 #s1{
     display: flex;
-    background-color: #dadde1;
+    background-color: #dadde1; /* fria */
+    background-color: #fdfdf2;
     margin: 0;
     padding: 0;
     
@@ -86,7 +90,9 @@ body{
         height: 312px;
     }
 }
+
 /* test fim*/
+
 /* test2 */
 .custom-shape-divider-top-1621129009 {
     position: absolute;
@@ -126,7 +132,27 @@ body{
 }
 
 /* test2 fim */
+/* svg sessao 3 */
+.custom-shape-divider-bottom-1621222059 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
 
+.custom-shape-divider-bottom-1621222059 svg {
+    position: relative;
+    display: block;
+    width: calc(150% + 1.3px);
+    height: 350px;
+}
+
+.custom-shape-divider-bottom-1621222059 .shape-fill {
+    fill: #468847;
+}
 
 .caixote{
     
@@ -206,7 +232,7 @@ body{
 .discover{
     background-color: var(--laranja);
     background: rgb(231,95,23);
-    background: linear-gradient(129deg, rgba(231,95,23,1) 34%, rgba(213,180,162,1) 100%);
+    background: linear-gradient(129deg, rgba(231,95,23,1) 34%, rgba(238,129,71) 99%);
     padding: 1rem 2rem;
     padding: 1.2rem 5.2rem;
     border-radius: 3rem;
@@ -230,13 +256,140 @@ body{
         font-size: 16px;
     }
 }
+/* fim sessao 1 */
+
 .sessao-2{
     margin: 0;
     border: 0;
     padding: 0;
     width: 100vw;
     height: 100vh;
+    background-color: var(--bg-color);
+    font-family: var(--fonte);
 }
+
+.caixa2{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+.conteiner-s2{
+    width: 80vw;
+    height: 60vh;
+    position: relative;
+    top: 26vh;
+    box-shadow: 5px 5px 5px 5px rgba(66, 78, 65, 0.4);
+    background-color: rgba(255,255,255,0.2);
+    border-top: rgba(255,255,255,0.5);
+    border-left: rgba(255,255,255,0.5);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
+.wrap-container-s2{
+    height: 80%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    top: 6vh;
+}
+
+.content-s2{
+    top: 3vh;
+    width: 50%;
+    min-width: 315px;
+    position: relative;
+
+}
+
+.content-s2 h3{
+    color: var(--laranja);
+    font-size: clamp(18px, 1.2vw, 1.2vw);
+}
+
+.content-s2 h2{
+    color: var(--verde);
+    font-size: clamp(18px, 1.2vw, 1.2vw);
+}
+
+.btn-vermais-align{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+
+}
+
+.btn-vermais{
+    padding: 1rem 3rem;
+    background-color: var(--verde);
+    color: #fff;
+    position: absolute;
+    bottom: -4rem;
+
+}
+/* tela reduzida */
+
+@media (max-width: 950px){
+    .conteiner-s2{
+        top: 18vh;
+        height: 70vh;
+    }
+}
+
+/* mobile sessao 2 */
+@media (max-height: 812px){
+    .conteiner-s2{
+        top: 13vh;
+        height: 70vh;
+    }
+    .content-s2 {
+        min-width: 200px;
+        overflow: auto;
+        
+    }
+    .content-s2 h3{
+        font-size: clamp(14px, 1.2vw, 1.2vw);
+    }
+    
+    .content-s2 h2{
+        font-size: clamp(14px, 1.2vw, 1.2vw);
+    }
+    .btn-vermais{
+        padding: 0.8rem 2rem;
+    
+    }
+}
+/* fim sessao 2 */
+
+/* sessao 3 */
+
+.sessao-3{
+    width: 100vw;
+    height: 98vh;
+
+}
+/********* mexer bottom neativo **/
+.caixa3{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+}
+
+.wrap-caixa3{
+
+}
+.container-3{
+
+}
+/* fim sessao 3 */
+
 /*Barra de menu inicio*/
 
 .menu-navegacao{
@@ -592,15 +745,15 @@ body{
 }
 
 
-/* botao logout fim */
-.slide-menu{ /*slider */
+/* botao logout fim 
+.slide-menu{ slider 
     width: 1100px;
     height: 700px;
     border-radius: 10px;
     overflow: hidden;
     
 }
-.slides{ /*slides */
+.slides{ slides 
     width: 500%;
     height: 500px;
     display: flex;
@@ -621,7 +774,7 @@ body{
 }
 
 
-/* manual */
+ manual 
 
 .navegacao-manual{
     position: absolute;
@@ -690,26 +843,47 @@ body{
 #radio3:checked ~ .navegacao-auto .nav-btn3{
     background: var(--laranja);
 }
+*/
+
 /* cadastro de pets */
 .form-background{
-    box-shadow: 5px 10px 8px 10px rgba(66, 78, 65, 0.5);
-    background-color: #f1f1e6;
+    
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-color);
+    
+}
+.content-wrap{
+    z-index: 2;
+    box-shadow: 5px 5px 5px 5px rgba(66, 78, 65, 0.4);
+    background-color: rgba(255,255,255,0.2);
+    border-top: rgba(255,255,255,0.5);
+    border-left: rgba(255,255,255,0.5);
+    backdrop-filter: blur(5px);
     justify-content: space-around;
-    width: 36rem;
-    height: 43.5rem;
+    width: 34vw;
+    height: 80vh;
+    overflow: auto;
+    min-height: 55vh;
     border-radius: 0.8rem;
     position: relative;
+    display: flex;
+    top: 1.5rem;
 }
+
 .form-background2{
     box-shadow: 5px 10px 8px 10px rgba(66, 78, 65, 0.5);
-    background-color: #f1f1e6;;
+    background-color: #f1f1e6;
     justify-content: space-around;
     width: 36rem;
     height: 43.5rem;
     border-radius: 0.8rem;
     position: relative;
 }
+
 .form-content{
     display: flex;
 }
@@ -732,6 +906,7 @@ body{
 .contato{
     font-style: italic;
     text-align: center;
+    font-size: clamp(23px, 1.4vw, 1.4vw);
 }
 
 .descricao{
@@ -759,24 +934,33 @@ body{
 
 .content-pets {
     font-family: 'Noto Sans','Open Sans bold', sans-serif;
+    width: 90%; /* p */
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
 }
 .content-pets p{
     font-weight: bold;
-    color: var(--cinza);
+    color: var(--dark-cinza);
     margin-top: 0;
+    font-size: clamp(15px, 1vw, 1vw);
 }
+
 .nome-pet{
     color: var(--verde);
     text-align: center;
     font-family:'Kaushan Script', cursive;
-    font-size: 3rem;
-    margin: 0rem 0rem 3rem 0rem;
+    font-size: clamp(30px, 3.3vw, 3.3vw);
+    margin: 0rem 0rem 2rem 0rem;
 }
+
 .titulo-pet{
     color: var(--verde);
     text-align: center;
     border-top: none;
     margin: 3rem 0rem 0rem 0rem;
+    font-size: clamp(18px, 1.8vw, 1.8vw);
 }
 
 .content-pets h2{
@@ -786,20 +970,35 @@ body{
     text-transform: none;
     color: var(--verde);
     margin-bottom: 0;
+    font-size: clamp(15px, 1vw, 1vw);
 }
+
+.bt-alinhar{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
 .botao-pet{
+    position: relative;
     color: #FFF;
     background-color: var(--verde);
     border: none;
-    font-size: large;
+    font-size: clamp(14px, 1.2vw,1.2vw);
+    font-weight: bold;
     text-transform: none;
-    width: 22rem;
-    height: 3rem;
-    margin-top: 1rem;
-    margin-left: 3.5rem;
+    width: 20vw;
+
+    height: 3.3rem;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 50px;
 }
+
+.botao-pet:hover{
+    transition: 0.6s;
+    background-color: var(--laranja);
+}
+
 .cadastrar-pet{
     color: #FFF;
     background-color: var(--verde);
@@ -838,22 +1037,119 @@ body{
     margin-left: 2rem;
     align-items: center;
 }
-.botao-pet:hover{
-    transition: 0.6s;
-    color: #FFF;
-    background-color: var(--laranja);
-    border: none;
-    font-size: large;
-    text-transform: none;
-    width: 22rem;
-    height: 3rem;
-    margin-top: 1rem;
-    cursor: pointer;
-    margin-left: 3.5rem;
-    border-radius: 5px;
+
+@media (max-width:1000px){
+    .line{
+        margin: 10px 8px;
+    }
+    .content-wrap{
+        top: 1.8rem;
+        height: 75vh;
+        width: 80vw;
+        overflow: auto;
+        
+    }
+    .botao-pet{
+        width: 50vw;
+        height: 8vh;
+    }
+}
+/* small desk */
+
+@media (max-width:1200px) and (max-height: 823px){
+    .line{
+        margin: 10px 8px;
+    }
+    .content-wrap{
+        top: 1.8rem;
+        height: 55vh;
+        width: 60vw;
+        overflow: auto;
+        
+    }
+    .contato{
+        font-size: clamp(20px,1vw,1.5vw);
+    }
+    .content-pets p{
+        font-size: clamp(13px,1vw,1vw);
+    }
+    .nome-pet{
+        font-size: clamp(28px,3vw,3vw);
+        margin-bottom: 0.6rem;
+
+    }
+    .titulo-pet{
+        margin-top: 0.7rem;
+        font-size: clamp(16px,2vw,2vw);
+    }
+    .content-pets h3{
+        font-size: clamp(13px,1vw,1vw);
+    }
+    .botao-pet{
+        font-size: clamp(12px,1.2vw,1.5vw);
+        width: 12rem;
+        height: 2.8rem;
+    }
 }
 
-/* cadastro de pets fim */
+
+/* mobiles */
+
+@media (max-width: 660px) and (max-height: 900px){
+    .content-wrap{
+        top: 1.8rem;
+        height: 60vh;
+        width: 80vw;
+        overflow: auto;
+        
+    }
+}
+@media (max-width: 660px) and (max-height: 660px){
+    .content-wrap{
+        top: 1.8rem;
+        height: 75vh;
+        width: 80vw;
+        overflow: auto;
+        
+    }
+}
+
+/*  ipads */
+@media (min-height: 950px){
+
+    .content-wrap{
+        top: 1.8rem;
+        height: 75vh;
+        width: 75vw;
+        overflow: auto;
+        
+    }
+    .contato{
+        font-size: clamp(1.4rem,3vw,3.5vw);
+    }
+    .content-pets p{
+        font-size: clamp(1.2rem,2.5vw,2.5vw);
+    }
+    .nome-pet{
+        font-size: clamp(4rem,3vw,3vw);
+        margin-bottom: 1.2rem;
+
+    }
+    .titulo-pet{
+        margin-top: 1.6rem;
+        font-size: clamp(1.2rem,3vw,3vw);
+    }
+    .content-pets h3{
+        font-size: clamp(1rem,2.6vw,2.6vw);
+    }
+    .botao-pet{
+        font-size: clamp(1.4rem,3vw,3.5vw);
+        width: 45vw;
+        height: 6vh;
+        top: 4rem;
+    }
+}
+/* pets fim */
 
 /* perfil do dashboard */
 
@@ -942,7 +1238,6 @@ th{
     font-family: 'Noto Sans','Open Sans bold', sans-serif;
     width: 13.5rem;
     margin-top: 0.8rem;
-
     
 }
 /* perfil do dashboard fim */
@@ -981,7 +1276,7 @@ th{
 .footer-mestre{
     background: transparent;
     left: 0;
-    position: fixed;
+    
     text-align: center;
     font-weight: bold;
     bottom: 0;
@@ -1017,6 +1312,7 @@ th{
     overflow: auto;
     background-color: rgba(0,0,0,0.7);
 }
+
 .god-modal{
     display: flex;
     justify-content: center;

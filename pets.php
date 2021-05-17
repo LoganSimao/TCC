@@ -68,13 +68,15 @@
 
             $oa = $armazenamento1['sexo'];
 
-            if($oa == 'Femêa'){//cascata
+            if($oa == 'Femêa'){
                 $a = "a";
                 $A = "A";
+                $e = "a";
             }
             else{
                 $a = "o";
                 $A = "O";
+                $e = "e";
             }
 
             ?>
@@ -86,7 +88,7 @@
         <div class="menu-central">
             <ul class="componentes-central">
                 <li class="componentes-lista-central"><a href="/tcc/index.php">Home</a></li>
-                <li class="componentes-lista-central"><a href="/tcc/dashboard.php">Produtos</a></li>
+                <li class="componentes-lista-central"><a href="/tcc/dashboard.php">Loja</a></li>
                 <li class="componentes-lista-central"><a href="#">Sobre</a></li>
             </ul>
         </div>
@@ -124,38 +126,35 @@
         </div>
     </div>
     <div class="form-background">
-        <div class="">
-        <div class="content-pets">
+        <div class="content-wrap">
+            <div class="content-pets">
 
-            <h1 class="titulo-pet">Você encontrou <?php echo $a."</h1><h1 class='nome-pet'> ".$armazenamento1['nome']?></h1>
-            
-            <p class="descricao"><?php echo $A." ".$armazenamento1['nome']?> 
-            tem <?php echo $armazenamento1['idade']?> anos e
-            é da raça <?php echo $armazenamento1['raca']?>!</p>
-            <p class="descricao">Seu dono vai ficar muito feliz de saber que ele foi encontrado!</p>
-            <div class="line"></div>
-            <h2 class="contato">Aqui estão os dados de contato<h2>
-            
-            <h3>Nome </h3><p><?php echo $armazenamento['nome']?></p>
-            <h3>Número </h3><p><?php echo $armazenamento['telefone']?></p>
-            <h3>E-mail </h3><p><?php echo $armazenamento['email']?></p>
-            <div class="line"></div>
-            <button class="botao-pet">Saber mais sobre o <?php echo $armazenamento1['nome']?></button>
-            <!--fazer formato carta // usar a variavel sexo para definir o vulgo do pet... adicionar tipo de pet em cascata -->
+                <h1 class="titulo-pet">Você encontrou <?php echo $a."</h1><h1 class='nome-pet'> ".$armazenamento1['nome']?></h1>
+                
+                <p class="descricao"><?php echo $A." ".$armazenamento1['nome']?> 
+                tem <?php echo $armazenamento1['idade']?> anos e
+                é da raça <?php echo $armazenamento1['raca']?>!</p>
+                <p class="descricao">Seu dono vai ficar muito feliz de saber que el<?php echo $e;?> foi encontrad<?php echo $a;?>!</p>
+                <div class="line"></div>
+                <h2 class="contato">Aqui estão os dados de contato<h2>
+                
+                <h3>Nome </h3><p><?php echo $armazenamento['nome']?></p>
+                <h3>Número </h3><p><?php echo $armazenamento['telefone']?></p>
+                <h3>E-mail </h3><p><?php echo $armazenamento['email']?></p>
+                <div class="line"></div>
+                <div class="bt-alinhar">
+                    <button class="botao-pet">Saber mais sobre <?php echo $a." ".$armazenamento1['nome']?></button>
+                </div>
+            </div>
         </div>
+        <div class="custom-shape-divider-bottom-1621127856">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+            </svg>
         </div>
     </div>
     <script src="script.js"></script>
     <?php echo $falha; ?>
 </body>
-<footer>
-    <nav class="footer-mestre">
-        <div class="footer">
-            <div class="">
-                <ul class="">
-                    <li class="list-footer">© ID Pets 2021</li>
-                </ul>
-            </div>
-        </div>
-</footer>
+
 </html>
