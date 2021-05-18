@@ -1,5 +1,7 @@
 
-/* on scroll, resize img, hamburguer menu */
+/* on scroll, resize img, hamburguer menu 
+
+//menu slide
 
 var contador = 1;
 setInterval(function() {
@@ -9,7 +11,7 @@ setInterval(function() {
         contador = 1;
     }
 }, 5000);
-
+*/
 // Pontuações no CPF preenchem automaticamente.
 function mascara(i){
    
@@ -101,8 +103,80 @@ function checkInputs(inputs) {
  // botao de login
 
  function login(){
-  var log = document.getElementById("botao-modal").innerHTML;
-  console.log(log);
+ var log = document.getElementById("botao-modal").innerHTML;
+ document.querySelector("#nomepet").addEventListener("change", nomePet);
+
+ function nomePet(){
+   let nomepet = document.querySelector("#nomepet").value;
+   document.querySelector("#nomepet-form").innerHTML = `${nomepet}`;
+   document.querySelector("#botao-form").innerHTML = `Saber mais sobre o ${nomepet}`
+ }
+ document.querySelector("#idadepet").addEventListener("change", idadePet);
+
+ function idadePet(){
+   let nomepet = document.querySelector("#nomepet").value;
+   let idadepet = document.querySelector("#idadepet").value;
+   document.querySelector("#idadepet-form").innerHTML = `o ${nomepet}
+   tem ${idadepet} anos e
+   é da raça !`;
+ }
+ document.querySelector("#raca").addEventListener("change", racaPet);
+ function racaPet(){
+  let nomepet = document.querySelector("#nomepet").value;
+  let idadepet = document.querySelector("#idadepet").value;
+  let raca = document.querySelector("#raca").value;
+
+  document.querySelector("#idadepet-form").innerHTML = `o ${nomepet}
+  tem ${idadepet} anos e
+  é da raça ${raca}!`;
+}
+document.querySelector("#sexopet").addEventListener("change", sexoPet);
+
+function sexoPet(){
+  let sexopet = document.querySelector("#sexopet").value;
+  if(sexopet == "Femêa"){
+    let nomepet = document.querySelector("#nomepet").value;
+    let idadepet = document.querySelector("#idadepet").value;
+    let raca = document.querySelector("#raca").value;
+    document.querySelector("#sexopet-form").innerHTML = `Você encontrou a`;
+    document.querySelector("#botao-form").innerHTML = `Saber mais sobre a ${nomepet}`
+    document.querySelector("#idadepet-form").innerHTML = `a ${nomepet}
+    tem ${idadepet} anos e
+    é da raça ${raca}!`;
+  }
+  else{
+    let nomepet = document.querySelector("#nomepet").value;
+    let idadepet = document.querySelector("#idadepet").value;
+    let raca = document.querySelector("#raca").value;
+    document.querySelector("#sexopet-form").innerHTML = `Você encontrou o`;
+    document.querySelector("#botao-form").innerHTML = `Saber mais sobre o ${nomepet}`
+    document.querySelector("#idadepet-form").innerHTML = `o ${nomepet}
+    tem ${idadepet} anos e
+    é da raça ${raca}!`;
+  }
+}
+document.querySelector("#nome").addEventListener("change", nome);
+
+function nome(){
+  let nome = document.querySelector("#nome").value;
+  document.querySelector("#nome-form").innerHTML = `${nome}`;
+}
+
+document.querySelector("#numero").addEventListener("change", numero);
+
+function numero(){
+  let numero = document.querySelector("#numero").value;
+  document.querySelector("#numero-form").innerHTML = `${numero}`;
+}
+
+document.querySelector("#email").addEventListener("change", email);
+
+function email(){
+  let email = document.querySelector("#email").value;
+  document.querySelector("#email-form").innerHTML = `${email}`;
+}
+
+
   if(log == "Login"){
      
     var modal = document.getElementById("login");
@@ -125,6 +199,8 @@ function checkInputs(inputs) {
         modal.style.display = "none";
       }
     }
+
+
   }
   else{//botaologar
     var botao = document.getElementById("botao-modal");

@@ -97,47 +97,9 @@
 
         </form>
         </div>
-        
         </div>
     </div>
-    <!-- inicio do menu 
-    
-    <div class="slide-menu">
-        <div class="slides">
-            -- botoes radio inicio --
-            <input type="radio" name="botao-radio" id="radio1">
-            <input type="radio" name="botao-radio" id="radio2">
-            <input type="radio" name="botao-radio" id="radio3">
-            !-- botoes radio fim --
-            !-- imagens slide começo --
-            <div class="slide um">
-                <img src="imagens/dog1.jpg" alt="">
-                <p>pera</p>
-            </div>
-            <div class="slide">
-                <img src="imagens/dog2.jpg" alt="">
-            </div>
-            <div class="slide">
-                <img src="imagens/dog3.jpg" alt="">
-            </div>
-            !-- imagens slide fim --
-            !-- navegação automatica começo --
-            <div class="navegacao-auto"> 
-                <div class="nav-btn1"></div>
-                <div class="nav-btn2"></div>
-                <div class="nav-btn3"></div>
-            </div>           
-            !-- navegação automatica fim--
-        </div>
-        !-- navegação manual começo--
-        <div class="navegacao-manual">
-            <label for="radio1" class="manual-btn"></label>
-            <label for="radio2" class="manual-btn"></label>
-            <label for="radio3" class="manual-btn"></label>
-        </div>
-        !-- navegação manual fim--
-    </div>
-    !-- final do menu -->
+
   <section id="s1" class="sessao-1">
     <div class="caixote">
         <div class="main-alinhamento">
@@ -179,11 +141,11 @@
             
             <div class="wrap-container-s2">
                 <div class="content-s2">
-                    <h3>Nosso site tem como objetivo ajudar a dar uma identificação para seu pet, onde ele pode usar com nossa coleira personalizada,
+                    <h3>Nosso site tem como objetivo ajudar a identificar seu pet, onde ele pode usar com nossa coleira personalizada,
                         voce tambem pode achar uma maneira criativa de usar o nosso QR code que identifica o seu pet.
                     </h3>
-                    <h2>O perfil do seu pet irá conter as informações do proprio junto com informações basicas de contato do seu dono</h2>
-                    <h3>Um exemplo de como o perfil do seu pet vai ficar disponivel sempre que o codigo for lido</h3>
+                    <h2>O perfil do seu pet irá conter as informações do proprio junto com informações básicas de contato do seu dono.</h2>
+                    <h3>Abaixo um exemplo de como o perfil do seu pet vai ficar disponivel no nosso site sempre que o QR codigo for lido.</h3>
                     <div class="btn-vermais-align">
                         <a href="#s3" class="btn-vermais">Ver mais</a>
                     </div>
@@ -198,16 +160,59 @@
         <div class="wrap-caixa3">
             <div class="container-3">
                 <!--<img src="imagens/petsperfil.png">-->
-                <h2>Em nossa loja temos uma coleira personalizada que ja vai com o QR code imbutido para voce usar no seu pet</h2>
                 
+                <div class="alinhamento-teste">
+                    <div class="join-titulo-form">
+                    <h2>Preencha o formulário para ver como ficará o perfil do seu pet!</h2>
+                    <div class="formulario-teste">
+                        <div class="form-alinhamento">
+                            
+                            <div class="visualisar-pets">
+                                <form action="" >
+                                    <input type="text" placeholder="Nome do seu pet"name="" id="nomepet">
+                                    <input type="text" placeholder="Idade"name="" id="idadepet">
+                                    <input type="text" placeholder="Raça" name="" id="raca">
+                                    <select id="sexopet"><option value=" ">Sexo</option><option value="Femêa">Femêa</option><option value="Macho">Macho</option></select>
+                                    <input type="text" placeholder="Seu nome"name="" id="nome">
+                                    <input type="text" placeholder="Numero"name="" id="numero">
+                                    <input type="text" placeholder="E-mail"name="" id="email">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="display-teste">
+                        <div class="content-wrap">
+                            <div class="content-pets">
+
+                                <h1 class="titulo-pet" id="sexopet-form">Você encontrou o </h1><h1 class='nome-pet' id="nomepet-form"> </h1>
+                                
+                                <p class="descricao" id="idadepet-form">o Bob
+                                tem 2 anos e
+                                é da raça Buldog!</p>
+                                <p class="descricao">Seu dono vai ficar muito feliz de saber que ele foi encontrado!</p>
+                                <div class="line"></div>
+                                <h2 class="contato">Aqui estão os dados de contato<h2>
+                                <h3>Nome </h3><p id="nome-form">nome</p>
+                                <h3>Número </h3><p id="numero-form">numero</p>
+                                <h3>E-mail </h3><p id="email-form">email</p>
+                                <div class="line"></div>
+                                <div class="bt-alinhar">
+                                    <button class="botao-pet" id="botao-form">Saber mais sobre</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="custom-shape-divider-bottom-1621222059">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
-            </svg>
-        </div>
     </div>
+    <div class="custom-shape-divider-bottom-1621222059">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+    </div>
+    
   </section>
     <script src="script.js"></script>
     <?php echo $falha; ?>

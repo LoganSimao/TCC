@@ -31,7 +31,6 @@ html{
 body{
     margin: 0;
     padding: 0;
-
     background-color: var(--bg-color);
     
     /* background-image: url('imagens/jason-dent-unsplash.jpg'); */
@@ -138,7 +137,7 @@ body{
     bottom: 0;
     left: 0;
     width: 100%;
-    overflow: hidden;
+    overflow: none;
     line-height: 0;
     transform: rotate(180deg);
 }
@@ -148,12 +147,13 @@ body{
     display: block;
     width: calc(150% + 1.3px);
     height: 350px;
+    bottom: 200vh;
 }
 
 .custom-shape-divider-bottom-1621222059 .shape-fill {
     fill: #468847;
 }
-
+/* */
 .caixote{
     
     height: 98vh;
@@ -374,19 +374,100 @@ body{
     height: 98vh;
 
 }
-/********* mexer bottom neativo **/
+
 .caixa3{
     display: flex;
     width: 100vw;
     height: 100vh;
     justify-content: center;
+    align-items: center;
 }
 
 .wrap-caixa3{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
 
 }
-.container-3{
 
+.container-3{
+    position: relative;
+    width: 80vw;
+    height: 80vh;
+}
+.container-3 h2{
+    color: var(--laranja);
+    font-family: var(--fonte);
+}
+
+.alinhamento-teste{
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width:1000px){
+    .alinhamento-teste{
+        display: inline-block;
+    }
+}
+
+.display-teste{
+    justify-content: center;
+}
+
+.formulario-teste{
+    display: flex;
+     
+}
+.form-alinhamento{
+    position: relative;
+    width: 44vw;
+    height: 40rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.visualisar-pets{
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: relative;
+
+}
+.visualisar-pets form{
+    justify-content: center;
+    align-items: center;
+
+}
+.visualisar-pets input{
+    justify-content: center;
+    align-items: center;
+    height: 2.4rem;
+    width: 20rem;
+    margin: 0.5rem;
+    border: none;
+    background-color: none;
+    border-bottom: 1px solid var(--dark-cinza);
+}
+.visualisar-pets input:focus{
+    outline-offset: none;
+    border-bottom: 1px solid var(--dark-cinza);
+    outline-color: var(--verde);
+}
+.visualisar-pets select{
+    justify-content: center;
+    align-items: center;
+    height: 2.4rem;
+    width: 20rem;
+    margin: 0.5rem;
+    border: none;
+    background-color: none;
+    border-bottom: 1px solid var(--dark-cinza);
 }
 /* fim sessao 3 */
 
@@ -744,106 +825,6 @@ body{
     justify-content: space-around;
 }
 
-
-/* botao logout fim 
-.slide-menu{ slider 
-    width: 1100px;
-    height: 700px;
-    border-radius: 10px;
-    overflow: hidden;
-    
-}
-.slides{ slides 
-    width: 500%;
-    height: 500px;
-    display: flex;
-}
-.slides input{
-    display: none;
-
-}
-
-.slide{
-    width: 20%;
-    transition: 2s;
-}
-
-.slide img{
-    width: 1100px;
-    height: 700px;
-}
-
-
- manual 
-
-.navegacao-manual{
-    position: absolute;
-    width: 1100px;
-    margin-top: 150px;
-    display: flex;
-    justify-content: center;
-}
-
-.manual-btn{
-    border: 2px solid var(--laranja);
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 1s;
-}
-
-.manual-btn:not(:last-child){
-    margin-right: 40px;
-}
-
-.manual-btn:hover{
-    background-color: var(--laranja);
-}
-
-#radio1:checked ~ .um{
-    margin-left: 0;
-}
-
-#radio2:checked ~ .um{
-    margin-left: -20%;
-}
-
-#radio3:checked ~ .um{
-    margin-left: -40%;
-}
-
-.navegacao-auto{
-    position: absolute;
-    display: flex;
-    width: 1100px;
-    justify-content: center;
-    margin-top: 650px;
-}
-
-.navegacao-auto div{
-    border: 2px solid var(--laranja);
-    padding: 5px;
-    border-radius: 10px;
-    transition: 1s;
-
-}
-
-.navegacao-auto div:not(:last-child){
-    margin-right: 40px;
-}
-
-#radio1:checked ~ .navegacao-auto .nav-btn1{
-    background: var(--laranja);
-}
-
-#radio2:checked ~ .navegacao-auto .nav-btn2{
-    background: var(--laranja);
-}
-
-#radio3:checked ~ .navegacao-auto .nav-btn3{
-    background: var(--laranja);
-}
-*/
 
 /* cadastro de pets */
 .form-background{
