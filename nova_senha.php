@@ -107,7 +107,7 @@
     <div class="form-background">
         <div class="form-content">
             <div class="">
-                <form method="POST" action="nova_senha.php?email=<?php echo $email."&token=".$token;?>">
+                <form method="GET" action="nova_senha.php?email=<?php echo $email."&token=".$token;?>">
                     <h1 class="login-title">Insira a nova senha</h1>
                     
                     <input type="hidden" name="token" value="<?php echo $token; ?>">
