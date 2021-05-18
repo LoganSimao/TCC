@@ -15,80 +15,71 @@
 </head>
 <body>
 <?php
-include 'conexao.php';
-include 'log.php';
-session_start();
+    include 'conexao.php';
+    include 'log.php';
+    session_start();
 
-$cadastro = "";
+    $cadastro = "";
 
-if(!isset($_SESSION['logado'])){
-    $nome = "Login";
-}
-else{
-    $n = $_SESSION['nome'];
-    $arr = explode(' ', trim($n));
-    $nome = $arr[0];
-}
-
-if(isset($_POST['botao-cadastro'])){
-
-    $email = $_POST['email'];
-    $email_confirm = $_POST['confirmar_email'];
-
-    // Verificar se todos os campos foram preenchidos
-    if (empty($email) or 
-        empty($email_confirm)){
-        $cadastro = "Não preencheu todos os campos";
+    if(!isset($_SESSION['logado'])){
+        $nome = "Login";
     }
     else{
-        //function gerarToken(){
-            //gerar token para link
+        $n = $_SESSION['nome'];
+        $arr = explode(' ', trim($n));
+        $nome = $arr[0];
+    }
+
+    if(isset($_POST['botao-cadastro'])){
+
+        $email = $_POST['email'];
+        $email_confirm = $_POST['confirmar_email'];
+
+        // Verificar se todos os campos foram preenchidos
+        if (empty($email) or 
+            empty($email_confirm)){
+            $cadastro = "Não preencheu todos os campos";
+        }
+
+        // Verifica se os campos estão iguais.
+        elseif ($email == $email_confirm){
+
+            // Gerar token para link
             $arr = str_split('0123456789'); 
             // get all the characters into an array
             shuffle($arr); // randomizar o array
-            $arr = array_slice($arr, 0, 6); // pegar os caracteres do array de 0 a 20
+            $arr = array_slice($arr, 0, 6); // pegar os caracteres do array de 0 a 6
             $token = implode('', $arr); // transforma o array em string novamente
-        
-            /*verificar token no banco de dados
-            $query = "SELECT * from pets where token = '$token'";
-            $result = mysqli_query($conn,$query);
-            $rows = mysqli_num_rows($result);
-            if($rows > 0){
-                gerarToken();//+1
+
+            // Abre a solicitação gerando um Token para o Cliente.
+            $sql = "UPDATE cadastro_cliente SET token = $token WHERE email = '$email'";
+
+            if(mysqli_query($conn,$sql)){
+                $cadastro = "Verifique seu e-mail";
+
+                require 'PHPMailer/PHPMailerAutoload.php';
+                            
+                $mail = new PHPMailer();
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->SMTPSecure = 'tls';
+                $mail->Username = 'no.replay.idpets@gmail.com';
+                $mail->Password = 'otaku1234';
+                $mail->Port = 587;
+                $mail->isHTML();
+                $mail->Subject = 'Recuperar de senha';
+                $mail->Body = 'http://localhost/New%20folder/TCC/TCC/nova_senha.php?email='.$email.'&token='.$token;
+                $mail->AddAddress($email);
+
+                $mail->Send();
             }
-            else{
-                return $token;
-            } */
-       // } 
-
-        $sql = "UPDATE cadastro_cliente SET token = $token WHERE email = '$email'";
-
-        if(mysqli_query($conn,$sql)){
-            $cadastro = "Verifique seu e-mail";
-
-            require 'PHPMailer/PHPMailerAutoload.php';
-                        
-            $mail = new PHPMailer();
-            $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
-            $mail->SMTPAuth = true;
-            $mail->SMTPSecure = 'tls';
-            $mail->Username = 'no.replay.idpets@gmail.com';
-            $mail->Password = 'otaku1234';
-            $mail->Port = 587;
-            $mail->isHTML();
-            $mail->Subject = 'Recuperar de senha';
-            $mail->Body = 'http://localhost/New%20folder/TCC/TCC/nova_senha.php?email='.$email.'&token='.$token;
-            $mail->AddAddress($email);
-        
-            $mail->Send();
         }
         else{
             echo "Erro ao inserir o animal! Erro: ".mysqli_error($conn);
-            $cadastro = "Erro ao cadastrar";
+            $cadastro = "Email não confere.";
         }
     }
-}
 ?>
     <nav class="menu-navegacao">
     <div class="menu-nav-menu">
