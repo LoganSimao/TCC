@@ -147,7 +147,7 @@ body{
     display: block;
     width: calc(150% + 1.3px);
     height: 350px;
-    bottom: 200vh;
+    bottom: 200.5vh;
 }
 
 .custom-shape-divider-bottom-1621222059 .shape-fill {
@@ -288,6 +288,8 @@ body{
     display: flex;
     justify-content: center;
     align-content: center;
+    border-radius: 0.8rem;
+    overflow: auto;
 
 }
 .wrap-container-s2{
@@ -322,6 +324,7 @@ body{
     justify-content: center;
     align-content: center;
     position: relative;
+   
 
 }
 
@@ -331,6 +334,7 @@ body{
     color: #fff;
     position: absolute;
     bottom: -4rem;
+    border-radius: 3rem;
 
 }
 /* tela reduzida */
@@ -399,6 +403,8 @@ body{
 .container-3 h2{
     color: var(--laranja);
     font-family: var(--fonte);
+    font-size: clamp(14px, 1.2vw, 1.2vw);
+    text-align: center;
 }
 
 .alinhamento-teste{
@@ -408,35 +414,46 @@ body{
     align-items: center;
 }
 
-@media (max-width:1000px){
-    .alinhamento-teste{
-        display: inline-block;
-    }
-}
 
 .display-teste{
     justify-content: center;
-}
-
-.formulario-teste{
     display: flex;
-     
+}
+.join-titulo-form{
+    display: flex;
+}
+.formulario-teste{
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* width: 34vw; background: rgb(245 245 236);*/
+    width: 36vw;
+    height: 80vh;
+    
+    box-shadow: 5px 5px 5px 5px rgb(66 78 65 / 40%);
+    background-color: rgba(255,255,255,0.2);
+    border-top: rgba(255,255,255,0.5);
+    border-left: rgba(255,255,255,0.5);
+    backdrop-filter: blur(5px);
+    top: 1.5rem;
+    border-radius: 0.8rem;
+ 
+    
 }
 .form-alinhamento{
+    display: flex;
     position: relative;
-    width: 44vw;
-    height: 40rem;
     justify-content: center;
     align-items: center;
-    display: flex;
+    width: 100%;
+    height: 30rem;
+
+    
 }
 
 .visualisar-pets{
-    width: 50%;
-    justify-content: center;
-    align-items: center;
-    display: flex;
     position: relative;
+    width:70%;
 
 }
 .visualisar-pets form{
@@ -448,26 +465,72 @@ body{
     justify-content: center;
     align-items: center;
     height: 2.4rem;
-    width: 20rem;
+
+    width: 25vw;
     margin: 0.5rem;
     border: none;
     background-color: none;
-    border-bottom: 1px solid var(--dark-cinza);
+    border-bottom: 2px solid var(--laranja);
 }
+
 .visualisar-pets input:focus{
     outline-offset: none;
-    border-bottom: 1px solid var(--dark-cinza);
+    border-bottom: 2px solid var(--verde);
+    outline: none;
     outline-color: var(--verde);
 }
+
 .visualisar-pets select{
     justify-content: center;
     align-items: center;
-    height: 2.4rem;
-    width: 20rem;
+    height: 2.5rem;
+
+    width: 25.3vw;
     margin: 0.5rem;
     border: none;
     background-color: none;
-    border-bottom: 1px solid var(--dark-cinza);
+    border-bottom: 2px solid var(--laranja);
+}
+.visualisar-pets select:focus{
+    outline-offset: none;
+    border-bottom: 2px solid var(--verde);
+    outline: none;
+}
+@media (max-width:1000px){
+    .sessao-3{
+        height: 160vh;
+    }
+    .alinhamento-teste{
+        display: inline-block;
+    }
+
+    .form-alinhamento{
+        top: 1.8rem;
+        height: 75vh;
+        width: 80vw;
+        
+    }
+
+    .visualisar-pets{
+        position: relative;
+    }
+
+    .visualisar-pets input{
+        width: 50vw; /* tava 50 ver minimo no pai */
+    }
+
+    .visualisar-pets select{
+        width: 50vw;
+    }
+
+    .formulario-teste{
+        width: 80vw;
+        overflow: auto;
+        top: -2.3rem;
+    }
+    .custom-shape-divider-bottom-1621222059 svg{
+        bottom:262.5vh;
+    }
 }
 /* fim sessao 3 */
 
@@ -1031,8 +1094,8 @@ body{
         
     }
     .botao-pet{
-        width: 50vw;
-        height: 8vh;
+        width: 40vw;
+        height: 7vh;
     }
 }
 /* small desk */
@@ -1255,14 +1318,14 @@ th{
 /* rodapé */
 
 .footer-mestre{
-    background: transparent;
+    background: var(--verde);
     left: 0;
     
     text-align: center;
     font-weight: bold;
     bottom: 0;
     width: 100vw;
-    height: 4.5rem;
+    height: 18rem;
     z-index: 400;
     font: 14px;
     font-family: 'Noto Sans','Open Sans bold', sans-serif;

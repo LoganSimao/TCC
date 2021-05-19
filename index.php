@@ -141,8 +141,8 @@
             
             <div class="wrap-container-s2">
                 <div class="content-s2">
-                    <h3>Nosso site tem como objetivo ajudar a identificar seu pet, onde ele pode usar com nossa coleira personalizada,
-                        voce tambem pode achar uma maneira criativa de usar o nosso QR code que identifica o seu pet.
+                    <h3>Nosso site tem como objetivo ajudar a identificar seu pet,
+                        voce pode achar uma maneira criativa de usar o nosso QR code que identifica o seu pet.
                     </h3>
                     <h2>O perfil do seu pet irá conter as informações do proprio junto com informações básicas de contato do seu dono.</h2>
                     <h3>Abaixo um exemplo de como o perfil do seu pet vai ficar disponivel no nosso site sempre que o QR codigo for lido.</h3>
@@ -163,11 +163,13 @@
                 
                 <div class="alinhamento-teste">
                     <div class="join-titulo-form">
-                    <h2>Preencha o formulário para ver como ficará o perfil do seu pet!</h2>
+                    
                     <div class="formulario-teste">
+                        
                         <div class="form-alinhamento">
-                            
+                        
                             <div class="visualisar-pets">
+                            <h2>Preencha o formulário para ver como ficará o perfil do seu pet!</h2>
                                 <form action="" >
                                     <input type="text" placeholder="Nome do seu pet"name="" id="nomepet">
                                     <input type="text" placeholder="Idade"name="" id="idadepet">
@@ -185,17 +187,17 @@
                         <div class="content-wrap">
                             <div class="content-pets">
 
-                                <h1 class="titulo-pet" id="sexopet-form">Você encontrou o </h1><h1 class='nome-pet' id="nomepet-form"> </h1>
+                                <h1 class="titulo-pet" id="sexopet-form">Você encontrou o </h1><h1 class='nome-pet' id="nomepet-form">Jony </h1>
                                 
-                                <p class="descricao" id="idadepet-form">o Bob
-                                tem 2 anos e
-                                é da raça Buldog!</p>
+                                <p class="descricao" id="idadepet-form">o Jony
+                                tem 18 anos e
+                                é da raça Pinscher!</p>
                                 <p class="descricao">Seu dono vai ficar muito feliz de saber que ele foi encontrado!</p>
                                 <div class="line"></div>
                                 <h2 class="contato">Aqui estão os dados de contato<h2>
-                                <h3>Nome </h3><p id="nome-form">nome</p>
-                                <h3>Número </h3><p id="numero-form">numero</p>
-                                <h3>E-mail </h3><p id="email-form">email</p>
+                                <h3>Nome </h3><p id="nome-form">-Nome</p>
+                                <h3>Número </h3><p id="numero-form">-Numero</p>
+                                <h3>E-mail </h3><p id="email-form">-E-mail</p>
                                 <div class="line"></div>
                                 <div class="bt-alinhar">
                                     <button class="botao-pet" id="botao-form">Saber mais sobre</button>
