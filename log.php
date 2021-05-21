@@ -1,6 +1,6 @@
 <?php
 
-include 'conexao.php';
+include_once 'conexao.php';
 
 $falha = "";
 if(isset($_GET['sair'])){
@@ -10,12 +10,12 @@ if(isset($_GET['sair'])){
     header('Location: index.php');
 }
 
-if(isset($_GET['logar'])){
+if(isset($_POST['login'])){
 
-$login = $_GET['login'];
-$senha = $_GET['senha'];
-//echo $login;
-//echo $senha;
+$login = $_POST['login'];
+$senha = $_POST['senha'];
+  //echo $login;
+  //echo $senha;
 
 if(empty($login) or empty($senha)){
     $falha = "  <script type=\"text/javascript\">
@@ -66,7 +66,6 @@ else{
     $res = mysqli_query($conn,$s);
     $log = mysqli_fetch_array($res);
     $hash = $log['senha'];
-    
     //echo $hash;
     if(password_verify($senha, $hash)){
         mysqli_close($conn);

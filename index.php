@@ -22,7 +22,7 @@
     
     if(!isset($_SESSION['logado'])){
         $nome = "Login";
-        
+        $n = " ";        
     }
     else{
         $n = $_SESSION['nome'];
@@ -52,7 +52,7 @@
                     <div class="logout" id="logout">
                         <div class="alinhar-logout">
                         <div class="">
-                            <h3><?php echo $n?></h1>
+                            <h3><?php echo $n?></h3>
                         </div>
                         <div class="ver-sair">
                             <div>
@@ -60,6 +60,7 @@
                             </div><div>
                             <form action="<?php echo $_SERVER['PHP_SELF'];?>">
                             <button class="botao-sair" name="sair"><p>Sair</p></button>
+                            </form>
                             </div>
                         </div>
                         </div>
@@ -82,20 +83,16 @@
         <div class="wrap-login">
             <!--add logo-->
             <span class="close" id="close">&times;</span>
-        
-            
-        <form action="<?php echo $_SERVER['PHP_SELF'];?>">
-            
-            <h1 class="login-title">Login</h1>
-            <input type="text" placeholder="E-mail" id="inp-focus" name="login">
-            <input type="password" placeholder="Senha" name="senha" >
-            <button class="botao-logar" name="logar" type="submit" id="enter">Entrar</button>
-            <p id="msg"></p>
-            <a href="recuperar_senha.php"><h2>Esqueceu a senha ?</h2></a>
-            <div class="line"></div>
-            <button class="botao-cadastro" >Criar conta</button>
-
-        </form>
+            <form action="index.php"  method="post">         
+                <h1 class="login-title">Login</h1>
+                <input type="text" placeholder="E-mail" id="inp-focus" name="login">
+                <input type="password" placeholder="Senha" name="senha" id ="senha">
+                <button class="botao-logar" type="submit">Entrar</button>
+                <p id="msg"></p>
+                <a href="recuperar_senha.php"><h2>Esqueceu a senha ?</h2></a>
+                <div class="line"></div>
+                <a class="botao-cadastro" >Criar conta</a>
+            </form>
         </div>
         </div>
     </div>
@@ -170,8 +167,8 @@
                         
                             <div class="visualisar-pets">
                             <h2>Preencha o formulário para ver como ficará o perfil do seu pet!</h2>
-                                <form action="" >
-                                    <input type="text" placeholder="Nome do seu pet"name="" id="nomepet">
+                                <form >
+                                    <input type="text" placeholder="Nome do seu pet"name="pet" id="nomepet">
                                     <input type="text" placeholder="Idade"name="" id="idadepet">
                                     <input type="text" placeholder="Raça" name="" id="raca">
                                     <select id="sexopet"><option value=" ">Sexo</option><option value="Femêa">Femêa</option><option value="Macho">Macho</option></select>

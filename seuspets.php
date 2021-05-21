@@ -103,6 +103,8 @@
         </form>
         
     </div>
+    <div class="pg-seuspets">
+    <div class="form-background-wrap">
       <div class="form-background">
         
         <div class="form-content-perfil2">
@@ -136,7 +138,7 @@
             }
             
             ?>  
-            <div class="form-content-perfil2">
+            <div class="form-content-greeting">
                 <h1> <?php echo $n ?> </h1>
                 <!-- <p><?php //echo $msg ?></p> -->
             </div>
@@ -208,6 +210,8 @@
                 <div class="consulta-pet">
                     <a class="cadastrar-pet" href="cadastropets.php">Cadastrar PET</a>
                 </div>
+            </div>
+            </div>
             </div>
     </div>
 

@@ -130,13 +130,12 @@
             
             
             ?>  
-            
+            <h1>Perfil</h1>
             <div class="content-cliente">
-            
+                <div class="content-cliente-wrap">
                  <div class="content-cliente-esquerda">   
-                    <h1>Perfil</h1>
-                    <h3>Nome </h3><p>
-                    <h3>CPF </h3><p>
+                    <h3>Nome </h3>
+                    <h3>CPF </h3>
                     <h3>E-Mail </h3>
                     <h3>Contato </h3>
                     <h3>CEP </h3>
@@ -150,7 +149,7 @@
 
                 <div class="content-cliente-direita">
                     <!---->
-                    <?php echo "<br><br><br><p>".$armazenamento['nome']."</p>";
+                    <?php echo "<p>".$armazenamento['nome']."</p>";
                     echo "<p>".$armazenamento['CPF']."</p>";
                     echo "<p>".$armazenamento['email']."</p>";
                     echo "<p>".$armazenamento['telefone']."</p>";
@@ -162,11 +161,13 @@
                     echo "<p>".$armazenamento['cidade']."</p>";
                     echo "<p>".$armazenamento['estado']."</p>";?>
                 </div>
+                </div>
             </div>
-        </div>
-        <div class="ajustar-botão">
+            <div class="ajustar-botão">
             <a href="alterarclientes.php" class="">Alterar dados</a>
-        </div>        
+            </div>      
+        </div>
+          
     </div>
       
     <script src="script.js"></script>

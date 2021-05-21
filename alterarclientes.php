@@ -141,6 +141,8 @@
         </form>
         
     </div>
+    <div class="pg-seuspets">
+    <div class="form-background-wrap">
       <div class="form-background">
         
         <div class="form-content-perfil2">
@@ -202,14 +204,15 @@
                <input type="text" name = "complemento" value="<?php echo $armazenamentoNomeCliente['complemento']; ?>">
                <input type="text" name = "numero" value="<?php echo $armazenamentoNomeCliente['numero']; ?>">
                <input type="text" name = "telefone" value="<?php echo $armazenamentoNomeCliente['telefone']; ?>">
-               <br>
                <button type="submit" name="btn-alterar" class="botao-alterar">Alterar</button>
                </form>
            </div>
        </div>
 
             </div>
-    </div>   
+    </div>
+        </div>
+        </div>   
     </div>
 </div>
 

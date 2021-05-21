@@ -138,6 +138,8 @@ if(isset($_POST['botao-cadastro'])){
         
         </div>
     </div>
+    <div class="pg-seuspets">
+    <div class="form-background-wrap">
     <div class="form-background">
         <div class="form-content">
         <div class="">
@@ -158,6 +160,8 @@ if(isset($_POST['botao-cadastro'])){
         </form>
         </div>
         </div>
+</div>
+</div>
     </div>
     <script src="script.js"></script>
     <?php echo $falha ?>
