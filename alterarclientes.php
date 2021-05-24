@@ -10,19 +10,19 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
     <link rel="manifest" href="favicon_io/site.webmanifest">
     <title>ID pets</title>
-    <!-- FAZER LOGIN, SALVAR SENHA HASH, FOOTER, RESIZING CSS, padding dos botoes
-    INPUT FOCUS, MUDAR O REDIRECT DO BOTAO QUANDO TIVER LOGADO E O CONTEUDO-->
+
 </head>
 <body>
+    <p id="check">n</p>
     <nav class="menu-navegacao">
     <div class="menu-nav-menu">
         <div class="menu-esquerda">
-            <a href="">ID pets</a>
+            <a href="index.php">ID pets</a>
         </div>
         <div class="menu-central">
             <ul class="componentes-central">
                 <li class="componentes-lista-central"><a href="index.php">Home</a></li>
-                <li class="componentes-lista-central"><a href="/tcc/cadastropets.php">Produtos</a></li>
+                <li class="componentes-lista-central"><a href="/tcc/cadastropets.php">Loja</a></li>
                 <li class="componentes-lista-central"><a href="#">Sobre</a></li>
             </ul>
         </div>
@@ -172,39 +172,48 @@
             <div class="form-content-perfil3">
                 <h1> Alterar Cadastro </h1>
             </div>
-            <div class="content-alterarpet">
+            <div class="content-alterar-cliente">
             
-            <div class="content-alterarcliente-esquerda">   
-               <h3>Nome </h3>
-               <h3>E-mail </h3>
-               <h3>CEP </h3>
-               <h3>Endereço </h3>
-               <h3>Bairro</h3>
-               <h3>Cidade</h3>
-               <h3>Estado</h3>
-               <h3>Cidade</h3>
-               <h3>Complemento</h3>
-               <h3>Número</h3>
-               <h3>Telefone</h3>
-               
-               <div class="consulta-pet">
-                    <a class="voltar-pet" href="dashboard.php">Voltar</a>
-                </div>
-           </div>
+
            <div class="content-pet-direita">
                <form action="alterarclientes.php?id=<?php echo $id_cliente; ?>" method="POST" class="input-altera-cliente">
-
-               <input type="text" name = "nome" value="<?php echo $armazenamentoNomeCliente['nome']; ?>">
-               <input type="text" name = "email" value="<?php echo $armazenamentoNomeCliente['email']; ?>">
-               <input type="text" name = "cep" value="<?php echo $armazenamentoNomeCliente['cep']; ?>">
-               <input type="text" name = "endereco" value="<?php echo $armazenamentoNomeCliente['endereco']; ?>">
-               <input type="text" name = "bairro" value="<?php echo $armazenamentoNomeCliente['bairro']; ?>">
-               <input type="text" name = "cidade" value="<?php echo $armazenamentoNomeCliente['cidade']; ?>">
-               <input type="text" name = "estado" value="<?php echo $armazenamentoNomeCliente['estado']; ?>">
-               <input type="text" name = "complemento" value="<?php echo $armazenamentoNomeCliente['complemento']; ?>">
-               <input type="text" name = "numero" value="<?php echo $armazenamentoNomeCliente['numero']; ?>">
-               <input type="text" name = "telefone" value="<?php echo $armazenamentoNomeCliente['telefone']; ?>">
-               <button type="submit" name="btn-alterar" class="botao-alterar">Alterar</button>
+               <div class="h3-input-join">
+                <div class="join">
+                <h3>Nome </h3>     <input type="text" name = "nome" value="<?php echo $armazenamentoNomeCliente['nome']; ?>">
+                </div>
+                <div class="join">
+                <h3>E-mail </h3>   <input type="text" name = "email" value="<?php echo $armazenamentoNomeCliente['email']; ?>">
+                </div>
+                <div class="join">
+                <h3>CEP</h3>       <input type="text" name = "cep" value="<?php echo $armazenamentoNomeCliente['cep']; ?>">
+                </div>
+                <div class="join">
+                <h3>Endereço</h3>  <input type="text" name = "endereco" value="<?php echo $armazenamentoNomeCliente['endereco']; ?>">
+                </div>
+                <div class="join">
+                <h3>Bairro</h3>    <input type="text" name = "bairro" value="<?php echo $armazenamentoNomeCliente['bairro']; ?>">
+                </div>
+                <div class="join">
+                <h3>Cidade</h3>    <input type="text" name = "cidade" value="<?php echo $armazenamentoNomeCliente['cidade']; ?>">
+                </div>
+                <div class="join">
+                <h3>Estado</h3>    <input type="text" name = "estado" value="<?php echo $armazenamentoNomeCliente['estado']; ?>">
+                </div>
+                <div class="join">
+                <h3>Complemento</h3> <input type="text" name = "complemento" value="<?php echo $armazenamentoNomeCliente['complemento']; ?>">
+                </div>
+                <div class="join">
+                <h3>Número</h3>    <input type="text" name = "numero" value="<?php echo $armazenamentoNomeCliente['numero']; ?>">
+                </div>
+                <div class="join">
+                <h3>Telefone</h3>  <input type="text" name = "telefone" value="<?php echo $armazenamentoNomeCliente['telefone']; ?>">
+                </div>
+            </div>
+               <div class="consulta-pet">
+                    <a class="voltar-pet" href="dashboard.php">Voltar</a>
+                    <button type="submit" name="btn-alterar" class="botao-alterar">Alterar</button>
+                </div>
+               
                </form>
            </div>
        </div>

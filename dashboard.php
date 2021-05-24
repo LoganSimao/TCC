@@ -10,19 +10,17 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
     <link rel="manifest" href="favicon_io/site.webmanifest">
     <title>ID pets</title>
-    <!-- FAZER LOGIN, SALVAR SENHA HASH, FOOTER, RESIZING CSS, padding dos botoes
-    INPUT FOCUS, MUDAR O REDIRECT DO BOTAO QUANDO TIVER LOGADO E O CONTEUDO-->
 </head>
 <body>
     <nav class="menu-navegacao">
     <div class="menu-nav-menu">
         <div class="menu-esquerda">
-            <a href="">ID pets</a>
+            <a href="index.php">ID pets</a>
         </div>
         <div class="menu-central">
             <ul class="componentes-central">
                 <li class="componentes-lista-central"><a href="index.php">Home</a></li>
-                <li class="componentes-lista-central"><a href="cadastropets.php">Produtos</a></li>
+                <li class="componentes-lista-central"><a href="cadastropets.php">Loja</a></li>
                 <li class="componentes-lista-central"><a href="#">Sobre</a></li>
             </ul>
         </div>
@@ -45,7 +43,7 @@
                 <li class="componentes-lista-direita"><a id="botao-modal"><?php echo $nome; ?></a></li>
                 </div>
                 <div class="wrap-botao-cadastrar">
-                <li class="componentes-lista-direita"><a href="Cadastro.php">Cadastro</a>
+                
                 <!-- botao logout -->
                 <div class="clos-modal" id="clos-modal">
                     <div class="logout" id="logout">
@@ -92,6 +90,7 @@
         
         </div>
     </div>
+    <p id="check">n</p>
     <div class="sidenav">
         <a href="dashboard.php">Cliente</a>
         <a href="seuspets.php">Pets</a>
@@ -100,6 +99,11 @@
         <button class="botao-sair" name="sair">Sair</button>
         </form>
         
+    </div>
+    <div class="bottomnav">
+        <a href="dashboard.php">Perfil</a>
+        <a href="seuspets.php">Pets</a>
+        <a href="historico.php">Historico</a>
     </div>
       <div class="form-background2">
         

@@ -80,15 +80,16 @@
             }
 
             ?>
+    <p id="check">n</p>
     <nav class="menu-navegacao">
     <div class="menu-nav-menu">
         <div class="menu-esquerda">
-            <a href="">ID pets</a>
+            <a href="index.php">ID pets</a>
         </div>
         <div class="menu-central">
             <ul class="componentes-central">
-                <li class="componentes-lista-central"><a href="/tcc/index.php">Home</a></li>
-                <li class="componentes-lista-central"><a href="/tcc/dashboard.php">Loja</a></li>
+                <li class="componentes-lista-central"><a href="index.php">Home</a></li>
+                <li class="componentes-lista-central"><a href="dashboard.php">Loja</a></li>
                 <li class="componentes-lista-central"><a href="#">Sobre</a></li>
             </ul>
         </div>
@@ -96,6 +97,26 @@
             <ul class="componentes-direita">
                 <div class="wrap-botao-login">
                 <li class="componentes-lista-direita"><a id="botao-modal"><?php echo $nome; ?></a></li>
+                <!-- botao logout -->
+                    <div class="clos-modal" id="clos-modal">
+                    <div class="logout" id="logout">
+                        <div class="alinhar-logout">
+                        <div class="">
+                            <h3><?php echo $n?></h3>
+                        </div>
+                        <div class="ver-sair">
+                            <div>
+                            <a href="dashboard.php"><p>Meu perfil</p></a>
+                            </div><div>
+                            <form action="<?php echo $_SERVER['PHP_SELF'];?>">
+                            <button class="botao-sair" name="sair"><p>Sair</p></button>
+                            </form>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- botao logout fim-->
                 </div>
                 <div class="wrap-botao-cadastrar">
                 <li class="componentes-lista-direita"><a href="/tcc/Cadastro.php">Cadastro</a></li>
@@ -110,22 +131,21 @@
         <div class="wrap-login">
             <!--add logo-->
             <span class="close" id="close">&times;</span>
-        <form action="<?php echo $_SERVER['PHP_SELF'];?>">
-            
-            <h1 class="login-title">Login</h1>
-            <input type="text" placeholder="E-mail" id="inp-focus" name="login">
-            <input type="password" placeholder="Senha" name="senha">
-            <button class="botao-logar" name="logar">Entrar</button>
-            <h2>Esqueceu a senha ?</h2>
-            <div class="line"></div>
-            <button class="botao-cadastro">Criar conta</button>
-
-        </form>
+            <form action="index.php"  method="post">         
+                <h1 class="login-title">Login</h1>
+                <input type="text" placeholder="E-mail" id="inp-focus" name="login">
+                <input type="password" placeholder="Senha" name="senha" id ="senha">
+                <button class="botao-logar" type="submit">Entrar</button>
+                <p id="msg"></p>
+                <a href="recuperar_senha.php"><h2>Esqueceu a senha ?</h2></a>
+                <div class="line"></div>
+                <a class="botao-cadastro" >Criar conta</a>
+            </form>
         </div>
-        
         </div>
     </div>
-    <div class="form-background">
+    
+    <div class="form-background-f">
         <div class="content-wrap">
             <div class="content-pets">
 

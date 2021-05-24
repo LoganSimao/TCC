@@ -10,19 +10,18 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
     <link rel="manifest" href="favicon_io/site.webmanifest">
     <title>ID pets</title>
-    <!-- FAZER LOGIN, SALVAR SENHA HASH, FOOTER, RESIZING CSS, padding dos botoes
-    INPUT FOCUS, MUDAR O REDIRECT DO BOTAO QUANDO TIVER LOGADO E O CONTEUDO-->
+
 </head>
 <body>
     <nav class="menu-navegacao">
     <div class="menu-nav-menu">
         <div class="menu-esquerda">
-            <a href="">ID pets</a>
+            <a href="index.php">ID pets</a>
         </div>
         <div class="menu-central">
             <ul class="componentes-central">
                 <li class="componentes-lista-central"><a href="index.php">Home</a></li>
-                <li class="componentes-lista-central"><a href="/tcc/cadastropets.php">Produtos</a></li>
+                <li class="componentes-lista-central"><a href="/tcc/cadastropets.php">Loja</a></li>
                 <li class="componentes-lista-central"><a href="#">Sobre</a></li>
             </ul>
         </div>
@@ -116,6 +115,7 @@
         
         </div>
     </div>
+    <p id="check">n</p>
     <div class="sidenav">
         <a href="/tcc/dashboard.php">Cliente</a>
         <a href="/tcc/seuspets.php">Pets</a>
@@ -125,6 +125,9 @@
         </form>
         
     </div>
+    
+    <div class="pg-seuspets">
+    <div class="form-background-wrap">
       <div class="form-background">
         
         <div class="form-content-perfil2">
@@ -157,37 +160,45 @@
             <div class="form-content-perfil3">
                 <h1> <?php echo $n ?> </h1>
             </div>
-            <div class="content-alterarpet">
+            <div class="content-alterar-cliente">
             
-            <div class="content-pet-esquerda">   
-               <h3>Nome </h3>
-               <h3>Raça </h3>
-               <h3>Sexo </h3>
-               <h3>Idade </h3>
-               <h3>Porte </h3>
-               <h3>Cor </h3>
-           </div>
+
            <div class="content-pet-direita">
                <form action="alterarpets.php?id=<?php echo $id; ?>" method="POST" class="input-altera">
-               <input type="text" name = "nome" value="<?php echo $resultado['nome']; ?>">
-               <input type="text" name = "raca" value="<?php echo $resultado['raca']; ?>">
-               <input type="text" name = "sexo" value="<?php echo $resultado['sexo']; ?>">
-               <input type="text" name = "idade" value="<?php echo $resultado['idade']; ?>">
-               <input type="text" name = "porte" value="<?php echo $resultado['porte']; ?>">
-               <input type="text" name = "cor" value="<?php echo $resultado['cor']; ?>">
-               <br>
-               <button type="submit" name="btn-alterar" class="botao-alterar">Alterar</button>
+                <div class="h3-input-join">
+                    <div class="join">
+                    <h3>Nome</h3><input type="text" name = "nome" value="<?php echo $resultado['nome']; ?>">
+                    </div>
+                    <div class="join">
+                    <h3>Raca</h3><input type="text" name = "raca" value="<?php echo $resultado['raca']; ?>">
+                    </div>
+                    <div class="join">
+                    <h3>Sexo</h3><input type="text" name = "sexo" value="<?php echo $resultado['sexo']; ?>">
+                    </div>
+                    <div class="join">
+                    <h3>Idade</h3><input type="text" name = "idade" value="<?php echo $resultado['idade']; ?>">
+                    </div>
+                    <div class="join">
+                    <h3>Porte</h3><input type="text" name = "porte" value="<?php echo $resultado['porte']; ?>">
+                    </div>
+                    <div class="join">
+                    <h3>Cor</h3><input type="text" name = "cor" value="<?php echo $resultado['cor']; ?>">
+                    </div>
+                    <div class="join">
+                    <h3>Observação</h3><textarea rows="4" cols="20"></textarea>
+                    </div>
+                </div>
+                <div class="consulta-pet">
+                        <a class="voltar-pet" href="seuspets.php">Voltar</a>
+                        <button type="submit" name="btn-alterar" class="botao-alterar">Alterar</button>
+                </div>
                </form>
            </div>
        </div>
-                <div class="consulta-pet">
-                    <a class="voltar-pet" href="seuspets.php">Voltar</a>
-                </div>
-            </div>
+    </div>            
+    </div>
     </div>   
     </div>
-</div>
-
 
     <script src="script.js"></script>
 </body>

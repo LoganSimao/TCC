@@ -94,6 +94,7 @@
         
         </div>
     </div>
+    <p id="check">n</p>
     <div class="sidenav">
         <a href="dashboard.php">Cliente</a>
         <a href="seuspets.php">Pets</a>
@@ -102,6 +103,11 @@
         <button name="sair">Sair</button>
         </form>
         
+    </div>
+    <div class="bottomnav">
+        <a href="dashboard.php">Perfil</a>
+        <a href="seuspets.php">Pets</a>
+        <a href="historico.php">Historico</a>
     </div>
     <div class="pg-seuspets">
     <div class="form-background-wrap">

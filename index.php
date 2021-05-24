@@ -31,10 +31,11 @@
     }
 
     ?>
+    <p id="check">s</p>
     <nav class="menu-navegacao">
     <div class="menu-nav-menu">
         <div class="menu-esquerda"><img src="imagens/Vectorpaw.png" alt=" "></a>
-            <a href="index.php">ID Pets
+            <a href="index.php">ID Pets</a>
         </div>
         <div class="menu-central">
             <ul class="componentes-central">
@@ -166,7 +167,7 @@
                         <div class="form-alinhamento">
                         
                             <div class="visualisar-pets">
-                            <h2>Preencha o formulário para ver como ficará o perfil do seu pet!</h2>
+                            <h2>Preencha os campos abaixo e veja como ficará o perfil do seu pet!</h2>
                                 <form >
                                     <input type="text" placeholder="Nome do seu pet"name="pet" id="nomepet">
                                     <input type="text" placeholder="Idade"name="" id="idadepet">
