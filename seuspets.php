@@ -42,7 +42,35 @@
 
                     }
                 ?>
+                <?php 
+            include 'conexao.php';
+           
 
+            //capturar o id do link
+            if(!isset($_SESSION['logado'])){
+                header('Location: index.php');
+            }
+
+            if(isset($_GET['id'])){
+                $id = $_GET['id'];
+                $sql = "DELETE from pets where id = $id";
+                if(mysqli_query($conn, $sql)){
+                    $_SESSION['mensagem'] = "Pet excluido com sucesso!";
+                }
+
+            }
+            
+                // passar a logica no banco de dados
+            $id = $_SESSION['id'];
+
+            $sql2 = "SELECT * from pets where id_cliente = $id";
+            $resultado = mysqli_query($conn, $sql2);
+            $msg = "";
+            if(isset($_SESSION['mensagem'])){
+                $msg = $_SESSION['mensagem'];
+            }
+            
+            ?>  
                 <li class="componentes-lista-direita"><a id="botao-modal"><?php echo $nome; ?></a>
                 <!-- botao logout -->
                 <div class="clos-modal" id="clos-modal">
@@ -109,41 +137,38 @@
         <a href="seuspets.php">Pets</a>
         <a href="historico.php">Historico</a>
     </div>
+    <?php
+    while($dados = mysqli_fetch_array($resultado)){
+    ?>
+
+    <div id="modal<?php echo $dados['id']; ?>" style="display:none;" class="modal-cl">
+                              <div class="god-modal">
+							    <div class="modal-content">
+                                <span class="close-sp" id="close-sp<?php echo $dados['id']; ?>">&times;</span>
+							      <h4>Voce esta prestes a excluir um cadastro!</h4>
+							      <p>Deseja excluir o cadastro de <?php echo$dados['nome']; ?>?</p>
+							    
+							    
+							      <form action="seuspets.php?id=<?php echo $dados['id'];?>" method="POST">
+							      	<input type="hidden" name="IdPet" value="<?php echo $dados['id']; ?>">
+
+							      	<button type="submit" name="btn-excluir" class="btn-excluir">Excluir</button>
+
+							      	<a href="seuspets.php" class="btn-cancel">Cancelar</a>
+
+							      </form>
+							    </div>
+							  </div>
+                            </div>
+                            <?php } ?>
     <div class="pg-seuspets">
+    <!--<div class="pg-bg">-->
     <div class="form-background-wrap">
       <div class="form-background">
         
         <div class="form-content-perfil2">
             
-            <?php 
-            include 'conexao.php';
-           
-
-            //capturar o id do link
-            if(!isset($_SESSION['logado'])){
-                header('Location: index.php');
-            }
-
-            if(isset($_GET['id'])){
-                $id = $_GET['id'];
-                $sql = "DELETE from pets where id = $id";
-                if(mysqli_query($conn, $sql)){
-                    $_SESSION['mensagem'] = "Pet excluido com sucesso!";
-                }
-
-            }
             
-                // passar a logica no banco de dados
-            $id = $_SESSION['id'];
-
-            $sql2 = "SELECT * from pets where id_cliente = $id";
-            $resultado = mysqli_query($conn, $sql2);
-            $msg = "";
-            if(isset($_SESSION['mensagem'])){
-                $msg = $_SESSION['mensagem'];
-            }
-            
-            ?>  
             <div class="form-content-greeting">
                 <h1> <?php echo $n ?> </h1>
                 <!-- <p><?php //echo $msg ?></p> -->
@@ -155,8 +180,10 @@
                             <th>Nome do Pet</th>
                         </tr>				
                     </thead>
-
-                    <?php  while($dados = mysqli_fetch_array($resultado)){ ?>
+<?php  
+$sql2 = "SELECT * from pets where id_cliente = $id";
+$resultado = mysqli_query($conn, $sql2);
+while($dados = mysqli_fetch_array($resultado)){ ?>
 
                     <tr>
                         <td><?php echo $dados['id']; ?></td>
@@ -176,25 +203,8 @@
                         </td>
                     <!-- Modal Structure in Materializecss -->
                             
-							  <div id="modal<?php echo $dados['id']; ?>" style="display:none;" class="modal-cl">
-                              <div class="god-modal">
-							    <div class="modal-content">
-                                <span class="close-sp" id="close-sp<?php echo $dados['id']; ?>">&times;</span>
-							      <h4>Voce esta prestes a excluir um cadastro!</h4>
-							      <p>Deseja excluir o cadastro de <?php echo$dados['nome']; ?>?</p>
-							    
-							    
-							      <form action="seuspets.php?id=<?php echo $dados['id'];?>" method="POST">
-							      	<input type="hidden" name="IdPet" value="<?php echo $dados['id']; ?>">
-
-							      	<button type="submit" name="btn-excluir" class="btn-excluir">Excluir</button>
-
-							      	<a href="seuspets.php" class="btn-cancel">Cancelar</a>
-
-							      </form>
-							    </div>
-							  </div>
-                            </div>
+							  
+                            <!---->
                               <script type="text/javascript">
                                 var del = document.getElementById("modaldeletar<?php echo $dados['id']; ?>");
                                 var clos = document.getElementById("close-sp<?php echo $dados['id']; ?>");
@@ -224,6 +234,7 @@
     
         
         </div>
+                            <!--</div>-->
     </div>
 
     <script src="script.js"></script>

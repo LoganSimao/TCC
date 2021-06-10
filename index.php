@@ -88,7 +88,11 @@
                 <h1 class="login-title">Login</h1>
                 <input type="text" placeholder="E-mail" id="inp-focus" name="login">
                 <input type="password" placeholder="Senha" name="senha" id ="senha">
-                <button class="botao-logar" type="submit">Entrar</button>
+                <div class="alinhar">
+                    <div class="ali">
+                        <button class="botao-logar" type="submit">Entrar</button>
+                    </div>
+                </div>
                 <p id="msg"></p>
                 <a href="recuperar_senha.php"><h2>Esqueceu a senha ?</h2></a>
                 <div class="line"></div>
@@ -174,7 +178,7 @@
                                     <input type="text" placeholder="Raça" name="" id="raca">
                                     <select id="sexopet"><option value=" ">Sexo</option><option value="Femêa">Femêa</option><option value="Macho">Macho</option></select>
                                     <input type="text" placeholder="Seu nome"name="" id="nome">
-                                    <input type="text" placeholder="Numero"name="" id="numero">
+                                    <input type="text" placeholder="Número"name="" id="numero">
                                     <input type="text" placeholder="E-mail"name="" id="email">
                                 </form>
                             </div>
@@ -193,9 +197,9 @@
                                 <p class="descricao">Seu dono vai ficar muito feliz de saber que ele foi encontrado!</p>
                                 <div class="line"></div>
                                 <h2 class="contato">Aqui estão os dados de contato<h2>
-                                <h3>Nome </h3><p id="nome-form">-Nome</p>
-                                <h3>Número </h3><p id="numero-form">-Numero</p>
-                                <h3>E-mail </h3><p id="email-form">-E-mail</p>
+                                <h3>Nome </h3><p id="nome-form">*Nome</p>
+                                <h3>Número </h3><p id="numero-form">*Número</p>
+                                <h3>E-mail </h3><p id="email-form">*E-mail</p>
                                 <div class="line"></div>
                                 <div class="bt-alinhar">
                                     <button class="botao-pet" id="botao-form">Saber mais sobre</button>

@@ -533,6 +533,7 @@ body{
     .custom-shape-divider-bottom-1621222059 svg{
         bottom:262.5vh;
     }
+    
 }
 /* fim sessao 3 */
 
@@ -680,7 +681,7 @@ body{
     padding-top: 1rem;
     left: 0;
     right: 0;
-    width: 98vw;
+    width: 100vw;
     height: 100vh;
     overflow: auto;
     background-color: rgb(0,0,0);
@@ -718,29 +719,29 @@ body{
     background-color: #f1f1e6;
     margin: auto;
     margin-top:2.4rem;
-    padding: 12rem;
     border: 1px solid var(--verde);
-    width: 10vw;
+    width: 36vw;
+    height: 80vh;
     display: flex;
     justify-content: center;
+    align-items: center;
     border-radius: 0.8rem;
     animation: animatezoom 0.6s;
+    font-family: var(--fonte);
 
 }
 
 .login-form h1{
     text-transform: none;
-    font-family: 'Noto Sans','Open Sans bold', sans-serif;
     color: var(--laranja);
     /* border-bottom: 1px solid var(--laranja); */
     width: 100%;
-    font-size: 2.2rem;
+    font-size: clamp(20px,2.4vw,2.4vw);
 }
 
 .login-form h2{
     text-transform: none;
     font-size: 1rem;
-    font-family: 'Noto Sans','Open Sans bold', sans-serif;
     color: var(--verde);
     width: 100%;
     
@@ -751,13 +752,16 @@ body{
     margin-top: 1rem;
     
 }
+
 .login-form input:focus{
     outline-color: var(--verde);
 }
 
+.wrap-login{
+    width: 70%;
+}
 .botao-sair{
     border: none;
-    font-family: 'Noto Sans','Open Sans bold', sans-serif;
     font-size: 16px;
     font-weight: bold;
     background-color: #f1f1e6;
@@ -766,22 +770,24 @@ body{
 
 }
 .botao-sair:hover{
-    border: none;
-    font-size: 16px;
-    font-family: 'Noto Sans','Open Sans bold', sans-serif;
-    font-weight: bold;
     background-color: #f1f1e6;
     color: var(--verde);
-    cursor: pointer;
+}
+.alinhar{
+    display: flex;
+    justify-content: center;
 }
 
+.ali{
+    position: relative;
+    width: 95%;
+}
 .botao-logar{
     color: #FFF;
     background-color: var(--verde);
     border: none;
     font-size: large;
-    text-transform: uppercase;
-    width: 22rem;
+    width: 100%;
     height: 3rem;
     margin-top: 1rem;
     cursor: pointer;
@@ -791,13 +797,6 @@ body{
     transition: 0.6s;
     color: #FFF;
     background-color: var(--laranja);
-    border: none;
-    font-size: large;
-    text-transform: uppercase;
-    width: 22rem;
-    height: 3rem;
-    margin-top: 1rem;
-    cursor: pointer;
 }
 
 .line{
@@ -813,8 +812,8 @@ body{
     background-color: var(--laranja);
     border: none;
     font-size: large;
-    text-transform: uppercase;
-    width: 22rem;
+    padding: 1rem 5rem;
+    width: 95vw;
     height: 3rem;
     margin-top: 1rem;
     cursor: pointer;
@@ -824,13 +823,6 @@ body{
     transition: 0.6s;
     color: #FFF;
     background-color: var(--verde);
-    border: none;
-    font-size: large;
-    text-transform: uppercase;
-    width: 22rem;
-    height: 3rem;
-    margin-top: 1rem;
-    cursor: pointer;
 }
 /* login btn fim */
 
@@ -898,11 +890,19 @@ body{
     justify-content: center;
     align-items: center;
 }
-
+/*
+.pg-bg{
+    width: 98vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.9);
+    display: block;
+    z-index: 1100;
+} */
 .form-background-wrap{
     width: 98vw;
 
-    position: relative;display: flex;
+    position: relative;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -1104,6 +1104,19 @@ body{
         width: 40vw;
         height: 7vh;
     }
+    .sidenav{
+        display: none;
+
+    }
+    .bottomnav{
+        display: block;
+    }
+    .sidenav{
+        display: none;
+    }
+    .menu-central{
+        display: none;
+    }
 }
 /* small desk */
 
@@ -1186,7 +1199,7 @@ body{
 }
 
 /*  ipads */
-@media (min-height: 950px){
+@media (min-height: 950px)and (max-width: 1000px){
 
     .content-wrap{
         top: 1.8rem;
@@ -1423,7 +1436,7 @@ th{
 }
 
 /*  ipads */
-@media (min-height: 950px){
+@media (min-height: 950px) and (max-width: 1000px){
 
     .form-background{
         width: 80vw;
@@ -1530,22 +1543,24 @@ th{
     justify-content: center;
     transition: 0s;
     position: fixed;
-    z-index: 1000;
-    padding-top: 1rem;
-    left: 0;
     right: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
+    z-index: 1001;
+    padding-top: 1rem;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
     background-color: rgba(0,0,0,0.7);
 }
 
 .god-modal{
     display: flex;
     justify-content: center;
-    margin-top: 30vh;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
     animation: animatezoom 0.6s;
+    font-family: var(--fonte);
 }
 
 .modal-content{
