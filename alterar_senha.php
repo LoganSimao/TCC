@@ -128,9 +128,33 @@
             $hash = $armazenamentoNomeCliente['senha'];
             
             if (isset($_POST['btn-alterar'])){
+            
             $senha = $_POST['senha_atual'];
+            $nova_senha = $_POST['nova_senha'];
+            $confirmar_senha = $_POST['repetir_senha'];
+                
+                //Verifica se a senha atual está correta.
                 if(password_verify($senha, $hash)){
-                    echo "Senha correta";
+                    
+                    //Verifica se o campo da nova senha não está vazio.
+                    if(empty($nova_senha)){
+                        echo "Não inseriu a nova senha.";
+                    }
+                    //Verifica se a nova senha e a confirmação da senha confere.
+                    elseif($nova_senha == $confirmar_senha){
+                        echo "senhas conferem";
+                        $hash2 = password_hash($nova_senha, PASSWORD_DEFAULT);
+                        $hashFinal = "'".$hash2."'";
+
+                        $sql3 = "UPDATE cadastro_cliente SET senha = $hashFinal WHERE id = '$id_cliente'";
+                        
+                            if(mysqli_query($conn,$sql3)){
+                                echo "senha alterada com sucesso!";
+                            }
+                    }
+                    else {
+                        echo "senhas não conferem";
+                    }
                 }
                 else {
                     echo "Senha incorreta";
