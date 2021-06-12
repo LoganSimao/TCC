@@ -171,16 +171,16 @@
                <form action="alterar_senha.php?id=<?php echo $id_cliente; ?>" method="POST" class="input-altera-cliente">
                <div class="h3-input-join">
                     <div class="join">
-                        <h3>Senha atual</h3>     <input type="text" name = "senha_atual">
+                        <h3>Senha atual</h3>     <input type="password" name = "senha_atual">
                     </div>
 
                     <p></p>
 
                     <div class="join">
-                        <h3>Nova senha</h3>     <input type="text" name = "nova_senha">
+                        <h3>Nova senha</h3>     <input type="password" name = "nova_senha">
                     </div>
                     <div class="join">
-                        <h3>Repita a senha</h3>   <input type="text" name = "repetir_senha">
+                        <h3>Repita a senha</h3>   <input type="password" name = "repetir_senha">
                     </div>
             </div>
                <div class="consulta-pet">
