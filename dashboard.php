@@ -169,6 +169,7 @@
             </div>
             <div class="ajustar-botão">
             <a href="alterarclientes.php" class="">Alterar dados</a>
+
             
             <a href="alterar_senha.php" class="">Alterar senha</a>
             </div>    
