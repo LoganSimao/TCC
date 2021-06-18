@@ -93,7 +93,7 @@ if(check == "s"){
   }
 }
 else{
-  console.log('deu errado');
+  //console.log('deu errado');
 }
 
 // fim do form pag inicial

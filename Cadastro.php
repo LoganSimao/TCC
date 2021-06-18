@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="styleCadastro.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
@@ -17,7 +17,7 @@
     $senha = "";
     $db = "pet";
     $id = 1;
-    $cadastro = "<h2 class='resposta2'>.</h2>";
+    $cadastro = "<h2 class='resposta2'> </h2>";
     
     $conexao = mysqli_connect($localhost,$user,$senha,$db);
     
@@ -144,14 +144,102 @@
         mysqli_close($conexao);
     }
 ?>
+<?php include 'log.php'; //pagina onde faz a verificação do login
+    session_start();
+    
+    if(!isset($_SESSION['logado'])){
+        $nome = "Login";
+        $n = " ";        
+    }
+    else{
+        $n = $_SESSION['nome'];
+        $arr = explode(' ', trim($n));
+        $nome = $arr[0];
+    }
 
+    ?>
+    <p id="check">n</p>
+    <nav class="menu-navegacao">
+    <div class="menu-nav-menu">
+        <div class="menu-esquerda"><img src="imagens/Vectorpaw.png" alt=" "></a>
+            <a href="index.php">ID Pets</a>
+        </div>
+        <div class="menu-central">
+            <ul class="componentes-central">
+                <li class="componentes-lista-central"><a href="index.php">Home</a></li>
+                <li class="componentes-lista-central"><a href="dashboard.php">Loja</a></li>
+                <li class="componentes-lista-central"><a href="#">Sobre</a></li>
+            </ul>
+        </div>
+        <div class="menu-direita">
+            <ul class="componentes-direita">
+                <div class="wrap-botao-login">
+                <li class="componentes-lista-direita"><a id="botao-modal"><?php echo $nome; ?></a>
+                <!-- botao logout -->
+                <div class="clos-modal" id="clos-modal">
+                    <div class="logout" id="logout">
+                        <div class="alinhar-logout">
+                        <div class="">
+                            <h3><?php echo $n?></h3>
+                        </div>
+                        <div class="ver-sair">
+                            <div>
+                            <a href="dashboard.php"><p>Meu perfil</p></a>
+                            </div><div>
+                            <form action="<?php echo $_SERVER['PHP_SELF'];?>">
+                            <button class="botao-sair" name="sair"><p>Sair</p></button>
+                            </form>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- botao logout fim-->
+                </li>
+                </div>
+                <div class="wrap-botao-cadastrar">
+                <li class="componentes-lista-direita"><a href="cadastro.php">Cadastro</a></li>
+                </div>
+            </ul>
+        </div>
+    </div>
+    </nav>
+    <!-- modal login -->
+
+    <div id="login" class="login-principal">
+        <div class ="login-form" id="login-ani">
+        <div class="wrap-login">
+            <!--add logo-->
+            <span class="close" id="close">&times;</span>
+            <form action="index.php"  method="post">         
+                <h1 class="login-title">Login</h1>
+                <input type="text" placeholder="E-mail" id="inp-focus" name="login">
+                <input type="password" placeholder="Senha" name="senha" id ="senha">
+                <div class="alinhar">
+                    <div class="ali">
+                        <button class="botao-logar" type="submit">Entrar</button>
+                    </div>
+                </div>
+                <p id="msg"></p>
+                <a href="recuperar_senha.php"><h2>Esqueceu a senha ?</h2></a>
+                <div class="line"></div>
+                <a class="botao-cadastro" >Criar conta</a>
+            </form>
+        </div>
+        </div>
+    </div>
 <body>
-    <div class="mestre">
-
-        <div class="card">
-        <div class="header"><h2>Cadastrar</h2> </div>
+<div class="pg-seuspets">
+    <div class="form-background-wrap">
+      <div class="form-background-cadastro">
         
-            <div class="formulario-card">
+        <div class="form-content-cadastro">
+        <div class="form-content-cadastro2">
+            <h1>Cadaste-se</h1>
+        </div>
+        
+            <div class="content-cadastro">
+            
             <form name="cadastro" method="POST" action="Cadastro.php">
                 <!--<p class="form2">Nome</p> -->
                 <input type="text" placeholder="Nome" name="nome"class="form-campo" required>
@@ -176,49 +264,57 @@
 
                 <input id="bairro" name="bairro" type="text" 
                 placeholder="Bairro" class="form-bairro" required/>
-
-                <input id="cidade" name="cidade" type="text" 
-                placeholder="Cidade" class="form-bairro" required/>
-                        
-                <select id="uf" name="estado" class="form-estado">
-                <option value="AC">AC</option>
-                    <option value="AL">AL</option>
-                    <option value="AP">AP</option>
-                    <option value="AM">AM</option>
-                    <option value="BA">BA</option>
-                    <option value="CE">CE</option>
-                    <option value="DF">DF</option>
-                    <option value="ES">ES</option>
-                    <option value="GO">GO</option>
-                    <option value="MA">MA</option>
-                    <option value="MT">MT</option>
-                    <option value="MS">MS</option>
-                    <option value="MG">MG</option>
-                    <option value="PA">PA</option>
-                    <option value="PB">PB</option>
-                    <option value="PR">PR</option>
-                    <option value="PE">PE</option>
-                    <option value="PI">PI</option>
-                    <option value="RJ">RJ</option>
-                    <option value="RN">RN</option>
-                    <option value="RS">RS</option>
-                    <option value="RO">RO</option>
-                    <option value="RR">RR</option>
-                    <option value="SC">SC</option>
-                    <option value="SP" selected>SP</option>
-                    <option value="SE">SE</option>
-                    <option value="TO">TO</option>
-                </select>
-                 
-                <input id="complemento" name="complemento" placeholder="Complemento" class="form-complemento" type="text"/>
-
-                <input id="numero" name="numero" type="text" placeholder="Nº" class="form-numero" required/>
-
+                <!---->
+                <div class="cidade-estado">
+                    <div class="form-cidade">
+                        <input id="cidade" name="cidade" type="text" 
+                        placeholder="Cidade"  required/>
+                    </div>
+                    <div class="form-estado">      
+                        <select id="uf" name="estado" >
+                        <option value="AC">AC</option>
+                            <option value="AL">AL</option>
+                            <option value="AP">AP</option>
+                            <option value="AM">AM</option>
+                            <option value="BA">BA</option>
+                            <option value="CE">CE</option>
+                            <option value="DF">DF</option>
+                            <option value="ES">ES</option>
+                            <option value="GO">GO</option>
+                            <option value="MA">MA</option>
+                            <option value="MT">MT</option>
+                            <option value="MS">MS</option>
+                            <option value="MG">MG</option>
+                            <option value="PA">PA</option>
+                            <option value="PB">PB</option>
+                            <option value="PR">PR</option>
+                            <option value="PE">PE</option>
+                            <option value="PI">PI</option>
+                            <option value="RJ">RJ</option>
+                            <option value="RN">RN</option>
+                            <option value="RS">RS</option>
+                            <option value="RO">RO</option>
+                            <option value="RR">RR</option>
+                            <option value="SC">SC</option>
+                            <option value="SP" selected>SP</option>
+                            <option value="SE">SE</option>
+                            <option value="TO">TO</option>
+                        </select>
+                    </div>
+                </div> 
+                <div class="complemento-numero">
+                <div class="form-complemento">
+                    <input id="complemento" name="complemento" placeholder="Complemento"  type="text"/>
+                </div>
+                <div class="form-numero">
+                    <input id="numero" name="numero" type="text" placeholder="Nº"  required/>
+                </div>
+                </div>
 
                 <!-- <p class="form2">Telefone</p> -->
                 <input type="text" placeholder="Contato" name="telefone" id="telefone" class="form-campo" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);" >
-
-                <a href="https://idpets.000webhostapp.com"> <button class="button3"> Voltar</button> </a>
+                <div class="consulta-pet">
+                <a href="index.php" class="voltar-pet"> Voltar</a>
 
                 <p class="resposta">
                     
@@ -226,12 +322,22 @@
                 
                 </p>
 
-                <button type="submit" value="Cadastrar" class="button2" name="cadastro" onClick="validarSenha()" id="Cadastrar"style="display:invisible">Cadastrar</button>
-                
+                <button type="submit" value="Cadastrar" class="botao-alterar" name="cadastro" onClick="validarSenha()" id="Cadastrar"style="display:invisible">Cadastrar</button>
+                </div>
             </form>
             </div> 
         </div>
     </div>
+    </div> 
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="custom-shape-divider-bottom-1621127856">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+            </svg>
+        </div>
 </body>
 <script type="text/javascript" src="script.js"></script>
 <script type="text/javascript" src="script2.js"></script>
