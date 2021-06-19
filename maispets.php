@@ -176,11 +176,9 @@
                 </div>
 
                 <img src="<?php 
-                    $url = "http://chart.apis.google.com/chart?cht=qr&chl=http://localhost/New%20folder/TCC/TCC/pets.php?id=";
-                   
-                    $url_final = "&chs=250x250";
+                    $url = "http://chart.apis.google.com/chart?cht=qr&chl=http://localhost/New%20folder/TCC/TCC/pets.php?id=".$id."&chs=250x250";
                     
-                    echo $url.$id.$url_final;
+                    echo $url;
                 ?>">
                 <!--<div class="join">
                     <h3>Observação</h3><h3><?php echo $resultado['observacao']; ?></h3>
