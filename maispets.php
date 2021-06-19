@@ -40,29 +40,6 @@
                         $nome = $arr[0];
                     }
                 ?>
-                    <?php 
-    if (isset($_POST['btn-alterar'])) {
-        $id = $_GET['id'];
-        $nomePET = $_POST['nome'];
-        $raca = $_POST['raca'];
-        $sexo = $_POST['sexo'];
-        $idade = $_POST['idade'];
-        $porte = $_POST['porte'];
-        $cor = $_POST['cor'];
-
-        $sql3 = "UPDATE pets SET nome = '$nomePET', raca = '$raca', sexo = '$sexo', idade = $idade, porte = '$porte', cor = '$cor' WHERE id = $id";
-
-        if(mysqli_query($conn, $sql3)) {
-            $_SESSION['mensagem'] = "Alterado com sucesso!";
-            exit(header('Location: seuspets.php'));
-        }
-        else{
-            $_SESSION['mensagem'] = "Erro ao alterar.";
-
-            //header('Location: seuspets.php');	
-        }
-    }
-    ?>
 
                 <li class="componentes-lista-direita"><a id="botao-modal"><?php echo $nome; ?></a>
                 <!-- botao logout -->
@@ -164,35 +141,47 @@
             
 
            <div class="content-pet-direita">
-               <form action="alterarpets.php?id=<?php echo $id; ?>" method="POST" class="input-altera">
-                <div class="h3-input-join">
-                    <div class="join">
-                    <h3>Nome</h3><input type="text" name = "nome" value="<?php echo $resultado['nome']; ?>">
-                    </div>
-                    <div class="join">
-                    <h3>Raca</h3><input type="text" name = "raca" value="<?php echo $resultado['raca']; ?>">
-                    </div>
-                    <div class="join">
-                    <h3>Sexo</h3><input type="text" name = "sexo" value="<?php echo $resultado['sexo']; ?>">
-                    </div>
-                    <div class="join">
-                    <h3>Idade</h3><input type="number" name = "idade" value="<?php echo $resultado['idade']; ?>">
-                    </div>
-                    <div class="join">
-                    <h3>Porte</h3><input type="text" name = "porte" value="<?php echo $resultado['porte']; ?>">
-                    </div>
-                    <div class="join">
-                    <h3>Cor</h3><input type="text" name = "cor" value="<?php echo $resultado['cor']; ?>">
-                    </div>
-                    <div class="join">
-                    <h3>Observação</h3><textarea rows="4" cols="20"></textarea>
-                    </div>
+                <div class="join">
+                <h3>Nome</h3><h3><?php echo $resultado['nome']; ?></h3>
                 </div>
-                <div class="consulta-pet">
-                        <a class="voltar-pet" href="seuspets.php">Voltar</a>
-                        <button type="submit" name="btn-alterar" class="botao-alterar">Alterar</button>
+
+                <div class="join">
+                <h3>Raça</h3><h3><?php echo $resultado['raca']; ?></h3>
                 </div>
-               </form>
+
+                <div class="join">
+                <h3>Sexo</h3><h3><?php echo $resultado['sexo']; ?></h3>
+                </div>
+
+                <div class="join">
+                    <h3>Idade</h3><h3>
+                        <?php // Impressão da idade com "ano ou anos".
+                            if($resultado['idade'] == 1){
+                                echo $resultado['idade']." "."ano"; 
+                            }
+                            else{
+                                echo $resultado['idade']." "."anos"; 
+                        }?>
+                    </h3>
+                </div>
+
+                <div class="join">
+                <h3>Porte</h3><h3><?php echo $resultado['porte']; ?></h3>
+                </div>
+
+                <div class="join">
+                <h3>Cor</h3><h3><?php echo $resultado['cor']; ?></h3>
+                </div>
+
+                <!--<div class="join">
+                <h3>Observação</h3><h3><?php echo $resultado['observacao']; ?></h3>
+                </div>-->
+
+            </div>
+            <div class="consulta-pet">
+                    <a class="voltar-pet" href="seuspets.php">Voltar</a>
+            </div>
+
            </div>
        </div>
     </div>            
