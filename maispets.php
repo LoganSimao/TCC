@@ -132,8 +132,9 @@
             $sql2 = "SELECT * from pets where id = $id";
             $resultadoPET = mysqli_query($conn, $sql2);
             $resultado = mysqli_fetch_array($resultadoPET);
-            
-            ?>  
+
+            ?> 
+ 
             <div class="form-content-perfil3">
                 <h1> <?php echo $n ?> </h1>
             </div>
@@ -141,16 +142,17 @@
             
 
            <div class="content-pet-direita">
+
                 <div class="join">
-                <h3>Nome</h3><h3><?php echo $resultado['nome']; ?></h3>
+                    <h3>Nome</h3><h3><?php echo $resultado['nome']; ?></h3>
                 </div>
 
                 <div class="join">
-                <h3>Raça</h3><h3><?php echo $resultado['raca']; ?></h3>
+                    <h3>Raça</h3><h3><?php echo $resultado['raca']; ?></h3>
                 </div>
 
                 <div class="join">
-                <h3>Sexo</h3><h3><?php echo $resultado['sexo']; ?></h3>
+                    <h3>Sexo</h3><h3><?php echo $resultado['sexo']; ?></h3>
                 </div>
 
                 <div class="join">
@@ -166,15 +168,22 @@
                 </div>
 
                 <div class="join">
-                <h3>Porte</h3><h3><?php echo $resultado['porte']; ?></h3>
+                    <h3>Porte</h3><h3><?php echo $resultado['porte']; ?></h3>
                 </div>
 
                 <div class="join">
-                <h3>Cor</h3><h3><?php echo $resultado['cor']; ?></h3>
+                    <h3>Cor</h3><h3><?php echo $resultado['cor']; ?></h3>
                 </div>
 
+                <img src="<?php 
+                    $url = "http://chart.apis.google.com/chart?cht=qr&chl=http://localhost/New%20folder/TCC/TCC/pets.php?id=";
+                   
+                    $url_final = "&chs=250x250";
+                    
+                    echo $url.$id.$url_final;
+                ?>">
                 <!--<div class="join">
-                <h3>Observação</h3><h3><?php echo $resultado['observacao']; ?></h3>
+                    <h3>Observação</h3><h3><?php echo $resultado['observacao']; ?></h3>
                 </div>-->
 
             </div>
