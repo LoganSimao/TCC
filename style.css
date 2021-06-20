@@ -1519,12 +1519,35 @@ th{
     .ajustar-botão-alt a{
         padding: 0.8rem 1.2rem!important;
     }
+    .ajustar-botão-pets a{
+        
+        padding: 0.8rem 1.2rem!important;
+    }
     .botao-alterar{
         width: 5rem!important;
         height: 2.6rem!important;
     }
     .input-altera-cliente input{
         width: 50%!important;
+    }
+    .btn-excluir{
+        width: 8rem!important;
+    }
+    .btn-cancel{
+        padding: 0.9rem 2.2rem!important;
+    }
+    .modal-content{
+        height: 60%!important;
+        width: 65%!important;
+    }
+    .modal-content h4{
+        position: relative!important;
+        text-align: center!important;
+        left: 1.6rem!important;
+        width: 80%!important;
+    }
+    .modal-wrap{
+        top: 3.4rem!important;
     }
 }
 
@@ -1660,13 +1683,16 @@ th{
 
 .modal-content{
     justify-content: center;
+    align-items: center;
     background-color: #f1f1e6;
     width: 50%;
     right: 2rem;
     border-radius: 0.8rem;
     text-align: center;
 }
-
+.modal-wrap{
+    position: relative;
+}
 .btn-excluir{
     color: #fff;
     background-color: red;
@@ -1678,39 +1704,28 @@ th{
     cursor: pointer;
     font-family: 'Noto Sans','Open Sans bold', sans-serif;
     font-weight: bold;
-    text-transform: uppercase;
+ 
     font-size: 14px;
+
     
 }
-.btn-excluir:hover{
-    color: #fff;
-    background-color: grey;
-    width: 14rem;
-    height: 3rem;
-    margin-bottom: 1.2rem;
-    border-radius: 0.2rem;
-    cursor: pointer;
-    font-family: 'Noto Sans','Open Sans bold', sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 14px;
-}
 
+.btn-excluir:hover{
+    background-color: rgb(241, 81, 81);
+
+}
 .btn-cancel{
     background-color: var(--laranja);
     color: #fff;
     font-family: var(--font);
     font-size: 14px;
+    font-weight: bold;
     padding: 0.9rem 5rem;
     border-radius: 0.2rem;
+
 }
 .btn-cancel:hover{
-    background-color: var(--verde);
-    color: #fff;
-    font-family: var(--font);
-    font-size: 14px;
-    padding: 0.9rem 5rem;
-    border-radius: 0.2rem;
+    background-color: var(--laranja-claro);
 }
 
 .close-sp {
@@ -1732,12 +1747,7 @@ th{
 
 /* Input Alterar PET*/
 
-.input-altera button{
-    width: 10rem;
-    margin-left: 2rem;
-    bottom: 3.1rem;
-    width: 14rem;
-}
+
 
 .input-altera form{
     background-color: #f1f1e6;
@@ -1839,6 +1849,26 @@ th{
 }
 .ajustar-botão a:hover{
     transition: 0.6s;
+    background-color: var(--laranja-claro);
+}
+.ajustar-botão-pets{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    top:3.5rem;
+}/**** falta responsividade *****/
+
+.ajustar-botão-pets a{
+    color: #FFF;
+    background-color: var(--laranja);
+    border: none;
+    font-size: clamp(12px,1.2vw,1.2vw);
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 1rem 3rem;
+}
+.ajustar-botão-pets a:hover{
     background-color: var(--laranja-claro);
 }
 
@@ -2042,4 +2072,51 @@ th{
 
 #check{
     display: none;
+}
+/*botoes para editar pets */
+
+.edi{
+    background-color: rgb(146, 143, 143);
+}
+.del{
+    background-color: rgb(248, 41, 41);
+}
+.saber{
+    background-color: rgb(248, 177, 46);
+}
+
+.edi:hover{
+    background-color: grey;
+}
+.del:hover{
+    background-color: red;
+}
+.saber:hover{
+    background-color: orange;
+}
+.content-alterar-cl{
+ background-color: green;   
+ display: flex;
+    justify-content: center;
+}
+.content-pet-direita2{
+    
+    background-color: brown;
+}
+.content-pet-direita2 h3{
+    height: 4vh;
+    
+    font-size: clamp(12px, 1.1vw, 1.2vw);
+    font-weight: bold;
+    color: var(--cinza);
+}
+
+.join2{
+    display: flex;
+    position: relative;
+    height: 5vh;
+    width: 25vw;
+    justify-content: space-around;
+    background-color: orange;
+
 }

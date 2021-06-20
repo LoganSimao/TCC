@@ -193,7 +193,7 @@
                     <h3>Observação</h3><textarea class="obs" rows="4" cols="20"></textarea>
                     </div>
                 </div>
-                <div class="ajustar-botão-alt">
+                <div class="ajustar-botão-pets">
                    <div class="aj-botão">
                         <a class="voltar-pet" href="seuspets.php">Voltar</a>
                     </div>

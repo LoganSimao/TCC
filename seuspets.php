@@ -146,8 +146,10 @@
                               <div class="god-modal">
 							    <div class="modal-content">
                                 <span class="close-sp" id="close-sp<?php echo $dados['id']; ?>">&times;</span>
-							      <h4>Voce esta prestes a excluir um cadastro!</h4>
-							      <p>Deseja excluir o cadastro de <?php echo$dados['nome']; ?>?</p>
+                                <div class="modal-wrap">
+                                    <h4>Voce está prestes a excluir um cadastro!</h4>
+                                    <p>Deseja excluir o cadastro de <?php echo$dados['nome']; ?>?</p>
+                                
 							    
 							    
 							      <form action="seuspets.php?id=<?php echo $dados['id'];?>" method="POST">
@@ -158,6 +160,7 @@
 							      	<a href="seuspets.php" class="btn-cancel">Cancelar</a>
 
 							      </form>
+                                  </div>
 							    </div>
 							  </div>
                             </div>
@@ -171,7 +174,7 @@
             
             
             <div class="form-content-greeting">
-                <h1> <?php echo $n ?> </h1>
+                <h1> Seus pets <?php //echo $nome ?> </h1>
                 <!-- <p><?php //echo $msg ?></p> -->
             </div>
                 <table>
@@ -192,15 +195,15 @@ while($dados = mysqli_fetch_array($resultado)){ ?>
                         <td><?php echo $dados['nome']; ?></td>
 
                         <td class="tabelapet"><a href="alterarpets.php?id=<?php echo $dados['id'];?>">
-                        <img  style="background-color:grey;" src="imagens/edit.png"></a>
+                        <img  class="edi"title="Editar"  src="imagens/edit.png"></a>
                         </td>
 
                         <td><a id="modaldeletar<?php echo $dados['id'];?>">
-                        <img  style="background-color:#f44336;" src="imagens/delete.png"></a>
+                        <img  class="del"title="Excluir"  src="imagens/delete.png"></a>
                         </td>
 
                         <td><a href="maispets.php?id=<?php echo $dados['id'];?>">
-                        <img style="background-color:orange;" src="imagens/more.png"></a>
+                        <img class="saber"title="Saber mais"  src="imagens/more.png"></a>
                         </td>
                     <!-- Modal Structure in Materializecss -->
                             
