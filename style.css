@@ -1977,7 +1977,7 @@ th{
     display: block;
     font-family: 'Noto Sans','Open Sans bold', sans-serif;
     text-align: center;
-    font-size: clamp(19px,1.2vw,1.3vw);
+    font-size: clamp(14px,1.2vw,1.3vw);
 }
 .form-content-perfil3 h1{
     color:var(--laranja);

@@ -199,12 +199,12 @@
                 -->
 
                 
-                </div>
             <img src="<?php 
                     $url = "http://chart.apis.google.com/chart?cht=qr&chl=http://localhost/New%20folder/TCC/TCC/pets.php?id=".$id."&chs=250x250";
                     
                     echo $url;
                 ?>">
+                </div>
             </div>
 
             <div class="ajustar-botão-pets">
