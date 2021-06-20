@@ -157,7 +157,7 @@ if(isset($_POST['botao-cadastro'])){
                 <option value="Macho">Macho</option>
                 <option value="Femêa">Femêa</option>
                 </select>
-            <input type="text" name="observacao"placeholder="Observação">
+            <input type="text" maxlength="250" name="observacao"placeholder="Observação">
             <div class="line"></div>
             <button class="botao-cadastro" name="botao-cadastro">Cadastrar</button>
         </form>

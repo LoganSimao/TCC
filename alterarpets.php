@@ -49,8 +49,9 @@
         $idade = $_POST['idade'];
         $porte = $_POST['porte'];
         $cor = $_POST['cor'];
+        $observacao = $_POST['observacao'];
 
-        $sql3 = "UPDATE pets SET nome = '$nomePET', raca = '$raca', sexo = '$sexo', idade = $idade, porte = '$porte', cor = '$cor' WHERE id = $id";
+        $sql3 = "UPDATE pets SET nome = '$nomePET', raca = '$raca', sexo = '$sexo', idade = $idade, porte = '$porte', cor = '$cor', observacao = '$observacao' WHERE id = $id";
 
         if(mysqli_query($conn, $sql3)) {
             $_SESSION['mensagem'] = "Alterado com sucesso!";
@@ -190,7 +191,7 @@
                     <h3>Cor</h3><input type="text" name = "cor" value="<?php echo $resultado['cor']; ?>">
                     </div>
                     <div class="join">
-                    <h3>Observação</h3><textarea class="obs" rows="4" cols="20"></textarea>
+                    <h3>Observação</h3><textarea maxlength="250" type="text" name="observacao" class="obs" rows="4" cols="20" max><?php echo $resultado['observacao']; ?> </textarea>
                     </div>
                 </div>
                 <div class="ajustar-botão-alt">
