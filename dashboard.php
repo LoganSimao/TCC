@@ -92,9 +92,9 @@
     </div>
     <p id="check">n</p>
     <div class="sidenav">
-        <a href="dashboard.php">Cliente</a>
+        <a href="dashboard.php">Perfil</a>
         <a href="seuspets.php">Pets</a>
-        <a href="historico.php">Historico de compra</a>
+        <a href="historico.php">Histórico</a>
         <form action="log.php">
         <button class="botao-sair" name="sair">Sair</button>
         </form>
@@ -103,9 +103,9 @@
     <div class="bottomnav">
         <a href="dashboard.php">Perfil</a>
         <a href="seuspets.php">Pets</a>
-        <a href="historico.php">Historico</a>
+        <a href="historico.php">Histórico</a>
     </div>
-      <div class="form-background2">
+      <div class="pg-seuspets">
         
         <div class="form-content-perfil">
             <?php 
@@ -168,25 +168,22 @@
                 </div>
             </div>
             <div class="ajustar-botão">
-            <a href="alterarclientes.php" class="">Alterar dados</a>
-
-            
-            <a href="alterar_senha.php" class="">Alterar senha</a>
+                <div class="aj-botão">
+                    <a href="alterarclientes.php" class="">Alterar dados</a>
+                </div>
+                <div class="aj-botão">
+                    <a href="alterar_senha.php" class="">Alterar senha</a>
+                </div>
             </div>    
         </div>
           
     </div>
-      
+    <div class="custom-shape-divider-bottom-1621127856">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+            </svg>
+    </div>  
     <script src="script.js"></script>
 </body>
-<footer>
-    <nav class="footer-mestre">
-        <div class="footer">
-            <div class="">
-                <ul class="">
-                    <li class="list-footer">© ID Pets 2021</li>
-                </ul>
-            </div>
-        </div>
-</footer>
+
 </html>
