@@ -107,7 +107,7 @@
     <div class="form-background-wrap">
       <div class="form-background">
         
-        <div class="form-content-perfil2">
+        <div class="form-content-perfil3">
             
             <?php 
             include 'conexao.php';
@@ -136,16 +136,12 @@
             ?> 
  
             <div class="form-content-perfil3">
-                <h1> <?php echo $n ?> </h1>
+                <h1> <?php echo "Este é seu pet ".$resultado['nome']; ?> </h1>
             </div>
             <div class="content-alterar-cliente">
             
 
            <div class="content-pet-direita">
-
-                <div class="join">
-                    <h3>Nome</h3><h3><?php echo $resultado['nome']; ?></h3>
-                </div>
 
                 <div class="join">
                     <h3>Raça</h3><h3><?php echo $resultado['raca']; ?></h3>
@@ -174,12 +170,17 @@
                 <div class="join">
                     <h3>Cor</h3><h3><?php echo $resultado['cor']; ?></h3>
                 </div>
+                
+                <!-- Versão abaixo para quando o site estiver hospedado. 
+                    <img src="http://chart.apis.google.com/chart?cht=qr&chl=https://idpets.000webhostapp.com/pets.php?=1&chs=250x250">
+                -->
 
                 <img src="<?php 
                     $url = "http://chart.apis.google.com/chart?cht=qr&chl=http://localhost/New%20folder/TCC/TCC/pets.php?id=".$id."&chs=250x250";
                     
                     echo $url;
                 ?>">
+
                 <!--<div class="join">
                     <h3>Observação</h3><h3><?php echo $resultado['observacao']; ?></h3>
                 </div>-->
