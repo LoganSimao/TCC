@@ -91,15 +91,23 @@
         
         </div>
     </div>
+    <p id="check">n</p>
     <div class="sidenav">
-        <a href="dashboard.php">Cliente</a>
+        <a href="dashboard.php">Perfil</a>
         <a href="seuspets.php">Pets</a>
-        <a href="historico.php">Historico de compra</a>
+        <a href="historico.php">Histórico</a>
         <form action="log.php">
         <button name="sair">Sair</button>
         </form>
         
     </div>
+
+    <div class="bottomnav">
+        <a href="dashboard.php">Perfil</a>
+        <a href="seuspets.php">Pets</a>
+        <a href="historico.php">Histórico</a>
+    </div>
+
     <div class="pg-seuspets">
     <div class="form-background-wrap">
       <div class="form-background">
@@ -183,9 +191,13 @@
                         <h3>Repita a senha</h3>   <input type="password" name = "repetir_senha">
                     </div>
             </div>
-               <div class="consulta-pet">
-                    <a class="voltar-pet" href="dashboard.php">Voltar</a>
-                    <button type="submit" name="btn-alterar" class="botao-alterar">Alterar</button>
+               <div class="ajustar-botão">
+                   <div class="aj-botão">
+                        <a class="voltar-pet" href="dashboard.php">Voltar</a>
+                    </div>
+                    <div class="aj-botão">
+                        <button type="submit" name="btn-alterar" class="botao-alterar">Alterar</button>
+                    </div>
                 </div>
                
                </form>
@@ -199,17 +211,13 @@
     </div>
 </div>
 
+<div class="custom-shape-divider-bottom-1621127856">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+    </svg>
+</div>  
 
     <script src="script.js"></script>
 </body>
-<footer>
-    <nav class="footer-mestre">
-        <div class="footer">
-            <div class="">
-                <ul class="">
-                    <li class="list-footer">© ID Pets 2021</li>
-                </ul>
-            </div>
-        </div>
-</footer>
+
 </html>
