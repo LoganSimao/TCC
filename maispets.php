@@ -40,29 +40,6 @@
                         $nome = $arr[0];
                     }
                 ?>
-                    <?php 
-    if (isset($_POST['btn-alterar'])) {
-        $id = $_GET['id'];
-        $nomePET = $_POST['nome'];
-        $raca = $_POST['raca'];
-        $sexo = $_POST['sexo'];
-        $idade = $_POST['idade'];
-        $porte = $_POST['porte'];
-        $cor = $_POST['cor'];
-
-        $sql3 = "UPDATE pets SET nome = '$nomePET', raca = '$raca', sexo = '$sexo', idade = $idade, porte = '$porte', cor = '$cor' WHERE id = $id";
-
-        if(mysqli_query($conn, $sql3)) {
-            $_SESSION['mensagem'] = "Alterado com sucesso!";
-            exit(header('Location: seuspets.php'));
-        }
-        else{
-            $_SESSION['mensagem'] = "Erro ao alterar.";
-
-            //header('Location: seuspets.php');	
-        }
-    }
-    ?>
 
                 <li class="componentes-lista-direita"><a id="botao-modal"><?php echo $nome; ?></a>
                 <!-- botao logout -->
@@ -117,25 +94,20 @@
     </div>
     <p id="check">n</p>
     <div class="sidenav">
-        <a href="dashboard.php">Perfil</a>
-        <a href="seuspets.php">Pets</a>
-        <a href="historico.php">Histórico</a>
+        <a href="/tcc/dashboard.php">Cliente</a>
+        <a href="/tcc/seuspets.php">Pets</a>
+        <a href="/tcc/historico.php">Historico de compra</a>
         <form action="log.php">
         <button name="sair">Sair</button>
-        </form> 
-    </div>
-
-    <div class="bottomnav">
-        <a href="dashboard.php">Perfil</a>
-        <a href="seuspets.php">Pets</a>
-        <a href="historico.php">Histórico</a>
+        </form>
+        
     </div>
     
     <div class="pg-seuspets">
     <div class="form-background-wrap">
       <div class="form-background">
         
-        <div class="form-content-perfil2">
+        <div class="form-content-perfil3">
             
             <?php 
             include 'conexao.php';
@@ -160,60 +132,81 @@
             $sql2 = "SELECT * from pets where id = $id";
             $resultadoPET = mysqli_query($conn, $sql2);
             $resultado = mysqli_fetch_array($resultadoPET);
-            
-            ?>  
+
+            ?> 
+ 
             <div class="form-content-perfil3">
-                <h1> <?php echo $n ?> </h1>
+                <h1> <?php echo "Este é seu pet ".$resultado['nome']; ?> </h1>
             </div>
             <div class="content-alterar-cliente">
             
 
            <div class="content-pet-direita">
-               <form action="alterarpets.php?id=<?php echo $id; ?>" method="POST" class="input-altera">
-                <div class="h3-input-join">
-                    <div class="join">
-                    <h3>Nome</h3><input type="text" name = "nome" value="<?php echo $resultado['nome']; ?>">
-                    </div>
-                    <div class="join">
-                    <h3>Raca</h3><input type="text" name = "raca" value="<?php echo $resultado['raca']; ?>">
-                    </div>
-                    <div class="join">
-                    <h3>Sexo</h3><input type="text" name = "sexo" value="<?php echo $resultado['sexo']; ?>">
-                    </div>
-                    <div class="join">
-                    <h3>Idade</h3><input type="number" name = "idade" value="<?php echo $resultado['idade']; ?>">
-                    </div>
-                    <div class="join">
-                    <h3>Porte</h3><input type="text" name = "porte" value="<?php echo $resultado['porte']; ?>">
-                    </div>
-                    <div class="join">
-                    <h3>Cor</h3><input type="text" name = "cor" value="<?php echo $resultado['cor']; ?>">
-                    </div>
-                    <div class="join">
-                    <h3>Observação</h3><textarea class="obs" rows="4" cols="20"></textarea>
-                    </div>
+
+                <div class="join">
+                    <h3>Raça</h3><h3><?php echo $resultado['raca']; ?></h3>
                 </div>
-                <div class="ajustar-botão-alt">
-                   <div class="aj-botão">
-                        <a class="voltar-pet" href="seuspets.php">Voltar</a>
-                    </div>
-                    <div class="aj-botão">
-                        <button type="submit" name="btn-alterar" class="botao-alterar">Alterar</button>
-                    </div>
+
+                <div class="join">
+                    <h3>Sexo</h3><h3><?php echo $resultado['sexo']; ?></h3>
                 </div>
-               </form>
+
+                <div class="join">
+                    <h3>Idade</h3><h3>
+                        <?php // Impressão da idade com "ano ou anos".
+                            if($resultado['idade'] == 1){
+                                echo $resultado['idade']." "."ano"; 
+                            }
+                            else{
+                                echo $resultado['idade']." "."anos"; 
+                        }?>
+                    </h3>
+                </div>
+
+                <div class="join">
+                    <h3>Porte</h3><h3><?php echo $resultado['porte']; ?></h3>
+                </div>
+
+                <div class="join">
+                    <h3>Cor</h3><h3><?php echo $resultado['cor']; ?></h3>
+                </div>
+                
+                <!-- Versão abaixo para quando o site estiver hospedado. 
+                    <img src="http://chart.apis.google.com/chart?cht=qr&chl=https://idpets.000webhostapp.com/pets.php?=1&chs=250x250">
+                -->
+
+                <img src="<?php 
+                    $url = "http://chart.apis.google.com/chart?cht=qr&chl=http://localhost/New%20folder/TCC/TCC/pets.php?id=".$id."&chs=250x250";
+                    
+                    echo $url;
+                ?>">
+
+                <!--<div class="join">
+                    <h3>Observação</h3><h3><?php echo $resultado['observacao']; ?></h3>
+                </div>-->
+
+            </div>
+            <div class="consulta-pet">
+                    <a class="voltar-pet" href="seuspets.php">Voltar</a>
+            </div>
+
            </div>
        </div>
     </div>            
     </div>
     </div>   
     </div>
-    <div class="custom-shape-divider-bottom-1621127856">
-    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
-    </svg>
-</div>  
+
     <script src="script.js"></script>
 </body>
-
+<footer>
+    <nav class="footer-mestre">
+        <div class="footer">
+            <div class="">
+                <ul class="">
+                    <li class="list-footer">© ID Pets 2021</li>
+                </ul>
+            </div>
+        </div>
+</footer>
 </html>

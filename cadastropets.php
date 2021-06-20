@@ -147,7 +147,7 @@ if(isset($_POST['botao-cadastro'])){
             <h1 class="login-title">Cadastre seu pet</h1>
             <input type="text" name="nome"placeholder="Nome" id="inp-name" autofocus>
             <input type="text" name="raca"placeholder="Raça">
-            <input type="text" name="idade"placeholder="Idade">
+            <input type="number" name="idade"placeholder="Idade">
             <input type="text" name="porte"placeholder="Porte">
             <input type="text" name="cor"placeholder="Cor">
             Sexo<!-------- mudar aqui -------->

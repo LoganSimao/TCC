@@ -199,7 +199,7 @@ while($dados = mysqli_fetch_array($resultado)){ ?>
                         <img  style="background-color:#f44336;" src="imagens/delete.png"></a>
                         </td>
 
-                        <td><a href="">
+                        <td><a href="maispets.php?id=<?php echo $dados['id'];?>">
                         <img style="background-color:orange;" src="imagens/more.png"></a>
                         </td>
                     <!-- Modal Structure in Materializecss -->
