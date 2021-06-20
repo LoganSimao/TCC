@@ -185,7 +185,7 @@
                     <h3>Cor</h3><input type="text" name = "cor" value="<?php echo $resultado['cor']; ?>">
                     </div>
                     <div class="join">
-                    <h3>Observação</h3><textarea rows="4" cols="20"></textarea>
+                    <h3>Observação</h3> <input type="text" name="observacao" value="<?php echo $resultado['observacao']; ?>" >
                     </div>
                 </div>
                 <div class="consulta-pet">

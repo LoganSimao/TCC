@@ -36,6 +36,7 @@ if(isset($_POST['botao-cadastro'])){
     $porte = $_POST['porte'];
     $cor = $_POST['cor'];
     $sexo = $_POST['sexo'];
+    $observacao = $_POST['observacao'];
 
     // Verificar se todos os campos foram preenchidos
     if (empty($nomePet) or 
@@ -71,7 +72,7 @@ if(isset($_POST['botao-cadastro'])){
         echo $_SESSION['id'];
         $idCliente = $_SESSION['id'];
 
-        $sql = "INSERT INTO pets (id_cliente,nome,raca,sexo,idade,porte,cor,token) VALUES(
+        $sql = "INSERT INTO pets (id_cliente,nome,raca,sexo,idade,porte,cor,observacao,token) VALUES(
             $idCliente,
             '$nomePet',
             '$raca',
@@ -79,6 +80,7 @@ if(isset($_POST['botao-cadastro'])){
             $idade,
             '$porte',
             '$cor',
+            '$observacao',
             '$token'
             )";
 
@@ -155,6 +157,7 @@ if(isset($_POST['botao-cadastro'])){
                 <option value="Macho">Macho</option>
                 <option value="Femêa">Femêa</option>
                 </select>
+            <input type="text" name="observacao"placeholder="Observação">
             <div class="line"></div>
             <button class="botao-cadastro" name="botao-cadastro">Cadastrar</button>
         </form>
