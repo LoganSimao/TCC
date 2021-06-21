@@ -69,7 +69,7 @@
                 $mail->Port = 587;
                 $mail->isHTML();
                 $mail->Subject = 'Recuperar de senha';
-                $mail->Body = 'http://localhost/New%20folder/TCC/TCC/nova_senha.php?email='.$email.'&token='.$token;
+                $mail->Body = '<h1>Olá,'.$_POST['nome'].'</H1><P>clique <a href="http://localhost/New%20folder/TCC/TCC/confirmar_email.php?email='.$email.'">aqui</a> para confirmar seu email!</P>';
                 $mail->AddAddress($email);
 
                 $mail->Send();

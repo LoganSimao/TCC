@@ -32,7 +32,6 @@
                         $n = $_SESSION['nome'];
                         $arr = explode(' ', trim($n));
                         $nome = $arr[0];
-
                     }
                 ?>
                 <?php 

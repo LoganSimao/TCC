@@ -128,7 +128,7 @@
                             $mail->Port = 587;
                             $mail->isHTML();
                             $mail->Subject = 'Confirme seu e-mail';
-                            $mail->Body = 'http://localhost/New%20folder/TCC/TCC/confirmar_email.php?email='.$email;
+                            $mail->Body = '<h1>Olá,'.$_POST['nome'].'</H1><P>clique <a href="http://localhost/New%20folder/TCC/TCC/confirmar_email.php?email='.$email.'">aqui</a> para confirmar seu email!</P>';
                             $mail->AddAddress($email);
                         
                             $mail->Send(); 
