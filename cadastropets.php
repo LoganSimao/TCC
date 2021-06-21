@@ -10,8 +10,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
     <link rel="manifest" href="favicon_io/site.webmanifest">
     <title>ID pets</title>
-    <!-- FAZER LOGIN, SALVAR SENHA HASH, FOOTER, RESIZING CSS, padding dos botoes
-    INPUT FOCUS, MUDAR O REDIRECT DO BOTAO QUANDO TIVER LOGADO E O CONTEUDO-->
+
 </head>
 <body>
 <?php
@@ -19,14 +18,18 @@ include 'conexao.php';
 include 'log.php';
 session_start();
 
-if(!isset($_SESSION['logado'])){
-    $nome = "Login";
-}
-else{
-    $n = $_SESSION['nome'];
-    $arr = explode(' ', trim($n));
-    $nome = $arr[0];
-}
+    if(!isset($_SESSION['logado'])){
+        $nome1 = "Login";
+        $n = " ";        
+    }
+    else{
+        $n = $_SESSION['nome'];
+        $arr = explode(' ', trim($n));
+        $nome = $arr[0];
+        $nome1 = "Olá, ".$nome."!";
+    }
+
+
 
 if(isset($_POST['botao-cadastro'])){
 
@@ -99,11 +102,31 @@ if(isset($_POST['botao-cadastro'])){
         <div class="menu-esquerda"><img src="imagens/Vectorpaw.png" alt=" "></a>
             <a href="index.php">ID Pets</a>
         </div>
-        <div class="menu-direita">
+        
+
+<div class="menu-direita">
             <ul class="componentes-direita">
                 <div class="wrap-botao-login">
-                
-                <li class="componentes-lista-direita"><a id="botao-modal"><?php echo $nome; ?></a>
+                <li class="componentes-lista-direita"><a id="botao-modal"><?php echo $nome1; ?></a>
+                <!-- botao logout -->
+                <div class="clos-modal" id="clos-modal">
+                    <div class="logout" id="logout">
+                        <div class="alinhar-logout">
+                        <div class="">
+                            <h3 id="greet"><?php echo $nome?>!</h3>
+                        </div>
+                        <div class="ver-sair">
+                            <div>
+                            <a href="dashboard.php"><p>Meu perfil</p></a>
+                            </div><div>
+                            <form action="<?php echo $_SERVER['PHP_SELF'];?>">
+                            <button class="botao-sair" name="sair"><p>Sair</p></button>
+                            </form>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- botao logout -->
                 <div class="clos-modal" id="clos-modal">
                     <div class="logout" id="logout">
@@ -154,18 +177,60 @@ if(isset($_POST['botao-cadastro'])){
     </div>
     <p id="check">n</p>
     <div class="sidenav">
-        <a href="dashboard.php">Perfil</a>
-        <a href="seuspets.php">Pets</a>
-        <label for="sair"><a >Histórico</a></label>
-        <form action="log.php">
-        <button class="botao-sair" name="sair">Sair</button>
-        </form>
-        
+            <div class="wrap-side">
+                <div class="svgs-icones">
+                    <img src="svg/u.svg" id="svg-us">
+                </div>
+                <div class="links-side" id="us">
+                    <a href="dashboard.php">Perfil</a>
+                </div>
+            </div>
+            <div class="wrap-side">
+                <div class="svgs-icones">
+                    <img src="svg/p.svg" id="svg-pe">
+                </div>
+                <div class="links-side" id="pe">
+                    <a href="seuspets.php">Pets</a>
+                </div>
+            </div>
+            <div class="wrap-side">
+                <div class="svgs-icones">
+                    <img src="svg/deslogar.svg" id="svg-des">
+                </div>
+                <div class="links-side" id="des">
+                    <form action="log.php">
+                        <button class="botao-sair-side" name="sair">Sair</button>
+                    </form>
+                </div>
+            </div>
     </div>
     <div class="bottomnav">
-        <a href="dashboard.php">Perfil</a>
-        <a href="seuspets.php">Pets</a>
-        <a href="historico.php">Histórico</a>
+        <div class="wrap-bot">
+            <div class="svgs-icones-b">
+                <img src="svg/u.svg" id="svg-us-b">
+            </div>
+            <div class="links-bot" id="us-b">
+                <a href="dashboard.php">Perfil</a>
+            </div>
+        </div>
+        <div class="wrap-bot">
+            <div class="svgs-icones-b">
+                <img src="svg/p.svg" id="svg-pe-b">
+            </div>
+            <div class="links-bot" id="pe-b">
+                <a href="seuspets.php">Pets</a>
+            </div>
+        </div>
+        <div class="wrap-bot">
+            <div class="svgs-icones-b">
+                <img src="svg/deslogar.svg" id="svg-des-b">
+            </div>
+            <div class="links-bot" id="des-b">
+                <form action="log.php">
+                    <button class="botao-sair-bot" name="sair">Sair</button>
+                </form>
+            </div>
+        </div>
     </div>
     <div class="pg-seuspets">
     <div class="form-background-wrap">
@@ -173,20 +238,24 @@ if(isset($_POST['botao-cadastro'])){
         <div class="form-content">
         <div class="form-content-perfil2">
         <form method="POST" action="cadastropets.php">
-            <h1 class="login-title">Cadastre seu pet</h1>
+            <h1 class="l-title">Cadastre seu pet</h1>
             <input type="text" name="nome"placeholder="Nome" id="inp-name" autofocus>
             <input type="text" name="raca"placeholder="Raça">
             <input type="number" name="idade"placeholder="Idade">
             <input type="text" name="porte"placeholder="Porte">
             <input type="text" name="cor"placeholder="Cor">
-            Sexo<!-------- mudar aqui -------->
-            <select id="sex" name="sexo" class="">
+            <div class="so-pet">
+            <select id="sex" name="sexo" class="so-size">
+                <option value="Sexo">Sexo</option>
                 <option value="Macho">Macho</option>
                 <option value="Femêa">Femêa</option>
                 </select>
-            <input type="text" maxlength="250" name="observacao"placeholder="Observação">
+            </div>
+            <input type="text" maxlength="100" name="observacao"placeholder="Observação">
             <div class="line"></div>
-            <button class="botao-cadastro" name="botao-cadastro">Cadastrar</button>
+            <div class="bt-pet-cadastro">
+                <button class="botao-cadastro" name="botao-cadastro">Cadastrar</button>
+            </div>
         </form>
         </div>
         </div>

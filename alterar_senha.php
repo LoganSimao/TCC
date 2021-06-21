@@ -19,23 +19,44 @@
     <div class="menu-esquerda"><img src="imagens/Vectorpaw.png" alt=" "></a>
             <a href="index.php">ID Pets</a>
         </div>
-        
-        <div class="menu-direita">
-            <ul class="componentes-direita">
-                <div class="wrap-botao-login">
+ 
                 <?php
                     include 'log.php';
                     session_start();
                     if(!isset($_SESSION['logado'])){
-                        $nome = "Login";
+                        $nome1 = "Login";
+                        $n = " ";        
                     }
                     else{
                         $n = $_SESSION['nome'];
                         $arr = explode(' ', trim($n));
                         $nome = $arr[0];
+                        $nome1 = "Olá, ".$nome."!";
                     }
                 ?>
-                <li class="componentes-lista-direita"><a id="botao-modal"><?php echo $nome; ?></a>
+                <div class="menu-direita">
+                <ul class="componentes-direita">
+                <div class="wrap-botao-login">
+                <li class="componentes-lista-direita"><a id="botao-modal"><?php echo $nome1; ?></a>
+                <!-- botao logout -->
+                <div class="clos-modal" id="clos-modal">
+                    <div class="logout" id="logout">
+                        <div class="alinhar-logout">
+                        <div class="">
+                            <h3 id="greet"><?php echo $nome?>!</h3>
+                        </div>
+                        <div class="ver-sair">
+                            <div>
+                            <a href="dashboard.php"><p>Meu perfil</p></a>
+                            </div><div>
+                            <form action="<?php echo $_SERVER['PHP_SELF'];?>">
+                            <button class="botao-sair" name="sair"><p>Sair</p></button>
+                            </form>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- botao logout -->
                 <div class="clos-modal" id="clos-modal">
                     <div class="logout" id="logout">
@@ -91,19 +112,60 @@
     </div>
     <p id="check">n</p>
     <div class="sidenav">
-        <a href="dashboard.php">Perfil</a>
-        <a href="seuspets.php">Pets</a>
-        <a href="historico.php">Histórico</a>
-        <form action="log.php">
-        <button name="sair">Sair</button>
-        </form>
-        
+            <div class="wrap-side">
+                <div class="svgs-icones">
+                    <img src="svg/u.svg" id="svg-us">
+                </div>
+                <div class="links-side" id="us">
+                    <a href="dashboard.php">Perfil</a>
+                </div>
+            </div>
+            <div class="wrap-side">
+                <div class="svgs-icones">
+                    <img src="svg/p.svg" id="svg-pe">
+                </div>
+                <div class="links-side" id="pe">
+                    <a href="seuspets.php">Pets</a>
+                </div>
+            </div>
+            <div class="wrap-side">
+                <div class="svgs-icones">
+                    <img src="svg/deslogar.svg" id="svg-des">
+                </div>
+                <div class="links-side" id="des">
+                    <form action="log.php">
+                        <button class="botao-sair-side" name="sair">Sair</button>
+                    </form>
+                </div>
+            </div>
     </div>
-
     <div class="bottomnav">
-        <a href="dashboard.php">Perfil</a>
-        <a href="seuspets.php">Pets</a>
-        <a href="historico.php">Histórico</a>
+        <div class="wrap-bot">
+            <div class="svgs-icones-b">
+                <img src="svg/u.svg" id="svg-us-b">
+            </div>
+            <div class="links-bot" id="us-b">
+                <a href="dashboard.php">Perfil</a>
+            </div>
+        </div>
+        <div class="wrap-bot">
+            <div class="svgs-icones-b">
+                <img src="svg/p.svg" id="svg-pe-b">
+            </div>
+            <div class="links-bot" id="pe-b">
+                <a href="seuspets.php">Pets</a>
+            </div>
+        </div>
+        <div class="wrap-bot">
+            <div class="svgs-icones-b">
+                <img src="svg/deslogar.svg" id="svg-des-b">
+            </div>
+            <div class="links-bot" id="des-b">
+                <form action="log.php">
+                    <button class="botao-sair-bot" name="sair">Sair</button>
+                </form>
+            </div>
+        </div>
     </div>
 
     <div class="pg-seuspets">
