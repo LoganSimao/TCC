@@ -214,7 +214,7 @@
             <form action="index.php"  method="post">         
                 <h1 class="login-title">Login</h1>
                 <input type="text" placeholder="E-mail" id="inp-focus" name="login">
-                <input type="password" placeholder="Senha" name="senha" id ="senha">
+                <input type="password" placeholder="Senha" name="senha" id ="senhalog">
                 <div class="alinhar">
                     <div class="ali">
                         <button class="botao-logar" type="submit">Entrar</button>

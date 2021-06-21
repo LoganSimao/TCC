@@ -371,6 +371,71 @@ body{
         padding: 0.8rem 2rem;
     
     }
+    .content-mais{
+        width: 100%!important;
+    }
+    .content-pet-direita2{
+        width: 100%!important;
+    }
+    .join-master2{
+        width: 100%!important;
+    }
+    .join2{
+        width: 100%!important;
+    }
+    .form-content-perfil4{
+        position: relative!important;
+        top: -2rem!important;
+
+    }
+    .form-content-perfil4 img{
+        position: relative!important;
+        top: 1.6rem!important;
+        width: 150px!important;
+        height: 150px!important;
+    }
+    .btn-excluir{
+        width: 8rem!important;
+    }
+    .btn-cancel{
+        padding: 0.9rem 2.2rem!important;
+    }
+    .modal-content{
+        height: 50%!important;
+        width: 65%!important;
+    }
+    .modal-content h4{
+        position: relative!important;
+        text-align: center!important;
+        left: 1.6rem!important;
+        width: 80%!important;
+    }
+    .modal-wrap{
+        top: 3.4rem!important;
+    }
+    .login-form{
+        width: 76vw!important;
+    }
+    .botao-cadastro{
+       
+        padding: 0.8rem 2rem!important;
+       width: 25vw!important;
+    }
+    
+    .botao-cadastro:hover{
+        transition: 0.6s;
+        background-color: var(--verde);
+    }
+
+    .ali{
+        width: 80%!important;
+    }
+    .botao-logar{
+        height: 2.6rem;
+    }
+    .login-form input{
+        width: 90%!important;
+    }
 }
 /* fim sessao 2 */
 
@@ -798,17 +863,18 @@ body{
 
 .ali{
     position: relative;
-    width: 95%;
+    width: 92%;
 }
 .botao-logar{
     color: #FFF;
     background-color: var(--verde);
     border: none;
-    font-size: large;
+    font-size: clamp(12px, 0.9vw, 1vw);
     width: 100%;
     height: 3rem;
     margin-top: 1rem;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .botao-logar:hover{
@@ -829,17 +895,17 @@ body{
     color: #FFF;
     background-color: var(--laranja);
     border: none;
-    font-size: large;
+    font-size: clamp(12px,0.9vw,1.1vw);
     padding: 1rem 5rem;
-    width: 95vw;
-    height: 3rem;
+    width: 15vw;
+    font-weight: bold;
     margin-top: 1rem;
     cursor: pointer;
+    text-align: center;
 }
 
 .botao-cadastro:hover{
     transition: 0.6s;
-    color: #FFF;
     background-color: var(--verde);
 }
 /* login btn fim */
@@ -918,12 +984,13 @@ body{
 } */
 .form-background-wrap{
     width: 98vw;
-    z-index: 1000;
+    z-index: 250;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .form-background{
     box-shadow: 5px 5px 5px 5px rgba(66, 78, 65, 0.4);
     background-color: rgba(255,255,255,0.2);
@@ -1419,6 +1486,9 @@ th{
         width: 8.6rem!important;
         height: 3.2rem!important;
     }
+    .login-form{
+        width: 50vw!important;
+    }
 }
 
 /*iphone x*/
@@ -1462,6 +1532,29 @@ th{
     .ajustar-botão a{
         padding: 0.8rem 1.2rem!important;
     }
+    .login-form{
+        width: 76vw!important;
+    }
+    .botao-cadastro{
+       
+        padding: 0.8rem 2rem!important;
+       width: 25vw!important;
+    }
+    
+    .botao-cadastro:hover{
+        transition: 0.6s;
+        background-color: var(--verde);
+    }
+
+    .ali{
+        width: 80%!important;
+    }
+    .botao-logar{
+        height: 2.6rem;
+    }
+    .login-form input{
+        width: 90%!important;
+    }
 }
 
 /*iphone 5*/
@@ -1494,6 +1587,10 @@ th{
         top: 0.4rem;
     }
     .form-content-perfil3 h1{
+        position: relative;
+        top: 0.1rem;
+    }
+    .form-content-perfil4 h1{
         position: relative;
         top: 0.1rem;
     }
@@ -1548,6 +1645,52 @@ th{
     }
     .modal-wrap{
         top: 3.4rem!important;
+    }
+    .content-mais{
+        width: 100%!important;
+    }
+    .content-pet-direita2{
+        width: 100%!important;
+    }
+    .join-master2{
+        width: 100%!important;
+    }
+    .join2{
+        width: 100%!important;
+    }
+    .form-content-perfil4{
+        position: relative!important;
+        top: -2rem!important;
+
+    }
+    .form-content-perfil4 img{
+        position: relative!important;
+        top: 1rem!important;
+        width: 130px!important;
+        height: 130px!important;
+    }
+    .login-form{
+        width: 76vw!important;
+    }
+    .botao-cadastro{
+       
+        padding: 0.8rem 2rem!important;
+       width: 25vw!important;
+    }
+    
+    .botao-cadastro:hover{
+        transition: 0.6s;
+        background-color: var(--verde);
+    }
+
+    .ali{
+        width: 80%!important;
+    }
+    .botao-logar{
+        height: 2.6rem;
+    }
+    .login-form input{
+        width: 90%!important;
     }
 }
 
@@ -1607,7 +1750,7 @@ th{
     height: 100%;
     width: 200px;
     position: fixed;
-    z-index: 100;
+    z-index: 1000;
     margin-top: 4rem;
     top: 0;
     left: 0;
@@ -1977,7 +2120,7 @@ th{
     display: block;
     font-family: 'Noto Sans','Open Sans bold', sans-serif;
     text-align: center;
-    font-size: clamp(14px,1.2vw,1.3vw);
+    font-size: clamp(12px,1.2vw,1.3vw);
 }
 .form-content-perfil3 h1{
     color:var(--laranja);
@@ -2095,18 +2238,18 @@ th{
     background-color: orange;
 }
 .content-alterar-cl{
- background-color: green;   
+ /*background-color: green;   */
  display: flex;
     justify-content: center;
 }
 .content-pet-direita2{
-    
-    background-color: brown;
+    display: flex;
+    justify-content: center;
+    /*background-color: brown;*/
 }
 .content-pet-direita2 h3{
-    height: 4vh;
-    
-    font-size: clamp(12px, 1.1vw, 1.2vw);
+
+    font-size: clamp(12px, 0.8vw, 0.9vw);
     font-weight: bold;
     color: var(--cinza);
 }
@@ -2114,9 +2257,75 @@ th{
 .join2{
     display: flex;
     position: relative;
-    height: 5vh;
     width: 25vw;
     justify-content: space-around;
-    background-color: orange;
-
+    /*background-color: orange;*/
 }
+
+.join2 h3{
+    margin-top: 0.1rem;
+    margin-bottom: 0rem;
+}
+
+.side-join2{
+    text-align: right;
+    width: 30%;
+}
+
+.side-join3{
+    text-align: center;
+    width: 50%;
+}
+.side-join4{
+    text-align: center;
+    width: 50%;
+    overflow: auto;
+    
+}
+.form-content-perfil4{
+    display: block;
+    font-family: 'Noto Sans','Open Sans bold', sans-serif;
+    text-align: center;
+    font-size: clamp(12px,1vw,1.1vw);
+}
+
+.form-content-perfil4 h1{
+    color:var(--laranja);
+    
+}
+/*** sem uso baixo ***/
+.ajustar-botão-pets2{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    top:3.5rem;
+}/**** falta responsividade *****/
+
+.ajustar-botão-pets2 a{
+    color: #FFF;
+    background-color: var(--laranja);
+    border: none;
+    font-size: clamp(12px,1.2vw,1.2vw);
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 1rem 3rem;
+}
+.ajustar-botão-pets2 a:hover{
+    background-color: var(--laranja-claro);
+}
+
+.join-master2{
+    
+}
+
+.content-mais{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.al-btn-log{
+    display: flex;
+    justify-content: center;
+}
+/*mudar qr size via js*/

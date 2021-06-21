@@ -174,14 +174,5 @@ if(isset($_POST['botao-cadastro'])){
     <script src="script.js"></script>
     <?php echo $falha ?>
 </body>
-<footer>
-    <nav class="footer-mestre">
-        <div class="footer">
-            <div class="">
-                <ul class="">
-                    <li class="list-footer">© ID Pets 2021</li>
-                </ul>
-            </div>
-        </div>
-</footer>
+
 </html>

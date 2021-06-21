@@ -110,13 +110,13 @@ else{
        modal.style.display = \"none\";
      }
    }
-   console.log('ue');
+   // console.log('ue'); para debugar
   }
   
             
 
         onload = function(){myFunction()};
-        console.log('2');
+        //console.log('2'); para debugar
 
     </script>";
     // echo $falha;

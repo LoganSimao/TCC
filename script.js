@@ -92,8 +92,9 @@ if(check == "s"){
   document.querySelector("#email-form").innerHTML = `${email}`;
   }
 }
+
 else{
-  //console.log('deu errado');
+//console.log('deu errado');
 }
 
 // fim do form pag inicial
@@ -224,7 +225,7 @@ function checkInputs(inputs) {
     botao.onclick = function(){
       var logout = document.getElementById("clos-modal");
         logout.style.display = "block";
-        console.log("dentro-botao");
+        //console.log("dentro-botao"); para debugar
       }
     window.onclick = function (event) {
       var logout = document.getElementById("clos-modal");
@@ -232,12 +233,12 @@ function checkInputs(inputs) {
         var logout = document.getElementById("clos-modal");
         logout.style.display = "none";
  
-        console.log("fora-janela");
+        //console.log("fora-janela"); para debugar
       }
     
     }
     //botaodeletar
-    /* DON'T YOU WANNA DANCE WITH ME? NO? I COULD DANCE LIKE MICHAEL JACKSON
+    /*
     var deletar = document.getElementById("deletar");
     var span2 = document.getElementById("close2");
     var botaomod = document.getElementById("modaldeletar");
@@ -262,9 +263,9 @@ function checkInputs(inputs) {
       }
     }*/
     var qnt = document.getElementsByClassName("modal-cl");
-    console.log(qnt.length);
+    //console.log(qnt.length); para debugar
     }
-    console.log("fora-botao");
+    //console.log("fora-botao"); para debugar
   }
   
   

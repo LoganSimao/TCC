@@ -12,8 +12,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
     <link rel="manifest" href="favicon_io/site.webmanifest">
     <title>ID pets</title>
-    <!-- FAZER LOGIN, SALVAR SENHA HASH, FOOTER, RESIZING CSS, padding dos botoes
-    INPUT FOCUS, MUDAR O REDIRECT DO BOTAO QUANDO TIVER LOGADO E O CONTEUDO-->
+    
 </head>
 
 <body>
@@ -96,7 +95,9 @@
                 <p id="msg"></p>
                 <a href="recuperar_senha.php"><h2>Esqueceu a senha ?</h2></a>
                 <div class="line"></div>
-                <a class="botao-cadastro" >Criar conta</a>
+                <div class="al-btn-log">
+                    <a class="botao-cadastro" >Criar conta</a>
+                </div>
             </form>
         </div>
         </div>
@@ -197,9 +198,9 @@
                                 <p class="descricao">Seu dono vai ficar muito feliz de saber que ele foi encontrado!</p>
                                 <div class="line"></div>
                                 <h2 class="contato">Aqui estão os dados de contato<h2>
-                                <h3>Nome </h3><p id="nome-form">*Nome</p>
-                                <h3>Número </h3><p id="numero-form">*Número</p>
-                                <h3>E-mail </h3><p id="email-form">*E-mail</p>
+                                <h3>Nome </h3><p id="nome-form">*seu Nome aqui</p>
+                                <h3>Número </h3><p id="numero-form">*seu Número</p>
+                                <h3>E-mail </h3><p id="email-form">*seu E-mail</p>
                                 <div class="line"></div>
                                 <div class="bt-alinhar">
                                     <button class="botao-pet" id="botao-form">Saber mais sobre</button>

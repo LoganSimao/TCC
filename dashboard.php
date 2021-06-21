@@ -94,7 +94,7 @@
     <div class="sidenav">
         <a href="dashboard.php">Perfil</a>
         <a href="seuspets.php">Pets</a>
-        <a href="historico.php">Histórico</a>
+        <label for="sair"><a >Histórico</a></label>
         <form action="log.php">
         <button class="botao-sair" name="sair">Sair</button>
         </form>

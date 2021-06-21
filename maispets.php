@@ -92,7 +92,7 @@
         
         </div>
     </div>
-    <p id="check">n</p>
+    <p id="check">x</p>
     <div class="sidenav">
         <a href="dashboard.php">Perfil</a>
         <a href="seuspets.php">Pets</a>
@@ -113,7 +113,7 @@
     <div class="form-background-wrap">
       <div class="form-background">
         
-        <div class="form-content-perfil3">
+        <div class="form-content-perfil4">
             
             <?php 
             include 'conexao.php';
@@ -155,24 +155,24 @@
 
             ?> 
  
-            <div class="form-content-perfil3">
+            <div class="">
                 <h1> <?php echo "Est".$e." é ". $u ." pet ".$resultado['nome']; ?> </h1>
             </div>
-            <div class="content-alterar-cl">
+            <div class="content-mais">
             
 
            <div class="content-pet-direita2">
-
+                <div class="join-master2">
                 <div class="join2">
-                    <h3>Raça</h3><h3><?php echo $resultado['raca']; ?></h3>
+                    <h3 class="side-join2">Raça</h3><h3 class="side-join3"><?php echo $resultado['raca']; ?></h3>
                 </div>
 
                 <div class="join2">
-                    <h3>Sexo</h3><h3><?php echo $resultado['sexo']; ?></h3>
+                    <h3 class="side-join2">Sexo</h3><h3 class="side-join3"><?php echo $resultado['sexo']; ?></h3>
                 </div>
 
                 <div class="join2">
-                    <h3>Idade</h3><h3>
+                    <h3 class="side-join2">Idade</h3><h3 class="side-join3">
                         <?php // Impressão da idade com "ano ou anos".
                             if($resultado['idade'] == 1){
                                 echo $resultado['idade']." "."ano"; 
@@ -184,28 +184,27 @@
                 </div>
 
                 <div class="join2">
-                    <h3>Porte</h3><h3><?php echo $resultado['porte']; ?></h3>
+                    <h3 class="side-join2">Porte</h3><h3 class="side-join3"><?php echo $resultado['porte']; ?></h3>
                 </div>
 
                 <div class="join2">
-                    <h3>Cor</h3><h3><?php echo $resultado['cor']; ?></h3>
+                    <h3 class="side-join2">Cor</h3><h3 class="side-join3"><?php echo $resultado['cor']; ?></h3>
                 </div>
                 
                 <div class="join2">
-                    <h3>Observação</h3><h3>O dia ta lindo crima insorarado, ajifujugfiji cevejinha i churrasc, poisé essa vida é mto loka né<?php //echo $resultado['observacao']; ?></h3>
+                    <h3 class="side-join2">Observação</h3><h3 class="side-join4">A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over again.
+<?php //echo $resultado['observacao']; ?></h3>
                 </div>
                 <!-- Versão abaixo para quando o site estiver hospedado. 
                     <img src="http://chart.apis.google.com/chart?cht=qr&chl=https://idpets.000webhostapp.com/pets.php?=1&chs=250x250">
                 -->
-
+                 </div>       
                 
-            <img src="<?php 
-                    $url = "http://chart.apis.google.com/chart?cht=qr&chl=http://localhost/New%20folder/TCC/TCC/pets.php?id=".$id."&chs=250x250";
-                    
-                    echo $url;
-                ?>">
                 </div>
             </div>
+            <img src="<?php 
+                    $url = "http://chart.apis.google.com/chart?cht=qr&chl=http://localhost/New%20folder/TCC/TCC/pets.php?id=".$id."&chs=200x200";        
+                    echo $url ?>">
 
             <div class="ajustar-botão-pets">
                 <div class="aj-botão">
