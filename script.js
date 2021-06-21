@@ -20,6 +20,7 @@ setInterval(function() {
 var check = document.getElementById("check").innerHTML;
 
 if(check == "s"){
+  
   document.querySelector("#nomepet").addEventListener("change", nomePet);
 
   function nomePet(){
@@ -95,6 +96,7 @@ if(check == "s"){
 
 else{
 //console.log('deu errado');
+
 }
 
 // fim do form pag inicial
@@ -193,7 +195,8 @@ function checkInputs(inputs) {
 
 
   if(log == "Login"){
-     
+    
+    
     var modal = document.getElementById("login");
     var span = document.getElementById("close");
     var botao = document.getElementById("botao-modal");
@@ -219,7 +222,12 @@ function checkInputs(inputs) {
 
   }
   else{//botaologar
+    if(check == "s" || check == "z"){
+      var cad = document.getElementById("botao-cadastro1");
+      cad.style.display ="none";
+    }
     var botao = document.getElementById("botao-modal");
+    
     
 
     botao.onclick = function(){

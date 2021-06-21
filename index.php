@@ -36,13 +36,14 @@
         <div class="menu-esquerda"><img src="imagens/Vectorpaw.png" alt=" "></a>
             <a href="index.php">ID Pets</a>
         </div>
+        <!--
         <div class="menu-central">
             <ul class="componentes-central">
                 <li class="componentes-lista-central"><a href="index.php">Home</a></li>
                 <li class="componentes-lista-central"><a href="dashboard.php">Loja</a></li>
-                <li class="componentes-lista-central"><a href="#">Sobre</a></li>
+                <li class="componentes-lista-central"><a href="#sess">Sobre</a></li>
             </ul>
-        </div>
+        </div> -->
         <div class="menu-direita">
             <ul class="componentes-direita">
                 <div class="wrap-botao-login">
@@ -69,7 +70,7 @@
                 <!-- botao logout fim-->
                 </li>
                 </div>
-                <div class="wrap-botao-cadastrar">
+                <div class="wrap-botao-cadastrar" id="botao-cadastro1">
                 <li class="componentes-lista-direita"><a href="cadastro.php">Cadastro</a></li>
                 </div>
             </ul>
@@ -86,7 +87,7 @@
             <form action="index.php"  method="post">         
                 <h1 class="login-title">Login</h1>
                 <input type="text" placeholder="E-mail" id="inp-focus" name="login">
-                <input type="password" placeholder="Senha" name="senha" id ="senha">
+                <input type="password" placeholder="Senha" name="senha" id ="senhalog">
                 <div class="alinhar">
                     <div class="ali">
                         <button class="botao-logar" type="submit">Entrar</button>

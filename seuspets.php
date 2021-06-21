@@ -15,16 +15,10 @@
 <body>
     <nav class="menu-navegacao">
     <div class="menu-nav-menu">
-        <div class="menu-esquerda">
-            <a href="">ID pets</a>
+        <div class="menu-esquerda"><img src="imagens/Vectorpaw.png" alt=" "></a>
+            <a href="index.php">ID Pets</a>
         </div>
-        <div class="menu-central">
-            <ul class="componentes-central">
-                <li class="componentes-lista-central"><a href="index.php">Home</a></li>
-                <li class="componentes-lista-central"><a href="/tcc/cadastropets.php">Produtos</a></li>
-                <li class="componentes-lista-central"><a href="#">Sobre</a></li>
-            </ul>
-        </div>
+        
         <div class="menu-direita">
             <ul class="componentes-direita">
                 <div class="wrap-botao-login">
@@ -93,9 +87,7 @@
                 </li>
                 
                 </div>
-                <div class="wrap-botao-cadastrar">
-                <li class="componentes-lista-direita"><a href="Cadastro.php">Cadastro</a></li>
-                </div>
+                
             </ul>
         </div>
     </div>

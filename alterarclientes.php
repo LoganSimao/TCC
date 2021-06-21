@@ -16,16 +16,10 @@
     <p id="check">n</p>
     <nav class="menu-navegacao">
     <div class="menu-nav-menu">
-        <div class="menu-esquerda">
-            <a href="index.php">ID pets</a>
+        <div class="menu-esquerda"><img src="imagens/Vectorpaw.png" alt=" "></a>
+            <a href="index.php">ID Pets</a>
         </div>
-        <div class="menu-central">
-            <ul class="componentes-central">
-                <li class="componentes-lista-central"><a href="index.php">Home</a></li>
-                <li class="componentes-lista-central"><a href="/tcc/cadastropets.php">Loja</a></li>
-                <li class="componentes-lista-central"><a href="#">Sobre</a></li>
-            </ul>
-        </div>
+        
         <div class="menu-direita">
             <ul class="componentes-direita">
                 <div class="wrap-botao-login">
@@ -104,31 +98,13 @@
                 </li>
                 
                 </div>
-                <div class="wrap-botao-cadastrar">
-                <li class="componentes-lista-direita"><a href="Cadastro.php">Cadastro</a></li>
-                </div>
+                
             </ul>
         </div>
     </div>
     </nav>
     <!-- modal login -->
-    <div id="login" class="login-principal">
-        <div class ="login-form">
-        <div class="wrap-login">
-            <!--add logo-->
-            <span class="close" id="close">&times;</span>
-                <form action="">
-                    
-                    <h1 class="login-title">Login</h1>
-                    <input type="text" placeholder="E-mail" id="inp-focus">
-                    <input type="password" placeholder="Senha">
-                    <button class="botao-logar">Entrar</button>
-                    <h2>Esqueceu a senha ?</h2>
-                    <div class="line"></div>
-                    <button class="botao-cadastro">Criar conta</button>
 
-                </form>
-        </div>
         
         </div>
     </div>

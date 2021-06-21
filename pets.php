@@ -80,18 +80,11 @@
             }
 
             ?>
-    <p id="check">n</p>
+    <p id="check">z</p>
     <nav class="menu-navegacao">
     <div class="menu-nav-menu">
-        <div class="menu-esquerda">
-            <a href="index.php">ID pets</a>
-        </div>
-        <div class="menu-central">
-            <ul class="componentes-central">
-                <li class="componentes-lista-central"><a href="index.php">Home</a></li>
-                <li class="componentes-lista-central"><a href="dashboard.php">Loja</a></li>
-                <li class="componentes-lista-central"><a href="#">Sobre</a></li>
-            </ul>
+        <div class="menu-esquerda"><img src="imagens/Vectorpaw.png" alt=" "></a>
+            <a href="index.php">ID Pets</a>
         </div>
         <div class="menu-direita">
             <ul class="componentes-direita">
@@ -118,7 +111,7 @@
                 </div>
                 <!-- botao logout fim-->
                 </div>
-                <div class="wrap-botao-cadastrar">
+                <div class="wrap-botao-cadastrar" id="botao-cadastro1">
                 <li class="componentes-lista-direita"><a href="/tcc/Cadastro.php">Cadastro</a></li>
                 </div>
             </ul>

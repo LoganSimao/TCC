@@ -96,24 +96,36 @@ if(isset($_POST['botao-cadastro'])){
 ?>
     <nav class="menu-navegacao">
     <div class="menu-nav-menu">
-        <div class="menu-esquerda">
-            <a href="">ID pets</a>
-        </div>
-        <div class="menu-central">
-            <ul class="componentes-central">
-                <li class="componentes-lista-central"><a href="index.php">Home</a></li>
-                <li class="componentes-lista-central"><a href="cadastropets.php">Produtos</a></li>
-                <li class="componentes-lista-central"><a href="#">Sobre</a></li>
-            </ul>
+        <div class="menu-esquerda"><img src="imagens/Vectorpaw.png" alt=" "></a>
+            <a href="index.php">ID Pets</a>
         </div>
         <div class="menu-direita">
             <ul class="componentes-direita">
                 <div class="wrap-botao-login">
-                <li class="componentes-lista-direita"><a id="botao-modal"><?php echo $nome; ?></a></li>
+                
+                <li class="componentes-lista-direita"><a id="botao-modal"><?php echo $nome; ?></a>
+                <!-- botao logout -->
+                <div class="clos-modal" id="clos-modal">
+                    <div class="logout" id="logout">
+                        <div class="alinhar-logout">
+                        <div class="">
+                            <h3><?php echo $n?></h1>
+                        </div>
+                        <div class="ver-sair">
+                            <div>
+                            <a href="dashboard.php"><p>Meu perfil</p></a>
+                            </div><div>
+                            <form action="<?php echo $_SERVER['PHP_SELF'];?>">
+                            <button class="botao-sair" name="sair"><p>Sair</p></button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="wrap-botao-cadastrar">
-                <li class="componentes-lista-direita"><a href="/Cadastro.php">Cadastro</a></li>
+                <!-- botao logout fim-->
+            </li>
                 </div>
+                
             </ul>
         </div>
     </div>
@@ -139,6 +151,21 @@ if(isset($_POST['botao-cadastro'])){
         </div>
         
         </div>
+    </div>
+    <p id="check">n</p>
+    <div class="sidenav">
+        <a href="dashboard.php">Perfil</a>
+        <a href="seuspets.php">Pets</a>
+        <label for="sair"><a >Histórico</a></label>
+        <form action="log.php">
+        <button class="botao-sair" name="sair">Sair</button>
+        </form>
+        
+    </div>
+    <div class="bottomnav">
+        <a href="dashboard.php">Perfil</a>
+        <a href="seuspets.php">Pets</a>
+        <a href="historico.php">Histórico</a>
     </div>
     <div class="pg-seuspets">
     <div class="form-background-wrap">
