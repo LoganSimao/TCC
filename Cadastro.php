@@ -148,33 +148,35 @@
     session_start();
     
     if(!isset($_SESSION['logado'])){
-        $nome = "Login";
-        $n = " ";      
+        $nome1 = "Login";
+        $n = " ";
+        
     }
     else{
         $n = $_SESSION['nome'];
         $arr = explode(' ', trim($n));
         $nome = $arr[0];
-        header('Location: dashboard.php');
+        $nome1 = "Olá, ".$nome."!";
+        header('Location: dashboard.php')  ;
     }
 
     ?>
-    <p id="check">n</p>
+    <p id="check">y</p>
     <nav class="menu-navegacao">
     <div class="menu-nav-menu">
-        <div class="menu-esquerda"><img src="imagens/Vectorpaw.png" alt=" "></a>
+        <div class="menu-esquerda" id="ml"><img src="imagens/Vectorpaw.png" alt=" "></a>
             <a href="index.php">ID Pets</a>
         </div>
         <div class="menu-direita">
             <ul class="componentes-direita">
                 <div class="wrap-botao-login">
-                <li class="componentes-lista-direita"><a id="botao-modal"><?php echo $nome; ?></a>
+                <li class="componentes-lista-direita"><a id="botao-modal"><?php echo $nome1; ?></a>
                 <!-- botao logout -->
                 <div class="clos-modal" id="clos-modal">
                     <div class="logout" id="logout">
                         <div class="alinhar-logout">
                         <div class="">
-                            <h3><?php echo $n?></h3>
+                            <h3 id="greet"><?php echo $nome?>!</h3>
                         </div>
                         <div class="ver-sair">
                             <div>
@@ -191,7 +193,9 @@
                 <!-- botao logout fim-->
                 </li>
                 </div>
-                
+                <div class="wrap-botao-cadastrar" id="botao-cadastro1">
+                <li class="componentes-lista-direita"><a href="/tcc/Cadastro.php">Cadastro</a></li>
+                </div>
             </ul>
         </div>
     </div>
@@ -215,7 +219,9 @@
                 <p id="msg"></p>
                 <a href="recuperar_senha.php"><h2>Esqueceu a senha ?</h2></a>
                 <div class="line"></div>
-                <a class="botao-cadastro" >Criar conta</a>
+                <div class="al-btn-log">
+                    <a class="botao-cadastro" >Criar conta</a>
+                </div>
             </form>
         </div>
         </div>

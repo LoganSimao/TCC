@@ -196,7 +196,10 @@ function checkInputs(inputs) {
 
   if(log == "Login"){
     //console.log(getTime());
-   
+    if(check == "y"){
+      var cads = document.getElementById("botao-cadastro1");
+      cads.style.display ="none";
+    }
     var ml = document.getElementById("ml");
     ml.style.left = "0";
 
@@ -238,8 +241,9 @@ function checkInputs(inputs) {
     else{
       document.getElementById("greet").innerHTML = `Bom dia ${nn}`;
     }
-
-    if(check == "s" || check == "z"){
+    console.log(check);
+    
+    if(check == "s" || check == "z" || check =="y"){
       var cad = document.getElementById("botao-cadastro1");
       cad.style.display ="none";
 

@@ -18,13 +18,14 @@
             //$_SESSION['idt'] = $_GET['id'];
             //include 'conexao.php';
             if(!isset($_SESSION['logado'])){
-                $nome = "Login";
+                $nome1 = "Login";
+                $n = " ";        
             }
-
             else{
                 $n = $_SESSION['nome'];
                 $arr = explode(' ', trim($n));
                 $nome = $arr[0];
+                $nome1 = "Olá, ".$nome."!";
             }
 
             //capturar o id do link
@@ -89,13 +90,13 @@
         <div class="menu-direita">
             <ul class="componentes-direita">
                 <div class="wrap-botao-login">
-                <li class="componentes-lista-direita"><a id="botao-modal"><?php echo $nome; ?></a></li>
+                <li class="componentes-lista-direita"><a id="botao-modal"><?php echo $nome1; ?></a>
                 <!-- botao logout -->
-                    <div class="clos-modal" id="clos-modal">
+                <div class="clos-modal" id="clos-modal">
                     <div class="logout" id="logout">
                         <div class="alinhar-logout">
                         <div class="">
-                            <h3><?php echo $n?></h3>
+                            <h3 id="greet"><?php echo $nome?>!</h3>
                         </div>
                         <div class="ver-sair">
                             <div>
