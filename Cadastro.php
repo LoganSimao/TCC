@@ -227,7 +227,7 @@
         
         <div class="form-content-cadastro">
         <div class="form-content-cadastro2">
-            <h1>Cadaste-se</h1>
+            <h1>Cadastre-se</h1>
         </div>
         
             <div class="content-cadastro">
