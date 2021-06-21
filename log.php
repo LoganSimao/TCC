@@ -21,6 +21,8 @@ if(empty($login) or empty($senha)){
     $falha = "  <script type=\"text/javascript\">
 
         function myFunction(){
+            var ml = document.getElementById('ml');
+            ml.style.left ='0';
             var ani = document.getElementById('login-ani');
             ani.style.animation = \"none\";
             var modal = document.getElementById('login');
@@ -82,6 +84,8 @@ else{
         $falha = "  <script type=\"text/javascript\">
 
         function myFunction(){
+            var ml = document.getElementById('ml');
+            ml.style.left = '0';
             var modal = document.getElementById('login');
             modal.style.display = \"block\";
             var msg = document.getElementById('msg');

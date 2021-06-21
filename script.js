@@ -195,8 +195,11 @@ function checkInputs(inputs) {
 
 
   if(log == "Login"){
-    
-    
+    //console.log(getTime());
+   
+    var ml = document.getElementById("ml");
+    ml.style.left = "0";
+
     var modal = document.getElementById("login");
     var span = document.getElementById("close");
     var botao = document.getElementById("botao-modal");
@@ -222,9 +225,68 @@ function checkInputs(inputs) {
 
   }
   else{//botaologar
+    var dd = new Date();
+    var na = dd.getHours();
+    var nn = document.getElementById("greet").innerHTML;
+    
+    if(na >= 12 && na <= 17){
+      document.getElementById("greet").innerHTML = `Boa tarde ${nn}`;
+    }
+    else if(na >= 18 && na <= 23){
+      document.getElementById("greet").innerHTML = `Boa noite ${nn}`;
+    }
+    else{
+      document.getElementById("greet").innerHTML = `Bom dia ${nn}`;
+    }
+
     if(check == "s" || check == "z"){
       var cad = document.getElementById("botao-cadastro1");
       cad.style.display ="none";
+
+    }
+    if(check == "n" || check == "x"){
+      document.getElementById("us").addEventListener("mouseover", us);
+      document.getElementById("pe").addEventListener("mouseover", pe);
+      document.getElementById("des").addEventListener("mouseover", des);
+      document.getElementById("us").addEventListener("mouseout", usO);
+      document.getElementById("pe").addEventListener("mouseout", peO);
+      document.getElementById("des").addEventListener("mouseout", desO);
+      document.getElementById("us-b").addEventListener("mouseover", us);
+      document.getElementById("pe-b").addEventListener("mouseover", pe);
+      document.getElementById("des-b").addEventListener("mouseover", des);
+      document.getElementById("us-b").addEventListener("mouseout", usO);
+      document.getElementById("pe-b").addEventListener("mouseout", peO);
+      document.getElementById("des-b").addEventListener("mouseout", desO);
+
+      function us(){
+        document.getElementById("svg-us").src = "svg/u2.svg";
+        document.getElementById("svg-us-b").src = "svg/u2.svg";
+        
+      }
+      function pe(){
+        document.getElementById("svg-pe").src = "svg/p2.svg";
+        document.getElementById("svg-pe-b").src = "svg/p2.svg";
+      }
+      function des(){
+        document.getElementById("svg-des").src = "svg/deslogar2.svg";
+        document.getElementById("svg-des-b").src = "svg/deslogar2.svg";
+      }
+      function usO(){
+        document.getElementById("svg-us").src = "svg/u.svg";
+        document.getElementById("svg-us-b").src = "svg/u.svg";
+        
+      }
+      function peO(){
+        document.getElementById("svg-pe").src = "svg/p.svg";
+        document.getElementById("svg-pe-b").src = "svg/p.svg";
+
+      }
+      function desO(){
+        document.getElementById("svg-des").src = "svg/deslogar.svg";
+        document.getElementById("svg-des-b").src = "svg/deslogar.svg";
+
+      }
+
     }
     var botao = document.getElementById("botao-modal");
     
