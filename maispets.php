@@ -164,8 +164,7 @@
                 </div>
                 
                 <div class="join2">
-                    <h3 class="side-join2">Observação</h3><h3 class="side-join4">A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over again.
-<?php //echo $resultado['observacao']; ?></h3>
+                    <h3 class="side-join2">Observação</h3><h3 class="side-join4"><?php echo $resultado['observacao']; ?></h3>
                 </div>
                 <!-- Versão abaixo para quando o site estiver hospedado. 
                     <img src="http://chart.apis.google.com/chart?cht=qr&chl=https://idpets.000webhostapp.com/pets.php?=1&chs=250x250">
