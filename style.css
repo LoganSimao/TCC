@@ -443,6 +443,10 @@ body{
     .box-wrap{
         height: 46vh!important;
     }
+    .table-class {
+        width: 70vw!important;
+        height: 45vh!important;
+    }
 }
 /* fim sessao 2 */
 
@@ -1356,6 +1360,10 @@ body{
     .bottomnav{
         display: flex;
     }
+    .table-class {
+        width: 40vw!important;
+        height: 46vh!important;
+    }
 
 }
 /* pets fim */
@@ -1517,6 +1525,9 @@ th{
     }
     .custom-shape-divider-bottom-1621222059 {
         bottom: 2.2rem;
+    }
+    .table-class{
+        width: 50vw!important;
     }
 }
 
@@ -2436,7 +2447,7 @@ th{
     justify-content: center;
     align-items: center;
     margin-bottom: 0.6rem;
-    top: 2rem;
+    top: 1rem;
     position: relative;
 }
 
@@ -2622,8 +2633,9 @@ th{
 
 
 .table-class {
- 
     overflow: auto;
+    width: 27vw;
+    height: 44vh;
 }
 
 

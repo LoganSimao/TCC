@@ -89,7 +89,7 @@
             margin-bottom: 3rem;
         }
         .lin{
-            ;
+            
             text-decoration: none;
             font-weight: bold;
             color: white;

@@ -1,34 +1,90 @@
-<?php ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="favicon_io/site.webmanifest">
+
     <title>404</title>
 </head>
-
 <body>
-<div>
-    <h1>Acho que você se perdeu...</h1>
-    <a href="index.php" class="botao-pet">Pagina inicial</a>
-</div>
-<div></div>
-<footer>
-    <nav class="footer-mestre">
-        <div class="footer">
-            <div class="">
-                <ul class="">
-                    <li class="list-footer">© ID Pets 2021</li>
-                </ul>
-            </div>
+    <div class="bg">
+    <div class="conf">
+        <div class="conf1">
+            <h1>Acho que você se perdeu...</h1>
+            <a href="index.php" class="lin">Voltar ao site</a>
         </div>
-</footer>
+    </div>
+    <div class="wrap-logo">
+                    <div class="main-logo">
+                        <img src="svg/Vectorpawsvg.svg">
+                    </div>
+                    <div>
+                        <h3 class="id-logo">ID Pets</h3>
+                    </div> 
+            </div>
+    </div>
+    <style>
+        *{
+            background-color: #fdfdf2;
+        }
+        .wrap-logo{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Sans-serif;
+            font-weight: bold;
+            color: #e75f17;
+
+        }
+        .main-logo img{
+            width: 4vw;
+            right: 1rem;
+            position: relative;
+
+        }
+        .id-logo{
+            font-size: 2.5vw;
+            left: 1rem;
+            position: relative;
+        }
+        .bg{
+            width: 98vw;
+            height:100vh;
+            background-color: #fdfdf2;
+        }
+        .conf{
+            font-family: Sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50%;
+            
+        }
+        .conf1{
+            position: relative;
+            width: 50%;
+            height:50%;
+            text-align: center;
+            top: 10rem;
+        }
+        .conf1 h1{
+            color: grey;
+            margin-bottom: 3rem;
+        }
+        .lin{
+            
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+            padding: 1rem 3rem;
+            background-color: #69C36A;
+            border-radius: 5px;
+            
+        }
+        .lin:hover{
+            background-color: #468847;
+        }
+    </style>
 </body>
 </html>
