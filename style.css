@@ -2478,7 +2478,7 @@ th{
     border: 0;
     padding: 0;
     width: 98vw;
-    height: 100vh;
+    height: 98vh;
     background-color: var(--bg-color);
     font-family: var(--fonte);
 }
