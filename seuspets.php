@@ -234,17 +234,18 @@
                 <h1> Seus pets <?php //echo $nome ?> </h1>
                 <!-- <p><?php //echo $msg ?></p> -->
             </div>
-                <table>
+                <div class="table-class">
+                <table >
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>Nome do Pet</th>
                         </tr>				
                     </thead>
-<?php  
-$sql2 = "SELECT * from pets where id_cliente = $id";
-$resultado = mysqli_query($conn, $sql2);
-while($dados = mysqli_fetch_array($resultado)){ ?>
+                    <?php  
+                    $sql2 = "SELECT * from pets where id_cliente = $id";
+                    $resultado = mysqli_query($conn, $sql2);
+                    while($dados = mysqli_fetch_array($resultado)){ ?>
 
                     <tr>
                         <td><?php echo $dados['id']; ?></td>
@@ -284,6 +285,7 @@ while($dados = mysqli_fetch_array($resultado)){ ?>
 
                     <?php } ?>
                 </table>
+                </div>
                 <div class="consulta-pet">
                     <a class="cadastrar-pet" href="cadastropets.php">Cadastrar PET</a>
                 </div>
