@@ -24,17 +24,63 @@
                     session_start();
                     if(!isset($_SESSION['logado'])){
                         $nome1 = "Login";
-                        $n = " ";        
+                        $n = " ";
+                        header('Location: index.php');   
                     }
                     else{
                         $n = $_SESSION['nome'];
                         $arr = explode(' ', trim($n));
                         $nome = $arr[0];
                         $nome1 = "Olá, ".$nome."!";
+                        $erro = " ";
                     }
                 
                 ?>
 
+<?php 
+    if (isset($_POST['btn-alterar'])) {
+        $id = $_GET['id'];
+        $nomePET = $_POST['nome'];
+        $raca = $_POST['raca'];
+        $sexo = $_POST['sexo'];
+        $idade = $_POST['idade'];
+        $porte = $_POST['porte'];
+        $cor = $_POST['cor'];
+        $observacao = $_POST['observacao'];
+
+        $sql3 = "UPDATE pets SET nome = '$nomePET', raca = '$raca', sexo = '$sexo', idade = $idade, porte = '$porte', cor = '$cor', observacao = '$observacao' WHERE id = $id";
+
+        if(mysqli_query($conn, $sql3)) {
+            $erro = $_SESSION['mensagem'] = "Alterado com sucesso!";
+            //exit(header('Location: seuspets.php'));
+        }
+        else{
+            $erro = $_SESSION['mensagem'] = "Erro ao alterar.";
+
+            //header('Location: seuspets.php');	
+        }
+    }
+    ?>
+    <?php 
+            include 'conexao.php';
+           
+            if(isset($_GET['id'])){
+                $id = $_GET['id'];
+
+            }
+            // passar a logica no banco de dados
+            $id_cliente = $_SESSION['id'];
+
+            //usa o id do dono pra consultar qual é na tabela clientes
+            $sql1 = "SELECT * from cadastro_cliente where id = $id_cliente";      
+            $resultadoCliente = mysqli_query($conn, $sql1);
+            $armazenamentoNomeCliente = mysqli_fetch_array($resultadoCliente);
+
+            $sql2 = "SELECT * from pets where id = $id";
+            $resultadoPET = mysqli_query($conn, $sql2);
+            $resultado = mysqli_fetch_array($resultadoPET);
+            
+            ?>  
             <div class="menu-direita">
             <ul class="componentes-direita">
                 <div class="wrap-botao-login">
@@ -59,30 +105,6 @@
                     </div>
                 </div>
 
-                    <?php 
-    if (isset($_POST['btn-alterar'])) {
-        $id = $_GET['id'];
-        $nomePET = $_POST['nome'];
-        $raca = $_POST['raca'];
-        $sexo = $_POST['sexo'];
-        $idade = $_POST['idade'];
-        $porte = $_POST['porte'];
-        $cor = $_POST['cor'];
-        $observacao = $_POST['observacao'];
-
-        $sql3 = "UPDATE pets SET nome = '$nomePET', raca = '$raca', sexo = '$sexo', idade = $idade, porte = '$porte', cor = '$cor', observacao = '$observacao' WHERE id = $id";
-
-        if(mysqli_query($conn, $sql3)) {
-            $_SESSION['mensagem'] = "Alterado com sucesso!";
-            exit(header('Location: seuspets.php'));
-        }
-        else{
-            $_SESSION['mensagem'] = "Erro ao alterar.";
-
-            //header('Location: seuspets.php');	
-        }
-    }
-    ?>
 
                 <!-- botao logout -->
                 <div class="clos-modal" id="clos-modal">
@@ -177,31 +199,7 @@
         
         <div class="form-content-perfil2">
             
-            <?php 
-            include 'conexao.php';
-           
-            //capturar o id do link
-            if(!isset($_SESSION['logado'])){
-                header('Location: index.php');
-            }
-
-            if(isset($_GET['id'])){
-                $id = $_GET['id'];
-
-            }
-            // passar a logica no banco de dados
-            $id_cliente = $_SESSION['id'];
-
-            //usa o id do dono pra consultar qual é na tabela clientes
-            $sql1 = "SELECT * from cadastro_cliente where id = $id_cliente";      
-            $resultadoCliente = mysqli_query($conn, $sql1);
-            $armazenamentoNomeCliente = mysqli_fetch_array($resultadoCliente);
-
-            $sql2 = "SELECT * from pets where id = $id";
-            $resultadoPET = mysqli_query($conn, $sql2);
-            $resultado = mysqli_fetch_array($resultadoPET);
             
-            ?>  
             <div class="form-content-perfil3">
                 <h1> Alterar dados do <?php echo $resultado['nome'] ?> </h1>
             </div>
@@ -233,6 +231,13 @@
                     <h3>Observação</h3><textarea maxlength="100" type="text" name="observacao" class="obs" rows="4" cols="20" max><?php echo $resultado['observacao']; ?> </textarea>
                     </div>
                 </div>
+                <div class="al-msg">
+                <div class="msg-content-al-pt">
+                    <h4>
+                        <?php echo $erro; ?>
+                    </h4>
+                </div>
+            </div>
                 <div class="ajustar-botão-pets">
                    <div class="aj-botão">
                         <a class="voltar-pet" href="seuspets.php">Voltar</a>

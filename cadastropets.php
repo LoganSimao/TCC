@@ -20,13 +20,15 @@ session_start();
 
     if(!isset($_SESSION['logado'])){
         $nome1 = "Login";
-        $n = " ";        
+        $n = " ";
+        header('Location: index.php');
     }
     else{
         $n = $_SESSION['nome'];
         $arr = explode(' ', trim($n));
         $nome = $arr[0];
         $nome1 = "Olá, ".$nome."!";
+        $cadastro = " ";
     }
 
 
@@ -48,31 +50,37 @@ if(isset($_POST['botao-cadastro'])){
         empty($porte) or 
         empty($cor) or 
         empty($sexo)){
-        $cadastro = "Não preencheu todos os campos";
+        $cadastro = "Preencha todos os campos";
     }
     else{
-        $token = 1;
-        //function gerarToken(){
+        function gerarToken(){
             //gerar token para link
+            global $token1;
+            global $final;
             $arr = str_split('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'); 
-            // get all the characters into an array
+            $arr1 = str_split('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789');
             shuffle($arr); // randomizar o array
+            shuffle($arr1);
             $arr = array_slice($arr, 0, 20); // pegar os caracteres do array de 0 a 20
-            $token = implode('', $arr); // transforma o array em string novamente
-        
-            /*verificar token no banco de dados
-            $query = "SELECT * from pets where token = '$token'";
-            $result = mysqli_query($conn,$query);
-            $rows = mysqli_num_rows($result);
-            if($rows > 0){
-                gerarToken();//+1
-            }
-            else{
-                return $token;
-            } */
-       // } 
-        echo $token.'<br><br>';
-        echo $_SESSION['id'];
+            $arr1 = array_slice($arr1, 0, 3);
+            $token1 = implode('', $arr); // transforma o array em string novamente
+            $extratoken = implode('', $arr1);
+
+            $final = $token1.$extratoken;
+
+        }
+        gerarToken();
+        /*verificar token no banco de dados */
+        $query = "SELECT * from pets where token = '$token1'";
+        $result = mysqli_query($conn,$query);
+        $rows = mysqli_num_rows($result);
+        if($rows > 0){
+            $token = $final;
+        }
+        else{
+            $token = $token1;
+        }
+
         $idCliente = $_SESSION['id'];
 
         $sql = "INSERT INTO pets (id_cliente,nome,raca,sexo,idade,porte,cor,observacao,token) VALUES(
@@ -88,7 +96,7 @@ if(isset($_POST['botao-cadastro'])){
             )";
 
         if(mysqli_query($conn,$sql)){
-            $cadastro = "Cadastrado concluido com sucesso";
+            $cadastro = "Cadastrado com sucesso";
         }
         else{
             echo "Erro ao inserir o animal! Erro: ".mysqli_error($conn);
@@ -253,6 +261,13 @@ if(isset($_POST['botao-cadastro'])){
             </div>
             <input type="text" maxlength="100" name="observacao"placeholder="Observação">
             <div class="line"></div>
+            <div class="al-msg">
+                <div class="msg-content">
+                    <h4>
+                        <?php echo $cadastro; ?>
+                    </h4>
+                </div>
+            </div>
             <div class="bt-pet-cadastro">
                 <button class="botao-cadastro" name="botao-cadastro">Cadastrar</button>
             </div>
@@ -268,7 +283,7 @@ if(isset($_POST['botao-cadastro'])){
         </svg>
     </div>
     <script src="script.js"></script>
-    <?php echo $falha ?>
+
 </body>
 
 </html>

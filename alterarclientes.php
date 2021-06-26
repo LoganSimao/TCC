@@ -75,6 +75,28 @@
             }
         }
     ?>
+    <?php 
+            include 'conexao.php';
+           
+            //capturar o id do link
+            if(!isset($_SESSION['logado'])){
+                header('Location: index.php');
+            }
+
+            if(isset($_GET['id'])){
+                $id = $_GET['id'];
+
+            }
+            // passar a logica no banco de dados
+            $id_cliente = $_SESSION['id'];
+
+            //usa o id do dono pra consultar qual é na tabela clientes
+            $sql1 = "SELECT * from cadastro_cliente where id = $id_cliente";      
+            $resultadoCliente = mysqli_query($conn, $sql1);
+            $armazenamentoNomeCliente = mysqli_fetch_array($resultadoCliente);
+
+            
+            ?>  
 
                 <div class="menu-direita">
                 <ul class="componentes-direita">
@@ -114,7 +136,7 @@
         
         </div>
     </div>
-    <p id="check">n</p>
+
     <div class="sidenav">
             <div class="wrap-side">
                 <div class="svgs-icones">
@@ -177,28 +199,6 @@
         
         <div class="form-content-perfil2">
             
-            <?php 
-            include 'conexao.php';
-           
-            //capturar o id do link
-            if(!isset($_SESSION['logado'])){
-                header('Location: index.php');
-            }
-
-            if(isset($_GET['id'])){
-                $id = $_GET['id'];
-
-            }
-            // passar a logica no banco de dados
-            $id_cliente = $_SESSION['id'];
-
-            //usa o id do dono pra consultar qual é na tabela clientes
-            $sql1 = "SELECT * from cadastro_cliente where id = $id_cliente";      
-            $resultadoCliente = mysqli_query($conn, $sql1);
-            $armazenamentoNomeCliente = mysqli_fetch_array($resultadoCliente);
-
-            
-            ?>  
             <div class="form-content-perfil3">
                 <h1> Alterar seus dados </h1>
             </div>

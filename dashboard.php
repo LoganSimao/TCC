@@ -29,9 +29,43 @@
                         $arr = explode(' ', trim($n));
                         $nome = $arr[0];
                         $nome1 = "Olá, ".$nome."!";
+                        if($_SESSION['mensagem'] == " "){
+                            $erro = " ";
+                        }
+                        else{
+                            $erro = $_SESSION['mensagem'];
+                        }
                     }
                 
                 ?>
+                <?php 
+            include 'conexao.php';
+           
+
+            //capturar o id do link
+            if(!isset($_SESSION['logado'])){
+                header('Location: index.php');
+            }
+           
+
+            if(isset($_GET['id'])){
+                $id = $_GET['id'];
+                $idsessao = $_SESSION['id'];
+                //echo $id.' '.$idsessao;
+                if($id != $idsessao){ 
+                    header('Location: lost.html');//forbiden later
+                }
+            }
+            
+                // passar a logica no banco de dados
+            $id = $_SESSION['id'];
+            $sql1 = "SELECT * from cadastro_cliente where id = $id"; //usa o id do dono pra consultar qual é na tabela clientes     
+            $resultadoCliente = mysqli_query($conn, $sql1);
+            $armazenamento = mysqli_fetch_array($resultadoCliente);
+            mysqli_close($conn); // fechamento da conexao com o banco de dados para evitar problemas
+            
+            
+            ?>  
 
 <div class="menu-direita">
             <ul class="componentes-direita">
@@ -144,34 +178,7 @@
       <div class="pg-seuspets">
         
         <div class="form-content-perfil">
-            <?php 
-            include 'conexao.php';
-           
-
-            //capturar o id do link
-            if(!isset($_SESSION['logado'])){
-                header('Location: index.php');
-            }
-           
-
-            if(isset($_GET['id'])){
-                $id = $_GET['id'];
-                $idsessao = $_SESSION['id'];
-                //echo $id.' '.$idsessao;
-                if($id != $idsessao){ 
-                    header('Location: lost.html');//forbiden later
-                }
-            }
             
-                // passar a logica no banco de dados
-            $id = $_SESSION['id'];
-            $sql1 = "SELECT * from cadastro_cliente where id = $id"; //usa o id do dono pra consultar qual é na tabela clientes     
-            $resultadoCliente = mysqli_query($conn, $sql1);
-            $armazenamento = mysqli_fetch_array($resultadoCliente);
-            mysqli_close($conn); // fechamento da conexao com o banco de dados para evitar problemas
-            
-            
-            ?>  
             <h1>Perfil</h1>
             <div class="content-cliente">
                 <div class="content-cliente-wrap">
@@ -208,7 +215,7 @@
             <div class="al-msg">
                 <div class="msg-content">
                     <h4>
-                        <?php echo $_SESSION['mensagem']; ?>
+                        <?php echo $erro; ?>
                     </h4>
                 </div>
             </div>

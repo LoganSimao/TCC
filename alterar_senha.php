@@ -32,8 +32,65 @@
                         $arr = explode(' ', trim($n));
                         $nome = $arr[0];
                         $nome1 = "Olá, ".$nome."!";
+                        $erro = " ";
                     }
                 ?>
+                            <?php 
+            include 'conexao.php';
+           
+            //capturar o id do link
+            if(!isset($_SESSION['logado'])){
+                header('Location: index.php');
+            }
+
+            if(isset($_GET['id'])){
+                $id = $_GET['id'];
+
+            }
+            // passar a logica no banco de dados
+            $id_cliente = $_SESSION['id'];
+
+            //usa o id do dono pra consultar qual é na tabela clientes
+            $sql1 = "SELECT * from cadastro_cliente where id = $id_cliente";      
+            $resultadoCliente = mysqli_query($conn, $sql1);
+            $armazenamentoNomeCliente = mysqli_fetch_array($resultadoCliente);
+            $hash = $armazenamentoNomeCliente['senha'];
+            
+            if (isset($_POST['btn-alterar'])){
+            
+            $senha = $_POST['senha_atual'];
+            $nova_senha = $_POST['nova_senha'];
+            $confirmar_senha = $_POST['repetir_senha'];
+                
+                //Verifica se a senha atual está correta.
+                if(password_verify($senha, $hash)){
+                    
+                    //Verifica se o campo da nova senha não está vazio.
+                    if(empty($nova_senha)){
+                        $erro = "- Não inseriu a nova senha.";
+                    }
+                    //Verifica se a nova senha e a confirmação da senha confere.
+                    elseif($nova_senha == $confirmar_senha){
+                        $erro = "- senhas conferem";
+                        $hash2 = password_hash($nova_senha, PASSWORD_DEFAULT);
+                        $hashFinal = "'".$hash2."'";
+
+                        $sql3 = "UPDATE cadastro_cliente SET senha = $hashFinal WHERE id = '$id_cliente'";
+                        
+                            if(mysqli_query($conn,$sql3)){
+                                $_SESSION['mensagem'] = "- senha alterada com sucesso!";
+                                header('Location: dashboard.php');
+                            }
+                    }
+                    else {
+                        $erro = "- senhas não conferem";
+                    }
+                }
+                else {
+                    $erro = "- Senha incorreta";
+                }
+            }
+            ?>  
                 <div class="menu-direita">
                 <ul class="componentes-direita">
                 <div class="wrap-botao-login">
@@ -174,61 +231,7 @@
         
         <div class="form-content-perfil2">
             
-            <?php 
-            include 'conexao.php';
-           
-            //capturar o id do link
-            if(!isset($_SESSION['logado'])){
-                header('Location: index.php');
-            }
 
-            if(isset($_GET['id'])){
-                $id = $_GET['id'];
-
-            }
-            // passar a logica no banco de dados
-            $id_cliente = $_SESSION['id'];
-
-            //usa o id do dono pra consultar qual é na tabela clientes
-            $sql1 = "SELECT * from cadastro_cliente where id = $id_cliente";      
-            $resultadoCliente = mysqli_query($conn, $sql1);
-            $armazenamentoNomeCliente = mysqli_fetch_array($resultadoCliente);
-            $hash = $armazenamentoNomeCliente['senha'];
-            
-            if (isset($_POST['btn-alterar'])){
-            
-            $senha = $_POST['senha_atual'];
-            $nova_senha = $_POST['nova_senha'];
-            $confirmar_senha = $_POST['repetir_senha'];
-                
-                //Verifica se a senha atual está correta.
-                if(password_verify($senha, $hash)){
-                    
-                    //Verifica se o campo da nova senha não está vazio.
-                    if(empty($nova_senha)){
-                        echo "Não inseriu a nova senha.";
-                    }
-                    //Verifica se a nova senha e a confirmação da senha confere.
-                    elseif($nova_senha == $confirmar_senha){
-                        echo "senhas conferem";
-                        $hash2 = password_hash($nova_senha, PASSWORD_DEFAULT);
-                        $hashFinal = "'".$hash2."'";
-
-                        $sql3 = "UPDATE cadastro_cliente SET senha = $hashFinal WHERE id = '$id_cliente'";
-                        
-                            if(mysqli_query($conn,$sql3)){
-                                echo "senha alterada com sucesso!";
-                            }
-                    }
-                    else {
-                        echo "senhas não conferem";
-                    }
-                }
-                else {
-                    echo "Senha incorreta";
-                }
-            }
-            ?>  
             <div class="form-content-perfil3">
                 <h1>Alterar senha</h1>
             </div>
@@ -250,6 +253,11 @@
                     <div class="join">
                         <h3>Repita a senha</h3>   <input type="password" name = "repetir_senha">
                     </div>
+            </div>
+            <div class="al-msg">
+                <div class="al-msg-senha">
+                    <h4 ><?php echo $erro ?></h4>
+                </div>
             </div>
                <div class="ajustar-botão">
                    <div class="aj-botão">
