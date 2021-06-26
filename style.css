@@ -447,6 +447,42 @@ body{
         width: 70vw!important;
         height: 45vh!important;
     }
+    .form-background-cadastro{
+        width: 82vw!important;
+        top: 2rem!important;
+    }
+    .form-content-cadastro{
+        width: 76vw!important;
+        top: 0rem!important;
+    }
+    .content-cadastro input{
+        width: 62vw!important;
+        height: 1.5rem!important;
+        margin: 0.4rem!important;
+    }
+    .form-cidade input{
+        width: 47.2vw!important;
+    }
+    .form-complemento input{
+        width: 47.2vw!important;
+    }
+
+    .form-numero input{
+        width: 11vw!important;
+        
+    }
+    .form-estado select {
+        width: 12vw!important;
+        height: 1.6rem!important;
+        margin: 0.4rem!important;
+    }
+    .content-cadastro form{
+        height: 68vh!important;
+    }
+    .botao-alterar{
+        width: 5.6rem!important;
+        height: 2.3rem!important;
+    }
 }
 /* fim sessao 2 */
 
@@ -1516,10 +1552,11 @@ th{
     .ajustar-botão-alt{
 
     }
+    /*
     .botao-alterar{
         width: 8.6rem!important;
         height: 3.2rem!important;
-    }
+    }*/
     .login-form{
         width: 50vw!important;
     }
@@ -1762,6 +1799,38 @@ th{
     
     .box-wrap {
         height: 60vh!important;
+    }
+    .form-background-cadastro{
+        width: 82vw!important;
+        top: 2rem!important;
+    }
+    .form-content-cadastro{
+        width: 76vw!important;
+        top: -2rem!important;
+    }
+    .content-cadastro input{
+        width: 62vw!important;
+        height: 1.5rem!important;
+        margin: 0.3rem!important;
+    }
+    .form-cidade input{
+        width: 47.2vw!important;
+    }
+    .form-complemento input{
+        width: 47.2vw!important;
+    }
+
+    .form-numero input{
+        width: 11vw!important;
+        
+    }
+    .form-estado select {
+        width: 12vw!important;
+        height: 1.6rem!important;
+        margin: 0.3rem!important;
+    }
+    .content-cadastro form{
+        height: 68vh!important;
     }
     
 }
@@ -2105,7 +2174,28 @@ th{
     background-color: var(--laranja-claro);
 }
 
-.aj-botão{
+.consulta-cad1{
+    display: flex;
+    position: relative;
+
+    justify-content: space-around;
+}
+.ajustar-botão-pets1{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    width: 90%;
+    right: 1rem!important;
+
+}
+.aj-botão-vc{
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: .54rem 1.2rem;
+    background-color: var(--laranja);
+    font-size: clamp(14px,1.1vw,1.2vw);
     
 }
 
@@ -2136,6 +2226,7 @@ th{
     color: var(--laranja);
     text-align: center;
     margin-bottom: 0;
+    font-size: clamp(16px, 1vw, 1.2vw);
 }
 
 .content-cadastro-form{
@@ -2631,12 +2722,16 @@ th{
     }
 }
 
-
 .table-class {
     overflow: auto;
     width: 27vw;
     height: 44vh;
 }
 
-
-
+.erro p{
+    color: #e82f2f!important;
+    position: relative;
+    font-weight: bold;
+    font-size: clamp(14px, 1vw, 1vw);
+    
+}

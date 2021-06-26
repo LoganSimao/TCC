@@ -15,7 +15,7 @@
 <body>
     <nav class="menu-navegacao">
     <div class="menu-nav-menu">
-        <div class="menu-esquerda"><img src="imagens/Vectorpaw.png" alt=" "></a>
+        <div class="menu-esquerda" id="ml"><img src="imagens/Vectorpaw.png" alt=" "></a>
             <a href="index.php">ID Pets</a>
         </div>
         <?php
@@ -30,6 +30,14 @@
                         $arr = explode(' ', trim($n));
                         $nome = $arr[0];
                         $nome1 = "Olá, ".$nome."!";
+                    }
+
+                    if(isset($_GET['id'])){
+                        $id = $_GET['id'];
+        
+                    }
+                    else{
+                        header('Location: index.php');
                     }
                 
                 ?>
@@ -76,73 +84,35 @@
                     </div>
                 </div>
                 <!-- botao logout fim-->
-                </li>
-                
                 </div>
-                
+                    <div class="wrap-botao-cadastrar" id="botao-cadastro1">
+                    <li class="componentes-lista-direita"><a href="/tcc/Cadastro.php">Cadastro</a></li>
+                </div>
             </ul>
         </div>
     </div>
     </nav>
     <!-- modal login -->
+    <div id="login" class="login-principal">
+        <div class ="login-form" id="login-ani">
+        <div class="wrap-login">
+            <!--add logo-->
+            <span class="close" id="close">&times;</span>
+            <form action="<?php echo $_SERVER['PHP_SELF']?>"  method="post">         
+                <h1 class="login-title">Login</h1>
+                <input type="text" placeholder="E-mail" id="inp-focus" name="login">
+                <input type="password" placeholder="Senha" name="senha" id ="senhalog">
+                <button class="botao-logar" type="submit">Entrar</button>
+                <p id="msg"></p>
+                <a href="recuperar_senha.php"><h2>Esqueceu a senha ?</h2></a>
+                <div class="line"></div>
+                <a class="botao-cadastro" >Criar conta</a>
+            </form>
+        </div>
+        </div>
+    </div>
+    <p id="check">z</p>
     
-    <p id="check">x</p>
-    <div class="sidenav">
-            <div class="wrap-side">
-                <div class="svgs-icones">
-                    <img src="svg/u.svg" id="svg-us">
-                </div>
-                <div class="links-side" id="us">
-                    <a href="dashboard.php">Perfil</a>
-                </div>
-            </div>
-            <div class="wrap-side">
-                <div class="svgs-icones">
-                    <img src="svg/p.svg" id="svg-pe">
-                </div>
-                <div class="links-side" id="pe">
-                    <a href="seuspets.php">Pets</a>
-                </div>
-            </div>
-            <div class="wrap-side">
-                <div class="svgs-icones">
-                    <img src="svg/deslogar.svg" id="svg-des">
-                </div>
-                <div class="links-side" id="des">
-                    <form action="log.php">
-                        <button class="botao-sair-side" name="sair">Sair</button>
-                    </form>
-                </div>
-            </div>
-    </div>
-    <div class="bottomnav">
-        <div class="wrap-bot">
-            <div class="svgs-icones-b">
-                <img src="svg/u.svg" id="svg-us-b">
-            </div>
-            <div class="links-bot" id="us-b">
-                <a href="dashboard.php">Perfil</a>
-            </div>
-        </div>
-        <div class="wrap-bot">
-            <div class="svgs-icones-b">
-                <img src="svg/p.svg" id="svg-pe-b">
-            </div>
-            <div class="links-bot" id="pe-b">
-                <a href="seuspets.php">Pets</a>
-            </div>
-        </div>
-        <div class="wrap-bot">
-            <div class="svgs-icones-b">
-                <img src="svg/deslogar.svg" id="svg-des-b">
-            </div>
-            <div class="links-bot" id="des-b">
-                <form action="log.php">
-                    <button class="botao-sair-bot" name="sair">Sair</button>
-                </form>
-            </div>
-        </div>
-    </div>
     
     <div class="pg-seuspets">
     <div class="form-background-wrap">
@@ -154,21 +124,15 @@
             include 'conexao.php';
            
             //capturar o id do link
-            if(!isset($_SESSION['logado'])){
-                header('Location: index.php');
-            }
 
-            if(isset($_GET['id'])){
-                $id = $_GET['id'];
-
-            }
+            
             // passar a logica no banco de dados
-            $id_cliente = $_SESSION['id'];
+            //$id_cliente = $_SESSION['id'];
 
             //usa o id do dono pra consultar qual é na tabela clientes
-            $sql1 = "SELECT * from cadastro_cliente where id = $id_cliente";      
-            $resultadoCliente = mysqli_query($conn, $sql1);
-            $armazenamentoNomeCliente = mysqli_fetch_array($resultadoCliente);
+            //$sql1 = "SELECT * from cadastro_cliente where id = $id_cliente";      
+            //$resultadoCliente = mysqli_query($conn, $sql1);
+            //$armazenamentoNomeCliente = mysqli_fetch_array($resultadoCliente);
 
             $sql2 = "SELECT * from pets where id = $id";
             $resultadoPET = mysqli_query($conn, $sql2);
@@ -191,7 +155,7 @@
             ?> 
  
             <div class="">
-                <h1> <?php echo "Est".$e." é ". $u ." pet ".$resultado['nome']; ?> </h1>
+                <h1> <?php echo "Est".$e." é ". $a ." ".$resultado['nome']; ?> </h1>
             </div>
             <div class="content-mais">
             
@@ -236,13 +200,11 @@
                 
                 </div>
             </div>
-            <img src="<?php 
-                    $url = "http://chart.apis.google.com/chart?cht=qr&chl=http://localhost/New%20folder/TCC/TCC/pets.php?id=".$id."&chs=200x200";        
-                    echo $url ?>">
+  
 
             <div class="ajustar-botão-pets">
                 <div class="aj-botão">
-                        <a class="voltar-pet" href="seuspets.php">Voltar</a>
+                        <a class="voltar-pet" href="pets.php?id=<?php echo $id?>">Voltar</a>
                 </div>
                 <div class="aj-botão">
                         <a class="voltar-pet" href="pets.php?id=<?php echo $id?>">Ver</a>

@@ -157,7 +157,7 @@
                 <h3>E-mail </h3><p><?php echo $armazenamento['email']?></p>
                 <div class="line"></div>
                 <div class="bt-alinhar">
-                    <button class="botao-pet">Saber mais sobre <?php echo $a." ".$armazenamento1['nome']?></button>
+                    <a href="maispets.php?id=<?php echo $id?>"><button class="botao-pet">Saber mais sobre <?php echo $a." ".$armazenamento1['nome']?></button></a>
                 </div>
             </div>
         </div>

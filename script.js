@@ -101,7 +101,10 @@ else{
 
 // fim do form pag inicial
 function mascara(i){
-   
+  // id do campo cpf é cp
+    
+  //oninvalid="this.setCustomValidity('insira seu CPF por favor')"
+  //oninput="this.setCustomValidity('')"
     var v = i.value;
     
     if(isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
@@ -112,8 +115,23 @@ function mascara(i){
     i.setAttribute("maxlength", "14");
     if (v.length == 3 || v.length == 7) i.value += ".";
     if (v.length == 11) i.value += "-";
- 
- }
+    
+    
+  }
+  
+  /*function validarcp(){
+    var cp = document.getElementById("cp");
+    var lcp = cp.value;
+    console.log(lcp.length);
+    if (lcp.length < 14) {
+      cp.setCustomValidity("cpf não preenchido");
+      cp.reportValidity();
+      return true;
+    } else {
+      cp.setCustomValidity("");
+      return true;
+    }
+  }*/
 
  // Pontuações de DDD e traço do TELEFONE preenchem automaticamente
  function mask(o, f) {
@@ -170,7 +188,7 @@ function checkInputs(inputs) {
    return filled;
  }
  */
-
+/*
  var inputs = document.querySelectorAll("input");
  var button = document.querySelector("button");
  inputs.forEach(function(input) {
@@ -186,7 +204,7 @@ function checkInputs(inputs) {
      }
    });
  });
-
+*/
  // botao de login
 
  function login(){

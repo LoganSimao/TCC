@@ -18,7 +18,6 @@
         <div class="menu-esquerda"><img src="imagens/Vectorpaw.png" alt=" "></a>
             <a href="index.php">ID Pets</a>
         </div>
-        
         <?php
                     include 'log.php';
                     session_start();
@@ -58,37 +57,6 @@
                         </div>
                     </div>
                 </div>
-        
-                <?php 
-            include 'conexao.php';
-           
-
-            //capturar o id do link
-            if(!isset($_SESSION['logado'])){
-                header('Location: index.php');
-            }
-
-            if(isset($_GET['id'])){
-                $id = $_GET['id'];
-                $sql = "DELETE from pets where id = $id";
-                if(mysqli_query($conn, $sql)){
-                    $_SESSION['mensagem'] = "Pet excluido com sucesso!";
-                }
-
-            }
-            
-                // passar a logica no banco de dados
-            $id = $_SESSION['id'];
-
-            $sql2 = "SELECT * from pets where id_cliente = $id";
-            $resultado = mysqli_query($conn, $sql2);
-            $msg = "";
-            if(isset($_SESSION['mensagem'])){
-                $msg = $_SESSION['mensagem'];
-            }
-            
-            ?>  
-               
                 <!-- botao logout -->
                 <div class="clos-modal" id="clos-modal">
                     <div class="logout" id="logout">
@@ -117,27 +85,8 @@
     </div>
     </nav>
     <!-- modal login -->
-    <div id="login" class="login-principal">
-        <div class ="login-form">
-        <div class="wrap-login">
-            <!--add logo-->
-            <span class="close" id="close">&times;</span>
-        <form action="">
-            
-            <h1 class="login-title">Login</h1>
-            <input type="text" placeholder="E-mail" id="inp-focus">
-            <input type="password" placeholder="Senha">
-            <button class="botao-logar">Entrar</button>
-            <h2>Esqueceu a senha ?</h2>
-            <div class="line"></div>
-            <button class="botao-cadastro">Criar conta</button>
-
-        </form>
-        </div>
-        
-        </div>
-    </div>
-    <p id="check">n</p>
+    
+    <p id="check">x</p>
     <div class="sidenav">
             <div class="wrap-side">
                 <div class="svgs-icones">
@@ -194,109 +143,118 @@
             </div>
         </div>
     </div>
-
-    <?php
-    while($dados = mysqli_fetch_array($resultado)){
-    ?>
-
-    <div id="modal<?php echo $dados['id']; ?>" style="display:none;" class="modal-cl">
-                              <div class="god-modal">
-							    <div class="modal-content">
-                                <span class="close-sp" id="close-sp<?php echo $dados['id']; ?>">&times;</span>
-                                <div class="modal-wrap">
-                                    <h4>Voce está prestes a excluir um cadastro!</h4>
-                                    <p>Deseja excluir o cadastro de <?php echo$dados['nome']; ?>?</p>
-                                
-							    
-							    
-							      <form action="seuspets.php?id=<?php echo $dados['id'];?>" method="POST">
-							      	<input type="hidden" name="IdPet" value="<?php echo $dados['id']; ?>">
-
-							      	<button type="submit" name="btn-excluir" class="btn-excluir">Excluir</button>
-
-							      	<a href="seuspets.php" class="btn-cancel">Cancelar</a>
-
-							      </form>
-                                  </div>
-							    </div>
-							  </div>
-                            </div>
-                            <?php } ?>
+    
     <div class="pg-seuspets">
-    <!--<div class="pg-bg">-->
     <div class="form-background-wrap">
       <div class="form-background">
         
-        <div class="form-content-perfil2">
+        <div class="form-content-perfil4">
             
+            <?php 
+            include 'conexao.php';
+           
+            //capturar o id do link
+            if(!isset($_SESSION['logado'])){
+                header('Location: index.php');
+            }
+
+            if(isset($_GET['id'])){
+                $id = $_GET['id'];
+
+            }
+            // passar a logica no banco de dados
+            $id_cliente = $_SESSION['id'];
+
+            //usa o id do dono pra consultar qual é na tabela clientes
+            $sql1 = "SELECT * from cadastro_cliente where id = $id_cliente";      
+            $resultadoCliente = mysqli_query($conn, $sql1);
+            $armazenamentoNomeCliente = mysqli_fetch_array($resultadoCliente);
+
+            $sql2 = "SELECT * from pets where id = $id";
+            $resultadoPET = mysqli_query($conn, $sql2);
+            $resultado = mysqli_fetch_array($resultadoPET);
+            $oa = $resultado['sexo'];
+
+            if($oa == 'Femêa'){
+                $a = "a";
+                $A = "A";
+                $e = "a";
+                $u = "sua";
+            }
+            else{
+                $a = "o";
+                $A = "O";
+                $e = "e";
+                $u = "seu";
+            }
+
+            ?> 
+ 
+            <div class="">
+                <h1> <?php echo "Est".$e." é ". $u ." pet ".$resultado['nome']; ?> </h1>
+            </div>
+            <div class="content-mais">
             
-            <div class="form-content-greeting">
-                <h1> Seus pets <?php //echo $nome ?> </h1>
-                <!-- <p><?php //echo $msg ?></p> -->
-            </div>
-                <div class="table-class">
-                <table >
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nome do Pet</th>
-                        </tr>				
-                    </thead>
-                    <?php  
-                    $sql2 = "SELECT * from pets where id_cliente = $id";
-                    $resultado = mysqli_query($conn, $sql2);
-                    while($dados = mysqli_fetch_array($resultado)){ ?>
 
-                    <tr>
-                        <td><?php echo $dados['id']; ?></td>
-
-                        <td><?php echo $dados['nome']; ?></td>
-
-                        <td class="tabelapet"><a href="alterarpets.php?id=<?php echo $dados['id'];?>">
-                        <img  class="edi"title="Editar"  src="imagens/edit.png"></a>
-                        </td>
-
-                        <td><a id="modaldeletar<?php echo $dados['id'];?>">
-                        <img  class="del"title="Excluir"  src="imagens/delete.png"></a>
-                        </td>
-
-                        <td><a href="petsperfil.php?id=<?php echo $dados['id'];?>">
-                        <img class="saber"title="Saber mais"  src="imagens/more.png"></a>
-                        </td>
-                    <!-- Modal Structure in Materializecss -->
-                            
-							  
-                            <!---->
-                              <script type="text/javascript">
-                                var del = document.getElementById("modaldeletar<?php echo $dados['id']; ?>");
-                                var clos = document.getElementById("close-sp<?php echo $dados['id']; ?>");
-                                del.onclick = function(){
-                                    var m = document.getElementById("modal<?php echo $dados['id']; ?>");
-                                    m.style.display = "block";
-                                }
-                                clos.onclick = function(){
-                                    var m = document.getElementById("modal<?php echo $dados['id']; ?>");
-                                    m.style.display = "none";
-                                }
-
-                                
-                              </script>
-                    </tr>
-
-                    <?php } ?>
-                </table>
+           <div class="content-pet-direita2">
+                <div class="join-master2">
+                <div class="join2">
+                    <h3 class="side-join2">Raça</h3><h3 class="side-join3"><?php echo $resultado['raca']; ?></h3>
                 </div>
-                <div class="consulta-pet">
-                    <a class="cadastrar-pet" href="cadastropets.php">Cadastrar PET</a>
+
+                <div class="join2">
+                    <h3 class="side-join2">Sexo</h3><h3 class="side-join3"><?php echo $resultado['sexo']; ?></h3>
+                </div>
+
+                <div class="join2">
+                    <h3 class="side-join2">Idade</h3><h3 class="side-join3">
+                        <?php // Impressão da idade com "ano ou anos".
+                            if($resultado['idade'] == 1){
+                                echo $resultado['idade']." "."ano"; 
+                            }
+                            else{
+                                echo $resultado['idade']." "."anos"; 
+                        }?>
+                    </h3>
+                </div>
+
+                <div class="join2">
+                    <h3 class="side-join2">Porte</h3><h3 class="side-join3"><?php echo $resultado['porte']; ?></h3>
+                </div>
+
+                <div class="join2">
+                    <h3 class="side-join2">Cor</h3><h3 class="side-join3"><?php echo $resultado['cor']; ?></h3>
+                </div>
+                
+                <div class="join2">
+                    <h3 class="side-join2">Observação</h3><h3 class="side-join4"><?php echo $resultado['observacao']; ?></h3>
+                </div>
+                <!-- Versão abaixo para quando o site estiver hospedado. 
+                    <img src="http://chart.apis.google.com/chart?cht=qr&chl=https://idpets.000webhostapp.com/pets.php?=1&chs=250x250">
+                -->
+                 </div>       
+                
                 </div>
             </div>
-            </div>
-            </div>
+            <img src="<?php 
+                    $url = "http://chart.apis.google.com/chart?cht=qr&chl=http://localhost/New%20folder/TCC/TCC/pets.php?id=".$id."&chs=200x200";        
+                    echo $url ?>">
+
+            <div class="ajustar-botão-pets">
+                <div class="aj-botão">
+                        <a class="voltar-pet" href="seuspets.php">Voltar</a>
+                </div>
+                <div class="aj-botão">
+                        <a class="voltar-pet" href="pets.php?id=<?php echo $id?>">Ver</a>
+                </div>
+                
+            
+           </div>
+       </div>
+    </div>            
     </div>
-
-        </div>
-        <!--</div>-->
-        </div>
+    </div>   
+    
     <div class="custom-shape-divider-bottom-1621127856">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
@@ -304,5 +262,4 @@
     </div>  
     <script src="script.js"></script>
 </body>
-
 </html>

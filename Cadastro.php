@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
     <link rel="manifest" href="favicon_io/site.webmanifest">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
+    <title>Página de Cadastro</title>
 </head>
 
 <?php
@@ -45,14 +45,15 @@
                 empty($cpf) or 
                 empty($email) or 
                 empty($senhaCadastro) or 
+                /*
                 empty($cep) or 
                 empty($endereco) or 
                 empty($bairro) or 
                 empty($cidade) or 
                 empty($estado) or 
-                empty($numero) or 
+                empty($numero) or */
                 empty($telefone)){
-                $cadastro = "Não preencheu todos os campos";
+                $cadastro = "<p style='color:red;'>- Não preencheu campos obrigatórios!</p>";
             }
 
             else{
@@ -65,7 +66,7 @@
             
                 if($row > 0){ 
                     //Caso a pesquisa consta com verdadeiro o cadastro não seguira em frente.
-                    $cadastro = $cpf." já possui cadastro!";
+                    $cadastro = "<p style='color:red;'>- ".$cpf." já possui cadastro!</p>";
                 }
                 
                 else{
@@ -76,7 +77,7 @@
                     $row2= mysqli_fetch_assoc($result2);
 
                     if($row2 > 0){
-                        $cadastro = $email." ja possui cadastro!";
+                        $cadastro = "<p style='color:red;'>- ".$email." ja possui cadastro!</p>";
                     }
                     // Caso CPF e Email não constar ja cadastrado, segue com cadastro...
                     else{
@@ -114,7 +115,7 @@
                             $token)";
 
                         if(mysqli_query($conexao,$sql)){
-                            $cadastro = "Cadastrado concluido com sucesso";
+                            $cadastro = "<p style='color:green!important;'>- Cadastrado concluido com sucesso!</p>";
                             
                             require 'PHPMailer/PHPMailerAutoload.php';
                         
@@ -135,7 +136,7 @@
                         }
                         else{
                             echo "Erro ao inserir cliente! Erro: ".mysqli_error($conexao);
-                            $cadastro = "Erro ao cadastrar";
+                            $cadastro = "<p style='color:red;'>- Erro ao se cadastrar!</p>";
                         }                    
                     }
                 }
@@ -240,33 +241,38 @@
             
             <form name="cadastro" method="POST" action="Cadastro.php">
                 <!--<p class="form2">Nome</p> -->
-                <input type="text" placeholder="Nome" name="nome"class="form-campo" required>
+                <input type="text" placeholder="Nome" name="nome"class="form-campo" required  oninvalid="this.setCustomValidity('insira seu nome por favor')"
+  oninput="this.setCustomValidity('')"/>
 
             
                 <!-- <p class="form2">CPF</p> -->
-                <input type="text" placeholder="CPF" name="cpf"class="form-campo" oninput="mascara(this)">
+                <input type="text" placeholder="CPF" name="cpf"class="form-campo" id="cp" oninput="mascara(this)" oninvalid="this.setCustomValidity('insira seu cpf por favor')"
+  oninput="this.setCustomValidity('')"required />
 
                 <!-- <p class="form2">E-mail</p> -->
-                <input type="email" placeholder="E-mail" name="email"class="form-campo">
+                <input type="email" placeholder="E-mail" name="email"class="form-campo" required oninvalid="this.setCustomValidity('insira seu e-mail por favor')"
+  oninput="this.setCustomValidity('')"/>
 
                 <!-- <p class="form2">Senha</p> -->
-                <input type="password" placeholder="Senha" name="senha" id ="senha" class="form-password">
+                <input type="password" placeholder="Senha" name="senha" id ="senha" class="form-password" required oninvalid="this.setCustomValidity('insira uma senha com min 8 digitos por favor')"
+  oninput="this.setCustomValidity('')"/>
 
-                <input type="password" placeholder="Confirmar senha" name="senha2" id="senha2" class="form-password">
+                <input type="password" placeholder="Confirmar senha" name="senha2" id="senha2" class="form-password" required oninvalid="this.setCustomValidity('insira sua senha novamente')"
+  oninput="this.setCustomValidity('')"/>
 
                 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-                <input id="cep" name="cep" type="text" placeholder="CEP" class="form-campo"required/>
+                <input id="cep" name="cep" type="text" placeholder="CEP" class="form-campo"/>
 
-                <input id="endereco" name="endereco" type="text" placeholder="Endereço" class="form-campo" required/>
+                <input id="endereco" name="endereco" type="text" placeholder="Endereço" class="form-campo" />
 
                 <input id="bairro" name="bairro" type="text" 
-                placeholder="Bairro" class="form-bairro" required/>
+                placeholder="Bairro" class="form-bairro" />
                 <!---->
                 <div class="cidade-estado">
                     <div class="form-cidade">
                         <input id="cidade" name="cidade" type="text" 
-                        placeholder="Cidade"  required/>
+                        placeholder="Cidade" />
                     </div>
                     <div class="form-estado">      
                         <select id="uf" name="estado" >
@@ -305,22 +311,24 @@
                     <input id="complemento" name="complemento" placeholder="Complemento"  type="text"/>
                 </div>
                 <div class="form-numero">
-                    <input id="numero" name="numero" type="text" placeholder="Nº"  required/>
+                    <input id="numero" name="numero" type="text" placeholder="Nº" />
                 </div>
                 </div>
 
                 <!-- <p class="form2">Telefone</p> -->
                 <input type="text" placeholder="Contato" name="telefone" id="telefone" class="form-campo" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);" >
-                <div class="consulta-pet">
-                <a href="index.php" class="voltar-pet"> Voltar</a>
-
-                <p class="resposta">
-                    
-                <?php echo $cadastro; ?>
-                
-                </p>
-
+                <div class="erro">
+                    <?php echo $cadastro; ?>
+                </div>
+                <div class="consulta-cad1">
+                <div class="ajustar-botão-pets1">
+                <div class="aj-botão">
+                <a href="index.php" class="aj-botão-vc"> Voltar</a>
+                </div>
+                <div class="aj-botão">
                 <button type="submit" value="Cadastrar" class="botao-alterar" name="cadastro" onClick="validarSenha()" id="Cadastrar"style="display:invisible">Cadastrar</button>
+                </div>
+                </div>
                 </div>
             </form>
             </div> 
