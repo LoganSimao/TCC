@@ -67,12 +67,16 @@
             if(!isset($_SESSION['logado'])){
                 header('Location: index.php');
             }
-
-            if(isset($_GET['id'])){
-                $id = $_GET['id'];
-                $sql = "DELETE from pets where id = $id";
+            
+            if(isset($_POST['btn-excluir'])){
+                $id = $_POST['IdPet'];
+                $sql = "DELETE from pets where token = '$id'";
                 if(mysqli_query($conn, $sql)){
                     $_SESSION['mensagem'] = "Pet excluido com sucesso!";
+                    header('Location: dashboard.php');
+                }
+                else{
+                    echo $id." erro";
                 }
 
             }
@@ -199,18 +203,16 @@
     while($dados = mysqli_fetch_array($resultado)){
     ?>
 
-    <div id="modal<?php echo $dados['id']; ?>" style="display:none;" class="modal-cl">
+    <div id="modal<?php echo $dados['token']; ?>" style="display:none;" class="modal-cl">
                               <div class="god-modal">
 							    <div class="modal-content">
-                                <span class="close-sp" id="close-sp<?php echo $dados['id']; ?>">&times;</span>
+                                <span class="close-sp" id="close-sp<?php echo $dados['token']; ?>">&times;</span>
                                 <div class="modal-wrap">
                                     <h4>Voce está prestes a excluir um cadastro!</h4>
                                     <p>Deseja excluir o cadastro de <?php echo$dados['nome']; ?>?</p>
-                                
-							    
-							    
-							      <form action="seuspets.php?id=<?php echo $dados['id'];?>" method="POST">
-							      	<input type="hidden" name="IdPet" value="<?php echo $dados['id']; ?>">
+
+							      <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
+							      	<input type="hidden" name="IdPet" value="<?php echo $dados['token']; ?>">
 
 							      	<button type="submit" name="btn-excluir" class="btn-excluir">Excluir</button>
 
@@ -252,15 +254,15 @@
 
                         <td><?php echo $dados['nome']; ?></td>
 
-                        <td class="tabelapet"><a href="alterarpets.php?id=<?php echo $dados['id'];?>">
+                        <td class="tabelapet"><a href="alterarpets.php?token=<?php echo $dados['token'];?>">
                         <img  class="edi"title="Editar"  src="imagens/edit.png"></a>
                         </td>
 
-                        <td><a id="modaldeletar<?php echo $dados['id'];?>">
+                        <td><a id="modaldeletar<?php echo $dados['token'];?>">
                         <img  class="del"title="Excluir"  src="imagens/delete.png"></a>
                         </td>
 
-                        <td><a href="petsperfil.php?id=<?php echo $dados['id'];?>">
+                        <td><a href="petsperfil.php?token=<?php echo $dados['token'];?>">
                         <img class="saber"title="Saber mais"  src="imagens/more.png"></a>
                         </td>
                     <!-- Modal Structure in Materializecss -->
@@ -268,14 +270,14 @@
 							  
                             <!---->
                               <script type="text/javascript">
-                                var del = document.getElementById("modaldeletar<?php echo $dados['id']; ?>");
-                                var clos = document.getElementById("close-sp<?php echo $dados['id']; ?>");
+                                var del = document.getElementById("modaldeletar<?php echo $dados['token']; ?>");
+                                var clos = document.getElementById("close-sp<?php echo $dados['token']; ?>");
                                 del.onclick = function(){
-                                    var m = document.getElementById("modal<?php echo $dados['id']; ?>");
+                                    var m = document.getElementById("modal<?php echo $dados['token']; ?>");
                                     m.style.display = "block";
                                 }
                                 clos.onclick = function(){
-                                    var m = document.getElementById("modal<?php echo $dados['id']; ?>");
+                                    var m = document.getElementById("modal<?php echo $dados['token']; ?>");
                                     m.style.display = "none";
                                 }
 

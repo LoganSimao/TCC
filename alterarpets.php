@@ -35,11 +35,11 @@
                         $erro = " ";
                     }
                 
-                ?>
+        ?>
 
 <?php 
     if (isset($_POST['btn-alterar'])) {
-        $id = $_GET['id'];
+        $id = $_POST['token'];
         $nomePET = $_POST['nome'];
         $raca = $_POST['raca'];
         $sexo = $_POST['sexo'];
@@ -48,7 +48,7 @@
         $cor = $_POST['cor'];
         $observacao = $_POST['observacao'];
 
-        $sql3 = "UPDATE pets SET nome = '$nomePET', raca = '$raca', sexo = '$sexo', idade = $idade, porte = '$porte', cor = '$cor', observacao = '$observacao' WHERE id = $id";
+        $sql3 = "UPDATE pets SET nome = '$nomePET', raca = '$raca', sexo = '$sexo', idade = $idade, porte = '$porte', cor = '$cor', observacao = '$observacao' WHERE token = '$id'";
 
         if(mysqli_query($conn, $sql3)) {
             $erro = $_SESSION['mensagem'] = "Alterado com sucesso!";
@@ -64,9 +64,8 @@
     <?php 
             include 'conexao.php';
            
-            if(isset($_GET['id'])){
-                $id = $_GET['id'];
-
+            if(isset($_GET['token'])){
+                $id = $_GET['token'];
             }
             // passar a logica no banco de dados
             $id_cliente = $_SESSION['id'];
@@ -76,7 +75,7 @@
             $resultadoCliente = mysqli_query($conn, $sql1);
             $armazenamentoNomeCliente = mysqli_fetch_array($resultadoCliente);
 
-            $sql2 = "SELECT * from pets where id = $id";
+            $sql2 = "SELECT * from pets where token = '$id'";
             $resultadoPET = mysqli_query($conn, $sql2);
             $resultado = mysqli_fetch_array($resultadoPET);
             
@@ -207,9 +206,10 @@
             
 
            <div class="content-pet-direita">
-               <form action="alterarpets.php?id=<?php echo $id; ?>" method="POST" class="input-altera">
+               <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" class="input-altera">
                 <div class="h3-input-join">
                     <div class="join">
+                    <input type="hidden" value="<?php echo $id;?>" name="token">
                     <h3>Nome</h3><input type="text" name = "nome" value="<?php echo $resultado['nome']; ?>">
                     </div>
                     <div class="join">

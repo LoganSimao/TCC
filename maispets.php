@@ -32,8 +32,8 @@
                         $nome1 = "Olá, ".$nome."!";
                     }
 
-                    if(isset($_GET['id'])){
-                        $id = $_GET['id'];
+                    if(isset($_GET['token'])){
+                        $id = $_GET['token'];
         
                     }
                     else{
@@ -125,16 +125,7 @@
            
             //capturar o id do link
 
-            
-            // passar a logica no banco de dados
-            //$id_cliente = $_SESSION['id'];
-
-            //usa o id do dono pra consultar qual é na tabela clientes
-            //$sql1 = "SELECT * from cadastro_cliente where id = $id_cliente";      
-            //$resultadoCliente = mysqli_query($conn, $sql1);
-            //$armazenamentoNomeCliente = mysqli_fetch_array($resultadoCliente);
-
-            $sql2 = "SELECT * from pets where id = $id";
+            $sql2 = "SELECT * from pets where token = '$id'";
             $resultadoPET = mysqli_query($conn, $sql2);
             $resultado = mysqli_fetch_array($resultadoPET);
             $oa = $resultado['sexo'];
@@ -207,7 +198,7 @@
 
             <div class="ajustar-botão-pets">
                 <div class="aj-botão">
-                        <a class="voltar-pet" href="pets.php?id=<?php echo $id?>">Voltar</a>
+                        <a class="voltar-pet" href="pets.php?token=<?php echo $id?>">Voltar</a>
                 </div>
                       
            </div>

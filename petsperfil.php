@@ -19,20 +19,71 @@
             <a href="index.php">ID Pets</a>
         </div>
         <?php
-                    include 'log.php';
-                    session_start();
-                    if(!isset($_SESSION['logado'])){
-                        $nome1 = "Login";
-                        $n = " ";        
-                    }
-                    else{
-                        $n = $_SESSION['nome'];
-                        $arr = explode(' ', trim($n));
-                        $nome = $arr[0];
-                        $nome1 = "Olá, ".$nome."!";
-                    }
+            include 'log.php';
+            session_start();
+            if(!isset($_SESSION['logado'])){
+                $nome1 = "Login";
+                $n = " ";
+                header('Location: index.php');
+            }
+            else{
+                $n = $_SESSION['nome'];
+                $arr = explode(' ', trim($n));
+                $nome = $arr[0];
+                $nome1 = "Olá, ".$nome."!";
                 
-                ?>
+            }
+                
+            ?>
+            <?php 
+            include 'conexao.php';
+           
+            //capturar o id do link
+            if(!isset($_SESSION['logado'])){
+                header('Location: index.php');
+            }
+
+            if(isset($_GET['token'])){
+                $id = $_GET['token'];
+                $s = "SELECT token FROM pets WHERE token = '$id'";
+                $result = mysqli_query($conn,$s);
+                $resultfinal = mysqli_num_rows($result);
+                
+                if($resultfinal == null){
+                    header('Location: index.php');
+                }
+            }
+            else{
+                header('Location: dashboard.php');
+            }
+
+            // passar a logica no banco de dados
+            $id_cliente = $_SESSION['id'];
+
+            //usa o id do dono pra consultar qual é na tabela clientes
+            $sql1 = "SELECT * from cadastro_cliente where id = $id_cliente";      
+            $resultadoCliente = mysqli_query($conn, $sql1);
+            $armazenamentoNomeCliente = mysqli_fetch_array($resultadoCliente);
+
+            $sql2 = "SELECT * from pets where token = '$id'";
+            $resultadoPET = mysqli_query($conn, $sql2);
+            $resultado = mysqli_fetch_array($resultadoPET);
+            $oa = $resultado['sexo'];
+
+            if($oa == 'Femêa'){
+                $a = "a";
+                $A = "A";
+                $e = "a";
+                $u = "sua";
+            }
+            else{
+                $a = "o";
+                $A = "O";
+                $e = "e";
+                $u = "seu";
+            }
+
+            ?> 
 
             <div class="menu-direita">
             <ul class="componentes-direita">
@@ -150,45 +201,7 @@
         
         <div class="form-content-perfil4">
             
-            <?php 
-            include 'conexao.php';
-           
-            //capturar o id do link
-            if(!isset($_SESSION['logado'])){
-                header('Location: index.php');
-            }
-
-            if(isset($_GET['id'])){
-                $id = $_GET['id'];
-
-            }
-            // passar a logica no banco de dados
-            $id_cliente = $_SESSION['id'];
-
-            //usa o id do dono pra consultar qual é na tabela clientes
-            $sql1 = "SELECT * from cadastro_cliente where id = $id_cliente";      
-            $resultadoCliente = mysqli_query($conn, $sql1);
-            $armazenamentoNomeCliente = mysqli_fetch_array($resultadoCliente);
-
-            $sql2 = "SELECT * from pets where id = $id";
-            $resultadoPET = mysqli_query($conn, $sql2);
-            $resultado = mysqli_fetch_array($resultadoPET);
-            $oa = $resultado['sexo'];
-
-            if($oa == 'Femêa'){
-                $a = "a";
-                $A = "A";
-                $e = "a";
-                $u = "sua";
-            }
-            else{
-                $a = "o";
-                $A = "O";
-                $e = "e";
-                $u = "seu";
-            }
-
-            ?> 
+            
  
             <div class="">
                 <h1> <?php echo "Est".$e." é ". $u ." pet ".$resultado['nome']; ?> </h1>
@@ -230,14 +243,14 @@
                     <h3 class="side-join2">Observação</h3><h3 class="side-join4"><?php echo $resultado['observacao']; ?></h3>
                 </div>
                 <!-- Versão abaixo para quando o site estiver hospedado. 
-                    <img src="http://chart.apis.google.com/chart?cht=qr&chl=https://idpets.000webhostapp.com/pets.php?=1&chs=250x250">
+                    <img src="http://chart.apis.google.com/chart?cht=qr&chl=https://idpets.000webhostapp.com/pets.php??token=".$id."&chs=200x200">
                 -->
                  </div>       
                 
                 </div>
             </div>
             <img src="<?php 
-                    $url = "http://chart.apis.google.com/chart?cht=qr&chl=http://localhost/New%20folder/TCC/TCC/pets.php?id=".$id."&chs=200x200";        
+                    $url = "http://chart.apis.google.com/chart?cht=qr&chl=http://localhost/New%20folder/TCC/TCC/pets.php?token=".$id."&chs=200x200";        
                     echo $url ?>">
 
             <div class="ajustar-botão-pets">
@@ -245,7 +258,7 @@
                         <a class="voltar-pet" href="seuspets.php">Voltar</a>
                 </div>
                 <div class="aj-botão">
-                        <a class="voltar-pet" href="pets.php?id=<?php echo $id?>">Ver</a>
+                        <a class="voltar-pet" href="pets.php?token=<?php echo $id;?>">Ver</a>
                 </div>
                 
             

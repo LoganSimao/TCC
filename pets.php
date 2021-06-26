@@ -33,9 +33,9 @@
                 //n fazer nada
             //}
            
-            if(isset($_GET['id'])){
-                $id = $_GET['id'];
-                $s = "SELECT id FROM pets WHERE id = $id";
+            if(isset($_GET['token'])){
+                $id = $_GET['token'];
+                $s = "SELECT token FROM pets WHERE token = '$id'";
                 $result = mysqli_query($conn,$s);
                 $resultfinal = mysqli_num_rows($result);
                 
@@ -55,7 +55,7 @@
             // passar a logica no banco de dados
             //$id = $_SESSION['idt'];
             //echo "ID AQUI ".$id;
-            $sql = "SELECT * FROM pets WHERE id = $id"; //passa toda a tabela pets com o id
+            $sql = "SELECT * FROM pets WHERE token = '$id'"; //passa toda a tabela pets com o id
 
             $resultadoPets = mysqli_query($conn, $sql); //passa o banco com o comando
             $armazenamento1 = mysqli_fetch_array($resultadoPets); //recupera em um array o resultado
@@ -157,7 +157,7 @@
                 <h3>E-mail </h3><p><?php echo $armazenamento['email']?></p>
                 <div class="line"></div>
                 <div class="bt-alinhar">
-                    <a href="maispets.php?id=<?php echo $id?>"><button class="botao-pet">Saber mais sobre <?php echo $a." ".$armazenamento1['nome']?></button></a>
+                    <a href="maispets.php?token=<?php echo $id?>"><button class="botao-pet">Saber mais sobre <?php echo $a." ".$armazenamento1['nome']?></button></a>
                 </div>
             </div>
         </div>
