@@ -76,6 +76,7 @@ else{
         $_SESSION['logado'] = true;
         $_SESSION['id'] = $log['id'];
         $_SESSION['nome'] = $log['nome'];
+        $_SESSION['mensagem'] = " ";
         $id = $log['id'];
 
         header("Location: dashboard.php?id=$id");

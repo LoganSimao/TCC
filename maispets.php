@@ -191,7 +191,10 @@
                 </div>
                 
                 <div class="join2">
-                    <h3 class="side-join2">Observação</h3><h3 class="side-join4"><?php echo $resultado['observacao']; ?></h3>
+                    <h2 class="side-j">Observação</h2>
+                </div>
+                <div class="join2">
+                    <h3 class="side-j1"><?php echo $resultado['observacao']; ?></h3>
                 </div>
                 <!-- Versão abaixo para quando o site estiver hospedado. 
                     <img src="http://chart.apis.google.com/chart?cht=qr&chl=https://idpets.000webhostapp.com/pets.php?=1&chs=250x250">
@@ -206,11 +209,7 @@
                 <div class="aj-botão">
                         <a class="voltar-pet" href="pets.php?id=<?php echo $id?>">Voltar</a>
                 </div>
-                <div class="aj-botão">
-                        <a class="voltar-pet" href="pets.php?id=<?php echo $id?>">Ver</a>
-                </div>
-                
-            
+                      
            </div>
        </div>
     </div>            

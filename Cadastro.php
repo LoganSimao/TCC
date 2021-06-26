@@ -316,9 +316,11 @@
                 </div>
 
                 <!-- <p class="form2">Telefone</p> -->
-                <input type="text" placeholder="Contato" name="telefone" id="telefone" class="form-campo" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);" >
-                <div class="erro">
-                    <?php echo $cadastro; ?>
+                <input type="text" placeholder="Número de contato" name="telefone" id="telefone" class="form-campo" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);" >
+                <div class="erro-al">
+                    <div class="erro">
+                        <?php echo $cadastro; ?>
+                    </div>
                 </div>
                 <div class="consulta-cad1">
                 <div class="ajustar-botão-pets1">

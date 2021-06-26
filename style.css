@@ -44,6 +44,22 @@ body{
 
 }
 
+.al-msg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+}
+.msg-content{
+    margin: 0;
+}
+.msg-content h4{
+    color: var(--laranja);
+    font-size: clamp(14px, 1vw, 1.2vw);
+    margin: 0;
+    margin-top: 2.4rem;
+}
+
 /****** sessao 1 *********/
 #s1{
     display: flex;
@@ -349,15 +365,98 @@ body{
     }
 }
 
+@media (max-width:1000px){
+    .sessao-3{
+        height: 160vh!important;
+    }
+    .alinhamento-teste{
+        display: inline-block!important;
+    }
+
+    .form-alinhamento{
+        top: 1.8rem;
+        height: 75vh;
+        width: 80vw;
+        
+    }
+
+    .visualisar-pets{
+        position: relative;
+    }
+
+    .visualisar-pets input{
+        width: 50vw!important; /* tava 50 ver minimo no pai */
+    }
+
+    .visualisar-pets select{
+        width: 50vw!important;
+    }
+
+    .formulario-teste{
+        width: 80vw!important;
+        overflow: auto!important;
+        top: -2.3rem!important;
+    }
+    .custom-shape-divider-bottom-1621222059 svg{
+        bottom:262.5vh!important;
+    }
+    /*
+    .botao-cadastro{
+        padding: 1.1rem 2.65rem;
+    }*/
+    .botao-alterar{
+        padding: .7rem 1.6rem!important;
+    }
+}
+
+@media (max-width:1000px){
+    .line{
+        margin: 10px 8px;
+    }
+    .content-wrap{
+        top: 1.8rem;
+        height: 75vh;
+        width: 80vw;
+        overflow: auto;
+        
+    }
+    .botao-pet{
+        width: 40vw;
+        height: 7vh;
+    }
+    .sidenav{
+        display: none;
+
+    }
+    .bottomnav{
+        display: flex;
+    }
+    .sidenav{
+        display: none;
+    }
+    .menu-central{
+        display: none;
+    }
+    .aj-botão-vc{
+        padding: .6rem 2rem!important;
+    }
+    .form-background-cadastro{
+        width: 60vw!important;
+    }
+    .erro-al{
+        justify-content: left!important;
+    }
+}
 /* mobile sessao 2 */
 @media (max-height: 812px){
     .conteiner-s2{
-        top: 13vh;
-        height: 70vh;
+        top: 11vh;
+        height: 76vh;
     }
     .content-s2 {
         min-width: 200px;
         overflow: auto;
+        height: 76vh;
         
     }
     .content-s2 h3{
@@ -427,9 +526,7 @@ body{
         background-color: var(--verde);
     }
 
-    .ali{
-        width: 80%!important;
-    }
+
     .botao-logar{
         height: 2.6rem;
     }
@@ -480,10 +577,223 @@ body{
         height: 68vh!important;
     }
     .botao-alterar{
-        width: 5.6rem!important;
-        height: 2.3rem!important;
+        padding: .77rem 1.2rem!important;
+    }
+    .side-join4 {
+        height: 2.6rem;
     }
 }
+/*iphone 5*/
+@media (max-width: 660px) and (max-height: 731px){
+
+    .form-background{
+        width: 80vw!important;
+        height: 74vh!important;
+        left: 0!important;
+    }
+    .form-content-perfil{
+        height: 74vh!important;
+        width: 80vw!important;
+        overflow: auto!important;
+        top: 0.2rem!important;
+    }
+    .cadastrar-pet{
+        padding: 0.8rem 2rem;
+    }
+    .form-content-perfil2 img{
+        width: 5vw;
+    }
+    .form-background th{
+        padding: 0;
+        
+    }
+    .tabelapet{
+        width: 0;
+    }
+    .form-content-perfil h1{
+        top: 0.4rem!important;
+    }
+    .form-content-perfil3 h1{
+        position: relative;
+        top: 0.1rem;
+    }
+    .form-content-perfil4 h1{
+        position: relative;
+        top: 0.1rem;
+    }
+    .content-cliente{
+        top: 0!important;
+        width: 130%;
+        right: 2.2rem;
+    }
+    .content-cliente p{
+        width: 140%;
+        
+    }
+    .ajustar-botão{
+        top: 1rem!important;
+        
+    }
+    .ajustar-botão a{
+        padding: 0.8rem 1.2rem!important;
+    }
+    .ajustar-botão-alt{
+        top: 1.2rem!important;
+    }
+    .ajustar-botão-alt a{
+        padding: 0.8rem 1.2rem!important;
+    }
+    .ajustar-botão-pets a{
+        
+        padding: 0.8rem 1.2rem!important;
+    }
+    .botao-alterar{
+        padding: .77rem 1.2rem;
+    }
+    .input-altera-cliente input{
+        width: 50%!important;
+    }
+    .btn-excluir{
+        width: 8rem!important;
+    }
+    .btn-cancel{
+        padding: 0.9rem 2.2rem!important;
+    }
+    .modal-content{
+        height: 60%!important;
+        width: 65%!important;
+    }
+    .modal-content h4{
+        position: relative!important;
+        text-align: center!important;
+        left: 1.6rem!important;
+        width: 80%!important;
+    }
+    .modal-wrap{
+        top: 3.4rem!important;
+    }
+    .content-mais{
+        width: 100%!important;
+    }
+    .content-pet-direita2{
+        width: 100%!important;
+    }
+    .join-master2{
+        width: 100%!important;
+    }
+    .join2{
+        width: 100%!important;
+    }
+    .form-content-perfil4{
+        position: relative!important;
+        top: -2rem!important;
+
+    }
+    .form-content-perfil4 img{
+        position: relative!important;
+        top: 1rem!important;
+        width: 130px!important;
+        height: 130px!important;
+    }
+    .login-form{
+        width: 76vw!important;
+    }
+    .botao-cadastro{
+       
+        padding: 0.8rem 2rem!important;
+       width: 35vw!important;
+    }
+    
+    .botao-cadastro:hover{
+        transition: 0.6s;
+        background-color: var(--verde);
+    }
+
+ 
+    .botao-logar{
+        height: 2.6rem;
+    }
+    .login-form input{
+        width: 90%!important;
+    }
+    .menu-esquerda {
+        position: relative;
+        left: -3rem;
+    }
+    .componentes-lista-direita{
+        left: -1.5rem;
+    }
+    .form-content{
+        width: 80%;
+    }
+    .form-content-perfil2{
+       
+    }
+    .bt-pet-cadastro{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .form-content input{
+        margin: 0;
+        margin-top: 0.5rem;
+    }
+    .custom-shape-divider-bottom-1621222059 {
+        bottom: 1.7rem!important;
+    }
+    
+    .box-wrap {
+        height: 60vh!important;
+    }
+    .form-background-cadastro{
+        width: 82vw!important;
+        top: 2rem!important;
+    }
+    .form-content-cadastro{
+        width: 76vw!important;
+        top: -2rem!important;
+    }
+    .content-cadastro input{
+        width: 62vw!important;
+        height: 1.5rem!important;
+        margin: 0.3rem!important;
+    }
+    .form-cidade input{
+        width: 47.2vw!important;
+    }
+    .form-complemento input{
+        width: 47.2vw!important;
+    }
+
+    .form-numero input{
+        width: 11vw!important;
+        
+    }
+    .form-estado select {
+        width: 12vw!important;
+        height: 1.6rem!important;
+        margin: 0.3rem!important;
+    }
+    .content-cadastro form{
+        height: 68vh!important;
+    }
+    .aj-botão-vc{
+        padding: .54rem 1.2rem!important; 
+    }
+    .content-s2{
+        top: 0vh;
+    }
+    .table-class {
+        width: 70vw!important;
+        height: 45vh!important;
+    }
+    .msg-content h4{
+        margin: 0;
+    }
+    
+}
+/* 731 fim */
 /* fim sessao 2 */
 
 /* sessao 3 */
@@ -611,43 +921,7 @@ body{
     border-bottom: 2px solid var(--verde);
     outline: none;
 }
-@media (max-width:1000px){
-    .sessao-3{
-        height: 160vh;
-    }
-    .alinhamento-teste{
-        display: inline-block;
-    }
 
-    .form-alinhamento{
-        top: 1.8rem;
-        height: 75vh;
-        width: 80vw;
-        
-    }
-
-    .visualisar-pets{
-        position: relative;
-    }
-
-    .visualisar-pets input{
-        width: 50vw; /* tava 50 ver minimo no pai */
-    }
-
-    .visualisar-pets select{
-        width: 50vw;
-    }
-
-    .formulario-teste{
-        width: 80vw;
-        overflow: auto;
-        top: -2.3rem;
-    }
-    .custom-shape-divider-bottom-1621222059 svg{
-        bottom:262.5vh;
-    }
-    
-}
 /* fim sessao 3 */
 .obs{
     resize: none;
@@ -912,7 +1186,7 @@ body{
 
 .ali{
     position: relative;
-    width: 92%;
+    width: 100%!important;
 }
 .botao-logar{
     color: #FFF;
@@ -945,7 +1219,8 @@ body{
     background-color: var(--laranja);
     border: none;
     font-size: clamp(12px,0.9vw,1.1vw);
-    padding: 1rem 5rem;
+    padding: 1rem 3rem;
+    width: 100%;
     font-weight: bold;
     margin-top: 1rem;
     cursor: pointer;
@@ -997,6 +1272,7 @@ body{
     font-size: 1rem;
     color: var(--cinza);
     margin: 1rem 1rem;
+    margin: 0;
     cursor: context-menu;
     
 }
@@ -1005,7 +1281,7 @@ body{
     position: relative;
     padding: 0rem 1rem;
     width: 250px;
-    height: 100%;
+    height: 6rem;
     border-radius: 0.5rem;
     right: 0;
     top: 4rem;
@@ -1250,35 +1526,7 @@ body{
 }
 /*navegação mb fim */
 
-@media (max-width:1000px){
-    .line{
-        margin: 10px 8px;
-    }
-    .content-wrap{
-        top: 1.8rem;
-        height: 75vh;
-        width: 80vw;
-        overflow: auto;
-        
-    }
-    .botao-pet{
-        width: 40vw;
-        height: 7vh;
-    }
-    .sidenav{
-        display: none;
 
-    }
-    .bottomnav{
-        display: flex;
-    }
-    .sidenav{
-        display: none;
-    }
-    .menu-central{
-        display: none;
-    }
-}
 /* small desk */
 
 @media (max-width:1200px) and (max-height: 823px){
@@ -1355,6 +1603,7 @@ body{
         display: flex;
     }
 }
+
 
 /*  ipads part 1*/
 @media (min-height: 950px)and (max-width: 1000px){
@@ -1563,9 +1812,9 @@ th{
     .custom-shape-divider-bottom-1621222059 {
         bottom: 2.2rem;
     }
-    .table-class{
+    /*.table-class{
         width: 50vw!important;
-    }
+    }*/
 }
 
 /*iphone x*/
@@ -1623,217 +1872,15 @@ th{
         background-color: var(--verde);
     }
 
-    .ali{
-        width: 80%!important;
-    }
     .botao-logar{
         height: 2.6rem;
     }
     .login-form input{
         width: 90%!important;
     }
-}
-
-/*iphone 5*/
-@media (max-width: 660px) and (max-height: 731px){
-
-    .form-background{
-        width: 80vw;
-        height: 74vh;
-        left: 0;
-    }
-    .form-content-perfil{
-        height: 74vh;
-        width: 80vw;
-        overflow: auto;
-        top: 0.2rem;
-    }
-    .cadastrar-pet{
-        padding: 0.8rem 2rem;
-    }
-    .form-content-perfil2 img{
-        width: 5vw;
-    }
-    .form-background th{
-        padding: 0;
-        
-    }
-    .tabelapet{
-        width: 0;
-    }
-    .form-content-perfil h1{
-        top: 0.4rem;
-    }
-    .form-content-perfil3 h1{
-        position: relative;
-        top: 0.1rem;
-    }
-    .form-content-perfil4 h1{
-        position: relative;
-        top: 0.1rem;
-    }
-    .content-cliente{
-        top: 0;
-        width: 130%;
-        right: 2.2rem;
-    }
-    .content-cliente p{
-        width: 140%;
-        
-    }
-    .ajustar-botão{
-        top: 2rem!important;
-        
-    }
-    .ajustar-botão a{
-        padding: 0.8rem 1.2rem!important;
-    }
-    .ajustar-botão-alt{
-        top: 1.2rem!important;
-    }
-    .ajustar-botão-alt a{
-        padding: 0.8rem 1.2rem!important;
-    }
-    .ajustar-botão-pets a{
-        
-        padding: 0.8rem 1.2rem!important;
-    }
-    .botao-alterar{
-        width: 5rem!important;
-        height: 2.6rem!important;
-    }
-    .input-altera-cliente input{
-        width: 50%!important;
-    }
-    .btn-excluir{
-        width: 8rem!important;
-    }
-    .btn-cancel{
-        padding: 0.9rem 2.2rem!important;
-    }
-    .modal-content{
-        height: 60%!important;
-        width: 65%!important;
-    }
-    .modal-content h4{
-        position: relative!important;
-        text-align: center!important;
-        left: 1.6rem!important;
-        width: 80%!important;
-    }
-    .modal-wrap{
-        top: 3.4rem!important;
-    }
-    .content-mais{
-        width: 100%!important;
-    }
-    .content-pet-direita2{
-        width: 100%!important;
-    }
-    .join-master2{
-        width: 100%!important;
-    }
-    .join2{
-        width: 100%!important;
-    }
-    .form-content-perfil4{
-        position: relative!important;
-        top: -2rem!important;
-
-    }
-    .form-content-perfil4 img{
-        position: relative!important;
-        top: 1rem!important;
-        width: 130px!important;
-        height: 130px!important;
-    }
-    .login-form{
-        width: 76vw!important;
-    }
-    .botao-cadastro{
-       
-        padding: 0.8rem 2rem!important;
-       width: 35vw!important;
-    }
-    
-    .botao-cadastro:hover{
-        transition: 0.6s;
-        background-color: var(--verde);
-    }
-
-    .ali{
-        width: 80%!important;
-    }
-    .botao-logar{
-        height: 2.6rem;
-    }
-    .login-form input{
-        width: 90%!important;
-    }
-    .menu-esquerda {
-        position: relative;
-        left: -3rem;
-    }
-    .componentes-lista-direita{
-        left: -1.5rem;
-    }
-    .form-content{
-        width: 80%;
-    }
-    .form-content-perfil2{
-       
-    }
-    .bt-pet-cadastro{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-    .form-content input{
-        margin: 0;
-        margin-top: 0.5rem;
-    }
-    .custom-shape-divider-bottom-1621222059 {
-        bottom: 1.7rem;
-    }
-    
-    .box-wrap {
-        height: 60vh!important;
-    }
-    .form-background-cadastro{
-        width: 82vw!important;
-        top: 2rem!important;
-    }
-    .form-content-cadastro{
-        width: 76vw!important;
-        top: -2rem!important;
-    }
-    .content-cadastro input{
-        width: 62vw!important;
-        height: 1.5rem!important;
-        margin: 0.3rem!important;
-    }
-    .form-cidade input{
-        width: 47.2vw!important;
-    }
-    .form-complemento input{
-        width: 47.2vw!important;
-    }
-
-    .form-numero input{
-        width: 11vw!important;
-        
-    }
-    .form-estado select {
-        width: 12vw!important;
-        height: 1.6rem!important;
-        margin: 0.3rem!important;
-    }
-    .content-cadastro form{
-        height: 68vh!important;
-    }
     
 }
+
 
 /*  ipads part 2*/
 @media (min-height: 950px) and (max-width: 1000px){
@@ -2095,8 +2142,7 @@ th{
     color: #FFF;
     background-color: var(--laranja);
     border: none;
-    width: 11rem;
-    height: 3.9rem;
+    padding: 1rem 3rem;
     cursor: pointer;
     border-radius: 8px;
     font-size: clamp(14px,1.1vw,1.2vw);
@@ -2169,6 +2215,7 @@ th{
     cursor: pointer;
     border-radius: 10px;
     padding: 1rem 3rem;
+    padding: .77rem 1.2rem!important
 }
 .ajustar-botão-pets a:hover{
     background-color: var(--laranja-claro);
@@ -2193,7 +2240,7 @@ th{
     color: white;
     border-radius: 5px;
     text-decoration: none;
-    padding: .54rem 1.2rem;
+    padding: 1rem 3rem;
     background-color: var(--laranja);
     font-size: clamp(14px,1.1vw,1.2vw);
     
@@ -2487,6 +2534,7 @@ th{
     font-family: 'Noto Sans','Open Sans bold', sans-serif;
     text-align: center;
     font-size: clamp(12px,1vw,1.1vw);
+    width: 80%;
 }
 
 .form-content-perfil4 h1{
@@ -2734,4 +2782,19 @@ th{
     font-weight: bold;
     font-size: clamp(14px, 1vw, 1vw);
     
+}
+.erro-al{
+    display:flex;
+    justify-content: center;
+}
+
+.side-j{
+    color: var(--laranja);
+}
+.join3 {
+    display: flex;
+    position: relative;
+    width: 25vw;
+    justify-content: space-around;
+    margin: .1rem;
 }

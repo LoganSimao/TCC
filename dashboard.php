@@ -205,6 +205,13 @@
                 </div>
                 </div>
             </div>
+            <div class="al-msg">
+                <div class="msg-content">
+                    <h4>
+                        <?php echo $_SESSION['mensagem']; ?>
+                    </h4>
+                </div>
+            </div>
             <div class="ajustar-botão">
                 <div class="aj-botão">
                     <a href="alterarclientes.php" class="">Alterar dados</a>

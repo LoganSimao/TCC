@@ -65,11 +65,11 @@
             WHERE id = $id_cliente";
 
             if(mysqli_query($conn, $sql3)) {
-                $_SESSION['mensagem'] = "Alterado com sucesso!";
+                $_SESSION['mensagem'] = "- Alterado com sucesso!";
                 exit(header('Location: dashboard.php'));
             }
             else{
-                $_SESSION['mensagem'] = "Erro ao alterar.";
+                $_SESSION['mensagem'] = "- Erro ao alterar.";
 
                 //header('Location: seuspets.php');	
             }
