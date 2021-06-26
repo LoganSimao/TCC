@@ -259,7 +259,7 @@ function checkInputs(inputs) {
     else{
       document.getElementById("greet").innerHTML = `Bom dia ${nn}`;
     }
-    console.log(check);
+    //console.log(check);
     
     if(check == "s" || check == "z" || check =="y"){
       var cad = document.getElementById("botao-cadastro1");

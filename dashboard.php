@@ -215,7 +215,7 @@
             <div class="al-msg">
                 <div class="msg-content">
                     <h4>
-                        <?php echo $erro; ?>
+                        <?php echo $erro; $_SESSION['mensagem'] = " "; ?>
                     </h4>
                 </div>
             </div>

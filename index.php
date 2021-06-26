@@ -262,14 +262,12 @@
     
 </body>
 <footer>
-    <nav class="footer-mestre">
+    <div class="footer-mestre">
         <div class="footer">
             <div class="">
-                <ul class="">
-                    <li class="list-footer">© ID Pets 2021</li>
-                </ul>
+                    <h4 class="list-footer">© ID Pets 2021</h4>
             </div>
         </div>
-    </nav>
+    </div>
 </footer>
 </html>
