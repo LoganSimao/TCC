@@ -77,7 +77,7 @@
 
             }
             
-                // passar a logica no banco de dados
+            // passar a logica no banco de dados
             $id = $_SESSION['id'];
 
             $sql2 = "SELECT * from pets where id_cliente = $id";
