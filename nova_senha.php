@@ -10,8 +10,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
     <link rel="manifest" href="favicon_io/site.webmanifest">
     <title>ID pets</title>
-    <!-- FAZER LOGIN, SALVAR SENHA HASH, FOOTER, RESIZING CSS, padding dos botoes
-    INPUT FOCUS, MUDAR O REDIRECT DO BOTAO QUANDO TIVER LOGADO E O CONTEUDO-->
+
 </head>
 <body>
 <?php
@@ -21,6 +20,15 @@
 
     $token = $_GET['token'];
     $email = $_GET['email'];
+
+    if(!isset($_SESSION['logado'])){
+        $nome = "Login";
+    }
+    else{
+        $n = $_SESSION['nome'];
+        $arr = explode(' ', trim($n));
+        $nome = $arr[0];
+    }
 
     if(empty($token)){
         header('Location: index.php');
@@ -79,59 +87,92 @@
             }
         }
     }
-?>
-    <nav class="menu-navegacao">
-    <div class="menu-nav-menu">
-        <div class="menu-esquerda">
-            <a href="">ID pets</a>
-        </div>
-        <div class="menu-central">
-            <ul class="componentes-central">
-                <li class="componentes-lista-central"><a href="index.php">Home</a></li>
-                <li class="componentes-lista-central"><a href="cadastropets.php">Produtos</a></li>
-                <li class="componentes-lista-central"><a href="#">Sobre</a></li>
-            </ul>
-        </div>
-        <div class="menu-direita">
-            <ul class="componentes-direita">
-                <div class="wrap-botao-login">
-                <li class="componentes-lista-direita"><a id="botao-modal"></a></li>
-                </div>
-                <div class="wrap-botao-cadastrar">
-                <li class="componentes-lista-direita"><a href="/Cadastro.php">Cadastro</a></li>
-                </div>
-            </ul>
-        </div>
+?>  <p id="check">n</p>
+<nav class="menu-navegacao">
+<div class="menu-nav-menu">
+    <div class="menu-esquerda" id="ml"><img src="imagens/Vectorpaw.png" alt=" "></a>
+        <a href="index.php">ID Pets</a>
     </div>
-    </nav>
-    <div class="form-background">
-        <div class="form-content">
-            <div class="">
-                <form method="GET" action="nova_senha.php?email=<?php echo $email."&token=".$token;?>">
-                    <h1 class="login-title">Insira a nova senha</h1>
-                    
-                    <input type="hidden" name="token" value="<?php echo $token; ?>">
-                    <input type="hidden" name="email" value="<?php echo $email; ?>">
-                    <input type="password" name="senha" placeholder="Nova senha" autofocus>
-                    <input type="password" name="confirmar_senha" placeholder="Confirmar senha">
-                    
-                    <h2><?php echo $cadastro; ?></h2>
-                    <div class="line"></div>
-                    <button class="botao-cadastro" name="botao-cadastro">Redefinir senha</button>
-                </form>
+    <div class="menu-direita">
+        <ul class="componentes-direita">
+            <div class="wrap-botao-login">
+            <li class="componentes-lista-direita"><a id="botao-modal"><?php echo $nome; ?></a></li>
+            <!-- botao logout -->
+                <div class="clos-modal" id="clos-modal">
+                <div class="logout" id="logout">
+                    <div class="alinhar-logout">
+                    <div class="">
+                        <h3><?php echo $n?></h3>
+                    </div>
+                    <div class="ver-sair">
+                        <div>
+                            <a href="dashboard.php"><p>Meu perfil</p></a>
+                        </div>
+                        <div>
+                            <form action="<?php echo $_SERVER['PHP_SELF'];?>">
+                            <button class="botao-sair" name="sair"><p>Sair</p></button>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <!-- botao logout fim-->
+            </div>
+            <div class="wrap-botao-cadastrar" id="botao-cadastro1">
+            <li class="componentes-lista-direita"><a href="/tcc/Cadastro.php">Cadastro</a></li>
+            </div>
+        </ul>
+    </div>
+</div>
+</nav>
+<!-- modal login -->
+<div id="login" class="login-principal">
+    <div class ="login-form" id="login-ani">
+    <div class="wrap-login">
+        <!--add logo-->
+        <span class="close" id="close">&times;</span>
+        <form action="index.php"  method="post">         
+            <h1 class="login-title">Login</h1>
+            <input type="text" placeholder="E-mail" id="inp-focus" name="login">
+            <input type="password" placeholder="Senha" name="senha" id ="senhalog">
+            <div class="alinhar">
+                <div class="ali">
+                    <button class="botao-logar" type="submit">Entrar</button>
+                </div>
+            </div>
+            <p id="msg"></p>
+            <a href="recuperar_senha.php"><h2>Esqueceu a senha ?</h2></a>
+            <div class="line"></div>
+            <div class="al-btn-log">
+                <a class="botao-cadastro" >Criar conta</a>
+            </div>
+        </form>
+    </div>
+    </div>
+</div>
+    <div class="sss">
+        <div class="f-ali">
+            <div class="form-background">
+                <div class="form-content">
+                    <form method="GET" action="nova_senha.php?email=<?php echo $email."&token=".$token;?>">
+                        <h1 class="login-title">Insira a nova senha</h1>
+                        
+                        <input type="hidden" name="token" value="<?php echo $token; ?>">
+                        <input type="hidden" name="email" value="<?php echo $email; ?>">
+                        <input type="password" name="senha" placeholder="Nova senha" autofocus>
+                        <input type="password" name="confirmar_senha" placeholder="Confirmar senha">
+                        
+                        <h2><?php echo $cadastro; ?></h2>
+                        <div class="line"></div>
+                        <div class="bt-pet-cadastro">
+                            <button class="botao-cadastro" name="botao-cadastro">Redefinir senha</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
     <script src="script.js"></script>
 </body>
-<footer>
-    <nav class="footer-mestre">
-        <div class="footer">
-            <div class="">
-                <ul class="">
-                    <li class="list-footer">© ID Pets 2021</li>
-                </ul>
-            </div>
-        </div>
-</footer>
 </html>

@@ -582,6 +582,9 @@ body{
     .side-join4 {
         height: 2.6rem;
     }
+    .f-ali{
+        right: 0!important;
+    }
 }
 /*iphone 5*/
 @media (max-width: 660px) and (max-height: 731px){
@@ -791,7 +794,6 @@ body{
     .msg-content h4{
         margin: 0;
     }
-    
 }
 /* 731 fim */
 /* fim sessao 2 */
@@ -833,20 +835,20 @@ body{
 }
 
 .alinhamento-teste{
-    
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-
 .display-teste{
     justify-content: center;
     display: flex;
 }
+
 .join-titulo-form{
     display: flex;
 }
+
 .formulario-teste{
     position: relative;
     display: flex;
@@ -2814,4 +2816,20 @@ th{
     width: 25vw;
     justify-content: space-around;
     margin: .1rem;
+}
+
+.sss{
+    width: 98vw;
+    height: 100vh;
+    background-color: var(--bg-color);
+    font-family: var(--fonte);
+}
+.f-ali{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 8rem;
+    right: 3rem;
 }

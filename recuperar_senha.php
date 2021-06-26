@@ -10,8 +10,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
     <link rel="manifest" href="favicon_io/site.webmanifest">
     <title>ID pets</title>
-    <!-- FAZER LOGIN, SALVAR SENHA HASH, FOOTER, RESIZING CSS, padding dos botoes
-    INPUT FOCUS, MUDAR O REDIRECT DO BOTAO QUANDO TIVER LOGADO E O CONTEUDO-->
 </head>
 <body>
 <?php
@@ -76,8 +74,8 @@
             }
         }
         else{
-            echo "Erro ao inserir o animal! Erro: ".mysqli_error($conn);
-            $cadastro = "Email não confere.";
+            //echo "Erro ao inserir o animal! Erro: ".mysqli_error($conn);
+            $cadastro = "E-mails não conferem.";
         }
     }
 ?>  <p id="check">n</p>
@@ -99,11 +97,12 @@
                         </div>
                         <div class="ver-sair">
                             <div>
-                            <a href="dashboard.php"><p>Meu perfil</p></a>
-                            </div><div>
-                            <form action="<?php echo $_SERVER['PHP_SELF'];?>">
-                            <button class="botao-sair" name="sair"><p>Sair</p></button>
-                            </form>
+                                <a href="dashboard.php"><p>Meu perfil</p></a>
+                            </div>
+                            <div>
+                                <form action="<?php echo $_SERVER['PHP_SELF'];?>">
+                                <button class="botao-sair" name="sair"><p>Sair</p></button>
+                                </form>
                             </div>
                         </div>
                         </div>
@@ -143,21 +142,23 @@
         </div>
         </div>
     </div>
-    <div class="form-background">
-        <div class="form-content">
-        <div class="">
-        <form method="POST" action="recuperar_senha.php">
-            <h1 class="login-title">Recuperar senha</h1>
-            <input type="text" name="email"placeholder="E-mail" autofocus>
-            <input type="text" name="confirmar_email"placeholder="Confirmar email">
+    <div class="sss">
+        <div class="f-ali">
+        <div class="form-background">
+            <div class="form-content">
             
-            <div class="line"></div>
-            <h2><?php echo $cadastro; ?></h2>
-            <button class="botao-cadastro" name="botao-cadastro">Solicitar nova senha</button>
-        </form>
-            
-
-        </div>
+                <form method="POST" action="recuperar_senha.php">
+                    <h1 class="login-title">Recuperar senha</h1>
+                    <input type="text" name="email"placeholder="E-mail" autofocus>
+                    <input type="text" name="confirmar_email"placeholder="Confirmar e-mail">
+                    <div class="line"></div>
+                    <h2><?php echo $cadastro; ?></h2>
+                    <div class="bt-pet-cadastro">
+                        <button class="botao-cadastro" name="botao-cadastro">Solicitar nova senha</button>
+                    </div>
+                </form>
+            </div>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>

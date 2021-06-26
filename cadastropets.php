@@ -18,18 +18,18 @@ include 'conexao.php';
 include 'log.php';
 session_start();
 
-    if(!isset($_SESSION['logado'])){
-        $nome1 = "Login";
-        $n = " ";
-        header('Location: index.php');
-    }
-    else{
-        $n = $_SESSION['nome'];
-        $arr = explode(' ', trim($n));
-        $nome = $arr[0];
-        $nome1 = "Olá, ".$nome."!";
-        $cadastro = " ";
-    }
+if(!isset($_SESSION['logado'])){
+    $nome1 = "Login";
+    $n = " ";
+    header('Location: index.php');
+}
+else{
+    $n = $_SESSION['nome'];
+    $arr = explode(' ', trim($n));
+    $nome = $arr[0];
+    $nome1 = "Olá, ".$nome."!";
+    $cadastro = " ";
+}
 
 
 
